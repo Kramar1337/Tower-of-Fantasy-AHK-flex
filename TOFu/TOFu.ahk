@@ -1,24 +1,34 @@
 ﻿/*
+; ===============================================================
+; ===============================================================
 AHK скрипт для Tower of Fantasy
 
 F1 - *Карта
 F2 - *Оверлей
 F3 - *Автоходьба
+F9 - Автоприниматель лобби
 Z - Скип диалогов
 F - Фаст лут
 X - Бесконечное скалолазание
-4 - Абузный полет(планер в "3" слот)
-Ctrl - Macro Key
+4 - Абузный полет(планер в конфиге "key_flyhackGajetKey")
+V - Macro Key(по умолчанию в игре на "V" маунт, но если "Numpad 0" то макрос не срабатывает, а если "Numpad 1-2-3-n" то кнопка блокируется и маунт не мешает)
 
 Numpad 0 - Off
-Numpad 1 - AutoAttack
-Numpad 2 - AutoFly(первый клик - вкл, повторный клик - выкл)
+Numpad 1 - AutoAttack(70ms)
+Numpad 2 - InventoryClicker(15ms)
+Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
+Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
+Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
+Numpad 6 - FRIGG Shift+LButton (Test)
 
-Esc - Остановить запущеные потоки\SetTimerы
-End - Завершить работу скрипта
-PgUp - Приостановить - возобновить работу скрипта
+Esc - Остановить потоки
+End - Завершить работу AHK
+PgUp - Приостановить - возобновить работу AHK
 Left - Переключить оверлей
 Right - Переключить оверлей
+
+
+
 
 
 Карты: 1 - 2 - 3 - 4
@@ -28,42 +38,43 @@ https://tower-of-fantasy-map.appsample.com/
 Чайна карта. Есть все локации. Самый топ
 https://static-web.ghzs.com/cspage_pro/huantaMap.html#/
 
-Битые картинки, заброшенная карта
-https://toweroffantasy.online/map/
-
 Чайна карта. Вроде топчик, подсветка видосом
 https://h5.gaonengshike.com/plusmaps/hotta?markable=1
 
+Битые картинки, заброшенная карта
+https://toweroffantasy.online/map/
+
 В трей меню установка - удаление решейда
 
-===============================================================
-Фарм руды
-https://www.bilibili.com/video/BV1XF411B7HJ?p=1&share_medium=android&share_plat=android&share_session_id=a7f9b6e8-5b32-4211-89ca-240716da61d5&share_source=COPY&share_tag=s_i&timestamp=1640874661&unique_k=MKo3m1D&vd_source=0710d03ba75bcc53345a94992cbdb092
-
-Как получить всех маунтов
-https://www.youtube.com/watch?v=fRqFz4IsbXg
-
-Гайдер EU
-https://www.youtube.com/c/Zakum/videos
-
-Головоломки дефолт
-https://telegra.ph/Prohozhdenie-aktivnostej-na-karte-12-24
+; ===============================================================
+; ===============================================================
 
 
-Стартовый гайд
-https://telegra.ph/Razlichnye-mehaniki-igry-12-29
+Запланировано:
+ - Двойные макросы для 2х персов одновременно
+ - Коносуба бур
 
-Фарм золота
-https://telegra.ph/Kak-farmit-zoloto-v-TOF-01-01
+ 
+ 
+ 
+ 
 
 
 
+Изменения: 09.08.2022
+ - Макрос на мышку для инвентаря
+ - Мерил воздушные атаки
+ - Мерил воздушные атаки v2
+ - FRIGG Shift+LButton
 
+Изменения: 22.07.2022
+ - Оверлей
 
+Изменения: 11.07.2022
+ - Автоприниматель
 
 Изменения: 04.07.2022
  - Оверлей фулл: Данжи, Чипы, Боссы, Готовка
-
 
 Изменения: 29.06.2022
  - Скип диалогов фулл
@@ -85,6 +96,157 @@ https://telegra.ph/Kak-farmit-zoloto-v-TOF-01-01
 
 
 
+
+
+
+
+
+Пересчет всех круток в игре ToF:
+==Одноразовые:==
+Achievements (3,625) https://toweroffantasy.info/guides/referential/dark-crystal-sources
+World Exploration (13,050)
+Wanderer Notes & Leveling (4,310)
+111 голдовые в мире
+44 голдовые в сундуке
+559 фиол в мире
+239 фиол в сундуке
+10 голдовые предрегистрация
+10 фиол предрегистрация
+500 камней предрегистрация
+Квестики, голограммы, бездна, прочее
+--Итог:
+143 ивент крутки (21 485 камней)
+165 голдовых круток
+808 фиол круток
+
+==Многоразовые:== (По месяцам)
+4 ивент банер с чипами(чайник, домоводство)
+12 стандарт крутки с чипами(3 в неделю. Воид рифт)
+
+30 голд круток ежедневочки
+90 фиол круток ежедневочки
+
+1 ивент крутка (200 камней. фрии батлпас. 42 день)
+20 фиол круток (фри Батлпас)
+
+10 голд круток (2 недели откат) (Пункт меню с ивентами => Clotho)
+по очереди
+10 стандарт c чипами (2 недели откат) (Пункт меню с ивентами => Clotho)
+
+4 голд крутки(1 в неделю, в магазе)
+4 стандарт крутки с чипами(1 в неделю, в магазе)
+40 фиол круток(10 в неделю, в магазе)
+
+13 ивент круток (2000 в месяц с еженеделечек и клановодства)
+22 ивент крутки (3300 камней луна, Цена - 230р)
+18,5 ивент круткок (1500(10 круток) + 1280 = 2780 Батлпас, Цена - 600р длится 42 день)
+15 ивент круткок (P2W ++Батлпас, 1200р)
+5 ивент банер с чипами (P2W ++Батлпас)
+--Итог F2P:
+150 фиол круток
+26 стандарт c чипами
+44 голд круток
+4 ивент с чипами
+14 ивент круток (камни)
+--Итог P2W:
+22 ивент крутки (луна - 230р)
+18,5 ивент круткок (Батлпас - 600р)
+15 ивент круткок (Батлпас++ - 1200р)
+5 ивент банер с чипами (P2W Батлпас)
+
+
+
+
+
+==Многоразовые:== (По патчам: стримы, ивенты, тех работы)
+200 камней (Стрим разрабов перед патчем)
+300 камней (тех работы)
+1000 камней + 10 ивент круток (большой патч + новый перс)
+5 ивент круток (ивент)
+
+
+==Многоразовые-Одноразовые:== (Прочие)
+
+Мини игры от рандомных активностей 1-2? в день (4)
+Гачапон терминалы в Зеркальном городе
+2400 вера монет в месяц (20х4=80 монет ежедневочки веры)
+х50 - 1 рол
+
+
+
+
+
+
+
+
+
+В ToF в месяц:
+
+350 камней истока с еженеделечек
+150 с клановодства
+------
+500 в неделю = 2000 в месяц
+3000 + 300 = 3300 камней луна(230р)
+1500(10 круток) + 1280 = 2780 Батлпас(600р)
+
+13 круток F2P
+35 круток F2P(13) + луна(22)
+53 круток F2P(13) + луна(22) + батлпас(18,5. длится 41 день)
+
+Цена за легу:
+80 круток на легу(софт пити нет) или 120 круток залпом через кешбек
+
+
+
+
+
+
+
+В Геншин в месяц:
+
+1800 ежедневочки
+1200 бездна
+800 (5 ивент круток) магазин паймон
+------
+3800 в месяц
+2700 + 300 = 3000 камней луна(230р через VPN, 450р без)
+1320 (4круток + 680камней) батлпас
+
+23,75 круток F2P
+42,5 круток F2P(23,75) + луна(18,75)
+50,75 круток F2P(23,75) + луна(18,75) + батлпас(8,25)
+
+
+Цена за легу:
+77 круток на легу(софт пити в деле) или 154 если проиграл 50\50
+
+
+
+
+
+
+
+
+Фарм руды
+https://www.bilibili.com/video/BV1XF411B7HJ?p=1&share_medium=android&share_plat=android&share_session_id=a7f9b6e8-5b32-4211-89ca-240716da61d5&share_source=COPY&share_tag=s_i&timestamp=1640874661&unique_k=MKo3m1D&vd_source=0710d03ba75bcc53345a94992cbdb092
+
+Как получить всех маунтов
+https://www.youtube.com/watch?v=fRqFz4IsbXg
+
+Гайдер EU
+https://www.youtube.com/c/Zakum/videos
+
+Головоломки дефолт
+https://telegra.ph/Prohozhdenie-aktivnostej-na-karte-12-24
+
+
+Стартовый гайд
+https://telegra.ph/Razlichnye-mehaniki-igry-12-29
+
+Фарм золота
+https://telegra.ph/Kak-farmit-zoloto-v-TOF-01-01
+
+
 https://toweroffantasy.info/index
 
 https://www.bilibili.com/video/BV12Y411W76b?p=2&spm_id_from=pageDriver
@@ -95,11 +257,57 @@ https://docs.google.com/spreadsheets/d/1T7SLtdQiXihnY3t4tI2VQDRbwh7J84kDWNYgCPOK
 
 https://docs.google.com/spreadsheets/d/1ToEmU1tzRBy2VEX_2doGWlCezCs5uGCunYhpT-rohSY/edit#gid=1029674556
 
+
+Интересный гуид по вливу в геншине
+https://www.youtube.com/watch?v=uSBJ13K-3uo
+
+
+Коносуба Немезида Лин
+https://www.bilibili.com/video/BV1ng411f7jD?spm_id_from=333.337.search-card.all.click&vd_source=2378b7388613963da3d2dd39bcd4c355
+
+https://www.bilibili.com/video/BV1WY4y177YP?vd_source=0710d03ba75bcc53345a94992cbdb092
+
+
+Ооо норм док стартовик
+https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV227cM/edit#gid=709396921
+
+
+
+Основные фишечки:
+ Интерактивная карта
+ Jetpack Dash
+ Infinite Climb
+ Party Teleport
+ Daily Free Simulacrum Gifts
+ Чайник безмятежности
+ Распределение ресов при прокачке как в геншине
+ 
+ 
+
+Прогрессия TOF:
+ Покупка банок смолы
+ Рерол(на 30 скрытый гарант + селектор)
+ Не ходить в "Джоин оперейшн" до 37?-43? лвл
+ Фиол порталы 3*
+ Фиол порталы 3* с твинков (Утиль рерола)
+ Золотые ключи на боссов тратить с 40лвл
+ Синие (10)\фиол(50) ключи тратить на сундуки Vera для фарма синих* монет
+ Не тратить фиол кешбек смолы на фиол шмот, ждем 1-2 недели и вливаем в кристалы
+ Смола в данже через абуз крамбубы
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
 */
 
 
 
-WinName:= "TOF AHK Flex v2 by Kramar1337"
+WinName:= "TOF AHK Flex v3 by Kramar1337"
 CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 #NoEnv
@@ -128,17 +336,19 @@ If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
     ExitApp
 }
 }
-;====================Настройки трея
+;====================Настройки трея. Системные иконки: shell32.dll, imageres.dll, еще 1
 Menu,Tray,NoStandard
 Menu,Tray,DeleteAll
+Menu,Tray, add, Reload, Metkashortcut5
+Menu,Tray, Icon, Reload, shell32.dll, 239, 16
 Menu,Tray, add, Pause-Play, Metkashortcut4
 Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
-Menu,Tray, Default, Pause-Play
-Menu,Tray, add
-Menu,Tray, add, Instal ReShade, Metkashortcut2
-Menu,Tray, Icon, Instal ReShade, imageres.dll, 67, 16
-Menu,Tray, add, Uninstal ReShade, Metkashortcut3
-Menu,Tray, Icon, Uninstal ReShade, imageres.dll, 66, 16
+Menu,Tray, Default, Reload
+; Menu,Tray, add
+; Menu,Tray, add, Instal ReShade, Metkashortcut2
+; Menu,Tray, Icon, Instal ReShade, imageres.dll, 67, 16
+; Menu,Tray, add, Uninstal ReShade, Metkashortcut3
+; Menu,Tray, Icon, Uninstal ReShade, imageres.dll, 66, 16
 Menu,Tray, add
 Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
 Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
@@ -156,6 +366,7 @@ IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - деф
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
 IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
 
+
 ;=====================================Кнопки
 IniRead, key_skipNPS, data\tofuConfig.ini, Binds, key_skipNPS
 IniRead, key_fastlyt, data\tofuConfig.ini, Binds, key_fastlyt
@@ -166,6 +377,8 @@ IniRead, key_flyhackGajetKey, data\tofuConfig.ini, Binds, key_flyhackGajetKey
 IniRead, key_overlay, data\tofuConfig.ini, Binds, key_overlay
 IniRead, key_animcancel, data\tofuConfig.ini, Binds, key_animcancel
 IniRead, key_autowalk, data\tofuConfig.ini, Binds, key_autowalk
+IniRead, key_AseptarKey, data\tofuConfig.ini, Binds, key_AseptarKey
+
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, KeyToggle, Checkbox1skipNPS
@@ -176,10 +389,11 @@ IniRead, Checkbox1flyhack, data\tofuConfig.ini, KeyToggle, Checkbox1flyhack
 IniRead, Checkbox1animcancel, data\tofuConfig.ini, KeyToggle, Checkbox1animcancel
 IniRead, Checkbox1overlay, data\tofuConfig.ini, KeyToggle, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, KeyToggle, Checkbox1autowalk
+IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, KeyToggle, Checkbox1AseptarKey
 
 ;=====================================Безопасность
-IniRead, ScWinrenamer, data\tofuConfig.ini, Settings, ScWinrenamer ; проверка Winrenamer
-
+IniRead, ScWinrenamer, data\tofuConfig.ini, Settings, ScWinrenamer
+IniRead, ScRandomTime, data\tofuConfig.ini, Settings, ScRandomTime
 
 ;==========Подготовить кнопки
 IniRead, key_LabelNumpad0, data\tofuConfig.ini, Binds, key_LabelNumpad0
@@ -188,14 +402,14 @@ IniRead, key_LabelNumpad1, data\tofuConfig.ini, Binds, key_LabelNumpad1
 Hotkey, *~$%key_LabelNumpad1%, LabelNumpad1, on
 IniRead, key_LabelNumpad2, data\tofuConfig.ini, Binds, key_LabelNumpad2
 Hotkey, *~$%key_LabelNumpad2%, LabelNumpad2, on
-; IniRead, key_LabelNumpad3, data\tofuConfig.ini, Binds, key_LabelNumpad3
-; Hotkey, *~$%key_LabelNumpad3%, LabelNumpad3, on
-; IniRead, key_LabelNumpad4, data\tofuConfig.ini, Binds, key_LabelNumpad4
-; Hotkey, *~$%key_LabelNumpad4%, LabelNumpad4, on
-; IniRead, key_LabelNumpad5, data\tofuConfig.ini, Binds, key_LabelNumpad5
-; Hotkey, *~$%key_LabelNumpad5%, LabelNumpad5, on
-; IniRead, key_LabelNumpad6, data\tofuConfig.ini, Binds, key_LabelNumpad6
-; Hotkey, *~$%key_LabelNumpad6%, LabelNumpad6, on
+IniRead, key_LabelNumpad3, data\tofuConfig.ini, Binds, key_LabelNumpad3
+Hotkey, *~$%key_LabelNumpad3%, LabelNumpad3, on
+IniRead, key_LabelNumpad4, data\tofuConfig.ini, Binds, key_LabelNumpad4
+Hotkey, *~$%key_LabelNumpad4%, LabelNumpad4, on
+IniRead, key_LabelNumpad5, data\tofuConfig.ini, Binds, key_LabelNumpad5
+Hotkey, *~$%key_LabelNumpad5%, LabelNumpad5, on
+IniRead, key_LabelNumpad6, data\tofuConfig.ini, Binds, key_LabelNumpad6
+Hotkey, *~$%key_LabelNumpad6%, LabelNumpad6, on
 ; IniRead, key_LabelNumpad7, data\tofuConfig.ini, Binds, key_LabelNumpad7
 ; Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
 ; IniRead, key_LabelNumpad8, data\tofuConfig.ini, Binds, key_LabelNumpad8
@@ -218,17 +432,24 @@ if Checkbox1overlay = 1
 Hotkey, %key_overlay%, Metkakey_overlay, on
 if Checkbox1flyhack = 1
 Hotkey, *~%key_flyhack%, Metkakey_flyhack, on
+
 if Checkbox1animcancel = 1
-Hotkey, *~%key_animcancel%, Metkakey_animcancel, on
+{
+Hotkey, IfWinActive, %gameexe1337% 	;Кнопка работает только в игре
+Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
+}
+
 if Checkbox1autowalk = 1
 Hotkey, %key_autowalk%, Metkakey_autowalk, on
+if Checkbox1AseptarKey = 1
+Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
 
 ;======================Переменные для скипа диалогов
-xSkip:=round(A_ScreenWidth*.7265)
+xSkip:=round(A_ScreenWidth*.7265) 	;нижний ответ
 ySkip:=round(A_ScreenHeight*.6944)
-xSkip2:=round(A_ScreenWidth * (2320 / 2560))
+xSkip2:=round(A_ScreenWidth * (2340 / 2560)) 	;верхний фулл скип
 ySkip2:=round(A_ScreenHeight * (80 / 1440))
-xSkip3:=round(A_ScreenWidth * (1040 / 2560))
+xSkip3:=round(A_ScreenWidth * (1040 / 2560)) 	;скип ролика
 ySkip3:=round(A_ScreenHeight * (860 / 1440))
 
 ;======================Переменные для макросов на героев, "Loop 26" - 25 слотов, 0 1 2 3 4 n...
@@ -254,9 +475,9 @@ run_param:="https://tower-of-fantasy-map.appsample.com/"
 if (Map2toggle == 2)
 run_param:="https://static-web.ghzs.com/cspage_pro/huantaMap.html#/"
 if (Map2toggle == 3)
-run_param:="https://toweroffantasy.online/map/"
-if (Map2toggle == 4)
 run_param:="https://h5.gaonengshike.com/plusmaps/hotta?markable=1"
+if (Map2toggle == 4)
+run_param:="https://toweroffantasy.online/map/"
 
 if (ScWinrenamer = 1)
 {
@@ -266,7 +487,7 @@ password := gen_password(rand1488)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 6 	;кол-во страниц
+GenOverlayList := 7 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale
@@ -279,22 +500,38 @@ Else
 Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x0 y0, %WinName%
 hwndGuihamdlewindow := WinExist()
 Gui, 99: Cancel
-
 return
 ;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
 
-
-
-; F5::
-; MsgBox jopa0-%jopa0%`njopa1-%jopa1%`njopa2-%jopa2%`njopa3-%jopa3%`n
-; MsgBox jopa25-%jopa25%
-; return
 
 ; TickCountTimer := A_TickCount
 ; Sleep, 1000
 ; TickCountTimerEnd := A_TickCount - TickCountTimer
 
 
+
+;===============================================================Автоприниматель (автоасептар)
+Metkakey_AseptarKey:
+x1asept:=round(A_ScreenWidth * (1500 / 2560))
+y1asept:=round(A_ScreenHeight * (1020 / 1440))
+toggleAseps:=!toggleAseps
+    if (toggleAseps) 
+	{
+        SetTimer, Accepter1, on
+    } 
+	else 
+	{
+		ToolTip
+        SetTImer, Accepter1, Off
+    }
+return
+Accepter1:
+MouseMove,x1asept,y1asept
+sleep 50
+Click
+ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate
+sleep 5000
+return
 
 
 
@@ -304,20 +541,122 @@ Metkakey_animcancel:
 Sleep 1
 IfWinNotActive, %gameexe1337% 	;Если окно игры не активно, то возврат
 Return
+;-----------Пошел жосцкий коддинг на метках
+if jopa1
+Goto Label_Goto_Auto_Attack
+if jopa2
+Goto Label_Goto_InventoryClicker
+if jopa3
+Goto Label_Goto_Fly_Auto
+if jopa4
+Goto Label_Goto_MerylAirAttack
+if jopa5
+Goto Label_Goto_MerylAirAttack2
+if jopa6
+Goto Label_Goto_FriggShift
+return
+
+
+
+Label_Goto_FriggShift:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
 	if FuncCursorVisible() 	;Если есть курсор то возврат
 		Return
 }
-;-----------Пошел жосцкий коддинг на метках
-if jopa1
-Goto Label_Goto_Auto_Attack
-if jopa2
-Goto Label_Goto_Fly_Auto
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break 
+	SendInput, {vkA0} 	;Shift
+	Sleep 1
+    SendInput, {vk1}
+	Sleep 100
+}
 return
+
+Label_Goto_MerylAirAttack2:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break 
+    SendInput, {Blind}{vk1}
+	Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 300
+	SendInput, {Blind}{vk1}
+	Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 300
+	SendInput, {Blind}{vk1}
+	Sleep 500
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 500
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 400
+	SendInput, {Blind}{vk1}
+	Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 400
+}
+return
+
+
+
+
+Label_Goto_MerylAirAttack:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateMeryl, %key_animcancel%, P
+    If SpaceStateMeryl = U
+        break 
+    SendInput, {Blind}{vk1}
+	Sleep 800
+}
+return
+
+
+;==========Кликер инвентаря
+Label_Goto_InventoryClicker:
+Loop
+{
+    GetKeyState, SpaceStateIC, %key_animcancel%, P
+    If SpaceStateIC = U
+        break 
+    Sleep 16
+    SendInput, {Blind}{vk1}
+}
+Return
 
 ;==========Бесконечный полет AutoFly
 Label_Goto_Fly_Auto:
+	if FIXchat 	;Если "FIXchat" то чекать курсор
+	{
+		if FuncCursorVisible() 	;Если есть курсор то возврат
+			Return
+	}
 		Sleep 1
 		Toggle1Fly := !Toggle1Fly
 		if (Toggle1Fly)
@@ -385,41 +724,55 @@ Loop
 Return
 
 ;=====================Выбор слота
-LabelNumpad0:
-FuncMacroRestore()
+LabelNumpad0: 	;================================================================Off
+FuncMacroRestore() 	;Сбросить "jopa=False" и включить кнопку %key_animcancel%
+Hotkey, %key_animcancel%, Metkakey_animcancel, Off
+jopa0:=true
 	ToolTip, Off, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad1:
+LabelNumpad1: 	;================================================================AAtack
 FuncMacroRestore()
 jopa1:=true
 	ToolTip, AAtack, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad2:
+LabelNumpad2: 	;================================================================InventoryClicker
 FuncMacroRestore()
 jopa2:=true
+	ToolTip, InventoryClicker, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelNumpad3: 	;================================================================AutoFly
+FuncMacroRestore()
+jopa3:=true
 	ToolTip, AutoFly, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad3:
-FuncMacroRestore()
-jopa3:=true
-Return
-LabelNumpad4:
+LabelNumpad4: 	;================================================================MerylAirAttack
 FuncMacroRestore()
 jopa4:=true
+	ToolTip, MerylAirAttack, 0, 0
+	sleep 500
+	ToolTip
 Return
-LabelNumpad5:
+LabelNumpad5: 	;================================================================MerylAirAttack2
 FuncMacroRestore()
 jopa5:=true
+	ToolTip, MerylAirAttack2, 0, 0
+	sleep 500
+	ToolTip
 Return
-LabelNumpad6:
+LabelNumpad6: 	;================================================================FRIGG Shift+Click
 FuncMacroRestore()
 jopa6:=true
+	ToolTip, FRIGG Shift+Click, 0, 0
+	sleep 500
+	ToolTip
 Return
 LabelNumpad7:
 FuncMacroRestore()
@@ -797,9 +1150,15 @@ svffPereklu4atelFisting228:=0 	;Остановить скип диалогов
 LoopOffVar1:=0 	;Остановить полет
 if (overlay1toggle)
 {
-Gui, 99: Cancel
-; WinMaximize %gameexe1337%
-overlay1toggle := !overlay1toggle
+	Gui, 99: Cancel
+	; WinMaximize %gameexe1337%
+	overlay1toggle := !overlay1toggle
+}
+if toggleAseps
+{
+	ToolTip
+    SetTImer, Accepter1, Off
+	toggleAseps:=!toggleAseps
 }
 Return
 
@@ -889,6 +1248,7 @@ gen_password(length = 8)																;начало фукции длина п
 FuncMacroRestore()
 {
 Global
+Hotkey, %key_animcancel%, Metkakey_animcancel, on
 	Loop 26
 	{
 		IndexVarL := A_Index - 1
@@ -907,6 +1267,10 @@ Metkashortcut1:
 FileCreateShortcut, %A_ScriptFullPath%, %A_Desktop%\TOFuAHK.lnk,,,TOFu gachibaser things, %A_ScriptDir%\data\genicon.ico
 return
 
+;=====================Меню, Reload
+Metkashortcut5:
+Reload
+Return
 
 
 
