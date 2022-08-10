@@ -20,14 +20,16 @@ Numpad 3 - AutoFlyHack (первый клик - вкл, повторный кл�
 Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
 Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
 Numpad 6 - FRIGG Shift+LButton (Test)
+Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
+Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
+Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
+NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
 PgUp - Приостановить - возобновить работу AHK
 Left - Переключить оверлей
 Right - Переключить оверлей
-
-
 
 
 
@@ -53,19 +55,30 @@ https://toweroffantasy.online/map/
 Запланировано:
  - Двойные макросы для 2х персов одновременно
  - Коносуба бур
+ - Полет на CLAUDIA (нет в наличии)
+Send LButton
+Sleep 270
+Send LButton
+Sleep 210
+Send R
+Sleep 50
+Send R
 
- 
- 
- 
- 
 
 
-
-Изменения: 09.08.2022
- - Макрос на мышку для инвентаря
- - Мерил воздушные атаки
- - Мерил воздушные атаки v2
- - FRIGG Shift+LButton
+Изменения: 10.08.2022
+ - Работает на глобал и китай клиенте
+ - Numpad 0 - Off
+ - Numpad 1 - AutoAttack(70ms)
+ - Numpad 2 - InventoryClicker(15ms)
+ - Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
+ - Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
+ - Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
+ - Numpad 6 - FRIGG Shift+LButton (Test)
+ - Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
+ - Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
+ - Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
+ - NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
 Изменения: 22.07.2022
  - Оверлей
@@ -137,7 +150,13 @@ Wanderer Notes & Leveling (4,310)
 4 стандарт крутки с чипами(1 в неделю, в магазе)
 40 фиол круток(10 в неделю, в магазе)
 
-13 ивент круток (2000 в месяц с еженеделечек и клановодства)
+100-800 PVP арена в месяц
+150 F2P Батлпас(200 но длится 41 день)
+260-500 в месяц королевская битва(подсчеты через 3 месяца)
+150-200 с клановодства в неделю
+350 камней истока с еженеделечек
+
+16,7 ивент круток (2510 в месяц с еженеделечек и клановодства и тд)
 22 ивент крутки (3300 камней луна, Цена - 230р)
 18,5 ивент круткок (1500(10 круток) + 1280 = 2780 Батлпас, Цена - 600р длится 42 день)
 15 ивент круткок (P2W ++Батлпас, 1200р)
@@ -147,7 +166,7 @@ Wanderer Notes & Leveling (4,310)
 26 стандарт c чипами
 44 голд круток
 4 ивент с чипами
-14 ивент круток (камни)
+16,7 ивент круток (камни)
 --Итог P2W:
 22 ивент крутки (луна - 230р)
 18,5 ивент круткок (Батлпас - 600р)
@@ -182,19 +201,23 @@ Wanderer Notes & Leveling (4,310)
 
 В ToF в месяц:
 
+100-800 PVP арена в месяц
+150 F2P Батлпас(200 но длится 41 день)
+260-500 в месяц королевская битва(подсчеты через 3 месяца)
+150-200 с клановодства в неделю
 350 камней истока с еженеделечек
-150 с клановодства
 ------
-500 в неделю = 2000 в месяц
+2510 возобновляемых камней в месяц
 3000 + 300 = 3300 камней луна(230р)
 1500(10 круток) + 1280 = 2780 Батлпас(600р)
 
-13 круток F2P
-35 круток F2P(13) + луна(22)
-53 круток F2P(13) + луна(22) + батлпас(18,5. длится 41 день)
+16,7 круток F2P
+38,7 круток F2P(16,7) + луна(22)
+57 круток F2P(16,7) + луна(22) + батлпас(18,5. длится 41 день)
 
 Цена за легу:
 80 круток на легу(софт пити нет) или 120 круток залпом через кешбек
+
 
 
 
@@ -215,7 +238,7 @@ Wanderer Notes & Leveling (4,310)
 23,75 круток F2P
 42,5 круток F2P(23,75) + луна(18,75)
 50,75 круток F2P(23,75) + луна(18,75) + батлпас(8,25)
-
+7,875 круток ивенты (1260 камней в пересчете за месяц)
 
 Цена за легу:
 77 круток на легу(софт пити в деле) или 154 если проиграл 50\50
@@ -294,7 +317,7 @@ https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV22
  Синие (10)\фиол(50) ключи тратить на сундуки Vera для фарма синих* монет
  Не тратить фиол кешбек смолы на фиол шмот, ждем 1-2 недели и вливаем в кристалы
  Смола в данже через абуз крамбубы
- 
+ Консервация маячков на ультра лейт
  
  
  
@@ -344,12 +367,12 @@ Menu,Tray, Icon, Reload, shell32.dll, 239, 16
 Menu,Tray, add, Pause-Play, Metkashortcut4
 Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
 Menu,Tray, Default, Reload
-; Menu,Tray, add
+Menu,Tray, add
 ; Menu,Tray, add, Instal ReShade, Metkashortcut2
 ; Menu,Tray, Icon, Instal ReShade, imageres.dll, 67, 16
 ; Menu,Tray, add, Uninstal ReShade, Metkashortcut3
 ; Menu,Tray, Icon, Uninstal ReShade, imageres.dll, 66, 16
-Menu,Tray, add
+; Menu,Tray, add
 Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
 Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
 Menu,Tray, add
@@ -360,7 +383,10 @@ Menu,Tray, Icon, Exit, shell32.dll,28, 16
 ;====================Настройки .ini
 IniRead, FIXchat, data\tofuConfig.ini, Settings, FIXchat
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
-IniRead, gameexe1337, data\tofuConfig.ini, Settings, gameexe1337
+IniRead, gameexeGlobal, data\tofuConfig.ini, Settings, gameexeGlobal
+IniRead, gameexeCN, data\tofuConfig.ini, Settings, gameexeCN
+GroupAdd, gameexe1337, %gameexeGlobal%
+GroupAdd, gameexe1337, %gameexeCN%
 IniRead, Map2toggle, data\tofuConfig.ini, Settings, Map2toggle
 IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - дефолт браузер, 1 - указать свой браузер
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
@@ -410,13 +436,14 @@ IniRead, key_LabelNumpad5, data\tofuConfig.ini, Binds, key_LabelNumpad5
 Hotkey, *~$%key_LabelNumpad5%, LabelNumpad5, on
 IniRead, key_LabelNumpad6, data\tofuConfig.ini, Binds, key_LabelNumpad6
 Hotkey, *~$%key_LabelNumpad6%, LabelNumpad6, on
-; IniRead, key_LabelNumpad7, data\tofuConfig.ini, Binds, key_LabelNumpad7
-; Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
-; IniRead, key_LabelNumpad8, data\tofuConfig.ini, Binds, key_LabelNumpad8
-; Hotkey, *~$%key_LabelNumpad8%, LabelNumpad8, on
-; IniRead, key_LabelNumpad9, data\tofuConfig.ini, Binds, key_LabelNumpad9
-; Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
-
+IniRead, key_LabelNumpad7, data\tofuConfig.ini, Binds, key_LabelNumpad7
+Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
+IniRead, key_LabelNumpad8, data\tofuConfig.ini, Binds, key_LabelNumpad8
+Hotkey, *~$%key_LabelNumpad8%, LabelNumpad8, on
+IniRead, key_LabelNumpad9, data\tofuConfig.ini, Binds, key_LabelNumpad9
+Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
+IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Binds, key_LabelNumpadAdd
+Hotkey, *~$%key_LabelNumpadAdd%, LabelNumpadAdd, on
 
 
 ;====================Зарегать клавиши
@@ -435,7 +462,7 @@ Hotkey, *~%key_flyhack%, Metkakey_flyhack, on
 
 if Checkbox1animcancel = 1
 {
-Hotkey, IfWinActive, %gameexe1337% 	;Кнопка работает только в игре
+Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
 Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
 }
 
@@ -539,7 +566,7 @@ return
 ;========================================================Макросы
 Metkakey_animcancel:
 Sleep 1
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно, то возврат
+IfWinNotActive, ahk_group gameexe1337 	;Если окно игры не активно, то возврат
 Return
 ;-----------Пошел жосцкий коддинг на метках
 if jopa1
@@ -554,7 +581,133 @@ if jopa5
 Goto Label_Goto_MerylAirAttack2
 if jopa6
 Goto Label_Goto_FriggShift
+if jopa7
+Goto Label_Goto_Bhop
+if jopa8
+Goto Label_Goto_SamirDashAttackCancels
+if jopa9
+Goto Label_Goto_SamirRisingPlungeAttackCancels
+if jopa20
+Goto Label_Goto_DilucVerticalFlight
 return
+
+
+
+
+
+
+Label_Goto_DilucVerticalFlight:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 1
+SendInput, {vk20} 	;Space
+Sleep 100
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	SendInput, {vk1 Down} 	;LButton
+	Sleep 650
+
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 300
+
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+
+	SendInput, {%key_flyhackGajetKey%} 	;R
+	Sleep 20
+	SendInput, {%key_flyhackGajetKey%} 	;R
+	Sleep 20
+}
+SendInput, {vk1} 	;LButton
+return
+
+
+Label_Goto_SamirRisingPlungeAttackCancels:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 1
+SendInput, {vk20} 	;Space
+Sleep 100
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	SendInput, {vk1 Down} 	;LButton
+	Sleep 900
+
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 300
+
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+
+	SendInput, {%key_flyhackGajetKey%} 	;R
+	Sleep 20
+	SendInput, {%key_flyhackGajetKey%} 	;R
+	Sleep 20
+}
+SendInput, {vk1} 	;LButton
+return
+
+
+
+Label_Goto_SamirDashAttackCancels:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 1
+	SendInput, {vkA0} 	;Shift
+	sleep 430
+	SendInput, {vk1} 	;LButton
+	sleep 150
+	SendInput, {vk20} 	;Space
+Sleep 1
+return
+
+
+
+
+
+Label_Goto_Bhop:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 100
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break 
+	Sleep 50
+	SendInput, {vk20} 	;Space
+}
+return
+
+
 
 
 
@@ -674,7 +827,7 @@ LoopOffVar1 = 1
 SendInput, {vk57 Down} 	;W
 Loop
 {
-	IfWinNotActive, %gameexe1337% 	;Если окно не активно, то остановить поток
+	IfWinNotActive, ahk_group gameexe1337 	;Если окно не активно, то остановить поток
 	{
 		SetTimer, LabelFly_Auto, off
 		if Toggle1Fly
@@ -774,17 +927,33 @@ jopa6:=true
 	sleep 500
 	ToolTip
 Return
-LabelNumpad7:
+LabelNumpad7: 	;================================================================Bhop
 FuncMacroRestore()
 jopa7:=true
+	ToolTip, Bhop, 0, 0
+	sleep 500
+	ToolTip
 Return
-LabelNumpad8:
+LabelNumpad8: 	;================================================================SamirDashAttackCancels
 FuncMacroRestore()
 jopa8:=true
+	ToolTip, SamirDashAttackCancels, 0, 0
+	sleep 500
+	ToolTip
 Return
-LabelNumpad9:
+LabelNumpad9: 	;================================================================Samir Vertical Flight
 FuncMacroRestore()
 jopa9:=true
+	ToolTip,  Samir Vertical Flight, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelNumpadAdd: 	;=============================================================Diluc Vertical Flight
+FuncMacroRestore()
+jopa20:=true
+	ToolTip,  Diluc Vertical Flight, 0, 0
+	sleep 500
+	ToolTip
 Return
 
 
@@ -792,7 +961,7 @@ Return
 ;===============================Автоходьба
 Metkakey_autowalk:
 sleep 100
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 {
 
 	GetKeyState, AutowalkVar, vk57 	;W
@@ -851,7 +1020,7 @@ Return
 
 ;========================================================Фастлут
 Metkakey_fastlyt:
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 {
 Sleep 170
 if FIXchat
@@ -874,7 +1043,7 @@ return
 
 ;===============================Скип диалогов NPC Lock
 Metkakey_skipNPS:
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 {
 	if FIXchat
 	{
@@ -945,7 +1114,7 @@ svffPereklu4atelFisting228 = 1
 		if !FuncCursorVisible()
 		svffPereklu4atelFisting228 = 0
 	}
-		IfWinNotActive, %gameexe1337%
+		IfWinNotActive, ahk_group gameexe1337
 		{
 		svffPereklu4atelFisting228 = 0
 		}
@@ -966,12 +1135,12 @@ sleep 50
 overlay1toggle := !overlay1toggle
 if (overlay1toggle)
 {
-; WinMinimize %gameexe1337%
+; WinMinimize ahk_group gameexe1337
 Gui, 99: Show
 }
 else
 {
-; WinMaximize %gameexe1337%
+; WinMaximize ahk_group gameexe1337
 Gui, 99: Cancel
 }
 return
@@ -980,7 +1149,7 @@ return
 ;=====================================================Флайхак
 Metkakey_flyhack:
 Sleep 1
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 {
 if FIXchat
 {
@@ -1004,7 +1173,7 @@ return
 ;========================================================быстрое скалолазание
 Metkakey_fastclimber:
 Sleep 1
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 {
 if FIXchat
 {
@@ -1043,7 +1212,7 @@ Return
 Metkakey_map:
 MonitorFound1:=0
 sleep 50
-IfWinActive, %gameexe1337%
+IfWinActive, ahk_group gameexe1337
 toggle1 := 0
 IfWinActive, ahk_group GroupNameMap1337
 toggle1 := 1
@@ -1110,7 +1279,7 @@ else
 {
 	if MonitorFound1
 	MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
-	WinActivate %gameexe1337%
+	WinActivate ahk_group gameexe1337
 }
 return
 
@@ -1151,7 +1320,7 @@ LoopOffVar1:=0 	;Остановить полет
 if (overlay1toggle)
 {
 	Gui, 99: Cancel
-	; WinMaximize %gameexe1337%
+	; WinMaximize ahk_group gameexe1337
 	overlay1toggle := !overlay1toggle
 }
 if toggleAseps
