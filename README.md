@@ -18,7 +18,11 @@ __🚀Функционал:🚀__
   + InventoryClicker (15ms)
   + AutoFly (FlyHack)
   + Meril Air Attack
-  + FRIGG Shift+LButton
+  + FRIGG ShiftClick
+  + Bhop 50ms
+  + Samir Dash Attack Cancels
+  + Samir Vertical Flight
+  + Diluc Vertical Flight
 
 __⚠️Требования к правильной работе скрипта:⚠️__
 
@@ -59,6 +63,10 @@ Numpad 3 - AutoFlyHack (первый клик - вкл, повторный кл�
 Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
 Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
 Numpad 6 - FRIGG Shift+LButton (Test)
+Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
+Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
+Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
+NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -70,12 +78,20 @@ Right - Переключить оверлей
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 09.08.2022
-  
- - Макрос на мышку для инвентаря
- - Мерил воздушные атаки
- - Мерил воздушные атаки v2
- - FRIGG Shift+LButton
+Изменения: 10.08.2022
+
+ - Работает на глобал и китай клиенте
+ - Numpad 0 - Off
+ - Numpad 1 - AutoAttack(70ms)
+ - Numpad 2 - InventoryClicker(15ms)
+ - Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
+ - Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
+ - Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
+ - Numpad 6 - FRIGG Shift+LButton (Test)
+ - Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
+ - Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
+ - Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
+ - NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
 Изменения: 22.07.2022
  - Оверлей
