@@ -6,6 +6,7 @@ AHK скрипт для Tower of Fantasy
 F1 - *Карта
 F2 - *Оверлей
 F3 - *Автоходьба
+F4 - *Слот под специфические макросы (Настраивать отдельно в "tofuConfig.ini")
 F9 - Автоприниматель лобби
 Z - Скип диалогов
 F - Фаст лут
@@ -52,10 +53,10 @@ https://toweroffantasy.online/map/
 ; ===============================================================
 
 
+
 Запланировано:
- - Двойные макросы для 2х персов одновременно
  - Коносуба бур
- - Полет на CLAUDIA (нет в наличии)
+ - Полет на CLAUDIA (в ожидании банера):
 Send LButton
 Sleep 270
 Send LButton
@@ -65,6 +66,23 @@ Sleep 50
 Send R
 
 
+
+
+
+
+
+
+Изменения: 14.08.2022
+ - Автоходьба сквозь свернутое окно
+ - Ренеймер
+ - Обновлятор с импортером настроек
+ - Фикс переключателя карты
+ - Центрирование мышки при переключении карты в tofuConfig.ini "MouseCenterMapVar = 1"
+ - Тайминги скипера диалогов
+ - F4 - *Слот под специфические макросы (Настраивать отдельно в "tofuConfig.ini")
+ - 1 - AFK фермерство, спам "F" каждые 5 сек
+ - 2 - AFK ачивка сёрфера, залипание кнопки "W" и "A"
+ - 3 - AFK фермерство на Хильде, спам "vk1" каждые 5 сек
 
 Изменения: 10.08.2022
  - Работает на глобал и китай клиенте
@@ -107,9 +125,9 @@ Send R
 
 
 
-
-
-
+80 меда 14:23
+105 меда 14:48
+125 меда 15:01
 
 
 
@@ -126,7 +144,7 @@ Wanderer Notes & Leveling (4,310)
 10 голдовые предрегистрация
 10 фиол предрегистрация
 500 камней предрегистрация
-Квестики, голограммы, бездна, прочее
+Квестики, бездна, прочее, джин(29лвл-6шт)
 --Итог:
 143 ивент крутки (21 485 камней)
 165 голдовых круток
@@ -294,6 +312,9 @@ https://www.bilibili.com/video/BV1WY4y177YP?vd_source=0710d03ba75bcc53345a94992c
 Ооо норм док стартовик
 https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV227cM/edit#gid=709396921
 
+док от чичваркина
+https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/edit
+
 
 
 Основные фишечки:
@@ -330,7 +351,7 @@ https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV22
 
 
 
-WinName:= "TOF AHK Flex v3 by Kramar1337"
+WinName:= "TOF AHK Flex v3.1 by Kramar1337"
 CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 #NoEnv
@@ -359,6 +380,10 @@ If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
     ExitApp
 }
 }
+
+AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
 ;====================Настройки трея. Системные иконки: shell32.dll, imageres.dll, еще 1
 Menu,Tray,NoStandard
 Menu,Tray,DeleteAll
@@ -376,6 +401,9 @@ Menu,Tray, add
 Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
 Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
 Menu,Tray, add
+Menu,Tray, add, ForceUpdate, Metkashortcut6UpdateButton
+Menu,Tray, Icon, ForceUpdate, shell32.dll, 136, 16
+Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
 Menu,Tray, Icon, Exit, shell32.dll,28, 16
 
@@ -391,59 +419,75 @@ IniRead, Map2toggle, data\tofuConfig.ini, Settings, Map2toggle
 IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - дефолт браузер, 1 - указать свой браузер
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
 IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
-
+IniRead, MouseCenterMapVar, data\tofuConfig.ini, Settings, MouseCenterMapVar
+IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
+if OldMacroBackVar > 0
+{
+Hotkey, *~Up, Metkakey_UpMacroOld, on
+Hotkey, *~Down, Metkakey_DownMacroOld, on
+}
+IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 
 ;=====================================Кнопки
-IniRead, key_skipNPS, data\tofuConfig.ini, Binds, key_skipNPS
-IniRead, key_fastlyt, data\tofuConfig.ini, Binds, key_fastlyt
-IniRead, key_fastclimber, data\tofuConfig.ini, Binds, key_fastclimber
-IniRead, key_map, data\tofuConfig.ini, Binds, key_map
-IniRead, key_flyhack, data\tofuConfig.ini, Binds, key_flyhack
-IniRead, key_flyhackGajetKey, data\tofuConfig.ini, Binds, key_flyhackGajetKey
-IniRead, key_overlay, data\tofuConfig.ini, Binds, key_overlay
-IniRead, key_animcancel, data\tofuConfig.ini, Binds, key_animcancel
-IniRead, key_autowalk, data\tofuConfig.ini, Binds, key_autowalk
-IniRead, key_AseptarKey, data\tofuConfig.ini, Binds, key_AseptarKey
+IniRead, key_skipNPS, data\tofuConfig.ini, Settings, key_skipNPS
+IniRead, key_fastlyt, data\tofuConfig.ini, Settings, key_fastlyt
+IniRead, key_fastclimber, data\tofuConfig.ini, Settings, key_fastclimber
+IniRead, key_map, data\tofuConfig.ini, Settings, key_map
+IniRead, key_flyhack, data\tofuConfig.ini, Settings, key_flyhack
+IniRead, key_flyhackGajetKey, data\tofuConfig.ini, Settings, key_flyhackGajetKey
+IniRead, key_overlay, data\tofuConfig.ini, Settings, key_overlay
+IniRead, key_animcancel, data\tofuConfig.ini, Settings, key_animcancel
+IniRead, key_autowalk, data\tofuConfig.ini, Settings, key_autowalk
+IniRead, key_AseptarKey, data\tofuConfig.ini, Settings, key_AseptarKey
+IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
+
+
 
 
 ;=====================================Вкл-выкл кнопок
-IniRead, Checkbox1skipNPS, data\tofuConfig.ini, KeyToggle, Checkbox1skipNPS
-IniRead, Checkbox1fastlyt, data\tofuConfig.ini, KeyToggle, Checkbox1fastlyt
-IniRead, Checkbox1fastclimber, data\tofuConfig.ini, KeyToggle, Checkbox1fastclimber
-IniRead, Checkbox1map, data\tofuConfig.ini, KeyToggle, Checkbox1map
-IniRead, Checkbox1flyhack, data\tofuConfig.ini, KeyToggle, Checkbox1flyhack
-IniRead, Checkbox1animcancel, data\tofuConfig.ini, KeyToggle, Checkbox1animcancel
-IniRead, Checkbox1overlay, data\tofuConfig.ini, KeyToggle, Checkbox1overlay
-IniRead, Checkbox1autowalk, data\tofuConfig.ini, KeyToggle, Checkbox1autowalk
-IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, KeyToggle, Checkbox1AseptarKey
+IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
+IniRead, Checkbox1fastlyt, data\tofuConfig.ini, Settings, Checkbox1fastlyt
+IniRead, Checkbox1fastclimber, data\tofuConfig.ini, Settings, Checkbox1fastclimber
+IniRead, Checkbox1map, data\tofuConfig.ini, Settings, Checkbox1map
+IniRead, Checkbox1flyhack, data\tofuConfig.ini, Settings, Checkbox1flyhack
+IniRead, Checkbox1animcancel, data\tofuConfig.ini, Settings, Checkbox1animcancel
+IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
+IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
+IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
+IniRead, Checkbox1OtherMacros, data\tofuConfig.ini, Settings, Checkbox1OtherMacros
+
 
 ;=====================================Безопасность
 IniRead, ScWinrenamer, data\tofuConfig.ini, Settings, ScWinrenamer
 IniRead, ScRandomTime, data\tofuConfig.ini, Settings, ScRandomTime
+IniRead, ScRenamer, data\tofuConfig.ini, Settings, ScRenamer
+IniRead, ScHachCh, data\tofuConfig.ini, Settings, ScHachCh
 
 ;==========Подготовить кнопки
-IniRead, key_LabelNumpad0, data\tofuConfig.ini, Binds, key_LabelNumpad0
+IniRead, key_LabelNumpad0, data\tofuConfig.ini, Settings, key_LabelNumpad0
 Hotkey, *~$%key_LabelNumpad0%, LabelNumpad0, on
-IniRead, key_LabelNumpad1, data\tofuConfig.ini, Binds, key_LabelNumpad1
+IniRead, key_LabelNumpad1, data\tofuConfig.ini, Settings, key_LabelNumpad1
 Hotkey, *~$%key_LabelNumpad1%, LabelNumpad1, on
-IniRead, key_LabelNumpad2, data\tofuConfig.ini, Binds, key_LabelNumpad2
+IniRead, key_LabelNumpad2, data\tofuConfig.ini, Settings, key_LabelNumpad2
 Hotkey, *~$%key_LabelNumpad2%, LabelNumpad2, on
-IniRead, key_LabelNumpad3, data\tofuConfig.ini, Binds, key_LabelNumpad3
+IniRead, key_LabelNumpad3, data\tofuConfig.ini, Settings, key_LabelNumpad3
 Hotkey, *~$%key_LabelNumpad3%, LabelNumpad3, on
-IniRead, key_LabelNumpad4, data\tofuConfig.ini, Binds, key_LabelNumpad4
+IniRead, key_LabelNumpad4, data\tofuConfig.ini, Settings, key_LabelNumpad4
 Hotkey, *~$%key_LabelNumpad4%, LabelNumpad4, on
-IniRead, key_LabelNumpad5, data\tofuConfig.ini, Binds, key_LabelNumpad5
+IniRead, key_LabelNumpad5, data\tofuConfig.ini, Settings, key_LabelNumpad5
 Hotkey, *~$%key_LabelNumpad5%, LabelNumpad5, on
-IniRead, key_LabelNumpad6, data\tofuConfig.ini, Binds, key_LabelNumpad6
+IniRead, key_LabelNumpad6, data\tofuConfig.ini, Settings, key_LabelNumpad6
 Hotkey, *~$%key_LabelNumpad6%, LabelNumpad6, on
-IniRead, key_LabelNumpad7, data\tofuConfig.ini, Binds, key_LabelNumpad7
+IniRead, key_LabelNumpad7, data\tofuConfig.ini, Settings, key_LabelNumpad7
 Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
-IniRead, key_LabelNumpad8, data\tofuConfig.ini, Binds, key_LabelNumpad8
+IniRead, key_LabelNumpad8, data\tofuConfig.ini, Settings, key_LabelNumpad8
 Hotkey, *~$%key_LabelNumpad8%, LabelNumpad8, on
-IniRead, key_LabelNumpad9, data\tofuConfig.ini, Binds, key_LabelNumpad9
+IniRead, key_LabelNumpad9, data\tofuConfig.ini, Settings, key_LabelNumpad9
 Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
-IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Binds, key_LabelNumpadAdd
+IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Settings, key_LabelNumpadAdd
 Hotkey, *~$%key_LabelNumpadAdd%, LabelNumpadAdd, on
+
+
 
 
 ;====================Зарегать клавиши
@@ -465,11 +509,16 @@ if Checkbox1animcancel = 1
 Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
 Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
 }
+Hotkey, IfWinActive
 
-if Checkbox1autowalk = 1
+if (Checkbox1autowalk == 1)
 Hotkey, %key_autowalk%, Metkakey_autowalk, on
-if Checkbox1AseptarKey = 1
+if (Checkbox1AseptarKey == 1)
 Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
+if (Checkbox1OtherMacros == 1)
+Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
+
+
 
 ;======================Переменные для скипа диалогов
 xSkip:=round(A_ScreenWidth*.7265) 	;нижний ответ
@@ -486,6 +535,10 @@ IndexVarL := A_Index - 1
 jopa%IndexVarL% := false
 }
 
+
+;======================Таймеры
+TogglerTimer1 = 0
+TogglerTimer2 = 0
 
 ;=====================================================имя окна карты на разных языках
 ;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
@@ -508,8 +561,36 @@ run_param:="https://toweroffantasy.online/map/"
 
 if (ScWinrenamer = 1)
 {
-Random, rand1488, 33, 35
-password := gen_password(rand1488)	
+	Random, rand1488, 33, 35
+	passwordVar := gen_password(rand1488)	
+}
+If (ScRenamer = 1)
+{
+	Random, rand1488, 10, 14
+	password := gen_password(rand1488)										;вызов функции в переменную (длина)
+	SplitPath, A_ScriptFullPath,,, 2z2ext,, 	;извлечь из строки расширение
+	FileMove, %A_ScriptFullPath%, %A_ScriptDir%\%password%.%2z2ext%
+	savereloadvar = %A_ScriptDir%\%password%.%2z2ext%
+}
+If (ScHachCh = 1)
+{
+	FileRead, FileReadOutputVar1, %A_ScriptFullPath%
+	Random, rand1488, 20, 30
+	password := gen_password(rand1488)
+	1RepFile1 = AntiVACHashChanger:="\w*"
+	2RepFile2 = AntiVACHashChanger:="%password%%password%%password%%password%"
+	RegExRepFile1 := RegExReplace(FileReadOutputVar1, 1RepFile1, 2RepFile2)
+	FileEncoding UTF-8
+	if (ScRenamer = 1)
+	{
+		FileDelete, %A_ScriptFullPath%
+		FileAppend, %RegExRepFile1%, %savereloadvar%
+	}
+	Else
+	{
+		FileDelete, %A_ScriptFullPath%
+		FileAppend, %RegExRepFile1%, %A_ScriptFullPath%
+	}
 }
 
 ;===============================Оверлей создание
@@ -522,7 +603,7 @@ Gui, 99: Color, 0x000000
 Gui, 99: Add, Picture, w%HpBarW% h%HpBarH% x0 y0 vMyPictureVar1, data\genOverlay1.png
 ;=============================Если включен ренеймер то зарандомить имя окна
 if (ScWinrenamer = 1)
-Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x0 y0, %password%
+Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x0 y0, %passwordVar%
 Else
 Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x0 y0, %WinName%
 hwndGuihamdlewindow := WinExist()
@@ -596,6 +677,87 @@ return
 
 
 
+Metkakey_AllOldMacroBack:
+if (OldMacroBackVar == 1) 	;AFK фермерство ControlSend, спам "F" каждые 5 сек
+{
+	Sleep 1
+	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
+	if !TogglerTimer1
+		Tooltip,,0,0,3
+}
+if (OldMacroBackVar == 2) 	;AFK ачивка сёрфера, залипание кнопки "W" и "A"
+{
+	if UseControlSendVar
+	{
+		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
+		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
+	}
+	Else
+	{
+		SendInput {vk57 down} 	;W
+		SendInput {vk41 down} 	;A
+	}
+}
+if (OldMacroBackVar == 3) 	;AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
+{
+	Sleep 1
+	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
+	if !TogglerTimer2
+		Tooltip,,0,0,3
+}
+return
+
+
+
+
+
+;======================OldMacroBackVar = 3===========AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
+LabelAFKclick:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+	{
+		ControlSend,ahk_parent, {vk1}, ahk_group gameexe1337
+	}
+	Else
+	{
+		SendInput {vk1}
+	}
+Random, RandomVarSc1, 500, 1000
+sleep %RandomVarSc1%
+Sleep 5000
+return
+
+
+
+;======================OldMacroBackVar = 1===========AFK Фермерство, сбор лута цикл прожатия "F" каждые 5 сек
+LabelAFKloot:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK auto loot.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+	{
+		ControlSend,ahk_parent, {vk46}, ahk_group gameexe1337 	;Нажатие "F"
+	}
+	Else
+	{
+		SendInput {vk46}
+	}
+Random, RandomVarSc1, 500, 1000
+sleep %RandomVarSc1%
+Sleep 5000
+return
+
+
+
+AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
+
+;============================================Дилюк вертикальный полет
 Label_Goto_DilucVerticalFlight:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -631,8 +793,7 @@ If SpaceStateAA = U
 }
 SendInput, {vk1} 	;LButton
 return
-
-
+;============================================Самир вертикальный полет
 Label_Goto_SamirRisingPlungeAttackCancels:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -668,9 +829,7 @@ If SpaceStateAA = U
 }
 SendInput, {vk1} 	;LButton
 return
-
-
-
+;============================================Самир ходьба рывками
 Label_Goto_SamirDashAttackCancels:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -685,11 +844,7 @@ Sleep 1
 	SendInput, {vk20} 	;Space
 Sleep 1
 return
-
-
-
-
-
+;============================================Бхоп
 Label_Goto_Bhop:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -706,11 +861,7 @@ Loop
 	SendInput, {vk20} 	;Space
 }
 return
-
-
-
-
-
+;============================================FriggShift
 Label_Goto_FriggShift:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -728,7 +879,7 @@ Loop
 	Sleep 100
 }
 return
-
+;============================================Мерил тест 1
 Label_Goto_MerylAirAttack2:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -770,10 +921,7 @@ Loop
 	Sleep 400
 }
 return
-
-
-
-
+;============================================Мерил тест 2
 Label_Goto_MerylAirAttack:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -789,8 +937,6 @@ Loop
 	Sleep 800
 }
 return
-
-
 ;==========Кликер инвентаря
 Label_Goto_InventoryClicker:
 Loop
@@ -802,7 +948,6 @@ Loop
     SendInput, {Blind}{vk1}
 }
 Return
-
 ;==========Бесконечный полет AutoFly
 Label_Goto_Fly_Auto:
 	if FIXchat 	;Если "FIXchat" то чекать курсор
@@ -863,7 +1008,6 @@ Loop
 	TickCountTimer := A_TickCount 	;Зарегать время
 }
 Return
-
 ;==========Обычный спам автоатакой
 Label_Goto_Auto_Attack:
 Loop
@@ -957,6 +1101,9 @@ jopa20:=true
 Return
 
 
+AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
 
 ;===============================Автоходьба
 Metkakey_autowalk:
@@ -968,7 +1115,14 @@ IfWinActive, ahk_group gameexe1337
 	if AutowalkVar = U		;Если кнопка отжата
 	{
 		sleep 50
-		SendInput {vk57 down} 	;W
+		if UseControlSendVar
+		{
+			ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
+		}
+		Else
+		{
+			SendInput {vk57 down} 	;W
+		}
 	}
 	else		;Если кнопка нажата
 	{
@@ -1057,18 +1211,18 @@ Loop
 		GetKeyState, SpaceVar2, %key_skipNPS%, P
 		If SpaceVar2 = U
 			break 
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip% %ySkip%
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip2% %ySkip2%	
 		GetKeyState, SpaceVar2, %key_skipNPS%, P
 		If SpaceVar2 = U
 			break 
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip3% %ySkip3%	
@@ -1097,15 +1251,15 @@ return
 ;================================================Скип диалогов продолжение
 svffmetkammstart228:
 svffPereklu4atelFisting228 = 1
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip% %ySkip%
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip2% %ySkip2%	
-		Sleep 80
+		Sleep 1
 		Random, RandomVarSc, 15, 40
 		sleep %RandomVarSc%
 	Click %xSkip3% %ySkip3%	
@@ -1204,6 +1358,7 @@ Return
 
 
 
+AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
 
 
@@ -1248,38 +1403,70 @@ if (toggle1)
 {
 IfWinExist, ahk_group GroupNameMap1337 ;если найдено окно с картой то..
 	{
-	WinActivate ahk_group GroupNameMap1337 ;сделать активным
-	if MonitorFound1
-	MouseMove, X1mapMa, Y1mapMa
+		sleep 1
+		WinActivate ahk_group GroupNameMap1337 ;сделать активным
+		WinSet, Redraw,, ahk_group GroupNameMap1337
+		sleep 1
+		if MouseCenterMapVar
+		{
+			if MonitorFound1
+			MouseMove, X1mapMa, Y1mapMa
+			Else
+			{
+				ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
+				ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
+				MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
+			}
+		}
 	}
 IfWinNotExist, ahk_group GroupNameMap1337 ;если окно карты не найдено то..
 	{
 	if BrauzerCheck = 0
 		{
-		Run,%run_param% ;подрубить дефолтный браузер и завести карту
+			Run,%run_param% ;подрубить дефолтный браузер и завести карту
 		}
 	if BrauzerCheck = 1
 		{
-		run_path	= %BrauzerPick%
-		Run,%run_path% %run_param% ;подрубить выбранный браузер и завести карту
+			run_path	= %BrauzerPick%
+			Run,%run_path% %run_param% ;подрубить выбранный браузер и завести карту
 		}
 	loop 7
 		{
-		IfWinExist, ahk_group GroupNameMap1337 ;ожидание окна карты
-		{
-		sleep 1
-		WinActivate ahk_group GroupNameMap1337 ;сделать активным
-		break
-		}
-		sleep 900
+			IfWinExist, ahk_group GroupNameMap1337 ;ожидание окна карты
+			{
+				sleep 1
+				WinActivate ahk_group GroupNameMap1337 ;сделать активным
+				WinSet, Redraw,, ahk_group GroupNameMap1337
+					if MouseCenterMapVar
+					{
+						ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
+						ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
+						MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
+					}
+				sleep 1
+				break
+			}
+			sleep 900
 		}
 	}
 }
 else
 {
-	if MonitorFound1
-	MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
+	if MouseCenterMapVar
+	{
+		if MonitorFound1
+		MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
+		Else
+		{
+			ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
+			ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
+			MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
+		}
+	}
+	sleep 1
 	WinActivate ahk_group gameexe1337
+	WinSet, Redraw,, ahk_group gameexe1337
+	sleep 1
 }
 return
 
@@ -1438,8 +1625,171 @@ return
 
 ;=====================Меню, Reload
 Metkashortcut5:
+	If ScRenamer
+	{
+		run %savereloadvar%
+		exitapp
+		return
+	}
 Reload
 Return
+
+
+
+;=======================================Up Down, вверх вниз переключение макросов "OldMacroBackVar"
+Metkakey_UpMacroOld:
+Sleep 1
+; IfWinNotActive, ahk_group gameexe1337
+; Return
+OldMacroBackVar += 1
+	ToolTip, Select - %OldMacroBackVar%, 0, 0
+	sleep 300
+	ToolTip
+Return
+Metkakey_DownMacroOld:
+Sleep 1
+; IfWinNotActive, ahk_group gameexe1337
+; Return
+OldMacroBackVar -= 1
+if OldMacroBackVar < 1
+OldMacroBackVar = 1
+	ToolTip, Select - %OldMacroBackVar%, 0, 0
+	sleep 300
+	ToolTip
+Return
+
+
+
+
+
+
+
+
+
+
+;===============================================================ОБНОВЛЯТОР
+Metkashortcut6UpdateButton:
+	FileCreateDir, update
+	; URLDownloadToFile, https://raw.githubusercontent.com/Kramar1337/GenshinImpact-AHK-flex/main/Genshin`%20AHK/data/inputversion.ini, update\inputversion.ini
+	MsgBox 0x1, ,Download and instal update?
+	IfMsgBox OK, {
+	;==================================Блок с обновой
+	FinalSizeZip = 11793879
+	Global FinalSize, FinalSizeZip
+	DownloadFile("https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/archive/main.zip", "update\main.zip")
+	if !FileExist("update\main.zip")
+	{
+		MsgBox,,, Error`nФайл не скачался "update\main.zip", 1
+		FileRemoveDir, update, 1
+		Return
+	}
+	ArcPath = %A_ScriptDir%\update\main.zip
+	OutPath = %A_ScriptDir%\update
+	Shell := ComObjCreate("Shell.Application")
+	Items := Shell.NameSpace(ArcPath).Items
+	Items.Filter(73952, "*")
+	Shell.NameSpace(OutPath).CopyHere(Items, 16)
+	IfNotExist, %A_ScriptDir%\update\Tower-of-Fantasy-AHK-flex-main\TOFu
+	{
+		FileRemoveDir, update, 1
+		MsgBox,,, Error`nПредыдущая обнова была прервана`nФайлы поломались`nПовтори попытку еще раз, 2
+		Return
+	}
+Gosub ImportSettLabel1 	;=============================импорт настроек
+FileMoveDir, %A_ScriptDir%\update\Tower-of-Fantasy-AHK-flex-main\TOFu\data, %A_ScriptDir%, 1
+Loop update\Tower-of-Fantasy-AHK-flex-main\TOFu\*.ahk 	;Получить имя AHK файла
+{
+}
+FileDelete, %A_ScriptFullPath% 	;Удалить свой ahk
+If ScRenamer
+{
+	SplitPath, savereloadvar,,,,z3z3ext
+	SplitPath, savereloadvar,,,z2z2ext
+	FileMove, update\Tower-of-Fantasy-AHK-flex-main\TOFu\%A_LoopFileName%, %A_ScriptDir%\%z3z3ext%.%z2z2ext%, 1
+}
+Else
+{
+	SplitPath, A_ScriptFullPath,,,,z3z3ext
+	SplitPath, A_ScriptName,,,z2z2ext
+	FileMove, update\Tower-of-Fantasy-AHK-flex-main\TOFu\%A_LoopFileName%, %A_ScriptDir%\%z3z3ext%.%z2z2ext%, 1
+}
+FileRemoveDir, update, 1
+MsgBox,,, Ok`nТребуется перезапуск скрипта`nExitApp after 3 sec, 3
+ExitApp
+;==================================Конец блока с обновой
+} Else IfMsgBox Cancel, {
+FileRemoveDir, update, 1
+Return
+}
+Return
+
+
+;==========================================метка с импортом настроек, %FileVarImport% откуда читать, %FileVarImport2% куда писать
+ImportSettLabel1:
+FileVarImport=data\tofuConfig.ini
+FileVarImport2=update\Tower-of-Fantasy-AHK-flex-main\TOFu\data\tofuConfig.ini
+FileRead, GroupNameMap1337Var228, %A_ScriptDir%\data\tofuConfig.ini 	;Прочитать старый конфиг
+Loop, parse, GroupNameMap1337Var228, `n, `r
+{
+	VarLoopFieldEdit1 := A_LoopField
+	VarLoopFieldEdit1 := RegExReplace(VarLoopFieldEdit1, "mi);.*", "") 	;Убрать строки с знаком ";"
+	RegExMatch(VarLoopFieldEdit1, "(.*?)=(.*)", VarLoopFieldEdit1) 	;Найти все значения
+	if (VarLoopFieldEdit1 != "") 	;Если пусто то игнорим
+	{
+		VarLoopFieldEditSta := RegExReplace(VarLoopFieldEdit1, "(\s?)=(.*)") 	;Получить имя
+		VarLoopFieldEditEns := RegExReplace(VarLoopFieldEdit1, "(.*?)=(\s?)") 	;Получить результат
+		
+	IniRead, VarLoopFieldEdit3, %FileVarImport%, Settings, %VarLoopFieldEditSta% 	;Перебрать все настройки
+		if !(VarLoopFieldEdit3 = "ERROR")
+			IniWrite, %VarLoopFieldEditEns%, %FileVarImport2%, Settings, %VarLoopFieldEditSta%	
+
+	}
+}
+Return
+
+
+;==================================Функция обновлятора
+DownloadFile(UrlToFile = "", SaveFileAs = "", Overwrite := False, UseProgressBar := True) {
+	  If (UrlToFile = "" && SaveFileAs != "") {
+			If FileExist(SaveFileAs)
+				Return "Downloaded"
+			Else
+				Return "No"
+		}
+      If (!Overwrite && FileExist(SaveFileAs))
+          Return
+      If (UseProgressBar) {
+            WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+            WebRequest.Open("HEAD", UrlToFile)
+            WebRequest.Send()
+            FinalSize := FinalSizeZip
+            Progress, A M Y0 H80, , Downloading..., %UrlToFile%
+            SetTimer, __UpdateProgressBar, 100
+      }
+      UrlDownloadToFile, %UrlToFile%, %SaveFileAs%
+      If (UseProgressBar) {
+          Progress, Off
+          SetTimer, __UpdateProgressBar, Off
+      }
+    Return
+
+      __UpdateProgressBar:
+            CurrentSize := FileOpen(SaveFileAs, "r").Length 
+            CurrentSizeTick := A_TickCount
+            Speed := Round((CurrentSize/1024-LastSize/1024)/((CurrentSizeTick-LastSizeTick)/1000)) . " Kb/s"
+            LastSizeTick := CurrentSizeTick
+            LastSize := FileOpen(SaveFileAs, "r").Length
+            PercentDone := Round(CurrentSize/FinalSize*100)
+            Progress, %PercentDone%, %PercentDone%`% Done, Downloading...  (%Speed%), Downloading %SaveFileAs% (%PercentDone%`%)
+      Return
+}
+
+
+
+
+AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
 
 
 
