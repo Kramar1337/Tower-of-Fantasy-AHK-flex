@@ -1107,9 +1107,8 @@ AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfgh
 
 ;===============================Автоходьба
 Metkakey_autowalk:
-sleep 100
-IfWinActive, ahk_group gameexe1337
-{
+; IfWinActive, ahk_group gameexe1337
+sleep 50
 
 	GetKeyState, AutowalkVar, vk57 	;W
 	if AutowalkVar = U		;Если кнопка отжата
@@ -1127,10 +1126,16 @@ IfWinActive, ahk_group gameexe1337
 	else		;Если кнопка нажата
 	{
 		sleep 50
-		SendInput {vk57} 	;W
+		if UseControlSendVar
+		{
+			ControlSend,ahk_parent, {vk57}, ahk_group gameexe1337 	;W
+		}
+		Else
+		{
+			SendInput {vk57} 	;W
+		}
 	}
 
-}
 return
 
 
