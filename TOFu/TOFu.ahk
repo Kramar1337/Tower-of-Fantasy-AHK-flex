@@ -351,7 +351,7 @@ https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/
 
 
 
-WinName:= "TOF AHK Flex v3.1 by Kramar1337"
+WinName:= "TOF AHK Flex v3 by Kramar1337"
 CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 #NoEnv
@@ -657,9 +657,9 @@ Goto Label_Goto_InventoryClicker
 if jopa3
 Goto Label_Goto_Fly_Auto
 if jopa4
-Goto Label_Goto_MerylAirAttack
+Goto Label_Goto_HumaV1
 if jopa5
-Goto Label_Goto_MerylAirAttack2
+Goto Label_Goto_HumaV2
 if jopa6
 Goto Label_Goto_FriggShift
 if jopa7
@@ -754,6 +754,106 @@ return
 
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
+;============================================Хума комбо 2
+Label_Goto_HumaV1:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 1
+Loop
+{
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1}
+Sleep 600
+
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = Uw
+        break
+SendInput, {vk1}
+Sleep 700
+
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1 Down}
+Sleep 1200
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1 up}
+
+Sleep 1
+SendInput, {vkA0}
+Sleep 140
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1}
+Sleep 400
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk20}
+Sleep 100
+}
+	GetKeyState, SpaceStateAAA, vk1
+	If SpaceStateAAA = D
+		SendInput, {vk1 Down}
+return
+
+
+;============================================Хума комбо 2
+Label_Goto_HumaV2:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Sleep 1
+Loop
+{
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1}
+Sleep 600
+
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = Uw
+        break
+SendInput, {vk1}
+Sleep 700
+
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1 Down}
+Sleep 1200
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1 up}
+
+Sleep 1
+SendInput, {vkA0}
+Sleep 140
+    GetKeyState, SpaceStateAA1, %key_animcancel%, P
+    If SpaceStateAA1 = U
+        break
+SendInput, {vk1}
+
+Sleep 900
+}
+	GetKeyState, SpaceStateAAA, vk1
+	If SpaceStateAAA = D
+		SendInput, {vk1 Down}
+return
 
 
 
@@ -921,22 +1021,6 @@ Loop
 	Sleep 400
 }
 return
-;============================================Мерил тест 2
-Label_Goto_MerylAirAttack:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateMeryl, %key_animcancel%, P
-    If SpaceStateMeryl = U
-        break 
-    SendInput, {Blind}{vk1}
-	Sleep 800
-}
-return
 ;==========Кликер инвентаря
 Label_Goto_InventoryClicker:
 Loop
@@ -1050,17 +1134,17 @@ jopa3:=true
 	sleep 500
 	ToolTip
 Return
-LabelNumpad4: 	;================================================================MerylAirAttack
+LabelNumpad4: 	;================================================================Huma 1
 FuncMacroRestore()
 jopa4:=true
-	ToolTip, MerylAirAttack, 0, 0
+	ToolTip, Huma Combo 1, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad5: 	;================================================================MerylAirAttack2
+LabelNumpad5: 	;================================================================Huma 2
 FuncMacroRestore()
 jopa5:=true
-	ToolTip, MerylAirAttack2, 0, 0
+	ToolTip, Huma Combo 2, 0, 0
 	sleep 500
 	ToolTip
 Return
