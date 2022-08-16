@@ -20,7 +20,7 @@ __🚀Функционал:🚀__
   + AutoAttack (70ms)
   + InventoryClicker (15ms)
   + AutoFly (FlyHack)
-  + Meril Air Attack
+  + Huma combo
   + FRIGG ShiftClick
   + Bhop 50ms
   + Samir Dash Attack Cancels
@@ -73,8 +73,8 @@ Numpad 0 - Off
 Numpad 1 - AutoAttack(70ms)
 Numpad 2 - InventoryClicker(15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
-Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
-Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
+Numpad 4 - Huma combo t1
+Numpad 5 - Huma combo t2
 Numpad 6 - FRIGG Shift+LButton (Test)
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
