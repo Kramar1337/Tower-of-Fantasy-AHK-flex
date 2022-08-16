@@ -18,8 +18,8 @@ Numpad 0 - Off
 Numpad 1 - AutoAttack(70ms)
 Numpad 2 - InventoryClicker(15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
-Numpad 4 - Meril Air Attack v1 (Test) (Прыгнуть и удерживать "Macro Key")
-Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
+Numpad 4 - Huma combo t1
+Numpad 5 - Huma combo t2
 Numpad 6 - FRIGG Shift+LButton (Test)
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
@@ -69,8 +69,9 @@ Send R
 
 
 
-
-
+Изменения: 16.08.2022
+ - Numpad 4 - Huma combo t1
+ - Numpad 5 - Huma combo t2
 
 Изменения: 14.08.2022
  - Автоходьба сквозь свернутое окно
@@ -756,7 +757,7 @@ return
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
 
-;============================================Хума комбо 2
+;============================================Хума комбо 1
 Label_Goto_HumaV1:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -773,7 +774,7 @@ SendInput, {vk1}
 Sleep 600
 
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = Uw
+    If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 Sleep 700
@@ -825,7 +826,7 @@ SendInput, {vk1}
 Sleep 600
 
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = Uw
+    If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 Sleep 700
