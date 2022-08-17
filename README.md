@@ -23,7 +23,6 @@ __🚀Функционал:🚀__
   + Huma combo
   + FRIGG ShiftClick
   + Bhop 50ms
-  + Samir Dash Attack Cancels
   + Samir Vertical Flight
   + Diluc Vertical Flight
   + AFK фермерство, спам "F"
