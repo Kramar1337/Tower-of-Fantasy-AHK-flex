@@ -17,13 +17,13 @@ V - Macro Key(по умолчанию в игре на "V" маунт, но ес
 Numpad 0 - Off
 Numpad 1 - AutoAttack(70ms)
 Numpad 2 - InventoryClicker(15ms)
-Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
+Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл(Macro Key))
 Numpad 4 - Huma combo t1
 Numpad 5 - Huma combo t2
 Numpad 6 - FRIGG Shift+LButton (Test)
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
-Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
-Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
+Numpad 8 - Samir Dash
+Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
@@ -55,8 +55,9 @@ https://toweroffantasy.online/map/
 
 
 Запланировано:
+ - Ачивка на еду
  - Коносуба бур
- - Полет на CLAUDIA (в ожидании банера):
+ - Рывки на CLAUDIA (в ожидании банера):
 Send LButton
 Sleep 270
 Send LButton
@@ -68,6 +69,13 @@ Send R
 
 
 
+
+Изменения: 19.08.2022
+ - Перенос служебных кнопок Pgup End и тд в "tofuConfig.ini"
+ - Оверлей материалы на пушки
+ - Немезида тычка - холда
+ - Микроподкрутки
+ - 4 - AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A". Гранатная ферма(-75, -845)
 
 Изменения: 16.08.2022
  - Numpad 4 - Huma combo t1
@@ -83,7 +91,7 @@ Send R
  - F4 - *Слот под специфические макросы (Настраивать отдельно в "tofuConfig.ini")
  - 1 - AFK фермерство, спам "F" каждые 5 сек
  - 2 - AFK ачивка сёрфера, залипание кнопки "W" и "A"
- - 3 - AFK фермерство на Хильде, спам "vk1" каждые 5 сек
+ - 3 - AFK фермерство на Хильде, спам "Rbutton" каждые 5 сек
 
 Изменения: 10.08.2022
  - Работает на глобал и китай клиенте
@@ -95,7 +103,7 @@ Send R
  - Numpad 5 - Meril Air Attack v2 (Test) (Прыгнуть и удерживать "Macro Key")
  - Numpad 6 - FRIGG Shift+LButton (Test)
  - Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
- - Numpad 8 - Samir Dash Attack Cancels (Быстрое передвижение рывками)
+ - Numpad 8 - Samir Dash (Быстрое передвижение рывками)
  - Numpad 9 - Samir Vertical Flight (Экипировать и забиндить джетпак)
  - NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 
@@ -340,11 +348,14 @@ https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/
  Не тратить фиол кешбек смолы на фиол шмот, ждем 1-2 недели и вливаем в кристалы
  Смола в данже через абуз крамбубы
  Консервация маячков на ультра лейт
- 
- 
- 
- 
- 
+
+
+Мувмент:
+ Отмена ульты
+ Смена пушки без каста ульты
+ Зависание в воздухе без стамины
+
+
 
 
 
@@ -441,8 +452,8 @@ IniRead, key_animcancel, data\tofuConfig.ini, Settings, key_animcancel
 IniRead, key_autowalk, data\tofuConfig.ini, Settings, key_autowalk
 IniRead, key_AseptarKey, data\tofuConfig.ini, Settings, key_AseptarKey
 IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
-
-
+IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
+IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
 
 
 ;=====================================Вкл-выкл кнопок
@@ -483,27 +494,32 @@ IniRead, key_LabelNumpad7, data\tofuConfig.ini, Settings, key_LabelNumpad7
 Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
 IniRead, key_LabelNumpad8, data\tofuConfig.ini, Settings, key_LabelNumpad8
 Hotkey, *~$%key_LabelNumpad8%, LabelNumpad8, on
-IniRead, key_LabelNumpad9, data\tofuConfig.ini, Settings, key_LabelNumpad9
+IniRead, key_LabelNumpad9, data\tofuConfig.ini, Settings, key_LabelNumpad9 	;Nemesis Air hold
 Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
 IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Settings, key_LabelNumpadAdd
 Hotkey, *~$%key_LabelNumpadAdd%, LabelNumpadAdd, on
 
+; IniRead, key_LabelANumpad1, data\tofuConfig.ini, Settings, key_LabelANumpad1
+; Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
 
 
 
 ;====================Зарегать клавиши
+Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
+Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
+
 if Checkbox1skipNPS = 1
-Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on
+Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 	;Пропуск диалогов
 if Checkbox1fastlyt = 1
-Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on
+Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on 	;Спам сбор лута
 if Checkbox1fastclimber = 1
-Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on
+Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on 	;Быстрое скалолазание
 if Checkbox1map = 1
-Hotkey, %key_map%, Metkakey_map, on
+Hotkey, %key_map%, Metkakey_map, on 	;Открыть карту
 if Checkbox1overlay = 1
-Hotkey, %key_overlay%, Metkakey_overlay, on
+Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной инфой
 if Checkbox1flyhack = 1
-Hotkey, *~%key_flyhack%, Metkakey_flyhack, on
+Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 	;Флай хак
 
 if Checkbox1animcancel = 1
 {
@@ -540,6 +556,8 @@ jopa%IndexVarL% := false
 ;======================Таймеры
 TogglerTimer1 = 0
 TogglerTimer2 = 0
+TogglerTimer3 = 0
+TogglerTimer4 = 0
 
 ;=====================================================имя окна карты на разных языках
 ;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
@@ -668,7 +686,7 @@ Goto Label_Goto_Bhop
 if jopa8
 Goto Label_Goto_SamirDashAttackCancels
 if jopa9
-Goto Label_Goto_SamirRisingPlungeAttackCancels
+Goto Label_Goto_NemesisAirhold
 if jopa20
 Goto Label_Goto_DilucVerticalFlight
 return
@@ -677,61 +695,54 @@ return
 
 
 
-
+;====================================================================================Прочие макросы
 Metkakey_AllOldMacroBack:
 if (OldMacroBackVar == 1) 	;AFK фермерство ControlSend, спам "F" каждые 5 сек
 {
 	Sleep 1
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
 	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
 	if !TogglerTimer1
 		Tooltip,,0,0,3
 }
 if (OldMacroBackVar == 2) 	;AFK ачивка сёрфера, залипание кнопки "W" и "A"
 {
-	if UseControlSendVar
-	{
-		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
-		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
-	}
-	Else
-	{
-		SendInput {vk57 down} 	;W
-		SendInput {vk41 down} 	;A
-	}
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
+	if !TogglerTimer3
+		Tooltip,,0,0,3
 }
 if (OldMacroBackVar == 3) 	;AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
 {
 	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKgranateFarm, off
 	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
 	if !TogglerTimer2
 		Tooltip,,0,0,3
 }
+if (OldMacroBackVar == 4) 	;AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A"
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
+	if !TogglerTimer4
+		Tooltip,,0,0,3
+}
 return
 
-
-
-
-
-;======================OldMacroBackVar = 3===========AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
-LabelAFKclick:
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
-	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
-	{
-		ControlSend,ahk_parent, {vk1}, ahk_group gameexe1337
-	}
-	Else
-	{
-		SendInput {vk1}
-	}
-Random, RandomVarSc1, 500, 1000
-sleep %RandomVarSc1%
-Sleep 5000
-return
-
-
+; SetTimer, LabelAFKloot, off
+; SetTimer, LabelAFKsurf, off
+; SetTimer, LabelAFKclick, off
+; SetTimer, LabelAFKgranateFarm, off
 
 ;======================OldMacroBackVar = 1===========AFK Фермерство, сбор лута цикл прожатия "F" каждые 5 сек
 LabelAFKloot:
@@ -751,10 +762,121 @@ Random, RandomVarSc1, 500, 1000
 sleep %RandomVarSc1%
 Sleep 5000
 return
+;======================OldMacroBackVar = 2===========AFK ачивка сёрфера, залипание кнопки "W" и "A"
+LabelAFKsurf:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK auto surf.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar
+	{
+		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
+		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
+	}
+	Else
+	{
+		SendInput {vk57 down} 	;W
+		SendInput {vk41 down} 	;A
+	}
+Random, RandomVarSc1, 500, 1000
+sleep %RandomVarSc1%
+Sleep 4000
+return
+;======================OldMacroBackVar = 3===========AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
+LabelAFKclick:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+	{
+		ControlSend,ahk_parent, {vk1}, ahk_group gameexe1337
+	}
+	Else
+	{
+		SendInput {vk1}
+	}
+Random, RandomVarSc1, 500, 1000
+sleep %RandomVarSc1%
+Sleep 5000
+return
+;======================OldMacroBackVar = 4===========AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A"
+LabelAFKgranateFarm:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar
+	{
+		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
+		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
+		ControlSend,ahk_parent, {vk46}, ahk_group gameexe1337 		;Нажатие "F"
+	}
+	Else
+	{
+		SendInput {vk57 down} 	;W
+		SendInput {vk41 down} 	;A
+		SendInput {vk46} 		;A
+	}
+Random, RandomVarSc1, 500, 1000
+sleep %RandomVarSc1%
+Sleep 2000
+return
+
 
 
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
+
+
+
+
+Label_Goto_NemesisAirhold:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput, {vk1}
+Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput, {vk1 Down}
+Sleep 440
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput, {vk1 Up}
+Sleep 100
+SendInput, {vk1 Down}
+Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 440
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput, {vk1 Up}
+Sleep 550
+}
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
+return
+
 
 
 ;============================================Хума комбо 1
@@ -875,42 +997,6 @@ Loop
         break
 	SendInput, {vk1 Down} 	;LButton
 	Sleep 650
-
-GetKeyState, SpaceStateAA, %key_animcancel%, P
-If SpaceStateAA = U
-    break
-
-	SendInput, {vk1 Up} 	;LButton
-	Sleep 300
-
-GetKeyState, SpaceStateAA, %key_animcancel%, P
-If SpaceStateAA = U
-    break
-
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 20
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 20
-}
-SendInput, {vk1} 	;LButton
-return
-;============================================Самир вертикальный полет
-Label_Goto_SamirRisingPlungeAttackCancels:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 1
-SendInput, {vk20} 	;Space
-Sleep 100
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	SendInput, {vk1 Down} 	;LButton
-	Sleep 900
 
 GetKeyState, SpaceStateAA, %key_animcancel%, P
 If SpaceStateAA = U
@@ -1163,17 +1249,17 @@ jopa7:=true
 	sleep 500
 	ToolTip
 Return
-LabelNumpad8: 	;================================================================SamirDashAttackCancels
+LabelNumpad8: 	;================================================================Samir Dash
 FuncMacroRestore()
 jopa8:=true
-	ToolTip, SamirDashAttackCancels, 0, 0
+	ToolTip, Samir Dash, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad9: 	;================================================================Samir Vertical Flight
+LabelNumpad9: 	;================================================================NEMESIS Air hold
 FuncMacroRestore()
 jopa9:=true
-	ToolTip,  Samir Vertical Flight, 0, 0
+	ToolTip,  NEMESIS Air hold, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -1184,6 +1270,13 @@ jopa20:=true
 	sleep 500
 	ToolTip
 Return
+; LabelANumpad1: 	;=============================================================
+; FuncMacroRestore()
+; jopa11:=true
+	; ToolTip,  , 0, 0
+	; sleep 500
+	; ToolTip
+; Return
 
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
@@ -1565,7 +1658,7 @@ return
 
 
 ;===============================Отключить все хоткеи, остановить активные потоки
-*~$PgUp::
+Metkakey_PgUpPauseSuspend:
 Metkashortcut4:
 Suspend, Toggle
 1toggle1Suspend := !1toggle1Suspend
@@ -1729,31 +1822,26 @@ Return
 ;=======================================Up Down, вверх вниз переключение макросов "OldMacroBackVar"
 Metkakey_UpMacroOld:
 Sleep 1
-; IfWinNotActive, ahk_group gameexe1337
-; Return
+IfWinNotActive, ahk_group gameexe1337
+Return
 OldMacroBackVar += 1
-	ToolTip, Select - %OldMacroBackVar%, 0, 0
+if OldMacroBackVar > 4
+	OldMacroBackVar = 4
+	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip
 Return
 Metkakey_DownMacroOld:
 Sleep 1
-; IfWinNotActive, ahk_group gameexe1337
-; Return
+IfWinNotActive, ahk_group gameexe1337
+Return
 OldMacroBackVar -= 1
 if OldMacroBackVar < 1
 OldMacroBackVar = 1
-	ToolTip, Select - %OldMacroBackVar%, 0, 0
+	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip
 Return
-
-
-
-
-
-
-
 
 
 
@@ -1883,7 +1971,8 @@ AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfgh
 
 
 
-*~$End::
+
+Metkakey_EndExitapp:
 Exitapp
 Return
 
