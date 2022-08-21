@@ -25,6 +25,8 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
+Alt + Numpad 1 - SHIRO Chakram
+Alt + Numpad 2 - Karasuma drill (Test) (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -68,12 +70,14 @@ Send R
 
 
 
+Изменения: 21.08.2022
+ - Alt + Numpad 1 - SHIRO Chakram (Тычка тычка холда на Chakram)
 
 
 Изменения: 19.08.2022
  - Перенос служебных кнопок Pgup End и тд в "tofuConfig.ini"
  - Оверлей материалы на пушки
- - Немезида тычка - холда
+ - Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
  - Микроподкрутки
  - 4 - AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A". Гранатная ферма(-75, -845)
 
@@ -499,9 +503,10 @@ Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
 IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Settings, key_LabelNumpadAdd
 Hotkey, *~$%key_LabelNumpadAdd%, LabelNumpadAdd, on
 
-; IniRead, key_LabelANumpad1, data\tofuConfig.ini, Settings, key_LabelANumpad1
-; Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
-
+IniRead, key_LabelANumpad1, data\tofuConfig.ini, Settings, key_LabelANumpad1
+Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
+IniRead, key_LabelANumpad2, data\tofuConfig.ini, Settings, key_LabelANumpad2
+Hotkey, *~$%key_LabelANumpad2%, LabelANumpad2, on
 
 
 ;====================Зарегать клавиши
@@ -689,6 +694,10 @@ if jopa9
 Goto Label_Goto_NemesisAirhold
 if jopa20
 Goto Label_Goto_DilucVerticalFlight
+if jopa11
+Goto Label_Goto_Chakram
+if jopa12
+Goto Label_Goto_Karasuma1
 return
 
 
@@ -831,8 +840,65 @@ AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfgh
 
 
 
+;============================================Karasuma drill
+Label_Goto_Karasuma1:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+	SendInput, {vk20}
+	Sleep 320
+	SendInput, {vk20}
+	Sleep 250
+	SendInput, {%key_flyhackGajetKey%} 	;R
+	Sleep 1
+	SendInput, {vk1 Down} 	;LButton
+	Sleep 850
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 1
+return
 
+;============================================Широ Chakram
+Label_Goto_Chakram:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	SendInput, {vk1} 	;LButton
+	Sleep 400
+	
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+		
+	SendInput, {vk1 Down} 	;LButton
+	
+	Sleep 320
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 420
+	
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+		
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 400
+}
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
+return
 
+;============================================Немезида холд в воздухе
 Label_Goto_NemesisAirhold:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -876,8 +942,6 @@ Sleep 550
     If SpaceStateAA = D
 		SendInput, {vk1 Up}
 return
-
-
 
 ;============================================Хума комбо 1
 Label_Goto_HumaV1:
@@ -1270,14 +1334,21 @@ jopa20:=true
 	sleep 500
 	ToolTip
 Return
-; LabelANumpad1: 	;=============================================================
-; FuncMacroRestore()
-; jopa11:=true
-	; ToolTip,  , 0, 0
-	; sleep 500
-	; ToolTip
-; Return
-
+LabelANumpad1: 	;=============================================================SHIRO Chakram
+FuncMacroRestore()
+jopa11:=true
+	ToolTip,  SHIRO Chakram, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpad2: 	;=============================================================Karasuma drill
+FuncMacroRestore()
+jopa12:=true
+	ToolTip,  Karasuma drill, 0, 0
+	sleep 500
+	ToolTip
+	
+Return
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
