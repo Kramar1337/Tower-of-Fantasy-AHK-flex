@@ -24,6 +24,8 @@ __🚀Функционал:🚀__
   + Huma combo
   + Frigg ShiftClick
   + Nemesis Air AA
+  + SHIRO Chakram
+  + Karasuma drill
   + Diluc Vertical Flight
 - AFK фермерство. Работает даже когда игра свернута ( ͡° ͜ʖ ͡°)
   + AFK фермерство, спам "F"
@@ -81,6 +83,8 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
+Alt + Numpad 1 - SHIRO Chakram
+Alt + Numpad 2 - Karasuma drill (Test) (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
