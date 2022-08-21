@@ -96,8 +96,12 @@ Right - Переключить оверлей
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 19.08.2022
+Изменения: 21.08.2022
 
+ - Alt + Numpad 1 - SHIRO Chakram
+ - Alt + Numpad 1 - SHIRO Chakram (Тычка тычка холда на Chakram)
+
+Изменения: 19.08.2022
  - Перенос служебных кнопок Pgup End и тд в "tofuConfig.ini"
  - Оверлей материалы на пушки
  - Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
