@@ -99,7 +99,7 @@ Right - Переключить оверлей
 Изменения: 21.08.2022
 
  - Alt + Numpad 1 - SHIRO Chakram
- - Alt + Numpad 1 - SHIRO Chakram (Тычка тычка холда на Chakram)
+ - Alt + Numpad 2 - Karasuma drill (Test) (Экипировать и забиндить джетпак)
 
 Изменения: 19.08.2022
  - Перенос служебных кнопок Pgup End и тд в "tofuConfig.ini"
