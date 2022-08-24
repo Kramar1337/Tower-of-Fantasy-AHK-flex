@@ -6,7 +6,7 @@ AHK скрипт для Tower of Fantasy
 
 [__✨Boosty✨__](https://boosty.to/kramar1337)
 
-[Подробное описание](https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/wiki)
+[Подробное описание](https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/wiki) (Заполнено на 70%)
 
 __🚀Функционал:🚀__
 
