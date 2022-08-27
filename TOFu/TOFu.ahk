@@ -41,6 +41,7 @@ Right - Переключить оверлей
 https://tower-of-fantasy-map.appsample.com/
 
 Чайна карта. Есть все локации. Самый топ
+https://www.ghzs666.com/tower-of-fantasy-map#/
 https://static-web.ghzs.com/cspage_pro/huantaMap.html#/
 
 Чайна карта. Вроде топчик, подсветка видосом
@@ -58,7 +59,7 @@ https://toweroffantasy.online/map/
 
 Запланировано:
  - Ачивка на еду
- - Коносуба бур
+ - Коносуба бур с чипами
  - Рывки на CLAUDIA (в ожидании банера):
 Send LButton
 Sleep 270
@@ -70,9 +71,17 @@ Send R
 
 
 
-Изменения: 21.08.2022
- - Alt + Numpad 1 - SHIRO Chakram (Тычка тычка холда на Chakram)
+Изменения: 27.08.2022
+ - Alt + Up переключить спец макрос (F4)
+ - Alt + Down переключить спец макрос (F4)
+ - Автоприниматель пропускает кнопку "пойти в данж если нет смолы?"
+ - Фокусировка карты, исправления
+ - AFK фермерство, спам "F" каждые 2 сек (было 5, рероллерам привет)
+ - Пропуск диалогов 180ms
 
+Изменения: 21.08.2022
+ - Alt + Numpad 1 - SHIRO Chakram
+ - Alt + Numpad 2 - Karasuma drill (Test) (Экипировать и забиндить джетпак)
 
 Изменения: 19.08.2022
  - Перенос служебных кнопок Pgup End и тд в "tofuConfig.ini"
@@ -142,6 +151,10 @@ Send R
 105 меда 14:48
 125 меда 15:01
 
+
+Астора
+Блюмус
+Естрела
 
 
 
@@ -328,6 +341,20 @@ https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV22
 док от чичваркина
 https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/edit
 
+Награды за бездну
+https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo/edit#gid=0
+
+
+Пополнение Oldubil через биржу Huobi
+https://vk.com/@storeps5-popolnenie-oldubil-cherez-birzhu-huobi
+
+Биржа
+https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
+
+
+
+
+
 
 
 Основные фишечки:
@@ -360,12 +387,7 @@ https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/
  Зависание в воздухе без стамины
 
 
-
-
-
 */
-
-
 
 WinName:= "TOF AHK Flex v3 by Kramar1337"
 CoordMode, Mouse, Screen
@@ -378,9 +400,7 @@ Process, Priority,, High
 #SingleInstance force
 DetectHiddenWindows, On
 DetectHiddenText, On
-
 Menu,Tray, Icon, data\genicon.ico, ,1
-
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 if IsAdmin
 {
@@ -398,7 +418,6 @@ If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
 }
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
-
 
 ;====================Настройки трея. Системные иконки: shell32.dll, imageres.dll, еще 1
 Menu,Tray,NoStandard
@@ -423,7 +442,6 @@ Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
 Menu,Tray, Icon, Exit, shell32.dll,28, 16
 
-
 ;====================Настройки .ini
 IniRead, FIXchat, data\tofuConfig.ini, Settings, FIXchat
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
@@ -437,11 +455,6 @@ IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл
 IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
 IniRead, MouseCenterMapVar, data\tofuConfig.ini, Settings, MouseCenterMapVar
 IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
-if OldMacroBackVar > 0
-{
-Hotkey, *~Up, Metkakey_UpMacroOld, on
-Hotkey, *~Down, Metkakey_DownMacroOld, on
-}
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 
 ;=====================================Кнопки
@@ -459,7 +472,6 @@ IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
 IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
 IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
 
-
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
 IniRead, Checkbox1fastlyt, data\tofuConfig.ini, Settings, Checkbox1fastlyt
@@ -470,7 +482,6 @@ IniRead, Checkbox1animcancel, data\tofuConfig.ini, Settings, Checkbox1animcancel
 IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
-IniRead, Checkbox1OtherMacros, data\tofuConfig.ini, Settings, Checkbox1OtherMacros
 
 
 ;=====================================Безопасность
@@ -508,7 +519,6 @@ Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
 IniRead, key_LabelANumpad2, data\tofuConfig.ini, Settings, key_LabelANumpad2
 Hotkey, *~$%key_LabelANumpad2%, LabelANumpad2, on
 
-
 ;====================Зарегать клавиши
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
 Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
@@ -526,6 +536,13 @@ Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной и�
 if Checkbox1flyhack = 1
 Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 	;Флай хак
 
+if OldMacroBackVar > 0
+{
+	Hotkey, *~!Up, Metkakey_UpMacroOld, on
+	Hotkey, *~!Down, Metkakey_DownMacroOld, on
+	Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
+}
+
 if Checkbox1animcancel = 1
 {
 Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
@@ -537,9 +554,6 @@ if (Checkbox1autowalk == 1)
 Hotkey, %key_autowalk%, Metkakey_autowalk, on
 if (Checkbox1AseptarKey == 1)
 Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
-if (Checkbox1OtherMacros == 1)
-Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
-
 
 
 ;======================Переменные для скипа диалогов
@@ -553,10 +567,9 @@ ySkip3:=round(A_ScreenHeight * (860 / 1440))
 ;======================Переменные для макросов на героев, "Loop 26" - 25 слотов, 0 1 2 3 4 n...
 Loop 26
 {
-IndexVarL := A_Index - 1
-jopa%IndexVarL% := false
+	IndexVarL := A_Index - 1
+	jopa%IndexVarL% := false
 }
-
 
 ;======================Таймеры
 TogglerTimer1 = 0
@@ -577,7 +590,7 @@ Loop, parse, GroupNameMap1337Var, `n, `r
 if (Map2toggle == 1)
 run_param:="https://tower-of-fantasy-map.appsample.com/"
 if (Map2toggle == 2)
-run_param:="https://static-web.ghzs.com/cspage_pro/huantaMap.html#/"
+run_param:="https://www.ghzs666.com/tower-of-fantasy-map#/"
 if (Map2toggle == 3)
 run_param:="https://h5.gaonengshike.com/plusmaps/hotta?markable=1"
 if (Map2toggle == 4)
@@ -635,17 +648,17 @@ Gui, 99: Cancel
 return
 ;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
 
-
 ; TickCountTimer := A_TickCount
 ; Sleep, 1000
 ; TickCountTimerEnd := A_TickCount - TickCountTimer
-
-
 
 ;===============================================================Автоприниматель (автоасептар)
 Metkakey_AseptarKey:
 x1asept:=round(A_ScreenWidth * (1500 / 2560))
 y1asept:=round(A_ScreenHeight * (1020 / 1440))
+
+x2asept:=round(A_ScreenWidth * (865 / 2560))
+y2asept:=round(A_ScreenHeight * (774 / 1440))
 toggleAseps:=!toggleAseps
     if (toggleAseps) 
 	{
@@ -658,15 +671,13 @@ toggleAseps:=!toggleAseps
     }
 return
 Accepter1:
-MouseMove,x1asept,y1asept
-sleep 50
-Click
+Click %x1asept% %y1asept%
+sleep 500
+Click %x2asept% %y2asept%
+sleep 1
 ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate
 sleep 5000
 return
-
-
-
 
 ;========================================================Макросы
 Metkakey_animcancel:
@@ -700,665 +711,19 @@ if jopa12
 Goto Label_Goto_Karasuma1
 return
 
-
-
-
-
-;====================================================================================Прочие макросы
-Metkakey_AllOldMacroBack:
-if (OldMacroBackVar == 1) 	;AFK фермерство ControlSend, спам "F" каждые 5 сек
-{
-	Sleep 1
-SetTimer, LabelAFKsurf, off
-SetTimer, LabelAFKclick, off
-SetTimer, LabelAFKgranateFarm, off
-	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
-	if !TogglerTimer1
-		Tooltip,,0,0,3
-}
-if (OldMacroBackVar == 2) 	;AFK ачивка сёрфера, залипание кнопки "W" и "A"
-{
-	Sleep 1
-SetTimer, LabelAFKloot, off
-SetTimer, LabelAFKclick, off
-SetTimer, LabelAFKgranateFarm, off
-	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
-	if !TogglerTimer3
-		Tooltip,,0,0,3
-}
-if (OldMacroBackVar == 3) 	;AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
-{
-	Sleep 1
-SetTimer, LabelAFKloot, off
-SetTimer, LabelAFKsurf, off
-SetTimer, LabelAFKgranateFarm, off
-	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
-	if !TogglerTimer2
-		Tooltip,,0,0,3
-}
-if (OldMacroBackVar == 4) 	;AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A"
-{
-	Sleep 1
-SetTimer, LabelAFKloot, off
-SetTimer, LabelAFKsurf, off
-SetTimer, LabelAFKclick, off
-	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
-	if !TogglerTimer4
-		Tooltip,,0,0,3
-}
-return
-
-; SetTimer, LabelAFKloot, off
-; SetTimer, LabelAFKsurf, off
-; SetTimer, LabelAFKclick, off
-; SetTimer, LabelAFKgranateFarm, off
-
-;======================OldMacroBackVar = 1===========AFK Фермерство, сбор лута цикл прожатия "F" каждые 5 сек
-LabelAFKloot:
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK auto loot.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
-	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
-	{
-		ControlSend,ahk_parent, {vk46}, ahk_group gameexe1337 	;Нажатие "F"
-	}
-	Else
-	{
-		SendInput {vk46}
-	}
-Random, RandomVarSc1, 500, 1000
-sleep %RandomVarSc1%
-Sleep 5000
-return
-;======================OldMacroBackVar = 2===========AFK ачивка сёрфера, залипание кнопки "W" и "A"
-LabelAFKsurf:
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK auto surf.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
-	if UseControlSendVar
-	{
-		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
-		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
-	}
-	Else
-	{
-		SendInput {vk57 down} 	;W
-		SendInput {vk41 down} 	;A
-	}
-Random, RandomVarSc1, 500, 1000
-sleep %RandomVarSc1%
-Sleep 4000
-return
-;======================OldMacroBackVar = 3===========AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
-LabelAFKclick:
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
-	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
-	{
-		ControlSend,ahk_parent, {vk1}, ahk_group gameexe1337
-	}
-	Else
-	{
-		SendInput {vk1}
-	}
-Random, RandomVarSc1, 500, 1000
-sleep %RandomVarSc1%
-Sleep 5000
-return
-;======================OldMacroBackVar = 4===========AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A"
-LabelAFKgranateFarm:
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
-	if UseControlSendVar
-	{
-		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
-		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
-		ControlSend,ahk_parent, {vk46}, ahk_group gameexe1337 		;Нажатие "F"
-	}
-	Else
-	{
-		SendInput {vk57 down} 	;W
-		SendInput {vk41 down} 	;A
-		SendInput {vk46} 		;A
-	}
-Random, RandomVarSc1, 500, 1000
-sleep %RandomVarSc1%
-Sleep 2000
-return
-
-
-
+#Include *i %A_ScriptDir%\data\Lib\LibOldMacroBack.ahk 		;Прочие сомнительные макросы, фермерство и тд
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
-
-
-
-;============================================Karasuma drill
-Label_Goto_Karasuma1:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-	SendInput, {vk20}
-	Sleep 320
-	SendInput, {vk20}
-	Sleep 250
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 1
-	SendInput, {vk1 Down} 	;LButton
-	Sleep 850
-	SendInput, {vk1 Up} 	;LButton
-	Sleep 1
-return
-
-;============================================Широ Chakram
-Label_Goto_Chakram:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	SendInput, {vk1} 	;LButton
-	Sleep 400
-	
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-		
-	SendInput, {vk1 Down} 	;LButton
-	
-	Sleep 320
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 420
-	
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-		
-	SendInput, {vk1 Up} 	;LButton
-	Sleep 400
-}
-    GetKeyState, SpaceStateAA, vk1
-    If SpaceStateAA = D
-		SendInput, {vk1 Up}
-return
-
-;============================================Немезида холд в воздухе
-Label_Goto_NemesisAirhold:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-SendInput, {vk1}
-Sleep 400
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-SendInput, {vk1 Down}
-Sleep 440
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-Sleep 400
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-SendInput, {vk1 Up}
-Sleep 100
-SendInput, {vk1 Down}
-Sleep 400
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-Sleep 440
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-SendInput, {vk1 Up}
-Sleep 550
-}
-    GetKeyState, SpaceStateAA, vk1
-    If SpaceStateAA = D
-		SendInput, {vk1 Up}
-return
-
-;============================================Хума комбо 1
-Label_Goto_HumaV1:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 1
-Loop
-{
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 600
-
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 700
-
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 Down}
-Sleep 1200
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 up}
-
-Sleep 1
-SendInput, {vkA0}
-Sleep 140
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 400
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk20}
-Sleep 100
-}
-	GetKeyState, SpaceStateAAA, vk1
-	If SpaceStateAAA = D
-		SendInput, {vk1 Down}
-return
-
-
-;============================================Хума комбо 2
-Label_Goto_HumaV2:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 1
-Loop
-{
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 600
-
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 700
-
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 Down}
-Sleep 1200
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 up}
-
-Sleep 1
-SendInput, {vkA0}
-Sleep 140
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-
-Sleep 900
-}
-	GetKeyState, SpaceStateAAA, vk1
-	If SpaceStateAAA = D
-		SendInput, {vk1 Down}
-return
-
-
-
-;============================================Дилюк вертикальный полет
-Label_Goto_DilucVerticalFlight:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 1
-SendInput, {vk20} 	;Space
-Sleep 100
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	SendInput, {vk1 Down} 	;LButton
-	Sleep 650
-
-GetKeyState, SpaceStateAA, %key_animcancel%, P
-If SpaceStateAA = U
-    break
-
-	SendInput, {vk1 Up} 	;LButton
-	Sleep 300
-
-GetKeyState, SpaceStateAA, %key_animcancel%, P
-If SpaceStateAA = U
-    break
-
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 20
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 20
-}
-SendInput, {vk1} 	;LButton
-return
-;============================================Самир ходьба рывками
-Label_Goto_SamirDashAttackCancels:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 1
-	SendInput, {vkA0} 	;Shift
-	sleep 430
-	SendInput, {vk1} 	;LButton
-	sleep 150
-	SendInput, {vk20} 	;Space
-Sleep 1
-return
-;============================================Бхоп
-Label_Goto_Bhop:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Sleep 100
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-	Sleep 50
-	SendInput, {vk20} 	;Space
-}
-return
-;============================================FriggShift
-Label_Goto_FriggShift:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-	SendInput, {vkA0} 	;Shift
-	Sleep 1
-    SendInput, {vk1}
-	Sleep 100
-}
-return
-;============================================Мерил тест 1
-Label_Goto_MerylAirAttack2:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-    SendInput, {Blind}{vk1}
-	Sleep 300
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 300
-	SendInput, {Blind}{vk1}
-	Sleep 300
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 300
-	SendInput, {Blind}{vk1}
-	Sleep 500
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 500
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 400
-	SendInput, {Blind}{vk1}
-	Sleep 400
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 400
-}
-return
-;==========Кликер инвентаря
-Label_Goto_InventoryClicker:
-Loop
-{
-    GetKeyState, SpaceStateIC, %key_animcancel%, P
-    If SpaceStateIC = U
-        break 
-    Sleep 16
-    SendInput, {Blind}{vk1}
-}
-Return
-;==========Бесконечный полет AutoFly
-Label_Goto_Fly_Auto:
-	if FIXchat 	;Если "FIXchat" то чекать курсор
-	{
-		if FuncCursorVisible() 	;Если есть курсор то возврат
-			Return
-	}
-		Sleep 1
-		Toggle1Fly := !Toggle1Fly
-		if (Toggle1Fly)
-		{
-			SetTimer, LabelFly_Auto, on
-		}
-		Else
-		{
-			SetTimer, LabelFly_Auto, off
-			LoopOffVar1 = 0
-		}
-Return
-LabelFly_Auto:
-LoopOffVar1 = 1
-SendInput, {vk57 Down} 	;W
-Loop
-{
-	IfWinNotActive, ahk_group gameexe1337 	;Если окно не активно, то остановить поток
-	{
-		SetTimer, LabelFly_Auto, off
-		if Toggle1Fly
-			Toggle1Fly := !Toggle1Fly
-		LoopOffVar1 = 0
-		SendInput, {vk57 Up} 	;W
-		break
-	}
-
-    Sleep 50 	;40-50 долгое парение
-	if !LoopOffVar1
-	{
-		SetTimer, LabelFly_Auto, off
-		if Toggle1Fly
-			Toggle1Fly := !Toggle1Fly
-		SendInput, {vk57 Up} 	;W
-        break
-	}
-    SendInput, {%key_flyhackGajetKey%} 	;3 прожать слот гаджета
-	
-	;========================Каждые 3800 мс спамить Shift
-	TickCountTimerStart := (A_TickCount - TickCountTimer) * IndexTickCountVarEnd
-	if TickCountTimerStart > 3800
-	{
-		IndexTickCountVarEnd = 1
-		SendInput, {vkA0} 	;Shift
-		Sleep 550
-	}
-	Else
-	{
-		IndexTickCountVarEnd+=1
-	}
-	TickCountTimer := A_TickCount 	;Зарегать время
-}
-Return
-;==========Обычный спам автоатакой
-Label_Goto_Auto_Attack:
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-    Sleep 70
-    SendInput, {Blind}{vk1}
-}
-Return
-
-;=====================Выбор слота
-LabelNumpad0: 	;================================================================Off
-FuncMacroRestore() 	;Сбросить "jopa=False" и включить кнопку %key_animcancel%
-Hotkey, %key_animcancel%, Metkakey_animcancel, Off
-jopa0:=true
-	ToolTip, Off, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad1: 	;================================================================AAtack
-FuncMacroRestore()
-jopa1:=true
-	ToolTip, AAtack, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad2: 	;================================================================InventoryClicker
-FuncMacroRestore()
-jopa2:=true
-	ToolTip, InventoryClicker, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad3: 	;================================================================AutoFly
-FuncMacroRestore()
-jopa3:=true
-	ToolTip, AutoFly, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad4: 	;================================================================Huma 1
-FuncMacroRestore()
-jopa4:=true
-	ToolTip, Huma Combo 1, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad5: 	;================================================================Huma 2
-FuncMacroRestore()
-jopa5:=true
-	ToolTip, Huma Combo 2, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad6: 	;================================================================FRIGG Shift+Click
-FuncMacroRestore()
-jopa6:=true
-	ToolTip, FRIGG Shift+Click, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad7: 	;================================================================Bhop
-FuncMacroRestore()
-jopa7:=true
-	ToolTip, Bhop, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad8: 	;================================================================Samir Dash
-FuncMacroRestore()
-jopa8:=true
-	ToolTip, Samir Dash, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpad9: 	;================================================================NEMESIS Air hold
-FuncMacroRestore()
-jopa9:=true
-	ToolTip,  NEMESIS Air hold, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpadAdd: 	;=============================================================Diluc Vertical Flight
-FuncMacroRestore()
-jopa20:=true
-	ToolTip,  Diluc Vertical Flight, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelANumpad1: 	;=============================================================SHIRO Chakram
-FuncMacroRestore()
-jopa11:=true
-	ToolTip,  SHIRO Chakram, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelANumpad2: 	;=============================================================Karasuma drill
-FuncMacroRestore()
-jopa12:=true
-	ToolTip,  Karasuma drill, 0, 0
-	sleep 500
-	ToolTip
-	
-Return
+#Include *i %A_ScriptDir%\data\Lib\LibNumpadMucroLabel.ahk 		;Метка основные макросы на персонажей Label_Goto_ тд
+#Include *i %A_ScriptDir%\data\Lib\LibNumpadSlot.ahk 		;Метка выбор макрос слота Numpad
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
-
-
 
 ;===============================Автоходьба
 Metkakey_autowalk:
 ; IfWinActive, ahk_group gameexe1337
 sleep 50
-
 	GetKeyState, AutowalkVar, vk57 	;W
 	if AutowalkVar = U		;Если кнопка отжата
 	{
@@ -1384,11 +749,7 @@ sleep 50
 			SendInput {vk57} 	;W
 		}
 	}
-
 return
-
-
-
 
 ;======================================Переключение оверлея Left - Right
 *~$Left::
@@ -1424,8 +785,6 @@ if overlay1toggle
 }
 Return
 
-
-
 ;========================================================Фастлут
 Metkakey_fastlyt:
 IfWinActive, ahk_group gameexe1337
@@ -1447,8 +806,6 @@ Loop
 }
 return
 
-
-
 ;===============================Скип диалогов NPC Lock
 Metkakey_skipNPS:
 IfWinActive, ahk_group gameexe1337
@@ -1458,9 +815,11 @@ IfWinActive, ahk_group gameexe1337
 	if !FuncCursorVisible()
 		Return
 	}
-Sleep 270
+Sleep 1
 if !ModeSkipNPS
-Loop
+{
+Sleep 180
+	Loop
 	{
 		GetKeyState, SpaceVar2, %key_skipNPS%, P
 		If SpaceVar2 = U
@@ -1481,6 +840,7 @@ Loop
 		sleep %RandomVarSc%
 	Click %xSkip3% %ySkip3%	
 	}
+}
 if ModeSkipNPS
 	{
 		1toggle1skipnpc := !1toggle1skipnpc
@@ -1497,8 +857,6 @@ if ModeSkipNPS
 		  Tooltip,,0,0,2
 		}
 	}
-
-
 
 }
 return
@@ -1536,23 +894,21 @@ svffPereklu4atelFisting228 = 1
 		}
 Return
 
-
 ;===============================Оверлей с подсказками
 Metkakey_overlay:
 sleep 50
 overlay1toggle := !overlay1toggle
 if (overlay1toggle)
 {
-; WinMinimize ahk_group gameexe1337
-Gui, 99: Show
+	; WinMinimize ahk_group gameexe1337
+	Gui, 99: Show
 }
 else
 {
-; WinMaximize ahk_group gameexe1337
-Gui, 99: Cancel
+	; WinMaximize ahk_group gameexe1337
+	Gui, 99: Cancel
 }
 return
-
 
 ;=====================================================Флайхак
 Metkakey_flyhack:
@@ -1609,124 +965,9 @@ if FIXchat
 }
 Return
 
-
-
-
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
-
-
-
-;===============================Карта
-Metkakey_map:
-MonitorFound1:=0
-sleep 50
-IfWinActive, ahk_group gameexe1337
-toggle1 := 0
-IfWinActive, ahk_group GroupNameMap1337
-toggle1 := 1
-SysGet, MonitorCountVar, MonitorCount 	;получить кол-во мониторов
-if MonitorCountVar > 1 	;если кол-во мониторов больше 1 то
-{
-	;Центр монитора
-	ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
-	ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
-	;Получаем положение окна и его размеры
-	IfWinExist, ahk_group GroupNameMap1337
-	{
-		WinGetPos, X1map, Y1map, Width1map, Height1map, %MapWin1337%
-		X1mapMa:=round(X1map + Width1map / 2)
-		Y1mapMa:=round(Y1map + Height1map / 2)
-		; Получено 2 точки между 2мя мониторами
-		X1mapMaLast:=abs(X1mapMa - ScreenWidthMap2mon228)
-		Y1mapMaLast:=abs(Y1mapMa - ScreenHeightMap2mon228)
-		if (X1mapMaLast < ScreenWidthMap2mon228) and (Y1mapMaLast < ScreenHeightMap2mon228)
-			{
-			MonitorFound1:=0
-			; Tooltip Карта на основном мониторе
-			}
-		Else
-			{
-			MonitorFound1:=1
-			; Tooltip Карта на дополнительном мониторе
-			}
-	}
-}
-toggle1 := !toggle1
-if (toggle1)
-{
-IfWinExist, ahk_group GroupNameMap1337 ;если найдено окно с картой то..
-	{
-		sleep 1
-		WinActivate ahk_group GroupNameMap1337 ;сделать активным
-		WinSet, Redraw,, ahk_group GroupNameMap1337
-		sleep 1
-		if MouseCenterMapVar
-		{
-			if MonitorFound1
-			MouseMove, X1mapMa, Y1mapMa
-			Else
-			{
-				ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
-				ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
-				MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
-			}
-		}
-	}
-IfWinNotExist, ahk_group GroupNameMap1337 ;если окно карты не найдено то..
-	{
-	if BrauzerCheck = 0
-		{
-			Run,%run_param% ;подрубить дефолтный браузер и завести карту
-		}
-	if BrauzerCheck = 1
-		{
-			run_path	= %BrauzerPick%
-			Run,%run_path% %run_param% ;подрубить выбранный браузер и завести карту
-		}
-	loop 7
-		{
-			IfWinExist, ahk_group GroupNameMap1337 ;ожидание окна карты
-			{
-				sleep 1
-				WinActivate ahk_group GroupNameMap1337 ;сделать активным
-				WinSet, Redraw,, ahk_group GroupNameMap1337
-					if MouseCenterMapVar
-					{
-						ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
-						ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
-						MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
-					}
-				sleep 1
-				break
-			}
-			sleep 900
-		}
-	}
-}
-else
-{
-	if MouseCenterMapVar
-	{
-		if MonitorFound1
-		MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
-		Else
-		{
-			ScreenWidthMap2mon228:=round(A_ScreenWidth / 2)
-			ScreenHeightMap2mon228:=round(A_ScreenHeight / 2)
-			MouseMove, ScreenWidthMap2mon228, ScreenHeightMap2mon228
-		}
-	}
-	sleep 1
-	WinActivate ahk_group gameexe1337
-	WinSet, Redraw,, ahk_group gameexe1337
-	sleep 1
-}
-return
-
-
-
-
+#Include *i %A_ScriptDir%\data\Lib\LibMetkaOpenMap.ahk 		;Метка открыть карту
 
 ;===============================Отключить все хоткеи, остановить активные потоки
 Metkakey_PgUpPauseSuspend:
@@ -1735,23 +976,22 @@ Suspend, Toggle
 1toggle1Suspend := !1toggle1Suspend
 if (1toggle1Suspend)
 {
-Menu,Tray, Icon, Pause-Play, imageres.dll, 230, 16
-SoundPlay, %A_ScriptDir%\data\zplop.wav
-Tooltip, OFF,round(A_ScreenWidth * .5),0,2
-sleep 300
-ToolTip,,0,0,2
+	Menu,Tray, Icon, Pause-Play, imageres.dll, 230, 16
+	SoundPlay, %A_ScriptDir%\data\zplop.wav
+	Tooltip, OFF,round(A_ScreenWidth * .5),0,2
+	sleep 300
+	ToolTip,,0,0,2
 }
 Else
 {
-Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
-SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
-ToolTip, ON,round(A_ScreenWidth * .5),0,2
-sleep 300
-ToolTip,,0,0,2
+	Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
+	SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+	ToolTip, ON,round(A_ScreenWidth * .5),0,2
+	sleep 300
+	ToolTip,,0,0,2
 }
 Pause , Toggle, 1
 return
-
 
 ;===============================Остановить SetTimer потоки, скрыть оверлей
 *~$Escape::
@@ -1772,6 +1012,29 @@ if toggleAseps
 }
 Return
 
+;=======================================Up Down, вверх вниз переключение макросов "OldMacroBackVar"
+Metkakey_UpMacroOld:
+Sleep 1
+IfWinNotActive, ahk_group gameexe1337
+Return
+OldMacroBackVar += 1
+if OldMacroBackVar > 4
+	OldMacroBackVar = 4
+	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
+	sleep 300
+	ToolTip
+Return
+Metkakey_DownMacroOld:
+Sleep 1
+IfWinNotActive, ahk_group gameexe1337
+Return
+OldMacroBackVar -= 1
+if OldMacroBackVar < 1
+OldMacroBackVar = 1
+	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
+	sleep 300
+	ToolTip
+Return
 
 ;==================================================Работа с метками
 ;=============================Установка решейда, перемещение файлов в папку игры
@@ -1814,8 +1077,6 @@ FileRemoveDir, %SelectedFileVar1%\Preset, 1
 FileRemoveDir, %SelectedFileVar1%\reshade-shaders, 1
 SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
 Return
-
-
 
 ;==========================================Функция: есть курсор мышки - 1, нет курсора - 0
 FuncCursorVisible()
@@ -1871,7 +1132,6 @@ MetkaMenu0:
 Exitapp
 Return
 
-
 ;=====================Меню, создать ярлык
 Metkashortcut1:
 FileCreateShortcut, %A_ScriptFullPath%, %A_Desktop%\TOFuAHK.lnk,,,TOFu gachibaser things, %A_ScriptDir%\data\genicon.ico
@@ -1888,160 +1148,11 @@ Metkashortcut5:
 Reload
 Return
 
-
-
-;=======================================Up Down, вверх вниз переключение макросов "OldMacroBackVar"
-Metkakey_UpMacroOld:
-Sleep 1
-IfWinNotActive, ahk_group gameexe1337
-Return
-OldMacroBackVar += 1
-if OldMacroBackVar > 4
-	OldMacroBackVar = 4
-	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
-	sleep 300
-	ToolTip
-Return
-Metkakey_DownMacroOld:
-Sleep 1
-IfWinNotActive, ahk_group gameexe1337
-Return
-OldMacroBackVar -= 1
-if OldMacroBackVar < 1
-OldMacroBackVar = 1
-	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
-	sleep 300
-	ToolTip
-Return
-
-
-
-;===============================================================ОБНОВЛЯТОР
-Metkashortcut6UpdateButton:
-	FileCreateDir, update
-	; URLDownloadToFile, https://raw.githubusercontent.com/Kramar1337/GenshinImpact-AHK-flex/main/Genshin`%20AHK/data/inputversion.ini, update\inputversion.ini
-	MsgBox 0x1, ,Download and instal update?
-	IfMsgBox OK, {
-	;==================================Блок с обновой
-	FinalSizeZip = 11793879
-	Global FinalSize, FinalSizeZip
-	DownloadFile("https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/archive/main.zip", "update\main.zip")
-	if !FileExist("update\main.zip")
-	{
-		MsgBox,,, Error`nФайл не скачался "update\main.zip", 1
-		FileRemoveDir, update, 1
-		Return
-	}
-	ArcPath = %A_ScriptDir%\update\main.zip
-	OutPath = %A_ScriptDir%\update
-	Shell := ComObjCreate("Shell.Application")
-	Items := Shell.NameSpace(ArcPath).Items
-	Items.Filter(73952, "*")
-	Shell.NameSpace(OutPath).CopyHere(Items, 16)
-	IfNotExist, %A_ScriptDir%\update\Tower-of-Fantasy-AHK-flex-main\TOFu
-	{
-		FileRemoveDir, update, 1
-		MsgBox,,, Error`nПредыдущая обнова была прервана`nФайлы поломались`nПовтори попытку еще раз, 2
-		Return
-	}
-Gosub ImportSettLabel1 	;=============================импорт настроек
-FileMoveDir, %A_ScriptDir%\update\Tower-of-Fantasy-AHK-flex-main\TOFu\data, %A_ScriptDir%, 1
-Loop update\Tower-of-Fantasy-AHK-flex-main\TOFu\*.ahk 	;Получить имя AHK файла
-{
-}
-FileDelete, %A_ScriptFullPath% 	;Удалить свой ahk
-If ScRenamer
-{
-	SplitPath, savereloadvar,,,,z3z3ext
-	SplitPath, savereloadvar,,,z2z2ext
-	FileMove, update\Tower-of-Fantasy-AHK-flex-main\TOFu\%A_LoopFileName%, %A_ScriptDir%\%z3z3ext%.%z2z2ext%, 1
-}
-Else
-{
-	SplitPath, A_ScriptFullPath,,,,z3z3ext
-	SplitPath, A_ScriptName,,,z2z2ext
-	FileMove, update\Tower-of-Fantasy-AHK-flex-main\TOFu\%A_LoopFileName%, %A_ScriptDir%\%z3z3ext%.%z2z2ext%, 1
-}
-FileRemoveDir, update, 1
-MsgBox,,, Ok`nТребуется перезапуск скрипта`nExitApp after 3 sec, 3
-ExitApp
-;==================================Конец блока с обновой
-} Else IfMsgBox Cancel, {
-FileRemoveDir, update, 1
-Return
-}
-Return
-
-
-;==========================================метка с импортом настроек, %FileVarImport% откуда читать, %FileVarImport2% куда писать
-ImportSettLabel1:
-FileVarImport=data\tofuConfig.ini
-FileVarImport2=update\Tower-of-Fantasy-AHK-flex-main\TOFu\data\tofuConfig.ini
-FileRead, GroupNameMap1337Var228, %A_ScriptDir%\data\tofuConfig.ini 	;Прочитать старый конфиг
-Loop, parse, GroupNameMap1337Var228, `n, `r
-{
-	VarLoopFieldEdit1 := A_LoopField
-	VarLoopFieldEdit1 := RegExReplace(VarLoopFieldEdit1, "mi);.*", "") 	;Убрать строки с знаком ";"
-	RegExMatch(VarLoopFieldEdit1, "(.*?)=(.*)", VarLoopFieldEdit1) 	;Найти все значения
-	if (VarLoopFieldEdit1 != "") 	;Если пусто то игнорим
-	{
-		VarLoopFieldEditSta := RegExReplace(VarLoopFieldEdit1, "(\s?)=(.*)") 	;Получить имя
-		VarLoopFieldEditEns := RegExReplace(VarLoopFieldEdit1, "(.*?)=(\s?)") 	;Получить результат
-		
-	IniRead, VarLoopFieldEdit3, %FileVarImport%, Settings, %VarLoopFieldEditSta% 	;Перебрать все настройки
-		if !(VarLoopFieldEdit3 = "ERROR")
-			IniWrite, %VarLoopFieldEditEns%, %FileVarImport2%, Settings, %VarLoopFieldEditSta%	
-
-	}
-}
-Return
-
-
-;==================================Функция обновлятора
-DownloadFile(UrlToFile = "", SaveFileAs = "", Overwrite := False, UseProgressBar := True) {
-	  If (UrlToFile = "" && SaveFileAs != "") {
-			If FileExist(SaveFileAs)
-				Return "Downloaded"
-			Else
-				Return "No"
-		}
-      If (!Overwrite && FileExist(SaveFileAs))
-          Return
-      If (UseProgressBar) {
-            WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-            WebRequest.Open("HEAD", UrlToFile)
-            WebRequest.Send()
-            FinalSize := FinalSizeZip
-            Progress, A M Y0 H80, , Downloading..., %UrlToFile%
-            SetTimer, __UpdateProgressBar, 100
-      }
-      UrlDownloadToFile, %UrlToFile%, %SaveFileAs%
-      If (UseProgressBar) {
-          Progress, Off
-          SetTimer, __UpdateProgressBar, Off
-      }
-    Return
-
-      __UpdateProgressBar:
-            CurrentSize := FileOpen(SaveFileAs, "r").Length 
-            CurrentSizeTick := A_TickCount
-            Speed := Round((CurrentSize/1024-LastSize/1024)/((CurrentSizeTick-LastSizeTick)/1000)) . " Kb/s"
-            LastSizeTick := CurrentSizeTick
-            LastSize := FileOpen(SaveFileAs, "r").Length
-            PercentDone := Round(CurrentSize/FinalSize*100)
-            Progress, %PercentDone%, %PercentDone%`% Done, Downloading...  (%Speed%), Downloading %SaveFileAs% (%PercentDone%`%)
-      Return
-}
-
-
-
+#Include *i %A_ScriptDir%\data\Lib\LibUpdateButton.ahk 		;Кнопка обновления
+#Include *i %A_ScriptDir%\data\Lib\LibImportSettLabel.ahk 	;Импорт настроек
+#Include *i %A_ScriptDir%\data\Lib\LibFuncUpdate.ahk 		;Функция скачивания файла
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
-
-
-
-
-
 
 Metkakey_EndExitapp:
 Exitapp
