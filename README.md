@@ -1,4 +1,4 @@
-# ToF AHK flex v3.3
+# ToF AHK flex v3.4
 
 AHK скрипт для Tower of Fantasy
 
