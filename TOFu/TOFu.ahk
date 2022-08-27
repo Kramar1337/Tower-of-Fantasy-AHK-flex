@@ -666,16 +666,16 @@ toggleAseps:=!toggleAseps
     } 
 	else 
 	{
-		ToolTip
         SetTImer, Accepter1, Off
+		ToolTip
     }
 return
 Accepter1:
+ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate,round(A_ScreenWidth * .5),0
+sleep 1
 Click %x1asept% %y1asept%
 sleep 500
 Click %x2asept% %y2asept%
-sleep 1
-ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate
 sleep 5000
 return
 
