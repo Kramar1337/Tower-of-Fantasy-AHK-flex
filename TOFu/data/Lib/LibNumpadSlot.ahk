@@ -1,7 +1,9 @@
 ﻿;=====================Выбор слота
 LabelNumpad0: 	;================================================================Off
 FuncMacroRestore() 	;Сбросить "jopa=False" и включить кнопку %key_animcancel%
+Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
 Hotkey, %key_animcancel%, Metkakey_animcancel, Off
+Hotkey, IfWinActive
 jopa0:=true
 	ToolTip, Off, 0, 0
 	sleep 500
