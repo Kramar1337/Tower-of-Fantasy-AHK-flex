@@ -34,6 +34,15 @@ PgUp - Приостановить - возобновить работу AHK
 Left - Переключить оверлей
 Right - Переключить оверлей
 
+Переключить: Alt + Up и Alt + Down
+0 - Отключить
+1 - AFK фермерство, спам "F" каждые 2 сек
+2 - AFK ачивка сёрфера, залипание кнопки "W" и "A"
+3 - AFK фермерство на Хильде, спам "Click" каждые 5 сек
+4 - AFK фермерство, спам "F" залипание кнопки "W" и "A". Гранатная ферма(-75, -845)
+5 - AFK фермерство, спам "F" ходьба кругами "W" и "S", 5 секунд вперед, 5 секунд назад
+6 - AFK фермерство SendInput, Фарм монет дружбы, для работы нужно < 30 смолы
+
 
 
 Карты: 1 - 2 - 3 - 4
@@ -73,6 +82,10 @@ Send R
 
 
 
+
+Изменения: 03.09.2022
+ - 6 - AFK фермерство SendInput, Фарм монет дружбы, для работы нужно < 30 смолы
+ - 3 - AFK фермерство на Хильде, спам "Click" каждые 3 сек
 
 Изменения: 30.08.2022
  - Macro Key не блокируется вне игры
@@ -149,8 +162,11 @@ Send R
 
 
 Астора
-Блюмус
+
 Естрела
+
+Блюмус
+
 
 
 
@@ -596,6 +612,11 @@ TogglerTimer2 = 0
 TogglerTimer3 = 0
 TogglerTimer4 = 0
 TogglerTimer5 = 0
+TogglerTimer6 = 0
+TogglerTimer7 = 0
+TogglerTimer8 = 0
+TogglerTimer9 = 0
+TogglerTimer10 = 0
 
 ;=====================================================имя окна карты на разных языках
 ;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
@@ -1038,8 +1059,8 @@ Sleep 1
 IfWinNotActive, ahk_group gameexe1337
 Return
 OldMacroBackVar += 1
-if OldMacroBackVar > 5
-	OldMacroBackVar = 5
+if OldMacroBackVar > 6
+	OldMacroBackVar = 6
 	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip

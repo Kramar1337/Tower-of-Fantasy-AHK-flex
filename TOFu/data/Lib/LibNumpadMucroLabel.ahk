@@ -5,9 +5,9 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 	if FuncCursorVisible() 	;Если есть курсор то возврат
 		Return
 }
-	SendInput, {vk20}
+	SendInput, {vk20} 	;Space
 	Sleep 320
-	SendInput, {vk20}
+	SendInput, {vk20} 	;Space
 	Sleep 250
 	SendInput, {%key_flyhackGajetKey%} 	;R
 	Sleep 1
