@@ -104,13 +104,27 @@ return
 
 
 ;===============================================================================================
-;======================OldMacroBackVar = 7===========AFK фермерство SendInput, Фарм монет дружбы
+;======================OldMacroBackVar = 7===========AFK фермерство SendInput, Фарм фронтира
 ;===============================================================================================
 LabelAFKFrontier:
 IfWinNotActive, ahk_group gameexe1337
 Tooltip,,0,0,3
 IfWinActive, ahk_group gameexe1337
 Tooltip TOF AFK Frontier farm.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
+
+
+if (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 3)
+{
+	InputBox, FrontierPoS1,, Frontier pos 3 or 4 or 5?`nФронтир идет 3 или 4 или 5 пунктом?`nВыбор сохраняется до перезапуска скрипта
+		if ErrorLevel
+		{
+			SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
+}
+
 
 ToolTip, Задержка срабатывания для виртуалки 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
@@ -138,19 +152,19 @@ SendInput {Alt up}
 ToolTip, Открыл книгу - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 ;=============================Выбрать челенжи
 ZXTTClickVarXl:=round(A_ScreenWidth * (341 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (812 / 1440))
@@ -158,39 +172,69 @@ Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Выбрал данж - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 
-If !TogglerTimer7
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+
+
+if (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPoS1 = 3)
 {
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
+		if FrontierPoS1 = 4
+		{
+
+			Sleep 1000
+			;=============================Выбрать фронтир пос 4
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1692 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1126 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+		}
+		if FrontierPoS1 = 5
+		{
+
+			Sleep 1000
+			;=============================Выбрать фронтир пос 5
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1073 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+		}
+		if FrontierPoS1 = 3
+		{
+
+			Sleep 1000
+			;=============================Выбрать фронтир пос 3
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1360 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1119 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+		}
 }
 
-;=============================Выбрать фронтир
-ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1073 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 ;=============================Выбрать Go
 ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1073 / 1440))
@@ -198,19 +242,19 @@ Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Жму Go - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 ;=============================Начать подбор игроков? Да
 ZXTTClickVarXl:=round(A_ScreenWidth * (1704 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (807 / 1440))
@@ -218,19 +262,19 @@ Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Начать подбор игроков? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 Loop 50
 {
@@ -243,38 +287,44 @@ Loop 50
 	if !FuncCursorVisible() 	;выйти как пропадет курсор
 		Break
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 }
 
 
-ToolTip, Пропал курсор значит мы в данже - Нажать автобой через 30 сек,round(A_ScreenWidth * .5),0,5
-Sleep 30000
+ToolTip, Пропал курсор значит мы в данже - Нажать автобой через 40 сек,round(A_ScreenWidth * .5),0,5
+Loop 40
+{
+	Sleep 1000
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+}
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+
+
+
 
 ;=============================Пошел данж, нажать автобой
 SendInput {Alt Down}
@@ -285,19 +335,19 @@ Sleep 50
 SendInput {Alt up}
 Sleep 3000
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 Loop 480
 {
@@ -320,23 +370,25 @@ Loop 480
 }
 
 ToolTip, Данж закончился ждем выход,round(A_ScreenWidth * .5),0,5
-Sleep 15000
-
-If !TogglerTimer7
+Loop 15
 {
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
+	Sleep 1000
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 }
 
-Loop 75 	;Если нет курсора мы прогрузились
+Loop 80 	;Если нет курсора мы прогрузились
 {
 	ToolTip, Loop-%A_Index% Чуи мы дома?,round(A_ScreenWidth * .5),0,5
 	if !FuncCursorVisible()
@@ -357,6 +409,32 @@ Loop 75 	;Если нет курсора мы прогрузились
 		Return
 	}
 }
+
+;===============================================Перестраховаться и нажать реконнект если отвал инета
+if FuncCursorVisible()
+{
+	ZXTTClickVarXl:=round(A_ScreenWidth * (1687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (770 / 1440))
+	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+	Loop 15
+	{
+		Sleep 1000
+		If !TogglerTimer7
+		{
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
+		IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+		{
+			SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
+	}
+}
+
+
 Sleep 3000
 ToolTip, Конец цикла,round(A_ScreenWidth * .5),0,5
 Sleep 1000
