@@ -145,9 +145,9 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 
 ;=============================Открыть книгу
 SendInput {Alt Down}
-Sleep 50
+Sleep 150
 SendInput {3}
-Sleep 50
+Sleep 150
 SendInput {Alt up}
 ToolTip, Открыл книгу - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
@@ -303,10 +303,13 @@ Loop 50
 }
 
 
-ToolTip, Пропал курсор значит мы в данже - Нажать автобой через 40 сек,round(A_ScreenWidth * .5),0,5
-Loop 40
+
+Loop 50
 {
 	Sleep 1000
+	
+	ToolTip, Пропал курсор значит мы в данже - Нажать автобой через - %A_Index% \ 50 сек,round(A_ScreenWidth * .5),0,5
+	
 	If !TogglerTimer7
 	{
 		Tooltip,,0,0,3
@@ -328,10 +331,10 @@ Loop 40
 
 ;=============================Пошел данж, нажать автобой
 SendInput {Alt Down}
-Sleep 50
+Sleep 150
 ZXTTClickVarXl:=round(A_ScreenWidth * (1555 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1263 / 1440))
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-Sleep 50
+Sleep 150
 SendInput {Alt up}
 Sleep 3000
 
@@ -351,7 +354,7 @@ Sleep 3000
 
 Loop 480
 {
-	ToolTip, Прошло секунд-%A_Index%,round(A_ScreenWidth * .5),0,5
+	ToolTip, Прошло секунд - %A_Index% \ 480,round(A_ScreenWidth * .5),0,5
 	sleep 1000
 
 	If !TogglerTimer7
