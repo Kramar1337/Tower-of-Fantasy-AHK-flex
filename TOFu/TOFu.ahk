@@ -80,7 +80,6 @@ https://toweroffantasy.online/map/
 
 
 Запланировано:
- - Фронтир ферма
  - Ачивка на еду
  - Коносуба бур с чипами
  - Коносуба бур одиночный прыжок
@@ -95,7 +94,7 @@ Send R
 
 
 
-реконект и прожатие кнопки
+
 
 
 
@@ -1078,8 +1077,8 @@ Sleep 1
 IfWinNotActive, ahk_group gameexe1337
 Return
 OldMacroBackVar += 1
-if OldMacroBackVar > 7
-	OldMacroBackVar = 7
+if OldMacroBackVar > 8
+	OldMacroBackVar = 8
 	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip
