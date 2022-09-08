@@ -25,7 +25,8 @@ Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 Alt + Numpad 1 - SHIRO Chakram
-Alt + Numpad 2 - Karasuma drill (Test) (Экипировать и забиндить джетпак)
+Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
+Alt + Numpad 3 - Nemesis 2NH
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -42,7 +43,8 @@ F4 - *Слот под специфические макросы
 4 - AFK фермерство, спам "F" залипание кнопки "W" и "A". Гранатная ферма(-75, -845)
 5 - AFK фермерство, спам "F" ходьба кругами "W" и "S", 5 секунд вперед, 5 секунд назад
 6 - AFK фермерство SendInput, Фарм монет дружбы (Для работы нужно < 30 смолы)
-7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт. Для работы нужно потратить ходки и потратить рифт)
+7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт, ресурсы)
+8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
 
 
 Карты: 1 - 2 - 3 - 4
@@ -95,8 +97,12 @@ Send R
 
 
 
-
-
+Изменения: 08.09.2022
+ - Фильтры Фарм Frontier
+ - Фильтры нампад кнопок
+ - Alt + Numpad 3 - Nemesis 2NH
+ - 8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
+ - Рандомизатор задержек 15-40 ms, "tofuConfig.ini" "ScRandomTime=1"
 
 Изменения: 04.09.2022
  - 7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт. Для работы нужно потратить ходки и потратить рифт)
@@ -571,6 +577,8 @@ IniRead, key_LabelANumpad1, data\tofuConfig.ini, Settings, key_LabelANumpad1
 Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
 IniRead, key_LabelANumpad2, data\tofuConfig.ini, Settings, key_LabelANumpad2
 Hotkey, *~$%key_LabelANumpad2%, LabelANumpad2, on
+IniRead, key_LabelANumpad3, data\tofuConfig.ini, Settings, key_LabelANumpad3
+Hotkey, *~$%key_LabelANumpad3%, LabelANumpad3, on
 
 ;====================Зарегать клавиши
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
@@ -733,42 +741,15 @@ Accepter1:
 ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate,round(A_ScreenWidth * .5),0
 sleep 1
 Click %x1asept% %y1asept%
+if ScRandomTime
+ScRandomizatorFunc()
 sleep 500
 Click %x2asept% %y2asept%
+if ScRandomTime
+ScRandomizatorFunc()
 sleep 5000
 return
 
-;========================================================Макросы
-Metkakey_animcancel:
-Sleep 1
-IfWinNotActive, ahk_group gameexe1337 	;Если окно игры не активно, то возврат
-Return
-;-----------Пошел жосцкий коддинг на метках
-if jopa1
-Goto Label_Goto_Auto_Attack
-if jopa2
-Goto Label_Goto_InventoryClicker
-if jopa3
-Goto Label_Goto_Fly_Auto
-if jopa4
-Goto Label_Goto_HumaV1
-if jopa5
-Goto Label_Goto_HumaV2
-if jopa6
-Goto Label_Goto_FriggShift
-if jopa7
-Goto Label_Goto_Bhop
-if jopa8
-Goto Label_Goto_SamirDashAttackCancels
-if jopa9
-Goto Label_Goto_NemesisAirhold
-if jopa20
-Goto Label_Goto_DilucVerticalFlight
-if jopa11
-Goto Label_Goto_Chakram
-if jopa12
-Goto Label_Goto_Karasuma1
-return
 
 #Include *i %A_ScriptDir%\data\Lib\LibOldMacroBack.ahk 		;Прочие сомнительные макросы, фермерство и тд
 
@@ -786,6 +767,8 @@ sleep 50
 	GetKeyState, AutowalkVar, vk57 	;W
 	if AutowalkVar = U		;Если кнопка отжата
 	{
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 		sleep 50
 		if UseControlSendVar
 		{
@@ -798,6 +781,8 @@ sleep 50
 	}
 	else		;Если кнопка нажата
 	{
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 		sleep 50
 		if UseControlSendVar
 		{
@@ -861,6 +846,8 @@ Loop
         break 
 	SendInput {sc21}
 	sleep 70
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
 }
 return
@@ -981,8 +968,12 @@ if FIXchat
 }
 SendInput, {Blind}{%key_flyhackGajetKey%}
 Sleep 70
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 Loop
 {
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     Sleep 50 	;40-50 долгое парение
     GetKeyState, SpaceStatefly, %key_flyhack%, P
     If SpaceStatefly = U
@@ -1012,10 +1003,14 @@ if FIXchat
 	sleep 50
 	SendInput {vk20} 	;Space
 	sleep 200 	;350 old
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput {vk20} 	;Space
 	sleep 50
 	SendInput {vk57 Down} 	;W
 	sleep 70 	;150 old
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 		GetKeyState, SpaceVar6, vk57, P
 			If SpaceVar6 = U
 				SendInput {vk57 Up} 	;W
@@ -1186,6 +1181,13 @@ Hotkey, IfWinActive
 		IndexVarL := A_Index - 1
 		jopa%IndexVarL% := false
 	}
+}
+;==========================================Функция рандома
+ScRandomizatorFunc()
+{
+Global
+Random, ScRandomVar, 15, 40
+Sleep %ScRandomVar%
 }
 
 ;=====================Меню, выход

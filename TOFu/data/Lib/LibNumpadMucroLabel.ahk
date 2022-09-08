@@ -1,4 +1,84 @@
-﻿;============================================Karasuma drill
+﻿;========================================================Макросы
+Metkakey_animcancel:
+Sleep 1
+IfWinNotActive, ahk_group gameexe1337 	;Если окно игры не активно, то возврат
+Return
+;-----------Пошел жосцкий коддинг на метках
+if jopa1
+Goto Label_Goto_Auto_Attack
+if jopa2
+Goto Label_Goto_InventoryClicker
+if jopa3
+Goto Label_Goto_Fly_Auto
+if jopa4
+Goto Label_Goto_HumaV1
+if jopa5
+Goto Label_Goto_HumaV2
+if jopa6
+Goto Label_Goto_FriggShift
+if jopa7
+Goto Label_Goto_Bhop
+if jopa8
+Goto Label_Goto_SamirDashAttackCancels
+if jopa9
+Goto Label_Goto_NemesisAirhold
+if jopa20
+Goto Label_Goto_DilucVerticalFlight
+if jopa11
+Goto Label_Goto_Chakram
+if jopa12
+Goto Label_Goto_Karasuma1
+if jopa13
+Goto Label_Goto_Nemesis2NH
+return
+
+;============================================Nemesis 2NH
+Label_Goto_Nemesis2NH:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1}
+Sleep 600
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1}
+Sleep 600
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1 Down}
+Sleep 800
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 700
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1 up}
+sleep 700
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+}
+Return
+
+;============================================Karasuma drill
 Label_Goto_Karasuma1:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -7,14 +87,24 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 }
 	SendInput, {vk20} 	;Space
 	Sleep 320
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk20} 	;Space
 	Sleep 250
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {%key_flyhackGajetKey%} 	;R
 	Sleep 1
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk1 Down} 	;LButton
 	Sleep 850
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk1 Up} 	;LButton
 	Sleep 1
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 return
 
 ;============================================Широ Chakram
@@ -31,6 +121,8 @@ Loop
         break
 	SendInput, {vk1} 	;LButton
 	Sleep 400
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
@@ -39,10 +131,14 @@ Loop
 	SendInput, {vk1 Down} 	;LButton
 	
 	Sleep 320
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
 	Sleep 420
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
@@ -50,6 +146,8 @@ Loop
 		
 	SendInput, {vk1 Up} 	;LButton
 	Sleep 400
+			if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
     GetKeyState, SpaceStateAA, vk1
     If SpaceStateAA = D
@@ -70,15 +168,21 @@ Loop
         break
 SendInput, {vk1}
 Sleep 400
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
 SendInput, {vk1 Down}
 Sleep 440
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
 Sleep 400
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
@@ -86,15 +190,21 @@ SendInput, {vk1 Up}
 Sleep 100
 SendInput, {vk1 Down}
 Sleep 400
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
 Sleep 440
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
 SendInput, {vk1 Up}
 Sleep 550
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
     GetKeyState, SpaceStateAA, vk1
     If SpaceStateAA = D
@@ -116,18 +226,23 @@ Loop
         break
 SendInput, {vk1}
 Sleep 600
-
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 Sleep 700
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1 Down}
 Sleep 1200
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
@@ -136,16 +251,22 @@ SendInput, {vk1 up}
 Sleep 1
 SendInput, {vkA0}
 Sleep 140
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 Sleep 400
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk20}
 Sleep 100
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
 	GetKeyState, SpaceStateAAA, vk1
 	If SpaceStateAAA = D
@@ -167,18 +288,23 @@ Loop
         break
 SendInput, {vk1}
 Sleep 600
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 Sleep 700
-
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1 Down}
 Sleep 1200
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
@@ -187,12 +313,16 @@ SendInput, {vk1 up}
 Sleep 1
 SendInput, {vkA0}
 Sleep 140
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
 SendInput, {vk1}
 
 Sleep 900
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
 	GetKeyState, SpaceStateAAA, vk1
 	If SpaceStateAAA = D
@@ -216,6 +346,8 @@ Loop
         break
 	SendInput, {vk1 Down} 	;LButton
 	Sleep 650
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 
 GetKeyState, SpaceStateAA, %key_animcancel%, P
 If SpaceStateAA = U
@@ -223,6 +355,8 @@ If SpaceStateAA = U
 
 	SendInput, {vk1 Up} 	;LButton
 	Sleep 300
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 
 GetKeyState, SpaceStateAA, %key_animcancel%, P
 If SpaceStateAA = U
@@ -245,8 +379,12 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 Sleep 1
 	SendInput, {vkA0} 	;Shift
 	sleep 430
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk1} 	;LButton
 	sleep 150
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk20} 	;Space
 Sleep 1
 return
@@ -264,6 +402,8 @@ Loop
     If SpaceStateAA = U
         break 
 	Sleep 50
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	SendInput, {vk20} 	;Space
 }
 return
@@ -281,52 +421,15 @@ Loop
         break 
 	SendInput, {vkA0} 	;Shift
 	Sleep 1
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     SendInput, {vk1}
 	Sleep 100
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 }
 return
-;============================================Мерил тест 1
-Label_Goto_MerylAirAttack2:
-if FIXchat 	;Если "FIXchat" то чекать курсор
-{
-	if FuncCursorVisible() 	;Если есть курсор то возврат
-		Return
-}
-Loop
-{
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-    SendInput, {Blind}{vk1}
-	Sleep 300
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 300
-	SendInput, {Blind}{vk1}
-	Sleep 300
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 300
-	SendInput, {Blind}{vk1}
-	Sleep 500
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 500
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 400
-	SendInput, {Blind}{vk1}
-	Sleep 400
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 400
-}
-return
+
 ;==========Кликер инвентаря
 Label_Goto_InventoryClicker:
 Loop
@@ -335,6 +438,8 @@ Loop
     If SpaceStateIC = U
         break 
     Sleep 16
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     SendInput, {Blind}{vk1}
 }
 Return
@@ -373,6 +478,7 @@ Loop
 	}
 
     Sleep 50 	;40-50 долгое парение
+
 	if !LoopOffVar1
 	{
 		SetTimer, LabelFly_Auto, off
@@ -390,6 +496,8 @@ Loop
 		IndexTickCountVarEnd = 1
 		SendInput, {vkA0} 	;Shift
 		Sleep 550
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
 	}
 	Else
 	{
@@ -406,6 +514,8 @@ Loop
     If SpaceStateAA = U
         break 
     Sleep 70
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
     SendInput, {Blind}{vk1}
 }
 Return

@@ -156,8 +156,10 @@ if !ErrorLevel
 {
 	SendInput {vk46} 	;F
 	Sleep 1000
+	ScRandomizatorFunc()
 }
 Sleep 150
+ScRandomizatorFunc()
 return
 
 
@@ -171,9 +173,9 @@ IfWinActive, ahk_group gameexe1337
 Tooltip TOF AFK Frontier farm`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
 
 
-if (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 3)
+if (FrontierPoS1 != 3) and (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 10)
 {
-	InputBox, FrontierPoS1,, Frontier pos 3 or 4 or 5?`nФронтир идет 3 или 4 или 5 пунктом?`nВыбор сохраняется до перезапуска скрипта
+	InputBox, FrontierPoS1,, Frontier pos 3 or 4 or 5 or 10 (full last)?`nФронтир идет 3 или 4 или 5 или 10 (последним) пунктом?`nВыбор сохраняется до перезапуска скрипта
 		if ErrorLevel
 		{
 			SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
@@ -186,6 +188,7 @@ if (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 3)
 
 ToolTip, Задержка срабатывания для виртуалки 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer7
 {
@@ -204,11 +207,14 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 ;=============================Открыть книгу
 SendInput {Alt Down}
 Sleep 150
+ScRandomizatorFunc()
 SendInput {3}
 Sleep 150
+ScRandomizatorFunc()
 SendInput {Alt up}
 ToolTip, Открыл книгу - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -229,6 +235,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (341 / 2560)), ZXTTClickVarYl:=round(A_Scr
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Выбрал данж - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -245,37 +252,79 @@ Sleep 3000
 	}
 
 
-if (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPoS1 = 3)
+if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPoS1 = 10)
 {
-		if FrontierPoS1 = 4
-		{
-
-			Sleep 1000
-			;=============================Выбрать фронтир пос 4
-			ZXTTClickVarXl:=round(A_ScreenWidth * (1692 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
-			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
-			Sleep 3000
-		}
-		if FrontierPoS1 = 5
-		{
-
-			Sleep 1000
-			;=============================Выбрать фронтир пос 5
-			ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
-			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
-			Sleep 3000
-		}
 		if FrontierPoS1 = 3
 		{
 
 			Sleep 1000
+			ScRandomizatorFunc()
 			;=============================Выбрать фронтир пос 3
 			ZXTTClickVarXl:=round(A_ScreenWidth * (1360 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
 			Sleep 3000
+			ScRandomizatorFunc()
+		}
+		if FrontierPoS1 = 4
+		{
+
+			Sleep 1000
+			ScRandomizatorFunc()
+			;=============================Выбрать фронтир пос 4
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1692 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+			ScRandomizatorFunc()
+		}
+		if FrontierPoS1 = 5
+		{
+
+			Sleep 1000
+			ScRandomizatorFunc()
+			;=============================Выбрать фронтир пос 5
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+			ScRandomizatorFunc()
+		}
+		if FrontierPoS1 = 10
+		{
+			Sleep 1000
+			ScRandomizatorFunc()
+			Loop 3
+			{
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1336 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (347 / 1440))
+			MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+			Sleep 150
+			ScRandomizatorFunc()
+			SendInput {RButton}
+			Sleep 150
+			ScRandomizatorFunc()
+			SendInput {RButton}
+			Sleep 150
+			ScRandomizatorFunc()
+			ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
+			ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
+			MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
+			Sleep 150
+			ScRandomizatorFunc()
+			ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
+			MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+			SendInput {RButton}
+			Sleep 150
+			ScRandomizatorFunc()
+			SendInput {LButton}
+			sleep 1000
+			ScRandomizatorFunc()
+			}
+		ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
+		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+		ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+		Sleep 3000
+		ScRandomizatorFunc()
 		}
 }
 
@@ -299,6 +348,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Жму Go - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -319,6 +369,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1704 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Начать подбор игроков? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -339,13 +390,32 @@ Loop 30
 
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
 	Sleep 3000
+	ScRandomizatorFunc()
+
+
+	Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
+	OttenokFis = 11 				;диапазон(0-256), 11 норм находит.
+	ZXTTClickVarXl337:=round(A_ScreenWidth * (1444 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (915 / 1440))
+	ZXTTClickVarX228:=round(A_ScreenWidth * (1730 / 2560)), ZXTTClickVarY228:=round(A_ScreenHeight * (1118 / 1440))
+	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\foundmath.png
+	if !ErrorLevel
+	{
+		;=============================Нашло игру принять? да, асепт
+		ZXTTClickVarXl:=round(A_ScreenWidth * (1148 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440)) 	;Асистер
+		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+		Sleep 500
+		ScRandomizatorFunc()
+		ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
+		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+		
+	}
 
 	;=============================Нашло игру принять? да, асепт
 	; ZXTTClickVarXl:=round(A_ScreenWidth * (1149 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1170 / 1440)) 	;Асистер
 	; Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 	; Sleep 1000
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+	; ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
+	; Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 
 
 	if !FuncCursorVisible() 	;выйти как пропадет курсор
@@ -371,6 +441,7 @@ Loop 30
 Loop 60
 {
 	Sleep 1000
+	ScRandomizatorFunc()
 	
 	ToolTip, Пропал курсор значит мы в данже - Нажать автобой через - %A_Index% \ 60 сек,round(A_ScreenWidth * .5),0,5
 	
@@ -396,11 +467,14 @@ Loop 60
 ;=============================Пошел данж, нажать автобой
 SendInput {Alt Down}
 Sleep 150
+ScRandomizatorFunc()
 ZXTTClickVarXl:=round(A_ScreenWidth * (1555 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1263 / 1440))
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 Sleep 150
+ScRandomizatorFunc()
 SendInput {Alt up}
 Sleep 3000
+ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -416,10 +490,12 @@ Sleep 3000
 		Return
 	}
 
+
 Loop 480
 {
 	ToolTip, Прошло секунд - %A_Index% \ 480,round(A_ScreenWidth * .5),0,5
 	sleep 1000
+	ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -440,6 +516,7 @@ ToolTip, Данж закончился ждем выход,round(A_ScreenWidth *
 Loop 15
 {
 	Sleep 1000
+	ScRandomizatorFunc()
 	If !TogglerTimer7
 	{
 		Tooltip,,0,0,3
@@ -461,6 +538,7 @@ Loop 80 	;Если нет курсора мы прогрузились
 	if !FuncCursorVisible()
 		Break
 	sleep 1000
+	ScRandomizatorFunc()
 
 	If !TogglerTimer7
 	{
@@ -485,6 +563,7 @@ if FuncCursorVisible()
 	Loop 15
 	{
 		Sleep 1000
+		ScRandomizatorFunc()
 		If !TogglerTimer7
 		{
 			Tooltip,,0,0,3
@@ -503,8 +582,10 @@ if FuncCursorVisible()
 
 
 Sleep 3000
+ScRandomizatorFunc()
 ToolTip, Конец цикла,round(A_ScreenWidth * .5),0,5
 Sleep 1000
+ScRandomizatorFunc()
 ToolTip,,round(A_ScreenWidth * .5),0,5
 return
 
@@ -519,15 +600,19 @@ Tooltip TOF AFK Friend Coin farm.`nPress "%key_OtherMacros%" to deactivate,round
 
 ToolTip, Задержка срабатывания для виртуалки 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 ;=============================Открыть книгу
 SendInput {vkA4 Down}
 Sleep 150
+ScRandomizatorFunc()
 SendInput {vk33}
 Sleep 150
+ScRandomizatorFunc()
 SendInput {vkA4 up}
 ToolTip, Открыл книгу - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 
 If !TogglerTimer6
@@ -549,6 +634,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (349 / 2560)), ZXTTClickVarYl:=round(A_Scr
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Выбрал данж - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -569,6 +655,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1018 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Выбрал данж абуза дружбы - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -589,6 +676,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Жму Go - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -609,6 +697,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (730 / 2560)), ZXTTClickVarYl:=round(A_Scr
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, У вас нет смолы продолжить? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -629,6 +718,7 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1704 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Начать подбор игроков? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -652,6 +742,7 @@ Loop 30
 	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
 	Sleep 3000
+	ScRandomizatorFunc()
 
 	if !FuncCursorVisible() 	;выйти как пропадет курсор
 		Break
@@ -661,6 +752,7 @@ Loop 30
 	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 	ToolTip, Loop-%A_Index% Нет смолы подтвердить? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
 	Sleep 3000
+	ScRandomizatorFunc()
 
 	if !FuncCursorVisible() 	;выйти как пропадет курсор
 		Break
@@ -698,11 +790,14 @@ ToolTip, Пропал курсор значит мы в данже - Нажат�
 ;=============================Пошел данж, нажать автобой
 SendInput {vkA4 Down}
 Sleep 150
+ScRandomizatorFunc()
 ZXTTClickVarXl:=round(A_ScreenWidth * (1555 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1263 / 1440))
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 Sleep 150
+ScRandomizatorFunc()
 SendInput {vkA4 up}
 Sleep 3000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -724,6 +819,7 @@ Loop 60
 	if FuncCursorVisible() 	;выйти как пропадет курсор
 		Break
 	sleep 1000
+	ScRandomizatorFunc()
 	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
 	{
 		SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
@@ -741,6 +837,7 @@ Loop 60
 }
 ToolTip, Данж закончился ждем выход,round(A_ScreenWidth * .5),0,5
 Sleep 10000
+ScRandomizatorFunc()
 
 If !TogglerTimer6
 {
@@ -762,6 +859,7 @@ Loop 60 	;Если нет курсора мы прогрузились
 	if !FuncCursorVisible()
 		Break
 	sleep 1000
+	ScRandomizatorFunc()
 	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
 	{
 		SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
@@ -793,8 +891,10 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 }
 
 Sleep 3000
+ScRandomizatorFunc()
 ToolTip, Конец цикла,round(A_ScreenWidth * .5),0,5
 Sleep 1000
+ScRandomizatorFunc()
 ToolTip,,round(A_ScreenWidth * .5),0,5
 
 If !TogglerTimer6
@@ -811,6 +911,7 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 	Return
 }
 Sleep 4000
+ScRandomizatorFunc()
 Return
 
 
@@ -846,12 +947,14 @@ Tooltip TOF AFK auto surf.`nPress "%key_OtherMacros%" to deactivate,round(A_Scre
 	{
 		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
 		Sleep 1
+		ScRandomizatorFunc()
 		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
 	}
 	Else
 	{
 		SendInput {vk57 down} 	;W
 		Sleep 1
+		ScRandomizatorFunc()
 		SendInput {vk41 down} 	;A
 	}
 Random, RandomVarSc1, 500, 1000
@@ -886,16 +989,20 @@ Tooltip TOF AFK click.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWi
 	{
 		ControlSend,ahk_parent, {vk57 down}, ahk_group gameexe1337 	;W
 		Sleep 1
+		ScRandomizatorFunc()
 		ControlSend,ahk_parent, {vk41 down}, ahk_group gameexe1337 	;A
 		Sleep 1
+		ScRandomizatorFunc()
 		ControlSend,ahk_parent, {vk46}, ahk_group gameexe1337 		;Нажатие "F"
 	}
 	Else
 	{
 		SendInput {vk57 down} 	;W
 		Sleep 1
+		ScRandomizatorFunc()
 		SendInput {vk41 down} 	;A
 		Sleep 1
+		ScRandomizatorFunc()
 		SendInput {vk46} 		;A
 	}
 Random, RandomVarSc1, 500, 1000
@@ -930,12 +1037,14 @@ Tooltip TOF AFK walk in circles.`nPress "%key_OtherMacros%" to deactivate,round(
 				{
 					ControlSend,ahk_parent, {vk53 up}, ahk_group gameexe1337 	;отжать S
 					Sleep 1
+					ScRandomizatorFunc()
 					ControlSend,ahk_parent, {vk57 Down}, ahk_group gameexe1337
 				}
 				Else
 				{
 					SendInput {vk53 up}
 					Sleep 1
+					ScRandomizatorFunc()
 					SendInput {vk57 Down}
 				}
 
@@ -946,12 +1055,14 @@ Tooltip TOF AFK walk in circles.`nPress "%key_OtherMacros%" to deactivate,round(
 				{
 					ControlSend,ahk_parent, {vk57 up}, ahk_group gameexe1337 	;отжать W
 					Sleep 1
+					ScRandomizatorFunc()
 					ControlSend,ahk_parent, {vk53 Down}, ahk_group gameexe1337
 				}
 				Else
 				{
 					SendInput {vk57 up}
 					Sleep 1
+					ScRandomizatorFunc()
 					SendInput {vk53 Down}
 				}
 
@@ -964,4 +1075,5 @@ Tooltip TOF AFK walk in circles.`nPress "%key_OtherMacros%" to deactivate,round(
 	TickCountTimer := A_TickCount 	;Зарегать время
 	
 Sleep 1000
+ScRandomizatorFunc()
 return
