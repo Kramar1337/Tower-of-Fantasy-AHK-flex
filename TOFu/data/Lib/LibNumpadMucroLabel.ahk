@@ -30,7 +30,38 @@ if jopa12
 Goto Label_Goto_Karasuma1
 if jopa13
 Goto Label_Goto_Nemesis2NH
+if jopa14
+Goto Label_Goto_TsubasaTop2
 return
+
+
+
+
+;============================================TSUBASA R5 Top DPS 328.49%
+Label_Goto_TsubasaTop2:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	SendInput {vk1}
+	Sleep 100
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+	SendInput {vk1 Down}
+	Sleep 500
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+	SendInput {vk1 up}
+	Sleep 1
+}
+return
+
 
 ;============================================Nemesis 2NH
 Label_Goto_Nemesis2NH:
@@ -85,29 +116,40 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 	if FuncCursorVisible() 	;Если есть курсор то возврат
 		Return
 }
+Loop
+{
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
 	SendInput, {vk20} 	;Space
-	Sleep 320
-			if ScRandomTime 	;Рандомизатор
+	Sleep 170
+		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
-	SendInput, {vk20} 	;Space
-	Sleep 250
-			if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
 	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 1
-			if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
+	Sleep 20
 	SendInput, {vk1 Down} 	;LButton
-	Sleep 850
+	Sleep 350
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	Sleep 300
 			if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
+				ScRandomizatorFunc()
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	
 	SendInput, {vk1 Up} 	;LButton
-	Sleep 1
+	Sleep 20
 			if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-return
+				ScRandomizatorFunc()
+}
+Return
 
-;============================================Широ Chakram
+;============================================Широ Chakram (Settings => Basic => Hit Frame - OFF)
 Label_Goto_Chakram:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
@@ -116,43 +158,37 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 }
 Loop
 {
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
 	SendInput, {vk1} 	;LButton
-	Sleep 400
+	Sleep 165 	;150 min - 400 old
 			if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
-	
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-		
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
 	SendInput, {vk1 Down} 	;LButton
-	
-	Sleep 320
+	Sleep 325 	;700 min - 740 old
 			if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-	Sleep 420
-			if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-	
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
-		
-	SendInput, {vk1 Up} 	;LButton
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
 	Sleep 400
-			if ScRandomTime 	;Рандомизатор
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+			
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 405
+				if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
 }
     GetKeyState, SpaceStateAA, vk1
     If SpaceStateAA = D
 		SendInput, {vk1 Up}
-return
+Return
 
 ;============================================Немезида холд в воздухе
 Label_Goto_NemesisAirhold:

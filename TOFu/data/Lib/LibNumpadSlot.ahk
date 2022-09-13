@@ -88,7 +88,7 @@ IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa9:=true
-	ToolTip,  NEMESIS Air hold, 0, 0
+	ToolTip, NEMESIS Air hold, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -97,7 +97,7 @@ IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa20:=true
-	ToolTip,  Diluc Vertical Flight, 0, 0
+	ToolTip, Diluc Vertical Flight, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -106,7 +106,7 @@ IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa11:=true
-	ToolTip,  SHIRO Chakram, 0, 0
+	ToolTip, SHIRO Chakram, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -115,7 +115,7 @@ IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa12:=true
-	ToolTip,  Karasuma drill, 0, 0
+	ToolTip, Karasuma drill, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -124,7 +124,16 @@ IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa13:=true
-	ToolTip,  Nemesis 2NH, 0, 0
+	ToolTip, Nemesis 2NH, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpad4: 	;=============================================================TSUBASA R5 Top DPS 328.49%
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa14:=true
+	ToolTip, TSUBASA R5 Top DPS, 0, 0
 	sleep 500
 	ToolTip
 Return

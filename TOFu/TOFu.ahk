@@ -14,19 +14,21 @@ X - Бесконечное скалолазание
 V - Macro Key(по умолчанию в игре на "V" маунт, но если "Numpad 0" то макрос не срабатывает, а если "Numpad 1-2-3-n" то кнопка блокируется и маунт не мешает)
 
 Numpad 0 - Off
-Numpad 1 - AutoAttack(70ms)
-Numpad 2 - InventoryClicker(15ms)
+Numpad 1 - AutoAttack (70ms)
+Numpad 2 - InventoryClicker (15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл(Macro Key))
 Numpad 4 - Huma combo t1
 Numpad 5 - Huma combo t2
-Numpad 6 - FRIGG Shift+LButton (Test)
+Numpad 6 - FRIGG Shift+Click
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash
-Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
+Numpad 9 - Nemesis Air hold
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
-Alt + Numpad 1 - SHIRO Chakram
+Alt + Numpad 1 - SHIRO Chakram (Settings => Basic => Hit Frame - OFF)
 Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
+Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
+
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -79,6 +81,14 @@ https://toweroffantasy.online/map/
 
 
 
+350 кр
+8 лег
+2.5 лег тв
+4,375 лег гр
+1 лег ск гр
+
+
+
 
 
 Запланировано:
@@ -96,6 +106,14 @@ Send R
 
 
 
+
+
+Изменения: 13.09.2022
+ - Переключатель в трей меню: глобал или китай версия
+ - Оверлей ивент, 8-9 стр
+ - Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
+ - Alt + Numpad 1 - SHIRO Chakram up, Settings => Basic => Hit Frame - OFF
+ - Alt + Numpad 2 - Karasuma drill up, Male + Hit Frame OFF + Manual camera
 
 Изменения: 08.09.2022
  - Фильтры Фарм Frontier
@@ -409,8 +427,8 @@ https://vk.com/@storeps5-popolnenie-oldubil-cherez-birzhu-huobi
 Биржа
 https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
 
-
-
+Цубаса топ дпс на С5
+https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZa78/edit#gid=0
 
 
 
@@ -448,7 +466,7 @@ https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
 */
 
 
-WinName:= "TOF AHK Flex v3 by Kramar1337"
+WinName:= "TOF AHK Flex v4 by Kramar1337"
 CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 #NoEnv
@@ -498,6 +516,11 @@ Menu,Tray, add
 Menu,Tray, add, ForceUpdate, Metkashortcut6UpdateButton
 Menu,Tray, Icon, ForceUpdate, shell32.dll, 136, 16
 Menu,Tray, add
+Menu,Tray, add, Global client, Metkashortcut7
+Menu,Tray, Icon, Global client, imageres.dll, 230, 16
+Menu,Tray, add, China client, Metkashortcut8
+Menu,Tray, Icon, China client, imageres.dll, 230, 16
+Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
 Menu,Tray, Icon, Exit, shell32.dll,28, 16
 
@@ -508,6 +531,14 @@ IniRead, FIXchat, data\tofuConfig.ini, Settings, FIXchat
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 IniRead, GameExeNew, data\tofuConfig.ini, Settings, GameExeNew
 GroupAdd, gameexe1337, %GameExeNew%
+if (GameExeNew == "ahk_exe QRSL.exe")
+{
+	Menu,Tray, Icon, Global client, imageres.dll, 233, 16
+}
+if (GameExeNew == "ahk_exe WmgpMobileGame.exe")
+{
+	Menu,Tray, Icon, China client, imageres.dll, 233, 16
+}
 IniRead, Map2toggle, data\tofuConfig.ini, Settings, Map2toggle
 IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - дефолт браузер, 1 - указать свой браузер
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
@@ -579,6 +610,8 @@ IniRead, key_LabelANumpad2, data\tofuConfig.ini, Settings, key_LabelANumpad2
 Hotkey, *~$%key_LabelANumpad2%, LabelANumpad2, on
 IniRead, key_LabelANumpad3, data\tofuConfig.ini, Settings, key_LabelANumpad3
 Hotkey, *~$%key_LabelANumpad3%, LabelANumpad3, on
+IniRead, key_LabelANumpad4, data\tofuConfig.ini, Settings, key_LabelANumpad4
+Hotkey, *~$%key_LabelANumpad4%, LabelANumpad4, on
 
 ;====================Зарегать клавиши
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
@@ -699,7 +732,7 @@ If (ScHachCh = 1)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 7 	;кол-во страниц
+GenOverlayList := 9 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale
@@ -712,6 +745,10 @@ Else
 Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x0 y0, %WinName%
 hwndGuihamdlewindow := WinExist()
 Gui, 99: Cancel
+
+Random, rand1488, 33, 35
+passwordVar777 := gen_password(rand1488)	
+PleasantNotify("", "" , 700, 350, "vc hc", "2")
 return
 ;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
 
@@ -1030,16 +1067,20 @@ Suspend, Toggle
 1toggle1Suspend := !1toggle1Suspend
 if (1toggle1Suspend)
 {
+	Menu,Tray, Icon, imageres.dll, 230, 1
 	Menu,Tray, Icon, Pause-Play, imageres.dll, 230, 16
 	SoundPlay, %A_ScriptDir%\data\zplop.wav
+	; SoundBeep, 400, 500
 	Tooltip, OFF,round(A_ScreenWidth * .5),0,2
 	sleep 300
 	ToolTip,,0,0,2
 }
 Else
 {
+	Menu,Tray, Icon, imageres.dll, 233, 1
 	Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
 	SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+	; SoundBeep, 400, 500
 	ToolTip, ON,round(A_ScreenWidth * .5),0,2
 	sleep 300
 	ToolTip,,0,0,2
@@ -1189,6 +1230,62 @@ Global
 Random, ScRandomVar, 15, 40
 Sleep %ScRandomVar%
 }
+;==========================================Функция рисования модного меню
+PleasantNotify(title, message, pnW=700, pnH=300, position="b r", time=10) {
+    global pn_title, pn_msg, PN_hwnd, w, h
+	Notify_Destroy()
+	Gui, Notify: +AlwaysOnTop +ToolWindow -SysMenu -Caption +LastFound
+	PN_hwnd := WinExist()
+	WinSet, ExStyle, +0x20
+	WinSet, Transparent, 0
+	Gui, Notify: Color, 0xF2F2F0
+	Gui, Notify: Font, c0x07D82F s18 wBold, Segoe UI
+	Gui, Notify: Add, Text, % " x" 20 " y" 12 " w" pnW-20 " vpn_title", % title
+	Gui, Notify: Font, cBlack s15 wRegular
+	Gui, Notify: Add, Text, % " x" 20 " y" 56 " w" pnW-20 " h" pnH-56 " vpn_msg", % message
+	Gui, Notify: Add, Picture, w700 h350 x0 y0 +BackgroundTrans, data\intro.png
+	RealW := pnW + 50
+	RealH := pnH + 20
+	Gui, Notify: Show, W%RealW% H%RealH% NoActivate, %passwordVar777%
+	WinMove(PN_hwnd, position)
+	if A_ScreenDPI = 96
+		WinSet, Region,0-0 w%pnW% h%pnH% R40-40,%A_ScriptName%
+	winfade("ahk_id " PN_hwnd,250,5)
+	if (time <> "P")
+	{
+		Closetick := time*1000
+		SetTimer, ByeNotify, % Closetick
+	}
+}
+Notify_Destroy() {
+	global PN_hwnd
+	ByeNotify:
+	SetTimer, ByeNotify, Off
+    winfade("ahk_id " PN_hwnd,0,5)
+    Gui, Notify: Destroy
+	return
+}
+WinMove(hwnd,position) {
+   SysGet, Mon, MonitorWorkArea
+   WinGetPos,ix,iy,w,h, ahk_id %hwnd%
+   x := InStr(position,"l") ? MonLeft : InStr(position,"hc") ?  (MonRight-w)/2 : InStr(position,"r") ? MonRight - w : ix
+   y := InStr(position,"t") ? MonTop : InStr(position,"vc") ?  (MonBottom-h)/2 : InStr(position,"b") ? MonBottom - h : iy
+   WinMove, ahk_id %hwnd%,,x,y
+}
+winfade(w:="",t:=128,i:=1,d:=10) {
+    w:=(w="")?("ahk_id " WinActive("A")):w
+    t:=(t>255)?255:(t<0)?0:t
+    WinGet,s,Transparent,%w%
+    s:=(s="")?255:s ;prevent trans unset bug
+    WinSet,Transparent,%s%,%w%
+    i:=(s<t)?abs(i):-1*abs(i)
+    while(k:=(i<0)?(s>t):(s<t)&&WinExist(w)) {
+        WinGet,s,Transparent,%w%
+        s+=i
+        WinSet,Transparent,%s%,%w%
+        sleep %d%
+    }
+}
 
 ;=====================Меню, выход
 MetkaMenu0:
@@ -1210,6 +1307,32 @@ Metkashortcut5:
 	}
 Reload
 Return
+
+;=====================Меню, смена фокуса окна Reload глобал
+Metkashortcut7:
+IniWrite, ahk_exe QRSL.exe, data\tofuConfig.ini, Settings, GameExeNew
+Sleep 1
+	If ScRenamer
+	{
+		run %savereloadvar%
+		exitapp
+		return
+	}
+Reload
+Return
+;=====================Меню, смена фокуса окна Reload китай
+Metkashortcut8:
+IniWrite, ahk_exe WmgpMobileGame.exe, data\tofuConfig.ini, Settings, GameExeNew
+Sleep 1
+	If ScRenamer
+	{
+		run %savereloadvar%
+		exitapp
+		return
+	}
+Reload
+Return
+
 
 #Include *i %A_ScriptDir%\data\Lib\LibUpdateButton.ahk 		;Кнопка обновления
 #Include *i %A_ScriptDir%\data\Lib\LibImportSettLabel.ahk 	;Импорт настроек
