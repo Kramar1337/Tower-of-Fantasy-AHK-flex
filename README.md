@@ -25,7 +25,8 @@ __🚀Функционал:🚀__
   + Frigg ShiftClick
   + Nemesis Air AA
   + Nemesis 2NH
-  + SHIRO Chakram
+  + SHIRO Classic
+  + SHIRO Annihilation
   + Karasuma drill
   + TSUBASA R5 Top DPS
   + Diluc Vertical Flight
@@ -98,6 +99,7 @@ Alt + Numpad 1 - SHIRO Chakram
 Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS
+Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -124,8 +126,12 @@ __🍏AFK фермерство:🍎__
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 13.09.2022
+Изменения: 14.09.2022
 
+ - Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
+ - Автоприниматель поиск пикселей
+
+Изменения: 13.09.2022
  - Переключатель в трей меню: глобал или китай версия
  - Оверлей ивент, 8-9 стр
  - Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
