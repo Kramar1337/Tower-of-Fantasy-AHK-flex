@@ -137,3 +137,12 @@ jopa14:=true
 	sleep 500
 	ToolTip
 Return
+LabelANumpad5: 	;=============================================================SHIRO Annihilation
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa15:=true
+	ToolTip, SHIRO Annihilation, 0, 0
+	sleep 500
+	ToolTip
+Return

@@ -24,11 +24,11 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
-Alt + Numpad 1 - SHIRO Chakram (Settings => Basic => Hit Frame - OFF)
-Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
+Alt + Numpad 1 - SHIRO Chakram Classic (Settings => Basic => Hit Frame - OFF)
+Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
-
+Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -88,13 +88,18 @@ https://toweroffantasy.online/map/
 1 лег ск гр
 
 
-
+	;============================Отмена анимации удара
+	SendInput, {vk20} 	;Space
+	SendInput, {vk1} 	;LButton
+	;============================Лонгджамп
+	SendInput, {vk20} 	;Space
+	SendInput, {vkA0}
 
 
 Запланировано:
- - Ачивка на еду
+ - Оверлей фикс босс
+ - Автопати в 3* данж
  - Коносуба бур с чипами
- - Коносуба бур одиночный прыжок
  - Рывки на CLAUDIA (в ожидании банера):
 Send LButton
 Sleep 270
@@ -105,15 +110,16 @@ Sleep 50
 Send R
 
 
-
-
+Изменения: 14.09.2022
+ - Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
+ - Автоприниматель поиск пикселей
 
 Изменения: 13.09.2022
  - Переключатель в трей меню: глобал или китай версия
  - Оверлей ивент, 8-9 стр
  - Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
  - Alt + Numpad 1 - SHIRO Chakram up, Settings => Basic => Hit Frame - OFF
- - Alt + Numpad 2 - Karasuma drill up, Male + Hit Frame OFF + Manual camera
+ - Alt + Numpad 2 - Karasuma & FRIGG drill up, Male + Hit Frame OFF + Manual camera
 
 Изменения: 08.09.2022
  - Фильтры Фарм Frontier
@@ -612,6 +618,8 @@ IniRead, key_LabelANumpad3, data\tofuConfig.ini, Settings, key_LabelANumpad3
 Hotkey, *~$%key_LabelANumpad3%, LabelANumpad3, on
 IniRead, key_LabelANumpad4, data\tofuConfig.ini, Settings, key_LabelANumpad4
 Hotkey, *~$%key_LabelANumpad4%, LabelANumpad4, on
+IniRead, key_LabelANumpad5, data\tofuConfig.ini, Settings, key_LabelANumpad5
+Hotkey, *~$%key_LabelANumpad5%, LabelANumpad5, on
 
 ;====================Зарегать клавиши
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
@@ -777,13 +785,22 @@ return
 Accepter1:
 ToolTip, TOF Accepter is active`nPress %key_AseptarKey% to deactivate,round(A_ScreenWidth * .5),0
 sleep 1
-Click %x1asept% %y1asept%
-if ScRandomTime
-ScRandomizatorFunc()
-sleep 500
-Click %x2asept% %y2asept%
-if ScRandomTime
-ScRandomizatorFunc()
+	Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
+	OttenokFis = 11 				;диапазон(0-256), 11 норм находит.
+	ZXTTClickVarXl337:=round(A_ScreenWidth * (1444 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (915 / 1440))
+	ZXTTClickVarX228:=round(A_ScreenWidth * (1730 / 2560)), ZXTTClickVarY228:=round(A_ScreenHeight * (1118 / 1440))
+	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\foundmath.png
+	if !ErrorLevel
+	{
+		;=============================Нашло игру принять? да, асепт
+		Click %x1asept% %y1asept%
+			if ScRandomTime
+				ScRandomizatorFunc()
+		sleep 500
+		Click %x2asept% %y2asept%
+			if ScRandomTime
+				ScRandomizatorFunc()
+	}
 sleep 5000
 return
 

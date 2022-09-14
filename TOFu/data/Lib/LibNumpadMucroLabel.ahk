@@ -32,10 +32,49 @@ if jopa13
 Goto Label_Goto_Nemesis2NH
 if jopa14
 Goto Label_Goto_TsubasaTop2
+if jopa15
+Goto Label_Goto_ChakramPP
 return
 
-
-
+;============================================SHIRO Annihilation
+Label_Goto_ChakramPP:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	SendInput, {vk20} 	;Space
+	Sleep 0
+	SendInput, {vk1} 	;LButton
+	Sleep 165
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	SendInput, {vk1 Down} 	;LButton
+	Sleep 310 	;700 min - 740 old
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	Sleep 400
+		if ScRandomTime 	;Рандомизатор
+			ScRandomizatorFunc()
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break
+	SendInput, {vk1 Up} 	;LButton
+	Sleep 1
+}
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
+Return
 
 ;============================================TSUBASA R5 Top DPS 328.49%
 Label_Goto_TsubasaTop2:
@@ -61,7 +100,6 @@ Loop
 	Sleep 1
 }
 return
-
 
 ;============================================Nemesis 2NH
 Label_Goto_Nemesis2NH:
