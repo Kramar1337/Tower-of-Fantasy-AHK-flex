@@ -88,12 +88,7 @@ https://toweroffantasy.online/map/
 1 лег ск гр
 
 
-	;============================Отмена анимации удара
-	SendInput, {vk20} 	;Space
-	SendInput, {vk1} 	;LButton
-	;============================Лонгджамп
-	SendInput, {vk20} 	;Space
-	SendInput, {vkA0}
+
 
 
 Запланировано:
@@ -108,6 +103,14 @@ Sleep 210
 Send R
 Sleep 50
 Send R
+	;============================Отмена анимации удара
+	SendInput, {vk20} 	;Space
+	SendInput, {vk1} 	;LButton
+	;============================Лонгджамп
+	SendInput, {vk20} 	;Space
+	SendInput, {vkA0}
+
+https://www.youtube.com/watch?v=JHUkbCFyKCU
 
 
 Изменения: 14.09.2022
@@ -436,6 +439,8 @@ https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
 Цубаса топ дпс на С5
 https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZa78/edit#gid=0
 
+Модные шрифты
+https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
 
 
 
@@ -552,6 +557,8 @@ IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
 IniRead, MouseCenterMapVar, data\tofuConfig.ini, Settings, MouseCenterMapVar
 IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
+IniRead, VarColorRes, data\tofuConfig.ini, Settings, VarColorRes
+IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
 
 ;=====================================Кнопки
 IniRead, key_skipNPS, data\tofuConfig.ini, Settings, key_skipNPS
@@ -620,6 +627,8 @@ IniRead, key_LabelANumpad4, data\tofuConfig.ini, Settings, key_LabelANumpad4
 Hotkey, *~$%key_LabelANumpad4%, LabelANumpad4, on
 IniRead, key_LabelANumpad5, data\tofuConfig.ini, Settings, key_LabelANumpad5
 Hotkey, *~$%key_LabelANumpad5%, LabelANumpad5, on
+IniRead, key_LabelANumpad6, data\tofuConfig.ini, Settings, key_LabelANumpad6
+Hotkey, *~$%key_LabelANumpad6%, LabelANumpad6, on
 
 ;====================Зарегать клавиши
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
@@ -1130,8 +1139,8 @@ Sleep 1
 IfWinNotActive, ahk_group gameexe1337
 Return
 OldMacroBackVar += 1
-if OldMacroBackVar > 8
-	OldMacroBackVar = 8
+if OldMacroBackVar > 9
+	OldMacroBackVar = 9
 	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip
@@ -1356,6 +1365,23 @@ Return
 #Include *i %A_ScriptDir%\data\Lib\LibFuncUpdate.ahk 		;Функция скачивания файла
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
+
+
+
+/* Снять в 2х местах
+Up::
+ClaudiaJumpVar+=1
+tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),round(A_ScreenHeight * .5)
+Return
+
+
+
+Down::
+ClaudiaJumpVar-=1
+tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),round(A_ScreenHeight * .5)
+Return
+*/
+
 
 Metkakey_EndExitapp:
 Exitapp

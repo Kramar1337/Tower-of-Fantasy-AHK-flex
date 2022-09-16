@@ -34,6 +34,24 @@ if jopa14
 Goto Label_Goto_TsubasaTop2
 if jopa15
 Goto Label_Goto_ChakramPP
+if jopa16
+Goto Label_Goto_ClaudiaLongJump
+return
+
+;============================================CLAUDIA long jump
+Label_Goto_ClaudiaLongJump:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+SendInput {vk1}
+Sleep 270
+SendInput {vk1}
+Sleep % ClaudiaJumpVar
+SendInput {vk52}
+Sleep 1
+SendInput {vk52}
 return
 
 ;============================================SHIRO Annihilation

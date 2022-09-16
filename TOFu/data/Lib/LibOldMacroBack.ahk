@@ -10,6 +10,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
 	if !TogglerTimer1
 		Tooltip,,0,0,3
@@ -24,6 +25,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
 	if !TogglerTimer3
 		Tooltip,,0,0,3
@@ -38,6 +40,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
 	if !TogglerTimer2
 		Tooltip,,0,0,3
@@ -52,6 +55,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
 	if !TogglerTimer4
 		Tooltip,,0,0,3
@@ -66,6 +70,7 @@ SetTimer, LabelAFKgranateFarm, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	ToggleRcircles = 0
 	SetTimer, LabelAFKloopFarmF, % ((TogglerTimer5 := !TogglerTimer5) ? "0" : "Off")
 	if !TogglerTimer5
@@ -81,6 +86,7 @@ SetTimer, LabelAFKgranateFarm, off
 SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
 	if !TogglerTimer6
 		Tooltip,,0,0,3
@@ -95,11 +101,12 @@ SetTimer, LabelAFKgranateFarm, off
 SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
 	if !TogglerTimer7
 		Tooltip,,0,0,3
 }
-if (OldMacroBackVar == 8) 	;AFK фермерство SendInput, Фарм фронтира
+if (OldMacroBackVar == 8) 	;AFK фермерство SendInput, Фарм парка
 {
 	Sleep 1
 SetTimer, LabelAFKloot, off
@@ -109,8 +116,24 @@ SetTimer, LabelAFKgranateFarm, off
 SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
+SetTimer, LabelInterPortal, off
 	SetTimer, LabelAFKPony, % ((TogglerTimer8 := !TogglerTimer8) ? "0" : "Off")
 	if !TogglerTimer8
+		Tooltip,,0,0,3
+}
+if (OldMacroBackVar == 9) 	;AFK фермерство SendInput, Фарм парка
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+SetTimer, LabelAFKloopFarmF, off
+SetTimer, LabelAFKfriendCoin, off
+SetTimer, LabelAFKFrontier, off
+SetTimer, LabelAFKPony, off
+	SetTimer, LabelInterPortal, % ((TogglerTimer9 := !TogglerTimer9) ? "0" : "Off")
+	if !TogglerTimer9
 		Tooltip,,0,0,3
 }
 return
@@ -122,6 +145,113 @@ return
 ; SetTimer, LabelAFKfriendCoin, off
 ; SetTimer, LabelAFKFrontier, off
 ; SetTimer, LabelAFKPony, off
+; SetTimer, LabelInterPortal, off
+
+
+
+;===============================================================================================
+;======================OldMacroBackVar = 9===========Поиск порталов в чате
+;===============================================================================================
+LabelInterPortal:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK InterPortal %VarColorRes%`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
+
+	Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
+	OttenokFis = 12 				;диапазон(0-256), 11 норм находит.
+	ZXTTClickVarXl337:=round(A_ScreenWidth * (437 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (1063 / 1440))
+	ZXTTClickVarX228:=round(A_ScreenWidth * (1200 / 2560)), ZXTTClickVarY228:=round(A_ScreenHeight * (1275 / 1440))
+if VarColorRes = 1 	;Синие ресы
+{
+	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
+	if !ErrorLevel
+	{
+		; Tooltip Найдены 3 звезды
+		; Sleep 500
+		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-blu.png
+		if !ErrorLevel
+		{
+			; Tooltip Найден синий
+			; Sleep 500
+			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
+			if !ErrorLevel
+			{
+				; Tooltip Найден асепт
+				; Sleep 500
+				Click, %IntOutputVarX%, %IntOutputVarY%
+				; MouseMove, IntOutputVarX, IntOutputVarY
+				Sleep 200
+			}
+		}
+	}
+}
+if VarColorRes = 2 	;Белые ресы
+{
+	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
+	if !ErrorLevel
+	{
+		; Tooltip Найдены 3 звезды
+		; Sleep 500
+		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-whi.png
+		if !ErrorLevel
+		{
+			; Tooltip Найден синий
+			; Sleep 500
+			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
+			if !ErrorLevel
+			{
+				; Tooltip Найден асепт
+				; Sleep 500
+				Click, %IntOutputVarX%, %IntOutputVarY%
+				; MouseMove, IntOutputVarX, IntOutputVarY
+				Sleep 200
+			}
+		}
+	}
+}
+if VarColorRes = 3 	;Синие и белые
+{
+	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
+	if !ErrorLevel
+	{
+		; Tooltip Найдены 3 звезды
+		; Sleep 500
+		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-blu.png
+		if !ErrorLevel
+		{
+			; Tooltip Найден синий
+			; Sleep 500
+			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
+			if !ErrorLevel
+			{
+				; Tooltip Найден асепт
+				; Sleep 500
+				Click, %IntOutputVarX%, %IntOutputVarY%
+				; MouseMove, IntOutputVarX, IntOutputVarY
+				Sleep 200
+			}
+			
+		}
+		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-whi.png
+		if !ErrorLevel
+		{
+			; Tooltip Найден синий
+			; Sleep 500
+			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
+			if !ErrorLevel
+			{
+				; Tooltip Найден асепт
+				; Sleep 500
+				Click, %IntOutputVarX%, %IntOutputVarY%
+				; MouseMove, IntOutputVarX, IntOutputVarY
+				Sleep 200
+			}
+			
+		}
+	}
+}
+Return
 
 
 ;===============================================================================================
@@ -173,9 +303,9 @@ IfWinActive, ahk_group gameexe1337
 Tooltip TOF AFK Frontier farm`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
 
 
-if (FrontierPoS1 != 3) and (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 10)
+if (FrontierPoS1 != 3) and (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (FrontierPoS1 != 9) and (FrontierPoS1 != 10)
 {
-	InputBox, FrontierPoS1,, Frontier pos 3 or 4 or 5 or 10 (full last)?`nФронтир идет 3 или 4 или 5 или 10 (последним) пунктом?`nВыбор сохраняется до перезапуска скрипта
+	InputBox, FrontierPoS1,, Frontier pos 3 or 4 or 5 or 9 (pre last) or 10 (last)?`nФронтир идет 3 или 4 или 5 или 9 (предпоследним) или 10 (последним) пунктом?`nВыбор сохраняется до перезапуска скрипта
 		if ErrorLevel
 		{
 			SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
@@ -183,6 +313,8 @@ if (FrontierPoS1 != 3) and (FrontierPoS1 != 4) and (FrontierPoS1 != 5) and (Fron
 			ToolTip,,0,0,5
 			Return
 		}
+		if (FrontierPoS1 != 3) or (FrontierPoS1 != 4) or (FrontierPoS1 != 5) or (FrontierPoS1 != 9) or (FrontierPoS1 != 10)
+			Return
 }
 
 
@@ -252,7 +384,7 @@ ScRandomizatorFunc()
 	}
 
 
-if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPoS1 = 10)
+if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPoS1 = 9) or (FrontierPoS1 = 10)
 {
 		if FrontierPoS1 = 3
 		{
@@ -290,41 +422,79 @@ if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPo
 			Sleep 3000
 			ScRandomizatorFunc()
 		}
+		if FrontierPoS1 = 9
+		{
+			Sleep 1000
+			ScRandomizatorFunc()
+			Loop 3
+			{
+				ZXTTClickVarXl:=round(A_ScreenWidth * (1336 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (347 / 1440))
+				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
+				ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
+				MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
+				Sleep 150
+				ScRandomizatorFunc()
+				ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
+				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {LButton}
+				sleep 1000
+				ScRandomizatorFunc()
+			}
+			;=============================Выбрать фронтир пос 4
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1692 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+			ScRandomizatorFunc()
+		}
 		if FrontierPoS1 = 10
 		{
 			Sleep 1000
 			ScRandomizatorFunc()
 			Loop 3
 			{
-			ZXTTClickVarXl:=round(A_ScreenWidth * (1336 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (347 / 1440))
-			MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
-			Sleep 150
-			ScRandomizatorFunc()
-			SendInput {RButton}
-			Sleep 150
-			ScRandomizatorFunc()
-			SendInput {RButton}
-			Sleep 150
-			ScRandomizatorFunc()
-			ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
-			ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
-			MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
-			Sleep 150
-			ScRandomizatorFunc()
-			ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
-			MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
-			SendInput {RButton}
-			Sleep 150
-			ScRandomizatorFunc()
-			SendInput {LButton}
-			sleep 1000
-			ScRandomizatorFunc()
+				ZXTTClickVarXl:=round(A_ScreenWidth * (1336 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (347 / 1440))
+				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
+				ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
+				MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
+				Sleep 150
+				ScRandomizatorFunc()
+				ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
+				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
+				SendInput {RButton}
+				Sleep 150
+				ScRandomizatorFunc()
+				SendInput {LButton}
+				sleep 1000
+				ScRandomizatorFunc()
 			}
-		ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
-		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-		ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
-		Sleep 3000
-		ScRandomizatorFunc()
+			;=============================Выбрать фронтир пос 5
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			ToolTip, Выбрал фронтир - жду 3 сек,round(A_ScreenWidth * .5),0,5
+			Sleep 3000
+			ScRandomizatorFunc()
 		}
 }
 

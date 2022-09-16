@@ -146,3 +146,12 @@ jopa15:=true
 	sleep 500
 	ToolTip
 Return
+LabelANumpad6: 	;=============================================================CLAUDIA long jump
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa16:=true
+	ToolTip, CLAUDIA long jump, 0, 0
+	sleep 500
+	ToolTip
+Return
