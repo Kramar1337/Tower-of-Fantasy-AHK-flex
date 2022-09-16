@@ -1,4 +1,4 @@
-# ToF AHK flex v4
+# ToF AHK flex v4.1
 
 AHK скрипт для Tower of Fantasy
 
@@ -30,6 +30,7 @@ __🚀Функционал:🚀__
   + Karasuma drill
   + TSUBASA R5 Top DPS
   + Diluc Vertical Flight
+  + Claudia long jump
 - AFK фермерство
   + AFK фермерство. Фарм монет дружбы (Не актуален, фронтир лучше)
   + AFK фермерство. Ферма опыта, материалов и монет дружбы в Frontier
@@ -100,6 +101,7 @@ Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить д
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
+Alt + Numpad 6 - Claudia long jump
 
 Esc - Остановить потоки
 End - Завершить работу AHK
