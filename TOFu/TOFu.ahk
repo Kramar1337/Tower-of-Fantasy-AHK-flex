@@ -29,6 +29,7 @@ Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забинд�
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
+Alt + Numpad 6 - Claudia long jump
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -95,14 +96,7 @@ https://toweroffantasy.online/map/
  - Оверлей фикс босс
  - Автопати в 3* данж
  - Коносуба бур с чипами
- - Рывки на CLAUDIA (в ожидании банера):
-Send LButton
-Sleep 270
-Send LButton
-Sleep 210
-Send R
-Sleep 50
-Send R
+
 	;============================Отмена анимации удара
 	SendInput, {vk20} 	;Space
 	SendInput, {vk1} 	;LButton
@@ -113,9 +107,11 @@ Send R
 https://www.youtube.com/watch?v=JHUkbCFyKCU
 
 
-Изменения: 14.09.2022
+Изменения: 17.09.2022
  - Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
  - Автоприниматель поиск пикселей
+ - Alt + Numpad 6 - Claudia long jump
+ - Калибровка клавдии в "tofuConfig.ini" параметр "ClaudiaJumpVar"
 
 Изменения: 13.09.2022
  - Переключатель в трей меню: глобал или китай версия
@@ -559,6 +555,13 @@ IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 IniRead, VarColorRes, data\tofuConfig.ini, Settings, VarColorRes
 IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
+
+if ClaudiaJumpVar = 0
+{
+	Hotkey, Up, LabelClaudiaJumpUp, on
+	Hotkey, Down, LabelClaudiaJumpDown, on
+	ClaudiaJumpVar = 300
+}
 
 ;=====================================Кнопки
 IniRead, key_skipNPS, data\tofuConfig.ini, Settings, key_skipNPS
@@ -1367,20 +1370,16 @@ Return
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
 
-
-/* Снять в 2х местах
-Up::
+;=========================================================Калибровка клавдии
+LabelClaudiaJumpUp:
 ClaudiaJumpVar+=1
-tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),round(A_ScreenHeight * .5)
+tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
-
-
-
-Down::
+LabelClaudiaJumpDown:
 ClaudiaJumpVar-=1
-tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),round(A_ScreenHeight * .5)
+tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
-*/
+
 
 
 Metkakey_EndExitapp:
