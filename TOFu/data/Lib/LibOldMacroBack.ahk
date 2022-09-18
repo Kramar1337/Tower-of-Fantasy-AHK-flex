@@ -438,18 +438,18 @@ if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPo
 				SendInput {RButton}
 				Sleep 150
 				ScRandomizatorFunc()
-				ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
-				ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
-				MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
+				Loop 10
+				{
+					MouseMove, -100, 0, 100, R
+					Sleep 150
+				}
+				MouseMove, 0, ZXTTClickVarYl
 				Sleep 150
-				ScRandomizatorFunc()
-				ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
-				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 				SendInput {RButton}
 				Sleep 150
 				ScRandomizatorFunc()
 				SendInput {LButton}
-				sleep 1000
+				sleep 500
 				ScRandomizatorFunc()
 			}
 			;=============================Выбрать фронтир пос 4
@@ -475,18 +475,18 @@ if (FrontierPoS1 = 3) or (FrontierPoS1 = 4) or (FrontierPoS1 = 5) or (FrontierPo
 				SendInput {RButton}
 				Sleep 150
 				ScRandomizatorFunc()
-				ZXTTClickVarXl:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (357 / 1440))
-				ZXTTClickVarX2:=round(A_ScreenWidth * (687 / 2560)), ZXTTClickVarY2:=round(A_ScreenHeight * (357 / 1440))
-				MouseClickDrag, L, ZXTTClickVarXl, ZXTTClickVarYl, ZXTTClickVarX2, ZXTTClickVarY2, 100
+				Loop 10
+				{
+					MouseMove, -100, 0, 100, R
+					Sleep 150
+				}
+				MouseMove, 0, ZXTTClickVarYl
 				Sleep 150
-				ScRandomizatorFunc()
-				ZXTTClickVarXl:=round(A_ScreenWidth * (599 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (225 / 1440))
-				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 				SendInput {RButton}
 				Sleep 150
 				ScRandomizatorFunc()
 				SendInput {LButton}
-				sleep 1000
+				sleep 500
 				ScRandomizatorFunc()
 			}
 			;=============================Выбрать фронтир пос 5

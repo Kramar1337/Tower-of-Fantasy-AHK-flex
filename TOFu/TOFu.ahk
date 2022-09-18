@@ -90,10 +90,14 @@ https://toweroffantasy.online/map/
 
 
 
+164 на клаве
+133 по теории
+
+C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
+
 
 
 Запланировано:
- - Оверлей фикс босс
  - Автопати в 3* данж
  - Коносуба бур с чипами
 
@@ -106,6 +110,13 @@ https://toweroffantasy.online/map/
 
 https://www.youtube.com/watch?v=JHUkbCFyKCU
 
+
+
+
+
+Изменения: 18.09.2022
+ - Фикс автофарма фронтира 9 и 10 слот
+ - Изменение оверлея
 
 Изменения: 17.09.2022
  - Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
@@ -752,7 +763,7 @@ If (ScHachCh = 1)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 9 	;кол-во страниц
+GenOverlayList := 8 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale
@@ -768,7 +779,7 @@ Gui, 99: Cancel
 
 Random, rand1488, 33, 35
 passwordVar777 := gen_password(rand1488)	
-PleasantNotify("", "" , 700, 350, "vc hc", "2")
+PleasantNotify("", "" , 700, 350, "vc hc", "1")
 return
 ;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
 
