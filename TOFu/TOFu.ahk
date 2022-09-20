@@ -90,8 +90,22 @@ https://toweroffantasy.online/map/
 
 
 
-164 на клаве
+171 на клаве
 133 по теории
+
+
+
+
+Лег - 2400 экспы - 240 камней (1200 экспы)
+Фиол - 800 экспы - 80 камней (400 экспы)
+Синька - 200 экспы - 20 камней (100 экспы)
+Зеленка - 5 камней
+
+1 lvl камень - 5 экспы
+2 lvl камень - 20 экспы
+3 lvl камень - 100 экспы
+
+
 
 C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
 
@@ -113,6 +127,10 @@ https://www.youtube.com/watch?v=JHUkbCFyKCU
 
 
 
+
+Изменения: 20.09.2022
+ - Клавдия отдельно
+ - Изменения фриги
 
 Изменения: 18.09.2022
  - Фикс автофарма фронтира 9 и 10 слот
@@ -449,6 +467,8 @@ https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZ
 Модные шрифты
 https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
 
+Гугл док от совы
+https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo/htmlview?usp=sharing&pru=AAABgxlNILM*30Qtid9_AN_lmmPe5SrqyA#
 
 
 Основные фишечки:
@@ -588,6 +608,7 @@ IniRead, key_AseptarKey, data\tofuConfig.ini, Settings, key_AseptarKey
 IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
 IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
 IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
+IniRead, key_ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, key_ClaudiaLongJumpOth
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
@@ -599,6 +620,7 @@ IniRead, Checkbox1animcancel, data\tofuConfig.ini, Settings, Checkbox1animcancel
 IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
+IniRead, Checkbox1ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, Checkbox1ClaudiaLongJumpOth
 
 
 ;=====================================Безопасность
@@ -660,6 +682,8 @@ if Checkbox1overlay = 1
 Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной инфой
 if Checkbox1flyhack = 1
 Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 	;Флай хак
+if Checkbox1ClaudiaLongJumpOth = 1
+Hotkey, %key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
 
 if OldMacroBackVar > 0
 {
@@ -1095,6 +1119,22 @@ if FIXchat
 	}
 }
 Return
+
+;========================================================CLAUDIA long jump
+Metkakey_ClaudiaLongJumpOth:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+SendInput {vk1}
+Sleep 270
+SendInput {vk1}
+Sleep % ClaudiaJumpVar
+SendInput {vk52}
+Sleep 1
+SendInput {vk52}
+return
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
