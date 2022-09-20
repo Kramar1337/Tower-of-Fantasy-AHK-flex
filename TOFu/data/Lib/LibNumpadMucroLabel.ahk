@@ -508,18 +508,37 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 }
 Loop
 {
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break 
-	SendInput, {vkA0} 	;Shift
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break 
+	SendInput, {vkA0 Down} 	;Shift
+	Sleep 50
+	SendInput, {vkA0 up} 	;Shift
 	Sleep 50
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
-    SendInput, {vk1}
-	Sleep 100
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break 
+	SendInput, {vk1 Down}
+	Sleep 50
+	SendInput, {vk1 up}
+	Sleep 50
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
+		GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			break 
+	SendInput, {vk1 Down}
+	Sleep 50
+	SendInput, {vk1 up}
 }
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
+    GetKeyState, SpaceStateAA, vkA0
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
 return
 
 ;==========Кликер инвентаря
