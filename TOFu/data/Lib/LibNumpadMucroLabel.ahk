@@ -512,10 +512,12 @@ Loop
     If SpaceStateAA = U
         break 
 	SendInput, {vkA0} 	;Shift
-	Sleep 50
+	Sleep 100
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
     SendInput, {vk1}
+	Sleep 130
+	SendInput, {vk1}
 	Sleep 100
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
