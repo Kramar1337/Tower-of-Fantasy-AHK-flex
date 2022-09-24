@@ -12,6 +12,7 @@ F - Фаст лут
 X - Бесконечное скалолазание
 4 - Абузный полет(планер в конфиге "key_flyhackGajetKey")
 V - Macro Key(по умолчанию в игре на "V" маунт, но если "Numpad 0" то макрос не срабатывает, а если "Numpad 1-2-3-n" то кнопка блокируется и маунт не мешает)
+N - Claudia long jump
 
 Numpad 0 - Off
 Numpad 1 - AutoAttack (70ms)
@@ -29,7 +30,7 @@ Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забинд�
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
-Alt + Numpad 6 - Claudia long jump
+Alt + Numpad 6 - Claudia long jump (повторение)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -48,6 +49,7 @@ F4 - *Слот под специфические макросы
 6 - AFK фермерство SendInput, Фарм монет дружбы (Для работы нужно < 30 смолы)
 7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт, ресурсы)
 8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
+9 - AFK фермерство SendInput, PVP
 
 
 Карты: 1 - 2 - 3 - 4
@@ -70,63 +72,20 @@ https://toweroffantasy.online/map/
 ; ===============================================================
 
 
-Ежедневки:
- - Ежедневочки 4 квеста
- - Смола в данжи
- - 
- - 
- - 3 подарка в парке
- - Рандом ящик с подарком у чела
- 
-Еженедельные:
-
-
-
-350 кр
-8 лег
-2.5 лег тв
-4,375 лег гр
-1 лег ск гр
-
-
-
-171 на клаве
-133 по теории
-
-
-
-
-Лег - 2400 экспы - 240 камней (1200 экспы)
-Фиол - 800 экспы - 80 камней (400 экспы)
-Синька - 200 экспы - 20 камней (100 экспы)
-Зеленка - 5 камней
-
-1 lvl камень - 5 экспы
-2 lvl камень - 20 экспы
-3 lvl камень - 100 экспы
-
-
-
-C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
-
-
-
 Запланировано:
  - Автопати в 3* данж
- - Коносуба бур с чипами
-
-	;============================Отмена анимации удара
-	SendInput, {vk20} 	;Space
-	SendInput, {vk1} 	;LButton
-	;============================Лонгджамп
-	SendInput, {vk20} 	;Space
-	SendInput, {vkA0}
-
-https://www.youtube.com/watch?v=JHUkbCFyKCU
+ - Автоасептер через RTSS.exe
 
 
 
 
+
+Изменения: 24.09.2022
+ - Автопоиск фронтира через поиск текста "FrontierTextSearch=1"
+ - Исправление кнопки Клавдии "N"
+ - Автофарм ПВП арены
+ - Обрубатель интернета через брандмаузер, трей меню
+ - Dodge Spam "Rbutton"
 
 Изменения: 20.09.2022
  - Клавдия отдельно
@@ -237,14 +196,32 @@ https://www.youtube.com/watch?v=JHUkbCFyKCU
 
 
 
+
+
+
+
+
+
+Лег - 2400 экспы - 240 камней (1200 экспы)
+Фиол - 800 экспы - 80 камней (400 экспы)
+Синька - 200 экспы - 20 камней (100 экспы)
+Зеленка - 5 камней
+
+1 lvl камень - 5 экспы
+2 lvl камень - 20 экспы
+3 lvl камень - 100 экспы
+
+C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
+	;============================Отмена анимации удара
+	SendInput, {vk20} 	;Space
+	SendInput, {vk1} 	;LButton
+	;============================Лонгджамп
+	SendInput, {vk20} 	;Space
+	SendInput, {vkA0}
+
+
 Астора
-
 Естрела
-
-Блюмус
-
-
-
 
 Пересчет всех круток в игре ToF:
 ==Одноразовые:==
@@ -470,6 +447,63 @@ https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
 Гугл док от совы
 https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo/htmlview?usp=sharing&pru=AAABgxlNILM*30Qtid9_AN_lmmPe5SrqyA#
 
+Скип анимации от чела
+https://www.youtube.com/watch?v=JHUkbCFyKCU
+
+
+
+
+
+Биржи:
+-Бинанс
+-Huobi
+
+Виртуальные карты:
+-Oldubil (нет 3ds)
+-MoneyPay 
+-Iyzico
+-Ozan
+-Pyypl
+
+
+
+
+350 кр
+8 лег
+2.5 лег тв
+4,375 лег гр
+1 лег ск гр
+
+
+
+183 на клаве
+133 по теории
+
+320
+80
+---
+400
+
+
+
+
+Пересчет круток:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Основные фишечки:
  Интерактивная карта
@@ -479,8 +513,6 @@ https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgO
  Daily Free Simulacrum Gifts
  Чайник безмятежности
  Распределение ресов при прокачке как в геншине
- 
- 
 
 Прогрессия TOF:
  Покупка банок смолы
@@ -494,12 +526,10 @@ https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgO
  Смола в данже через абуз крамбубы
  Консервация маячков на ультра лейт
 
-
 Мувмент:
  Отмена ульты
  Смена пушки без каста ульты
  Зависание в воздухе без стамины
-
 
 */
 
@@ -559,6 +589,9 @@ Menu,Tray, Icon, Global client, imageres.dll, 230, 16
 Menu,Tray, add, China client, Metkashortcut8
 Menu,Tray, Icon, China client, imageres.dll, 230, 16
 Menu,Tray, add
+Menu,Tray, add, Disconnect client, Metkashortcut9
+Menu,Tray, Icon, Disconnect client, imageres.dll, 171, 16
+Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
 Menu,Tray, Icon, Exit, shell32.dll,28, 16
 
@@ -586,6 +619,10 @@ IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 IniRead, VarColorRes, data\tofuConfig.ini, Settings, VarColorRes
 IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
+IniRead, FrontierTextSearch, data\tofuConfig.ini, Settings, FrontierTextSearch
+IniRead, FrontierTextOcr, data\tofuConfig.ini, Settings, FrontierTextOcr
+IniRead, FrontierTextSelect, data\tofuConfig.ini, Settings, FrontierTextSelect
+IniRead, GameDirFirewall, data\tofuConfig.ini, Settings, GameDirFirewall
 
 if ClaudiaJumpVar = 0
 {
@@ -609,6 +646,7 @@ IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
 IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
 IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
 IniRead, key_ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, key_ClaudiaLongJumpOth
+IniRead, key_SuperDodge, data\tofuConfig.ini, Settings, key_SuperDodge
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
@@ -621,6 +659,7 @@ IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
 IniRead, Checkbox1ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, Checkbox1ClaudiaLongJumpOth
+IniRead, Checkbox1SuperDodge, data\tofuConfig.ini, Settings, Checkbox1SuperDodge
 
 
 ;=====================================Безопасность
@@ -670,6 +709,14 @@ Hotkey, *~$%key_LabelANumpad6%, LabelANumpad6, on
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
 Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
 
+
+if Checkbox1SuperDodge = 1
+{
+	Hotkey, IfWinActive, ahk_group gameexe1337
+	Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 	;Dodge Spam
+	Hotkey, IfWinActive
+}
+
 if Checkbox1skipNPS = 1
 Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 	;Пропуск диалогов
 if Checkbox1fastlyt = 1
@@ -683,7 +730,11 @@ Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной и�
 if Checkbox1flyhack = 1
 Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 	;Флай хак
 if Checkbox1ClaudiaLongJumpOth = 1
-Hotkey, %key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
+{
+	Hotkey, IfWinActive, ahk_group gameexe1337
+	Hotkey, %key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
+	Hotkey, IfWinActive
+}
 
 if OldMacroBackVar > 0
 {
@@ -694,10 +745,10 @@ if OldMacroBackVar > 0
 
 if Checkbox1animcancel = 1
 {
-Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
-Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
+	Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
+	Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
+	Hotkey, IfWinActive
 }
-Hotkey, IfWinActive
 
 if (Checkbox1autowalk == 1)
 Hotkey, %key_autowalk%, Metkakey_autowalk, on
@@ -1136,6 +1187,23 @@ Sleep 1
 SendInput {vk52}
 return
 
+;========================================================Dodge Spam
+Metkakey_SuperDodge:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+	Loop
+	{	
+		GetKeyState, keySuperDodge, %key_SuperDodge%, P
+		if keySuperDodge = U
+			break
+		SendInput {vk2}
+		Sleep 20
+	}
+return
+
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
 #Include *i %A_ScriptDir%\data\Lib\LibMetkaOpenMap.ahk 		;Метка открыть карту
@@ -1366,6 +1434,202 @@ winfade(w:="",t:=128,i:=1,d:=10) {
         sleep %d%
     }
 }
+;=================================================Функция: скрин, ocr
+HBitmapFromScreen(X, Y, W, H) {
+   HDC := DllCall("GetDC", "Ptr", 0, "UPtr")
+   HBM := DllCall("CreateCompatibleBitmap", "Ptr", HDC, "Int", W, "Int", H, "UPtr")
+   PDC := DllCall("CreateCompatibleDC", "Ptr", HDC, "UPtr")
+   DllCall("SelectObject", "Ptr", PDC, "Ptr", HBM)
+   DllCall("BitBlt", "Ptr", PDC, "Int", 0, "Int", 0, "Int", W, "Int", H
+                   , "Ptr", HDC, "Int", X, "Int", Y, "UInt", 0x00CC0020)
+   DllCall("DeleteDC", "Ptr", PDC)
+   DllCall("ReleaseDC", "Ptr", 0, "Ptr", HDC)
+   Return HBM
+}
+
+HBitmapToRandomAccessStream(hBitmap) {
+   static IID_IRandomAccessStream := "{905A0FE1-BC53-11DF-8C49-001E4FC686DA}"
+        , IID_IPicture            := "{7BF80980-BF32-101A-8BBB-00AA00300CAB}"
+        , PICTYPE_BITMAP := 1
+        , BSOS_DEFAULT   := 0
+        
+   DllCall("Ole32\CreateStreamOnHGlobal", "Ptr", 0, "UInt", true, "PtrP", pIStream, "UInt")
+   
+   VarSetCapacity(PICTDESC, sz := 8 + A_PtrSize*2, 0)
+   NumPut(sz, PICTDESC)
+   NumPut(PICTYPE_BITMAP, PICTDESC, 4)
+   NumPut(hBitmap, PICTDESC, 8)
+   riid := CLSIDFromString(IID_IPicture, GUID1)
+   DllCall("OleAut32\OleCreatePictureIndirect", "Ptr", &PICTDESC, "Ptr", riid, "UInt", false, "PtrP", pIPicture, "UInt")
+   ; IPicture::SaveAsFile
+   DllCall(NumGet(NumGet(pIPicture+0) + A_PtrSize*15), "Ptr", pIPicture, "Ptr", pIStream, "UInt", true, "UIntP", size, "UInt")
+   riid := CLSIDFromString(IID_IRandomAccessStream, GUID2)
+   DllCall("ShCore\CreateRandomAccessStreamOverStream", "Ptr", pIStream, "UInt", BSOS_DEFAULT, "Ptr", riid, "PtrP", pIRandomAccessStream, "UInt")
+   ObjRelease(pIPicture)
+   ObjRelease(pIStream)
+   Return pIRandomAccessStream
+}
+
+CLSIDFromString(IID, ByRef CLSID) {
+   VarSetCapacity(CLSID, 16, 0)
+   if res := DllCall("ole32\CLSIDFromString", "WStr", IID, "Ptr", &CLSID, "UInt")
+      throw Exception("CLSIDFromString failed. Error: " . Format("{:#x}", res))
+   Return &CLSID
+}
+
+
+ocr(file, lang := "FirstFromAvailableLanguages")
+{
+   static OcrEngineStatics, OcrEngine, MaxDimension, LanguageFactory, Language, CurrentLanguage, BitmapDecoderStatics, GlobalizationPreferencesStatics
+   if (OcrEngineStatics = "")
+   {
+      CreateClass("Windows.Globalization.Language", ILanguageFactory := "{9B0252AC-0C27-44F8-B792-9793FB66C63E}", LanguageFactory)
+      CreateClass("Windows.Graphics.Imaging.BitmapDecoder", IBitmapDecoderStatics := "{438CCB26-BCEF-4E95-BAD6-23A822E58D01}", BitmapDecoderStatics)
+      CreateClass("Windows.Media.Ocr.OcrEngine", IOcrEngineStatics := "{5BFFA85A-3384-3540-9940-699120D428A8}", OcrEngineStatics)
+      DllCall(NumGet(NumGet(OcrEngineStatics+0)+6*A_PtrSize), "ptr", OcrEngineStatics, "uint*", MaxDimension)   ; MaxImageDimension
+   }
+   if (file = "ShowAvailableLanguages")
+   {
+      if (GlobalizationPreferencesStatics = "")
+         CreateClass("Windows.System.UserProfile.GlobalizationPreferences", IGlobalizationPreferencesStatics := "{01BF4326-ED37-4E96-B0E9-C1340D1EA158}", GlobalizationPreferencesStatics)
+      DllCall(NumGet(NumGet(GlobalizationPreferencesStatics+0)+9*A_PtrSize), "ptr", GlobalizationPreferencesStatics, "ptr*", LanguageList)   ; get_Languages
+      DllCall(NumGet(NumGet(LanguageList+0)+7*A_PtrSize), "ptr", LanguageList, "int*", count)   ; count
+      loop % count
+      {
+         DllCall(NumGet(NumGet(LanguageList+0)+6*A_PtrSize), "ptr", LanguageList, "int", A_Index-1, "ptr*", hString)   ; get_Item
+         DllCall(NumGet(NumGet(LanguageFactory+0)+6*A_PtrSize), "ptr", LanguageFactory, "ptr", hString, "ptr*", LanguageTest)   ; CreateLanguage
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+8*A_PtrSize), "ptr", OcrEngineStatics, "ptr", LanguageTest, "int*", bool)   ; IsLanguageSupported
+         if (bool = 1)
+         {
+            DllCall(NumGet(NumGet(LanguageTest+0)+6*A_PtrSize), "ptr", LanguageTest, "ptr*", hText)
+            buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
+            text .= StrGet(buffer, "UTF-16") "`n"
+         }
+         ObjRelease(LanguageTest)
+      }
+      ObjRelease(LanguageList)
+      return text
+   }
+   if (lang != CurrentLanguage) or (lang = "FirstFromAvailableLanguages")
+   {
+      if (OcrEngine != "")
+      {
+         ObjRelease(OcrEngine)
+         if (CurrentLanguage != "FirstFromAvailableLanguages")
+            ObjRelease(Language)
+      }
+      if (lang = "FirstFromAvailableLanguages")
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+10*A_PtrSize), "ptr", OcrEngineStatics, "ptr*", OcrEngine)   ; TryCreateFromUserProfileLanguages
+      else
+      {
+         CreateHString(lang, hString)
+         DllCall(NumGet(NumGet(LanguageFactory+0)+6*A_PtrSize), "ptr", LanguageFactory, "ptr", hString, "ptr*", Language)   ; CreateLanguage
+         DeleteHString(hString)
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+9*A_PtrSize), "ptr", OcrEngineStatics, ptr, Language, "ptr*", OcrEngine)   ; TryCreateFromLanguage
+      }
+      if (OcrEngine = 0)
+      {
+         msgbox Can not use language "%lang%" for OCR, please install language pack.
+         ExitApp
+      }
+      CurrentLanguage := lang
+   }
+   IRandomAccessStream := file
+   DllCall(NumGet(NumGet(BitmapDecoderStatics+0)+14*A_PtrSize), "ptr", BitmapDecoderStatics, "ptr", IRandomAccessStream, "ptr*", BitmapDecoder)   ; CreateAsync
+   WaitForAsync(BitmapDecoder)
+   BitmapFrame := ComObjQuery(BitmapDecoder, IBitmapFrame := "{72A49A1C-8081-438D-91BC-94ECFC8185C6}")
+   DllCall(NumGet(NumGet(BitmapFrame+0)+12*A_PtrSize), "ptr", BitmapFrame, "uint*", width)   ; get_PixelWidth
+   DllCall(NumGet(NumGet(BitmapFrame+0)+13*A_PtrSize), "ptr", BitmapFrame, "uint*", height)   ; get_PixelHeight
+   if (width > MaxDimension) or (height > MaxDimension)
+   {
+      msgbox Image is to big - %width%x%height%.`nIt should be maximum - %MaxDimension% pixels
+      ExitApp
+   }
+   BitmapFrameWithSoftwareBitmap := ComObjQuery(BitmapDecoder, IBitmapFrameWithSoftwareBitmap := "{FE287C9A-420C-4963-87AD-691436E08383}")
+   DllCall(NumGet(NumGet(BitmapFrameWithSoftwareBitmap+0)+6*A_PtrSize), "ptr", BitmapFrameWithSoftwareBitmap, "ptr*", SoftwareBitmap)   ; GetSoftwareBitmapAsync
+   WaitForAsync(SoftwareBitmap)
+   DllCall(NumGet(NumGet(OcrEngine+0)+6*A_PtrSize), "ptr", OcrEngine, ptr, SoftwareBitmap, "ptr*", OcrResult)   ; RecognizeAsync
+   WaitForAsync(OcrResult)
+   DllCall(NumGet(NumGet(OcrResult+0)+6*A_PtrSize), "ptr", OcrResult, "ptr*", LinesList)   ; get_Lines
+   DllCall(NumGet(NumGet(LinesList+0)+7*A_PtrSize), "ptr", LinesList, "int*", count)   ; count
+   loop % count
+   {
+      DllCall(NumGet(NumGet(LinesList+0)+6*A_PtrSize), "ptr", LinesList, "int", A_Index-1, "ptr*", OcrLine)
+      DllCall(NumGet(NumGet(OcrLine+0)+7*A_PtrSize), "ptr", OcrLine, "ptr*", hText) 
+      buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
+      text .= StrGet(buffer, "UTF-16") "`n"
+      ObjRelease(OcrLine)
+   }
+   Close := ComObjQuery(IRandomAccessStream, IClosable := "{30D5A829-7FA4-4026-83BB-D75BAE4EA99E}")
+   DllCall(NumGet(NumGet(Close+0)+6*A_PtrSize), "ptr", Close)   ; Close
+   ObjRelease(Close)
+   Close := ComObjQuery(SoftwareBitmap, IClosable := "{30D5A829-7FA4-4026-83BB-D75BAE4EA99E}")
+   DllCall(NumGet(NumGet(Close+0)+6*A_PtrSize), "ptr", Close)   ; Close
+   ObjRelease(Close)
+   ObjRelease(IRandomAccessStream)
+   ObjRelease(BitmapDecoder)
+   ObjRelease(BitmapFrame)
+   ObjRelease(BitmapFrameWithSoftwareBitmap)
+   ObjRelease(SoftwareBitmap)
+   ObjRelease(OcrResult)
+   ObjRelease(LinesList)
+   return text
+}
+
+
+
+CreateClass(string, interface, ByRef Class)
+{
+   CreateHString(string, hString)
+   VarSetCapacity(GUID, 16)
+   DllCall("ole32\CLSIDFromString", "wstr", interface, "ptr", &GUID)
+   result := DllCall("Combase.dll\RoGetActivationFactory", "ptr", hString, "ptr", &GUID, "ptr*", Class)
+   if (result != 0)
+   {
+      if (result = 0x80004002)
+         msgbox No such interface supported
+      else if (result = 0x80040154)
+         msgbox Class not registered
+      else
+         msgbox error: %result%
+      ExitApp
+   }
+   DeleteHString(hString)
+}
+
+CreateHString(string, ByRef hString)
+{
+    DllCall("Combase.dll\WindowsCreateString", "wstr", string, "uint", StrLen(string), "ptr*", hString)
+}
+
+DeleteHString(hString)
+{
+   DllCall("Combase.dll\WindowsDeleteString", "ptr", hString)
+}
+
+WaitForAsync(ByRef Object)
+{
+   AsyncInfo := ComObjQuery(Object, IAsyncInfo := "{00000036-0000-0000-C000-000000000046}")
+   loop
+   {
+      DllCall(NumGet(NumGet(AsyncInfo+0)+7*A_PtrSize), "ptr", AsyncInfo, "uint*", status)   ; IAsyncInfo.Status
+      if (status != 0)
+      {
+         if (status != 1)
+         {
+            DllCall(NumGet(NumGet(AsyncInfo+0)+8*A_PtrSize), "ptr", AsyncInfo, "uint*", ErrorCode)   ; IAsyncInfo.ErrorCode
+            msgbox AsyncInfo status error: %ErrorCode%
+            ExitApp
+         }
+         ObjRelease(AsyncInfo)
+         break
+      }
+      sleep 10
+   }
+   DllCall(NumGet(NumGet(Object+0)+8*A_PtrSize), "ptr", Object, "ptr*", ObjectResult)   ; GetResults
+   ObjRelease(Object)
+   Object := ObjectResult
+}
 
 ;=====================Меню, выход
 MetkaMenu0:
@@ -1412,6 +1676,50 @@ Sleep 1
 	}
 Reload
 Return
+;=====================Меню, отключить интернет на 2 секунды
+Metkashortcut9:
+MsgBox 0x1, ,Disconnect client?
+IfMsgBox OK, {
+} Else IfMsgBox Cancel, {
+Return
+}
+; Run firewall.cpl
+IfNotExist, %GameDirFirewall%
+{
+	MsgBox,,, Неверно указан путь`n=>GameDirFirewall=%GameDirFirewall%Error, 3
+	Return
+}
+;=======================Удалить правило
+RunWait, cmd /C 
+(
+@ECHO OFF & netsh advfirewall firewall delete rule name="3AToFu" & exit
+),, Hide
+Sleep 1
+;=======================Добавить правило
+RunWait, cmd /C 
+(
+@ECHO OFF & netsh advfirewall firewall add rule name="3AToFu" dir=out action=allow program="%GameDirFirewall%" enable=no & exit
+),, Hide
+Sleep 1
+;=======================Выключить интернет игре
+RunWait, cmd /C 
+(
+@ECHO OFF & netsh advfirewall firewall set rule name="3AToFu" new dir=out action=block program="%GameDirFirewall%" enable=yes & exit
+),, Hide
+Sleep 1500
+;=======================Включить интернет игре
+RunWait, cmd /C 
+(
+@ECHO OFF & netsh advfirewall firewall set rule name="3AToFu" new dir=out action=block program="%GameDirFirewall%" enable=no & exit
+),, Hide
+Sleep 1
+;=======================Удалить правило
+RunWait, cmd /C 
+(
+@ECHO OFF & netsh advfirewall firewall delete rule name="3AToFu" & exit
+),, Hide
+Return
+
 
 
 #Include *i %A_ScriptDir%\data\Lib\LibUpdateButton.ahk 		;Кнопка обновления
