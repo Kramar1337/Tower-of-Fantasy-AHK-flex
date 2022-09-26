@@ -36,6 +36,41 @@ if jopa15
 Goto Label_Goto_ChakramPP
 if jopa16
 Goto Label_Goto_ClaudiaLongJump
+if jopa17
+Goto Label_Goto_QiqiFlight
+return
+
+;============================================Qiqi Vertical Flight
+Label_Goto_QiqiFlight:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1 down}
+Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1 up}
+Sleep 240
+SendInput {%key_flyhackGajetKey%}
+Sleep 1
+SendInput {%key_flyhackGajetKey%}
+Sleep 1
+}
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
 return
 
 ;============================================CLAUDIA long jump
@@ -433,11 +468,18 @@ SendInput, {vk20} 	;Space
 Sleep 100
 Loop
 {
-    GetKeyState, SpaceStateAA, %key_animcancel%, P
-    If SpaceStateAA = U
-        break
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+	
 	SendInput, {vk1 Down} 	;LButton
-	Sleep 650
+	Sleep 350
+	
+GetKeyState, SpaceStateAA, %key_animcancel%, P
+If SpaceStateAA = U
+    break
+	
+	Sleep 300
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
 

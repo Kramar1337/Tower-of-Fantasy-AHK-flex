@@ -417,19 +417,19 @@ ToolTip, Задержка срабатывания для виртуалки 3 �
 Sleep 3000
 ScRandomizatorFunc()
 
-If !TogglerTimer7
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
+	If !TogglerTimer7
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+	{
+		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
 
 ;=============================Открыть книгу
 SendInput {Alt Down}
@@ -602,13 +602,13 @@ Else
 	{
 
 		;1
-		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (512 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (273 / 1440)))
-		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (854 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (421 / 1440)))
+		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (510 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (270 / 1440)))
+		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (858 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (425 / 1440)))
 		hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
 		pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 		DllCall("DeleteObject", "Ptr", hBitmap)
 		text := ocr(pIRandomAccessStream, FrontierTextOcr)
-		Tooltip % text,round(A_ScreenWidth * .3),0,4
+		Tooltip % text,round(A_ScreenWidth * .2),0,4
 				ZXTTClickVarXl:=round(A_ScreenWidth * (670 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 		if RegExMatch(text, FrontierTextSelect)
@@ -618,17 +618,17 @@ Else
 			; MsgBox Найден
 			Break
 		}
-		Sleep 1000
+		Sleep 1500
 		ScRandomizatorFunc()
 
 		;2
-		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (850 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (282 / 1440)))
-		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1190 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (418 / 1440)))
+		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (845 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (280 / 1440)))
+		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1195 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (425 / 1440)))
 		hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
 		pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 		DllCall("DeleteObject", "Ptr", hBitmap)
 		text := ocr(pIRandomAccessStream, FrontierTextOcr)
-		Tooltip % text,round(A_ScreenWidth * .3),0,4
+		Tooltip % text,round(A_ScreenWidth * .2),0,4
 				ZXTTClickVarXl:=round(A_ScreenWidth * (1008 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 		if RegExMatch(text, FrontierTextSelect)
@@ -638,17 +638,17 @@ Else
 			; MsgBox Найден
 			Break
 		}
-		Sleep 1000
+		Sleep 1500
 		ScRandomizatorFunc()
 		
 		;3
-		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1191 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (282 / 1440)))
-		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1525 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (418 / 1440)))
+		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1190 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (280 / 1440)))
+		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1530 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (420 / 1440)))
 		hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
 		pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 		DllCall("DeleteObject", "Ptr", hBitmap)
 		text := ocr(pIRandomAccessStream, FrontierTextOcr)
-		Tooltip % text,round(A_ScreenWidth * .3),0,4
+		Tooltip % text,round(A_ScreenWidth * .2),0,4
 				ZXTTClickVarXl:=round(A_ScreenWidth * (1360 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 		if RegExMatch(text, FrontierTextSelect)
@@ -658,33 +658,33 @@ Else
 			; MsgBox Найден
 			Break
 		}
-		Sleep 1000
+		Sleep 1500
 		ScRandomizatorFunc()
 
 
-	If !TogglerTimer7
-	{
-		Tooltip,,0,0,3
-		ToolTip,,0,0,5
-		Return
-	}
-	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-	{
-		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-		Tooltip,,0,0,3
-		ToolTip,,0,0,5
-		Return
-	}
+		If !TogglerTimer7
+		{
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
+		IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+		{
+			SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
 
 
 		;4
-		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1527 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (279 / 1440)))
-		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1864 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (418 / 1440)))
+		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1520 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (270 / 1440)))
+		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1868 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (425 / 1440)))
 		hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
 		pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 		DllCall("DeleteObject", "Ptr", hBitmap)
 		text := ocr(pIRandomAccessStream, FrontierTextOcr)
-		Tooltip % text,round(A_ScreenWidth * .3),0,4
+		Tooltip % text,round(A_ScreenWidth * .2),0,4
 				ZXTTClickVarXl:=round(A_ScreenWidth * (1692 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 		if RegExMatch(text, FrontierTextSelect)
@@ -694,17 +694,17 @@ Else
 			; MsgBox Найден
 			Break
 		}
-		Sleep 1000
+		Sleep 1500
 		ScRandomizatorFunc()
 		
 		;5
-		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1862 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (278 / 1440)))
-		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (2201 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (418 / 1440)))
+		ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1855 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (275 / 1440)))
+		ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (2205 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (425 / 1440)))
 		hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
 		pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 		DllCall("DeleteObject", "Ptr", hBitmap)
 		text := ocr(pIRandomAccessStream, FrontierTextOcr)
-		Tooltip % text,round(A_ScreenWidth * .3),0,4
+		Tooltip % text,round(A_ScreenWidth * .2),0,4
 				ZXTTClickVarXl:=round(A_ScreenWidth * (1990 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1070 / 1440))
 				MouseMove, ZXTTClickVarXl, ZXTTClickVarYl
 		if RegExMatch(text, FrontierTextSelect)
@@ -714,7 +714,7 @@ Else
 			; MsgBox Найден
 			Break
 		}
-		Sleep 1000
+		Sleep 1500
 		ScRandomizatorFunc()
 
 		if TumblerTogglerA2
@@ -741,20 +741,25 @@ Else
 				SendInput {LButton}
 				sleep 500
 			}
+		Sleep 1000
 		}
 
 	}
+	
 	if TumblerTogglerA1
 	{
 		Tooltip,,,,4
-		ToolTip,,0,0,5
+		ToolTip,,,,5
 		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
-		MsgBox,,, Error, 1
+		; MsgBox,,, Error, 1
+		MsgBox Error-01
 		Return
 	}
+	
 		Tooltip,,,,4
-	Sleep 3000
-	ScRandomizatorFunc()
+		Sleep 3000
+		ScRandomizatorFunc()
+	
 }
 
 	If !TogglerTimer7
@@ -813,7 +818,7 @@ ScRandomizatorFunc()
 		Return
 	}
 
-Loop 30
+Loop 45
 {
 
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5

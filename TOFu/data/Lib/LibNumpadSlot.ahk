@@ -2,10 +2,7 @@
 LabelNumpad0: 	;================================================================Off
 IfWinNotActive, ahk_group gameexe1337
 Return
-FuncMacroRestore() 	;Сбросить "jopa=False" и включить кнопку %key_animcancel%
-Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
-Hotkey, %key_animcancel%, Metkakey_animcancel, Off
-Hotkey, IfWinActive
+FuncMacroRestore()
 jopa0:=true
 	ToolTip, Off, 0, 0
 	sleep 500
@@ -152,6 +149,15 @@ Return
 FuncMacroRestore()
 jopa16:=true
 	ToolTip, CLAUDIA long jump, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpad7: 	;=============================================================Qiqi Vertical Flight
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa17:=true
+	ToolTip, Qiqi Vertical Flight, 0, 0
 	sleep 500
 	ToolTip
 Return

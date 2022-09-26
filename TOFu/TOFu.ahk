@@ -6,13 +6,15 @@ AHK скрипт для Tower of Fantasy
 F1 - *Карта
 F2 - *Оверлей
 F3 - *Автоходьба
+F4 - *Слот под спец макросы (Настраивать отдельно в "tofuConfig.ini")
 F9 - Автоприниматель лобби
 Z - Скип диалогов
 F - Фаст лут
 X - Бесконечное скалолазание
+N - Claudia long jump
+Rbutton - Dodge Spam
 4 - Абузный полет(планер в конфиге "key_flyhackGajetKey")
 V - Macro Key(по умолчанию в игре на "V" маунт, но если "Numpad 0" то макрос не срабатывает, а если "Numpad 1-2-3-n" то кнопка блокируется и маунт не мешает)
-N - Claudia long jump
 
 Numpad 0 - Off
 Numpad 1 - AutoAttack (70ms)
@@ -31,6 +33,7 @@ Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
 Alt + Numpad 6 - Claudia long jump (повторение)
+Alt + Numpad 7 - Qiqi Vertical Flight (Экипировать и забиндить джетпак)
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -79,6 +82,13 @@ https://toweroffantasy.online/map/
 
 
 
+
+Изменения: 26.09.2022
+ - Перебиндить макро
+ - Время поиска в фронтире
+ - Переделать полет на дилюке
+ - Полет на чиче
+ - Input.ini Lock-Unlock
 
 Изменения: 24.09.2022
  - Автопоиск фронтира через поиск текста "FrontierTextSearch=1"
@@ -457,15 +467,18 @@ https://www.youtube.com/watch?v=JHUkbCFyKCU
 Биржи:
 -Бинанс
 -Huobi
+-OKX
 
 Виртуальные карты:
--Oldubil (нет 3ds)
+-Oldubil (нет 3ds, прочекал)
 -MoneyPay 
+-Ozan (загран, фото, мазок с попы, подпись)
 -Iyzico
--Ozan
 -Pyypl
+-BitFree (скам, 30 бачей)
 
-
+blackcatcard
+simply.cards (Казахстан)
 
 
 350 кр
@@ -476,7 +489,7 @@ https://www.youtube.com/watch?v=JHUkbCFyKCU
 
 
 
-183 на клаве
+189 на клаве
 133 по теории
 
 320
@@ -578,19 +591,21 @@ Menu,Tray, add
 ; Menu,Tray, add, Uninstal ReShade, Metkashortcut3
 ; Menu,Tray, Icon, Uninstal ReShade, imageres.dll, 66, 16
 ; Menu,Tray, add
-Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
-Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
-Menu,Tray, add
-Menu,Tray, add, ForceUpdate, Metkashortcut6UpdateButton
-Menu,Tray, Icon, ForceUpdate, shell32.dll, 136, 16
-Menu,Tray, add
 Menu,Tray, add, Global client, Metkashortcut7
 Menu,Tray, Icon, Global client, imageres.dll, 230, 16
 Menu,Tray, add, China client, Metkashortcut8
 Menu,Tray, Icon, China client, imageres.dll, 230, 16
 Menu,Tray, add
-Menu,Tray, add, Disconnect client, Metkashortcut9
-Menu,Tray, Icon, Disconnect client, imageres.dll, 171, 16
+Menu,Tray, add, Force Update, Metkashortcut6UpdateButton
+Menu,Tray, Icon, Force Update, shell32.dll, 136, 16
+Menu,Tray, add
+Menu,Tray, add, Reconnect client, Metkashortcut9
+Menu,Tray, Icon, Reconnect client, imageres.dll, 171, 16
+Menu,Tray, add, Freeze game settings, Metkashortcut10
+Menu,Tray, Icon, Freeze game settings, imageres.dll, 225, 16
+Menu,Tray, add
+Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
+Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
 Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
 Menu,Tray, Icon, Exit, shell32.dll,28, 16
@@ -669,6 +684,8 @@ IniRead, ScRenamer, data\tofuConfig.ini, Settings, ScRenamer
 IniRead, ScHachCh, data\tofuConfig.ini, Settings, ScHachCh
 
 ;==========Подготовить кнопки
+Hotkey, IfWinActive, ahk_group gameexe1337
+
 IniRead, key_LabelNumpad0, data\tofuConfig.ini, Settings, key_LabelNumpad0
 Hotkey, *~$%key_LabelNumpad0%, LabelNumpad0, on
 IniRead, key_LabelNumpad1, data\tofuConfig.ini, Settings, key_LabelNumpad1
@@ -704,56 +721,44 @@ IniRead, key_LabelANumpad5, data\tofuConfig.ini, Settings, key_LabelANumpad5
 Hotkey, *~$%key_LabelANumpad5%, LabelANumpad5, on
 IniRead, key_LabelANumpad6, data\tofuConfig.ini, Settings, key_LabelANumpad6
 Hotkey, *~$%key_LabelANumpad6%, LabelANumpad6, on
+IniRead, key_LabelANumpad7, data\tofuConfig.ini, Settings, key_LabelANumpad7
+Hotkey, *~$%key_LabelANumpad7%, LabelANumpad7, on
 
 ;====================Зарегать клавиши
-Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
-Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
-
-
-if Checkbox1SuperDodge = 1
-{
-	Hotkey, IfWinActive, ahk_group gameexe1337
-	Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 	;Dodge Spam
-	Hotkey, IfWinActive
-}
-
-if Checkbox1skipNPS = 1
-Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 	;Пропуск диалогов
-if Checkbox1fastlyt = 1
-Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on 	;Спам сбор лута
-if Checkbox1fastclimber = 1
-Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on 	;Быстрое скалолазание
-if Checkbox1map = 1
-Hotkey, %key_map%, Metkakey_map, on 	;Открыть карту
-if Checkbox1overlay = 1
-Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной инфой
-if Checkbox1flyhack = 1
-Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 	;Флай хак
-if Checkbox1ClaudiaLongJumpOth = 1
-{
-	Hotkey, IfWinActive, ahk_group gameexe1337
-	Hotkey, %key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
-	Hotkey, IfWinActive
-}
-
+if (Checkbox1SuperDodge == 1)
+Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 		;Dodge Spam
+if (Checkbox1skipNPS == 1)
+Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
+if (Checkbox1fastlyt == 1)
+Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on 				;Спам сбор лута
+if (Checkbox1fastclimber == 1)
+Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on 		;Быстрое скалолазание
+if (Checkbox1flyhack == 1)
+Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 				;Флай хак
+if (Checkbox1animcancel == 1)
+Hotkey, *~%key_animcancel%, Metkakey_animcancel, on
+if (Checkbox1AseptarKey == 1)
+Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
+if (Checkbox1ClaudiaLongJumpOth == 1)
+Hotkey, *~%key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
 if OldMacroBackVar > 0
 {
 	Hotkey, *~!Up, Metkakey_UpMacroOld, on
 	Hotkey, *~!Down, Metkakey_DownMacroOld, on
 	Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
 }
+Hotkey, IfWinActive
 
-if Checkbox1animcancel = 1
-{
-	Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
-	Hotkey, *~%key_animcancel%, Metkakey_animcancel, Off
-	Hotkey, IfWinActive
-}
 
+if (Checkbox1map == 1)
+Hotkey, %key_map%, Metkakey_map, on 	;Открыть карту
+if (Checkbox1overlay == 1)
+Hotkey, %key_overlay%, Metkakey_overlay, on 	;Оверлей с разной инфой
 if (Checkbox1autowalk == 1)
 Hotkey, %key_autowalk%, Metkakey_autowalk, on
-if (Checkbox1AseptarKey == 1)
-Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
+
+Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
+Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
 
 
 ;======================Переменные для скипа диалогов
@@ -1362,9 +1367,6 @@ gen_password(length = 8)																;начало фукции длина п
 FuncMacroRestore()
 {
 Global
-Hotkey, IfWinActive, ahk_group gameexe1337 	;Кнопка работает только в игре
-Hotkey, %key_animcancel%, Metkakey_animcancel, on
-Hotkey, IfWinActive
 	Loop 26
 	{
 		IndexVarL := A_Index - 1
@@ -1678,16 +1680,16 @@ Reload
 Return
 ;=====================Меню, отключить интернет на 2 секунды
 Metkashortcut9:
-MsgBox 0x1, ,Disconnect client?
-IfMsgBox OK, {
-} Else IfMsgBox Cancel, {
-Return
-}
 ; Run firewall.cpl
 IfNotExist, %GameDirFirewall%
 {
 	MsgBox,,, Неверно указан путь`n=>GameDirFirewall=%GameDirFirewall%Error, 3
 	Return
+}
+MsgBox 0x1, ,Disconnect client?
+IfMsgBox OK, {
+} Else IfMsgBox Cancel, {
+Return
 }
 ;=======================Удалить правило
 RunWait, cmd /C 
@@ -1719,6 +1721,46 @@ RunWait, cmd /C
 @ECHO OFF & netsh advfirewall firewall delete rule name="3AToFu" & exit
 ),, Hide
 Return
+
+;=====================Меню, заморозить настройки игры
+Metkashortcut10:
+AppDataTruA := StrReplace(A_AppData, "\Roaming", "")
+IfNotExist, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+{
+	MsgBox,,, File not found:`n%AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini, 3
+	Return
+}
+OnMessage(0x44, "OnMsgBox")
+MsgBox 0x3, , Change file attributes to read-only?`nGameUserSettings.ini`nInput.ini
+OnMessage(0x44, "")
+IfMsgBox Yes, {
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+	Return
+} Else IfMsgBox No, {
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+	Return
+} Else IfMsgBox Cancel, {
+	Return
+}
+Return
+
+OnMsgBox() {
+    DetectHiddenWindows, On
+    Process, Exist
+    If (WinExist("ahk_class #32770 ahk_pid " . ErrorLevel)) {
+        ; ControlSetText Button1, Yes
+        hIcon := LoadPicture("imageres.dll", "h16 Icon234", _)
+        SendMessage 0xF7, 1, %hIcon%, Button1
+        ; ControlSetText Button2, No
+        hIcon := LoadPicture("imageres.dll", "h16 Icon234", _)
+        SendMessage 0xF7, 1, %hIcon%, Button2
+        ; ControlSetText Button3, Cancel
+        hIcon := LoadPicture("imageres.dll", "h16 Icon85", _)
+        SendMessage 0xF7, 1, %hIcon%, Button3
+    }
+}
 
 
 
