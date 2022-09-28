@@ -11,6 +11,7 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
 	if !TogglerTimer1
 		Tooltip,,0,0,3
@@ -26,6 +27,7 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
 	if !TogglerTimer3
 		Tooltip,,0,0,3
@@ -41,6 +43,7 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
 	if !TogglerTimer2
 		Tooltip,,0,0,3
@@ -56,6 +59,7 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
 	if !TogglerTimer4
 		Tooltip,,0,0,3
@@ -71,6 +75,7 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	ToggleRcircles = 0
 	SetTimer, LabelAFKloopFarmF, % ((TogglerTimer5 := !TogglerTimer5) ? "0" : "Off")
 	if !TogglerTimer5
@@ -87,6 +92,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
 	if !TogglerTimer6
 		Tooltip,,0,0,3
@@ -102,6 +108,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
 	if !TogglerTimer7
 		Tooltip,,0,0,3
@@ -117,6 +124,7 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelAFKPony, % ((TogglerTimer8 := !TogglerTimer8) ? "0" : "Off")
 	if !TogglerTimer8
 		Tooltip,,0,0,3
@@ -132,8 +140,25 @@ SetTimer, LabelAFKloopFarmF, off
 SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
+SetTimer, LabelEneHold, off
 	SetTimer, LabelInterPvp, % ((TogglerTimer9 := !TogglerTimer9) ? "0" : "Off")
 	if !TogglerTimer9
+		Tooltip,,0,0,3
+}
+if (OldMacroBackVar == 10) 	;AFK фермерство Controlclick, Ene Hold
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+SetTimer, LabelAFKloopFarmF, off
+SetTimer, LabelAFKfriendCoin, off
+SetTimer, LabelAFKFrontier, off
+SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPvp, off
+	SetTimer, LabelEneHold, % ((TogglerTimer10 := !TogglerTimer10) ? "0" : "Off")
+	if !TogglerTimer10
 		Tooltip,,0,0,3
 }
 return
@@ -146,8 +171,30 @@ return
 ; SetTimer, LabelAFKFrontier, off
 ; SetTimer, LabelAFKPony, off
 ; SetTimer, LabelInterPvp, off
+; SetTimer, LabelEneHold, off
 
 
+;===============================================================================================
+;======================OldMacroBackVar = 10===========AFK фермерство Controlclick, Ene Hold
+;===============================================================================================
+LabelEneHold:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK Ene Hold.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+		ControlSend,ahk_parent, {vk1 Down}, ahk_group gameexe1337
+	Else
+		SendInput {vk1 Down}
+	Sleep 3100
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+		ControlSend,ahk_parent, {vk1 up}, ahk_group gameexe1337
+	Else
+		SendInput {vk1 up}
+Random, RandomVarSc1, 1, 100
+sleep %RandomVarSc1%
+Sleep 100
+return
 
 ;===============================================================================================
 ;======================OldMacroBackVar = 9===========Автофарм пвп арены

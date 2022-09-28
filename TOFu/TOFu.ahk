@@ -53,6 +53,7 @@ F4 - *Слот под специфические макросы
 7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт, ресурсы)
 8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
 9 - AFK фермерство SendInput, PVP
+10 - AFK фермерство, AFK Ene Hold
 
 
 Карты: 1 - 2 - 3 - 4
@@ -74,14 +75,21 @@ https://toweroffantasy.online/map/
 ; ===============================================================
 ; ===============================================================
 
+202 на клаве
+133 по теории
 
 Запланировано:
  - Автопати в 3* данж
- - Автоасептер через RTSS.exe
+ - Ачивка скалолаза
+ - Автоотдаление камеры
 
 
 
 
+
+Изменения: 27.09.2022
+ - AFK фермерство, AFK Ene Hold
+ - Изменение в оверлее
 
 Изменения: 26.09.2022
  - Перебиндить макро
@@ -489,8 +497,7 @@ simply.cards (Казахстан)
 
 
 
-189 на клаве
-133 по теории
+
 
 320
 80
@@ -632,12 +639,17 @@ IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
 IniRead, MouseCenterMapVar, data\tofuConfig.ini, Settings, MouseCenterMapVar
 IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
-IniRead, VarColorRes, data\tofuConfig.ini, Settings, VarColorRes
+
 IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
 IniRead, FrontierTextSearch, data\tofuConfig.ini, Settings, FrontierTextSearch
 IniRead, FrontierTextOcr, data\tofuConfig.ini, Settings, FrontierTextOcr
 IniRead, FrontierTextSelect, data\tofuConfig.ini, Settings, FrontierTextSelect
 IniRead, GameDirFirewall, data\tofuConfig.ini, Settings, GameDirFirewall
+
+IniRead, IntersTextSelectA1, data\tofuConfig.ini, Settings, IntersTextSelectA1
+IniRead, IntersTextSelectA2, data\tofuConfig.ini, Settings, IntersTextSelectA2
+IniRead, IntersStarSelect, data\tofuConfig.ini, Settings, IntersStarSelect
+
 
 if ClaudiaJumpVar = 0
 {
@@ -776,6 +788,9 @@ Loop 26
 	jopa%IndexVarL% := false
 }
 
+;======================Переключение стрелками
+MacroBackAmount = 10
+
 ;======================Таймеры
 TogglerTimer1 = 0
 TogglerTimer2 = 0
@@ -787,6 +802,8 @@ TogglerTimer7 = 0
 TogglerTimer8 = 0
 TogglerTimer9 = 0
 TogglerTimer10 = 0
+TogglerTimer11 = 0
+TogglerTimer12 = 0
 
 ;=====================================================имя окна карты на разных языках
 ;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
@@ -843,7 +860,7 @@ If (ScHachCh = 1)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 8 	;кол-во страниц
+GenOverlayList := 6 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale
@@ -1266,8 +1283,8 @@ Sleep 1
 IfWinNotActive, ahk_group gameexe1337
 Return
 OldMacroBackVar += 1
-if OldMacroBackVar > 9
-	OldMacroBackVar = 9
+if (OldMacroBackVar > MacroBackAmount)
+	OldMacroBackVar := MacroBackAmount
 	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
 	sleep 300
 	ToolTip
