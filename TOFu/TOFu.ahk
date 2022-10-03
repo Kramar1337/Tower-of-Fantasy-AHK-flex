@@ -54,7 +54,8 @@ F4 - *Слот под специфические макросы
 8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
 9 - AFK фермерство SendInput, PVP
 10 - AFK фермерство, AFK Ene Hold
-
+11 - Отдаление камеры
+12 - AFK achievement climber
 
 Карты: 1 - 2 - 3 - 4
 Еу карта с гугл авторизацией
@@ -75,17 +76,22 @@ https://toweroffantasy.online/map/
 ; ===============================================================
 ; ===============================================================
 
-202 на клаве
+209 на клаве
 133 по теории
 
 Запланировано:
  - Автопати в 3* данж
- - Ачивка скалолаза
- - Автоотдаление камеры
 
 
 
 
+Изменения: 03.10.2022
+ - Оверлей
+ - Ачивка скалолаза. 12 - AFK achievement climber
+ - Исправления фильтров
+
+Изменения: 29.09.2022
+ - Отдаление камеры
 
 Изменения: 27.09.2022
  - AFK фермерство, AFK Ene Hold
@@ -228,6 +234,12 @@ https://toweroffantasy.online/map/
 1 lvl камень - 5 экспы
 2 lvl камень - 20 экспы
 3 lvl камень - 100 экспы
+
+
+  3200  4000  4800  5600  6400
+0* => 1* => 2* => 3* => 4* => 5*
+
+
 
 C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
 	;============================Отмена анимации удара
@@ -753,12 +765,6 @@ if (Checkbox1AseptarKey == 1)
 Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
 if (Checkbox1ClaudiaLongJumpOth == 1)
 Hotkey, *~%key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
-if OldMacroBackVar > 0
-{
-	Hotkey, *~!Up, Metkakey_UpMacroOld, on
-	Hotkey, *~!Down, Metkakey_DownMacroOld, on
-	Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
-}
 Hotkey, IfWinActive
 
 
@@ -772,6 +778,14 @@ Hotkey, %key_autowalk%, Metkakey_autowalk, on
 Hotkey, *~$%key_EndExitapp%, Metkakey_EndExitapp, on 	;Выход
 Hotkey, *~$%key_PgUpPauseSuspend%, Metkakey_PgUpPauseSuspend, on 	;Приостановить-возобновить
 
+if OldMacroBackVar > 0
+{
+	Hotkey, IfWinActive, ahk_group gameexe1337
+	Hotkey, *~!Up, Metkakey_UpMacroOld, on
+	Hotkey, *~!Down, Metkakey_DownMacroOld, on
+	Hotkey, IfWinActive
+	Hotkey, %key_OtherMacros%, Metkakey_AllOldMacroBack, on
+}
 
 ;======================Переменные для скипа диалогов
 xSkip:=round(A_ScreenWidth*.7265) 	;нижний ответ
@@ -788,8 +802,8 @@ Loop 26
 	jopa%IndexVarL% := false
 }
 
-;======================Переключение стрелками
-MacroBackAmount = 10
+;======================Переключение стрелками, кол-во макросов
+MacroBackAmount = 12
 
 ;======================Таймеры
 TogglerTimer1 = 0

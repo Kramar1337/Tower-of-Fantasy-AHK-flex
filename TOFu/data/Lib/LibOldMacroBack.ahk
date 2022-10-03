@@ -12,6 +12,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
 	if !TogglerTimer1
 		Tooltip,,0,0,3
@@ -28,6 +30,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
 	if !TogglerTimer3
 		Tooltip,,0,0,3
@@ -44,6 +48,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
 	if !TogglerTimer2
 		Tooltip,,0,0,3
@@ -60,6 +66,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
 	if !TogglerTimer4
 		Tooltip,,0,0,3
@@ -76,6 +84,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	ToggleRcircles = 0
 	SetTimer, LabelAFKloopFarmF, % ((TogglerTimer5 := !TogglerTimer5) ? "0" : "Off")
 	if !TogglerTimer5
@@ -93,6 +103,8 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
 	if !TogglerTimer6
 		Tooltip,,0,0,3
@@ -109,6 +121,8 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
 	if !TogglerTimer7
 		Tooltip,,0,0,3
@@ -125,6 +139,8 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelAFKPony, % ((TogglerTimer8 := !TogglerTimer8) ? "0" : "Off")
 	if !TogglerTimer8
 		Tooltip,,0,0,3
@@ -141,6 +157,8 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelEneHold, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelInterPvp, % ((TogglerTimer9 := !TogglerTimer9) ? "0" : "Off")
 	if !TogglerTimer9
 		Tooltip,,0,0,3
@@ -157,8 +175,48 @@ SetTimer, LabelAFKfriendCoin, off
 SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
 	SetTimer, LabelEneHold, % ((TogglerTimer10 := !TogglerTimer10) ? "0" : "Off")
 	if !TogglerTimer10
+		Tooltip,,0,0,3
+}
+if (OldMacroBackVar == 11) 	;Отдаление камеры
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+SetTimer, LabelAFKloopFarmF, off
+SetTimer, LabelAFKfriendCoin, off
+SetTimer, LabelAFKFrontier, off
+SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPvp, off
+SetTimer, LabelCumeraS, off
+SetTimer, LabelAFKclimber, off
+	SetTimer, LabelCumeraS, % ((TogglerTimer11 := !TogglerTimer11) ? "0" : "Off")
+	if !TogglerTimer11
+		Tooltip,,0,0,3
+	Tooltip Cumera - %TogglerTimer11%`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	Sleep 300
+	Tooltip,,,0,3
+}
+if (OldMacroBackVar == 12) 	;TOF AFK climber achievement
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+SetTimer, LabelAFKloopFarmF, off
+SetTimer, LabelAFKfriendCoin, off
+SetTimer, LabelAFKFrontier, off
+SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPvp, off
+SetTimer, LabelCumeraS, off
+	SetTimer, LabelAFKclimber, % ((TogglerTimer12 := !TogglerTimer12) ? "0" : "Off")
+	if !TogglerTimer12
 		Tooltip,,0,0,3
 }
 return
@@ -172,7 +230,66 @@ return
 ; SetTimer, LabelAFKPony, off
 ; SetTimer, LabelInterPvp, off
 ; SetTimer, LabelEneHold, off
+; SetTimer, LabelCumeraS, off
+; SetTimer, LabelAFKclimber, off
 
+;===============================================================================================
+;======================OldMacroBackVar = 12===========TOF AFK climber achievement
+;===============================================================================================
+LabelAFKclimber:
+IfWinNotActive, ahk_group gameexe1337
+Tooltip,,0,0,3
+IfWinActive, ahk_group gameexe1337
+Tooltip TOF AFK climber achievement`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 50),0,3
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+		ControlSend,ahk_parent, {vk57 Down}, ahk_group gameexe1337
+	Else
+		SendInput {vk57 Down}
+Loop 8
+{
+	Sleep 1000
+	If !TogglerTimer12
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+}
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+		ControlSend,ahk_parent, {vk57 up}, ahk_group gameexe1337
+	Else
+		SendInput {vk57 up}
+Sleep 150
+	if UseControlSendVar 	;Если стоит "UseControlSendVar = 1"
+		ControlSend,ahk_parent, {vkA2}, ahk_group gameexe1337
+	Else
+		SendInput {vk57}
+Loop 4
+{
+	Sleep 1000
+	If !TogglerTimer12
+	{
+		Tooltip,,0,0,3
+		ToolTip,,0,0,5
+		Return
+	}
+}
+return
+
+;===============================================================================================
+;======================OldMacroBackVar = 11===========Отдаление камеры
+;===============================================================================================
+LabelCumeraS:
+IfWinActive, ahk_group gameexe1337
+{
+	if !FuncCursorVisible()
+	{
+		SendInput {WheelDown}
+		Sleep 70
+		ScRandomizatorFunc()
+	}
+}
+return
 
 ;===============================================================================================
 ;======================OldMacroBackVar = 10===========AFK фермерство Controlclick, Ene Hold
