@@ -1,4 +1,4 @@
-# ToF AHK flex v4.4
+# ToF AHK flex v4.5
 
 AHK скрипт для Tower of Fantasy
 
@@ -31,9 +31,11 @@ __🚀Функционал:🚀__
   + Karasuma drill
   + TSUBASA R5 Top DPS
   + Diluc Vertical Flight
-  + Claudia long jump
-  + Dodge Spam
   + Qiqi Vertical Flight
+  + Claudia long jump
+  + Alyss long jump 
+  + Dodge Spam
+
 - AFK фермерство
   + AFK фермерство. Фарм монет дружбы (Не актуален, фронтир лучше)
   + AFK фермерство. Ферма опыта, материалов и монет дружбы в Frontier
@@ -46,7 +48,7 @@ __🚀Функционал:🚀__
   + AFK фермерство, спам "F" залипание кнопки "W" и "A". (Например на Phosphogranate: -75, -845)
   + AFK фермерство, спам "F" ходьба вперед - назад
   + AFK фермерство, AFK Ene Hold
-  + AFK achievement climber
+  + AFK фермерство, AFK Achievement Climber
 
 
 __🛴Возможности:🛴__
@@ -104,13 +106,15 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
-Alt + Numpad 1 - SHIRO Chakram
+Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
 Alt + Numpad 6 - Claudia long jump
 Alt + Numpad 7 - Qiqi Vertical Flight
+Alt + Numpad 8 - SHIRO Chakram Classic
+Alt + Numpad 9 - Alyss long jump
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -135,13 +139,20 @@ __🍏AFK фермерство:🍎__
   + 9 AFK фермерство SendInput, PVP
   + 10 - AFK фермерство, AFK Ene Hold
   + 11 - Отдаление камеры
-  + 12 - AFK achievement climber
+  + 12 - AFK фермерство, Achievement Climber
 
 <details>
 <summary>==Список изменений==</summary>
+
+Изменения: 15.10.2022
+
+ - Alt + Numpad 1 - Samir
+ - Alt + Numpad 9 - Alyss long jump 
+ - Checkbox1animcancel=0 отключает все кнопки: макро кей, нампады, альт+нампад
+ - key_PgUpPauseSuspend=PgDn
+ - Подкрутка фронтира
   
 Изменения: 03.10.2022
-
  - Оверлей
  - Ачивка скалолаза. 12 - AFK achievement climber
  - Исправления фильтров
