@@ -407,107 +407,6 @@ Loop 40
 ToolTip,,,0,5
 Return
 
-/*
-IfWinNotActive, ahk_group gameexe1337
-Tooltip,,0,0,3
-IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK InterPortal %VarColorRes%`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
-
-	Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
-	OttenokFis = 12 				;диапазон(0-256), 11 норм находит.
-	ZXTTClickVarXl337:=round(A_ScreenWidth * (437 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (1063 / 1440))
-	ZXTTClickVarX228:=round(A_ScreenWidth * (1200 / 2560)), ZXTTClickVarY228:=round(A_ScreenHeight * (1275 / 1440))
-if VarColorRes = 1 	;Синие ресы
-{
-	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
-	if !ErrorLevel
-	{
-		; Tooltip Найдены 3 звезды
-		; Sleep 500
-		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-blu.png
-		if !ErrorLevel
-		{
-			; Tooltip Найден синий
-			; Sleep 500
-			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
-			if !ErrorLevel
-			{
-				; Tooltip Найден асепт
-				; Sleep 500
-				Click, %IntOutputVarX%, %IntOutputVarY%
-				; MouseMove, IntOutputVarX, IntOutputVarY
-				Sleep 200
-			}
-		}
-	}
-}
-if VarColorRes = 2 	;Белые ресы
-{
-	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
-	if !ErrorLevel
-	{
-		; Tooltip Найдены 3 звезды
-		; Sleep 500
-		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-whi.png
-		if !ErrorLevel
-		{
-			; Tooltip Найден синий
-			; Sleep 500
-			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
-			if !ErrorLevel
-			{
-				; Tooltip Найден асепт
-				; Sleep 500
-				Click, %IntOutputVarX%, %IntOutputVarY%
-				; MouseMove, IntOutputVarX, IntOutputVarY
-				Sleep 200
-			}
-		}
-	}
-}
-if VarColorRes = 3 	;Синие и белые
-{
-	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\2star.png
-	if !ErrorLevel
-	{
-		; Tooltip Найдены 3 звезды
-		; Sleep 500
-		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-blu.png
-		if !ErrorLevel
-		{
-			; Tooltip Найден синий
-			; Sleep 500
-			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
-			if !ErrorLevel
-			{
-				; Tooltip Найден асепт
-				; Sleep 500
-				Click, %IntOutputVarX%, %IntOutputVarY%
-				; MouseMove, IntOutputVarX, IntOutputVarY
-				Sleep 200
-			}
-			
-		}
-		ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\col-whi.png
-		if !ErrorLevel
-		{
-			; Tooltip Найден синий
-			; Sleep 500
-			ImageSearch, IntOutputVarX, IntOutputVarY, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\1440p\acept.png
-			if !ErrorLevel
-			{
-				; Tooltip Найден асепт
-				; Sleep 500
-				Click, %IntOutputVarX%, %IntOutputVarY%
-				; MouseMove, IntOutputVarX, IntOutputVarY
-				Sleep 200
-			}
-			
-		}
-	}
-}
-Return
-*/
 
 ;===============================================================================================
 ;======================OldMacroBackVar = 8===========AFK фермерство SendInput, Фарм парка отракционов Amusement park
@@ -594,7 +493,7 @@ ScRandomizatorFunc()
 		ToolTip,,0,0,5
 		Return
 	}
-
+LabelExtNext777:
 ;=============================Открыть книгу
 SendInput {Alt Down}
 Sleep 150
@@ -912,11 +811,53 @@ Else
 	
 	if TumblerTogglerA1
 	{
-		Tooltip,,,,4
-		ToolTip,,,,5
-		SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+		Sleep 3000
+		SendInput {vk1B}
+		Sleep 3000
+			If !TogglerTimer7
+			{
+				Tooltip,,0,0,3
+				ToolTip,,0,0,5
+				Return
+			}
+			IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+			{
+				SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+				Tooltip,,0,0,3
+				ToolTip,,0,0,5
+				Return
+			}
+		;===============================================Перестраховаться и нажать реконнект если отвал инета
+		if FuncCursorVisible()
+		{
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (770 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			Loop 15
+			{
+				Sleep 1000
+				ScRandomizatorFunc()
+				If !TogglerTimer7
+				{
+					Tooltip,,0,0,3
+					ToolTip,,0,0,5
+					Return
+				}
+				IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+				{
+					SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
+					Tooltip,,0,0,3
+					ToolTip,,0,0,5
+					Return
+				}
+			}
+		}
+		; Tooltip,,,,4
+		; ToolTip,,,,5
+		; SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
 		; MsgBox,,, Error, 1
-		MsgBox Error-01
+		; MsgBox Error-01
+		Sleep 3000
+		Goto LabelExtNext777
 		Return
 	}
 	
@@ -1086,6 +1027,27 @@ ScRandomizatorFunc()
 		ToolTip,,0,0,5
 		Return
 	}
+
+
+
+	ToolTip, Рубильник,round(A_ScreenWidth * .5),0,5
+;=============================Активировать рубильник
+Sleep 500
+SendInput {vk57 Down}
+Sleep 2300
+SendInput {vk57 up}
+Sleep 500
+SendInput {vk41 Down}
+Sleep 2300
+SendInput {vk41 up}
+Sleep 500
+SendInput {vk57 Down}
+Sleep 2300
+SendInput {vk57 up}
+Sleep 500
+SendInput {vk57 up}
+
+
 
 
 Loop 480

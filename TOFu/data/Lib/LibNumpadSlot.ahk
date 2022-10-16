@@ -98,12 +98,12 @@ jopa20:=true
 	sleep 500
 	ToolTip
 Return
-LabelANumpad1: 	;=============================================================SHIRO Chakram
+LabelANumpad1: 	;=============================================================Samir
 IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa11:=true
-	ToolTip, SHIRO Chakram, 0, 0
+	ToolTip, Samir, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -158,6 +158,24 @@ Return
 FuncMacroRestore()
 jopa17:=true
 	ToolTip, Qiqi Vertical Flight, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpad8: 	;=============================================================SHIRO Chakram
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa18:=true
+	ToolTip, SHIRO Chakram, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpad9: 	;=============================================================Alyss long jump
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa19:=true
+	ToolTip, Alyss long jump, 0, 0
 	sleep 500
 	ToolTip
 Return

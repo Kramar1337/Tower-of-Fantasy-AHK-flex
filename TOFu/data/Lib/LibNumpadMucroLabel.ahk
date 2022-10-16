@@ -25,7 +25,7 @@ Goto Label_Goto_NemesisAirhold
 if jopa20
 Goto Label_Goto_DilucVerticalFlight
 if jopa11
-Goto Label_Goto_Chakram
+Goto Label_Goto_SamirCombo
 if jopa12
 Goto Label_Goto_Karasuma1
 if jopa13
@@ -38,7 +38,89 @@ if jopa16
 Goto Label_Goto_ClaudiaLongJump
 if jopa17
 Goto Label_Goto_QiqiFlight
+if jopa18
+Goto Label_Goto_Chakram
+if jopa19
+Goto Label_Goto_Alyss
 return
+
+;============================================Alyss long jump 
+Label_Goto_Alyss:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+SendInput {vk1}
+Sleep 250
+SendInput {vk1}
+Sleep 250
+SendInput {vk1}
+Sleep % AlyssJumpVar
+SendInput {vk52}
+Sleep 1
+SendInput {vk52}
+Return
+
+;============================================Samir
+Label_Goto_SamirCombo:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+SendInput {vk20}
+Sleep 100
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			Return
+SendInput {vk1 Down}
+Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			{
+			SendInput, {vk1 Up}
+			Return
+			}
+Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			{
+			SendInput, {vk1 Up}
+			Return
+			}
+Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			{
+			SendInput, {vk1 Up}
+			Return
+			}
+SendInput {vk1 up}
+Sleep 300
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			Return
+SendInput {vk20}
+Sleep 360
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+		If SpaceStateAA = U
+			Return
+SendInput {vk1}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	Sleep 70
+	SendInput {vk1}
+}
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
+
+return
+
 
 ;============================================Qiqi Vertical Flight
 Label_Goto_QiqiFlight:

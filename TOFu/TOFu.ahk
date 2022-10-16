@@ -27,13 +27,15 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
-Alt + Numpad 1 - SHIRO Chakram Classic (Settings => Basic => Hit Frame - OFF)
+Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
 Alt + Numpad 6 - Claudia long jump (повторение)
 Alt + Numpad 7 - Qiqi Vertical Flight (Экипировать и забиндить джетпак)
+Alt + Numpad 8 - SHIRO Chakram Classic (Settings => Basic => Hit Frame - OFF)
+Alt + Numpad 9 - Alyss long jump 
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -79,11 +81,13 @@ https://toweroffantasy.online/map/
 209 на клаве
 133 по теории
 
-Запланировано:
- - Автопати в 3* данж
 
-
-
+Изменения: 15.10.2022
+ - Alt + Numpad 1 - Samir
+ - Alt + Numpad 9 - Alyss long jump 
+ - Checkbox1animcancel=0 отключает все кнопки: макро кей, нампады, альт+нампад
+ - key_PgUpPauseSuspend=PgDn
+ - Подкрутка фронтира
 
 Изменения: 03.10.2022
  - Оверлей
@@ -221,11 +225,6 @@ https://toweroffantasy.online/map/
 
 
 
-
-
-
-
-
 Лег - 2400 экспы - 240 камней (1200 экспы)
 Фиол - 800 экспы - 80 камней (400 экспы)
 Синька - 200 экспы - 20 камней (100 экспы)
@@ -314,30 +313,6 @@ CN				260-500 в месяц королевская битва(подсчеты �
 
 
 
-
-
-1800 дели данат 30 дней - 2700 железа
-5400 дели данат 30 дней - 8100 железа (3600 железа + 4500(30 круток ивент чар))
-5400 дели данат 30 дней - 8100 железа (3600 железа + 4500(30 круток ивент чип))
-----
-12600 данат камней в месяц - 18900 железа (9900 железа + 30 ивент чар + 30 ивент чип)
-
-1980(+1980 - 1 покупка) данат пак - 30 $
-
-30 $ - 4950 железа (подарочный набор + дели конвертация)
-30 $ - 3960 железа (подарочный набор)
-
-
-10 000 данат камней через конвертацию х1 = 55 дней конвертации и 440 голов крипера
-10 000 данат камней через конвертацию х3 = 24 дней конвертации и 192 голов крипера
-
-
-
-980 - 15 $
-6480 - 100 $
-
-
-
 ==Многоразовые:== (По патчам: стримы, ивенты, тех работы)
 200 камней (Стрим разрабов перед патчем)
 300 камней (тех работы)
@@ -351,11 +326,6 @@ CN				260-500 в месяц королевская битва(подсчеты �
 Гачапон терминалы в Зеркальном городе
 2400 вера монет в месяц (20х4=80 монет ежедневочки веры)
 х50 - 1 рол
-
-
-
-
-
 
 
 
@@ -381,11 +351,6 @@ CN				260-500 в месяц королевская битва(подсчеты �
 
 
 
-
-
-
-
-
 В Геншин в месяц:
 
 1800 ежедневочки
@@ -406,84 +371,39 @@ CN				260-500 в месяц королевская битва(подсчеты �
 
 
 
-
-
-
-
-
-Фарм руды
-https://www.bilibili.com/video/BV1XF411B7HJ?p=1&share_medium=android&share_plat=android&share_session_id=a7f9b6e8-5b32-4211-89ca-240716da61d5&share_source=COPY&share_tag=s_i&timestamp=1640874661&unique_k=MKo3m1D&vd_source=0710d03ba75bcc53345a94992cbdb092
-
-Как получить всех маунтов
-https://www.youtube.com/watch?v=fRqFz4IsbXg
-
 Гайдер EU
 https://www.youtube.com/c/Zakum/videos
 
-Головоломки дефолт
-https://telegra.ph/Prohozhdenie-aktivnostej-na-karte-12-24
-
-
-Стартовый гайд
-https://telegra.ph/Razlichnye-mehaniki-igry-12-29
-
-Фарм золота
-https://telegra.ph/Kak-farmit-zoloto-v-TOF-01-01
-
-
 https://toweroffantasy.info/index
-
-https://www.bilibili.com/video/BV12Y411W76b?p=2&spm_id_from=pageDriver
-
-https://docs.google.com/spreadsheets/d/19BjfRHMYR04GPEPGKhngnAFaPuesCD4dFk26Q8XplEk/edit#gid=0
-
-https://docs.google.com/spreadsheets/d/1T7SLtdQiXihnY3t4tI2VQDRbwh7J84kDWNYgCPOKBdA/edit#gid=871367426
-
-https://docs.google.com/spreadsheets/d/1ToEmU1tzRBy2VEX_2doGWlCezCs5uGCunYhpT-rohSY/edit#gid=1029674556
-
 
 Интересный гуид по вливу в геншине
 https://www.youtube.com/watch?v=uSBJ13K-3uo
 
-
-Коносуба Немезида Лин
-https://www.bilibili.com/video/BV1ng411f7jD?spm_id_from=333.337.search-card.all.click&vd_source=2378b7388613963da3d2dd39bcd4c355
-
-https://www.bilibili.com/video/BV1WY4y177YP?vd_source=0710d03ba75bcc53345a94992cbdb092
-
-
 Ооо норм док стартовик
 https://docs.google.com/spreadsheets/d/1Qurr844mBI0gvlxkiae0IKbUJG4gE-TpNy8FUV227cM/edit#gid=709396921
 
-док от чичваркина
+Мертвый док от чичваркина
 https://docs.google.com/document/d/1dE66xHac85H0gsSekNL1-ja27MswIz0eX_zW60VywI8/edit
-
-Награды за бездну
-https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo/edit#gid=0
-
-
-Пополнение Oldubil через биржу Huobi
-https://vk.com/@storeps5-popolnenie-oldubil-cherez-birzhu-huobi
-
-Биржа
-https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
 
 Цубаса топ дпс на С5
 https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZa78/edit#gid=0
 
-Модные шрифты
-https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
-
-Гугл док от совы
-https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo/htmlview?usp=sharing&pru=AAABgxlNILM*30Qtid9_AN_lmmPe5SrqyA#
+Гугл док от совы. Награды за бездну и тд
+https://docs.google.com/spreadsheets/d/1lRhBgB7M7xqqBGdMCvmW2Bwnu1OAvasIN6ukLTgOoCo
 
 Скип анимации от чела
 https://www.youtube.com/watch?v=JHUkbCFyKCU
 
+Модные шрифты
+https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
 
 
 
 
+
+Пополнение Oldubil через биржу Huobi
+https://vk.com/@storeps5-popolnenie-oldubil-cherez-birzhu-huobi
+https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
 Биржи:
 -Бинанс
 -Huobi
@@ -501,67 +421,39 @@ blackcatcard
 simply.cards (Казахстан)
 
 
-350 кр
-8 лег
-2.5 лег тв
-4,375 лег гр
-1 лег ск гр
-
-
-
-
-
-320
-80
----
-400
-
 
 
 
 Пересчет круток:
 
+18.08 
+10 ивент круток
+
+23.08 в 06:00 – 30.08 в 06:00 (МСК)
+2 ивент круток и реликт «Руки колосса»
+
+23.08 в 06:00 – 30.08 в 06:00 (МСК)
+400 камней и 10 круток
+
+01.09 – 15.09
+6 ивент круток
+
+15.09 – 29.09 Фаза II
+3 ивент круток
+
+15.09 – 27.09 кафе
+5 ивент круток
+
+27.09 – 12.10
+6 ивент круток
+
+11.08 - 12.10
+~44 ивент крутки
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Основные фишечки:
- Интерактивная карта
- Jetpack Dash
- Infinite Climb
- Party Teleport
- Daily Free Simulacrum Gifts
- Чайник безмятежности
- Распределение ресов при прокачке как в геншине
-
-Прогрессия TOF:
- Покупка банок смолы
- Рерол(на 30 скрытый гарант + селектор)
- Не ходить в "Джоин оперейшн" до 37?-43? лвл
- Фиол порталы 3*
- Фиол порталы 3* с твинков (Утиль рерола)
- Золотые ключи на боссов тратить с 40лвл
- Синие (10)\фиол(50) ключи тратить на сундуки Vera для фарма синих* монет
- Не тратить фиол кешбек смолы на фиол шмот, ждем 1-2 недели и вливаем в кристалы
- Смола в данже через абуз крамбубы
- Консервация маячков на ультра лейт
-
-Мувмент:
- Отмена ульты
- Смена пушки без каста ульты
- Зависание в воздухе без стамины
+22 ивент крутки в месяц
 
 */
 
@@ -581,17 +473,17 @@ Menu,Tray, Icon, data\genicon.ico, ,1
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 if IsAdmin
 {
-CommandLine := DllCall("GetCommandLine", "Str")
-If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
-    Try {
-        If (A_IsCompiled) {
-            Run *RunAs "%A_ScriptFullPath%" /restart
-        } Else {
-            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
-        }
-    }
-    ExitApp
-}
+	CommandLine := DllCall("GetCommandLine", "Str")
+	If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
+		Try {
+			If (A_IsCompiled) {
+				Run *RunAs "%A_ScriptFullPath%" /restart
+			} Else {
+				Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+			}
+		}
+		ExitApp
+	}
 }
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
@@ -653,6 +545,8 @@ IniRead, OldMacroBackVar, data\tofuConfig.ini, Settings, OldMacroBackVar
 IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 
 IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
+IniRead, AlyssJumpVar, data\tofuConfig.ini, Settings, AlyssJumpVar
+
 IniRead, FrontierTextSearch, data\tofuConfig.ini, Settings, FrontierTextSearch
 IniRead, FrontierTextOcr, data\tofuConfig.ini, Settings, FrontierTextOcr
 IniRead, FrontierTextSelect, data\tofuConfig.ini, Settings, FrontierTextSelect
@@ -663,11 +557,12 @@ IniRead, IntersTextSelectA2, data\tofuConfig.ini, Settings, IntersTextSelectA2
 IniRead, IntersStarSelect, data\tofuConfig.ini, Settings, IntersStarSelect
 
 
-if ClaudiaJumpVar = 0
+if (ClaudiaJumpVar == 0) or (AlyssJumpVar == 0)
 {
 	Hotkey, Up, LabelClaudiaJumpUp, on
 	Hotkey, Down, LabelClaudiaJumpDown, on
 	ClaudiaJumpVar = 300
+	AlyssJumpVar = 300
 }
 
 ;=====================================Кнопки
@@ -707,9 +602,25 @@ IniRead, ScRandomTime, data\tofuConfig.ini, Settings, ScRandomTime
 IniRead, ScRenamer, data\tofuConfig.ini, Settings, ScRenamer
 IniRead, ScHachCh, data\tofuConfig.ini, Settings, ScHachCh
 
-;==========Подготовить кнопки
-Hotkey, IfWinActive, ahk_group gameexe1337
 
+
+
+Hotkey, IfWinActive, ahk_group gameexe1337
+;====================Зарегать клавиши
+if (Checkbox1SuperDodge == 1)
+Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 		;Dodge Spam
+if (Checkbox1skipNPS == 1)
+Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
+if (Checkbox1fastlyt == 1)
+Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on 				;Спам сбор лута
+if (Checkbox1fastclimber == 1)
+Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on 		;Быстрое скалолазание
+if (Checkbox1flyhack == 1)
+Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 				;Флай хак
+if (Checkbox1animcancel == 1)
+{
+Hotkey, *~%key_animcancel%, Metkakey_animcancel, on 		;Макро
+;==========Подготовить кнопки
 IniRead, key_LabelNumpad0, data\tofuConfig.ini, Settings, key_LabelNumpad0
 Hotkey, *~$%key_LabelNumpad0%, LabelNumpad0, on
 IniRead, key_LabelNumpad1, data\tofuConfig.ini, Settings, key_LabelNumpad1
@@ -747,22 +658,13 @@ IniRead, key_LabelANumpad6, data\tofuConfig.ini, Settings, key_LabelANumpad6
 Hotkey, *~$%key_LabelANumpad6%, LabelANumpad6, on
 IniRead, key_LabelANumpad7, data\tofuConfig.ini, Settings, key_LabelANumpad7
 Hotkey, *~$%key_LabelANumpad7%, LabelANumpad7, on
-
-;====================Зарегать клавиши
-if (Checkbox1SuperDodge == 1)
-Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 		;Dodge Spam
-if (Checkbox1skipNPS == 1)
-Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
-if (Checkbox1fastlyt == 1)
-Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on 				;Спам сбор лута
-if (Checkbox1fastclimber == 1)
-Hotkey, *~%key_fastclimber%, Metkakey_fastclimber, on 		;Быстрое скалолазание
-if (Checkbox1flyhack == 1)
-Hotkey, *~%key_flyhack%, Metkakey_flyhack, on 				;Флай хак
-if (Checkbox1animcancel == 1)
-Hotkey, *~%key_animcancel%, Metkakey_animcancel, on
+IniRead, key_LabelANumpad8, data\tofuConfig.ini, Settings, key_LabelANumpad8
+Hotkey, *~$%key_LabelANumpad8%, LabelANumpad8, on
+IniRead, key_LabelANumpad9, data\tofuConfig.ini, Settings, key_LabelANumpad9
+Hotkey, *~$%key_LabelANumpad9%, LabelANumpad9, on
+}
 if (Checkbox1AseptarKey == 1)
-Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on
+Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on 		;Асептр
 if (Checkbox1ClaudiaLongJumpOth == 1)
 Hotkey, *~%key_ClaudiaLongJumpOth%, Metkakey_ClaudiaLongJumpOth, on 	;CLAUDIA long jump отдельно
 Hotkey, IfWinActive
@@ -874,7 +776,7 @@ If (ScHachCh = 1)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 6 	;кол-во страниц
+GenOverlayList := 4 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale
@@ -1739,7 +1641,7 @@ RunWait, cmd /C
 (
 @ECHO OFF & netsh advfirewall firewall set rule name="3AToFu" new dir=out action=block program="%GameDirFirewall%" enable=yes & exit
 ),, Hide
-Sleep 1500
+Sleep 1000
 ;=======================Включить интернет игре
 RunWait, cmd /C 
 (
@@ -1805,11 +1707,13 @@ AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfgh
 ;=========================================================Калибровка клавдии
 LabelClaudiaJumpUp:
 ClaudiaJumpVar+=1
-tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
+AlyssJumpVar+=1
+Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
 LabelClaudiaJumpDown:
 ClaudiaJumpVar-=1
-tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
+AlyssJumpVar-=1
+Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
 
 
