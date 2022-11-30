@@ -1,4 +1,4 @@
-# ToF AHK flex v4.5
+# ToF AHK flex v4.6
 
 AHK скрипт для Tower of Fantasy
 
@@ -30,11 +30,9 @@ __🚀Функционал:🚀__
   + SHIRO Annihilation
   + Karasuma drill
   + TSUBASA R5 Top DPS
-  + Diluc Vertical Flight
-  + Qiqi Vertical Flight
-  + Claudia long jump
-  + Alyss long jump
-  + Dodge Spam
+  + Vertical Flight: Diluc, Qiqi
+  + Long jump: Claudia, Alyss
+  + Lin hold (Test)
 - AFK фермерство
   + AFK фермерство. Фарм монет дружбы (Не актуален, фронтир лучше)
   + AFK фермерство. Ферма опыта, материалов и монет дружбы в Frontier
@@ -90,7 +88,6 @@ Z - Скип диалогов
 F - Фаст лут
 X - Бесконечное скалолазание
 N - Claudia long jump
-Rbutton - Dodge Spam
 4 - Абузный полет (планер в конфиге "key_flyhackGajetKey")
 V - Macro Key
 
@@ -105,6 +102,7 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
+Alt + Numpad 0 - Lin hold (Test)
 Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
@@ -143,8 +141,17 @@ __🍏AFK фермерство:🍎__
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 15.10.2022
+Изменения: 30.11.2022
 
+ - Alt + Numpad 0 - Lin hold (Test)
+ - "SelectDefaultMacro=1" выбрать макрос по умолчанию в "tofuConfig.ini"
+
+Изменения: 21.11.2022
+ - NumpadSub - Click Hold, удержание ЛКМ
+ - Убран спам шифта
+ - Оверлейки
+
+Изменения: 15.10.2022
  - Alt + Numpad 1 - Samir
  - Alt + Numpad 9 - Alyss long jump 
  - Checkbox1animcancel=0 отключает все кнопки: макро кей, нампады, альт+нампад
