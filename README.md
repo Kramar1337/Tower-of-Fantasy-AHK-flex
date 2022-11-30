@@ -102,6 +102,7 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
+NumpadSub - Click Hold (Если "UseControlSendVar=1" прострел окна через 500 мс)
 Alt + Numpad 0 - Lin hold (Test)
 Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
