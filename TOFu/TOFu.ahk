@@ -12,7 +12,6 @@ Z - Скип диалогов
 F - Фаст лут
 X - Бесконечное скалолазание
 N - Claudia long jump
-Rbutton - Dodge Spam
 4 - Абузный полет(планер в конфиге "key_flyhackGajetKey")
 V - Macro Key(по умолчанию в игре на "V" маунт, но если "Numpad 0" то макрос не срабатывает, а если "Numpad 1-2-3-n" то кнопка блокируется и маунт не мешает)
 
@@ -27,6 +26,8 @@ Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
+NumpadSub - Click Hold (Если "UseControlSendVar=1" прострел окна через 500 мс)
+Alt + Numpad 0 - Lin hold (Test)
 Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
@@ -39,7 +40,7 @@ Alt + Numpad 9 - Alyss long jump
 
 Esc - Остановить потоки
 End - Завершить работу AHK
-PgUp - Приостановить - возобновить работу AHK
+PgDn - Приостановить - возобновить работу AHK
 Left - Переключить оверлей
 Right - Переключить оверлей
 
@@ -57,7 +58,7 @@ F4 - *Слот под специфические макросы
 9 - AFK фермерство SendInput, PVP
 10 - AFK фермерство, AFK Ene Hold
 11 - Отдаление камеры
-12 - AFK achievement climber
+12 - AFK фермерство, Achievement Climber
 
 Карты: 1 - 2 - 3 - 4
 Еу карта с гугл авторизацией
@@ -71,16 +72,39 @@ https://static-web.ghzs.com/cspage_pro/huantaMap.html#/
 https://h5.gaonengshike.com/plusmaps/hotta?markable=1
 
 Битые картинки, заброшенная карта
-https://toweroffantasy.online/map/
+https://toweroffantasy.interactivemap.app/?map=1
+
+
+https://www.worldanvil.com/w/vera-planet-michuzak/map/f93b8f11-49d7-4201-aea2-9c7809d2c5c9
 
 В трей меню установка - удаление решейда
 
 ; ===============================================================
 ; ===============================================================
 
-209 на клаве
+https://www.youtube.com/watch?v=2OOE5uCVwsA
+
+https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3TDdA/edit#gid=0
+
+471 на клаве и фуве (где лега(3шт) вне гаранта?) на 463 выпала цубаса вне гаранта на 36/80
 133 по теории
 
+
+Рейд:
+73lvl (2 рейд) - 8 фиол 6 голд
+77lvl (3 рейд) - 12 фиол 10 голд
+80lvl (4 рейд) - 20 фиол 20 голд
+
+
+
+Изменения: 30.11.2022
+ - Alt + Numpad 0 - Lin hold (Test)
+ - "SelectDefaultMacro=1" выбрать макрос по умолчанию в "tofuConfig.ini"
+
+Изменения: 21.11.2022
+ - NumpadSub - Click Hold, удержание ЛКМ
+ - Убран спам шифта
+ - Оверлейки
 
 Изменения: 15.10.2022
  - Alt + Numpad 1 - Samir
@@ -238,6 +262,8 @@ https://toweroffantasy.online/map/
   3200  4000  4800  5600  6400
 0* => 1* => 2* => 3* => 4* => 5*
 
+
+https://www.reddit.com/r/TowerofFantasy/comments/y9dpte/to_windows_users_who_updated_tof_to_201_and_have/
 
 
 C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
@@ -561,8 +587,14 @@ if (ClaudiaJumpVar == 0) or (AlyssJumpVar == 0)
 {
 	Hotkey, Up, LabelClaudiaJumpUp, on
 	Hotkey, Down, LabelClaudiaJumpDown, on
-	ClaudiaJumpVar = 300
-	AlyssJumpVar = 300
+	if (ClaudiaJumpVar == 0)
+		{
+			ClaudiaJumpVar = 300
+		}
+	if (AlyssJumpVar == 0)
+		{
+			AlyssJumpVar = 300
+		}
 }
 
 ;=====================================Кнопки
@@ -580,7 +612,7 @@ IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
 IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
 IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
 IniRead, key_ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, key_ClaudiaLongJumpOth
-IniRead, key_SuperDodge, data\tofuConfig.ini, Settings, key_SuperDodge
+; IniRead, key_SuperDodge, data\tofuConfig.ini, Settings, key_SuperDodge
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
@@ -593,7 +625,7 @@ IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
 IniRead, Checkbox1ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, Checkbox1ClaudiaLongJumpOth
-IniRead, Checkbox1SuperDodge, data\tofuConfig.ini, Settings, Checkbox1SuperDodge
+; IniRead, Checkbox1SuperDodge, data\tofuConfig.ini, Settings, Checkbox1SuperDodge
 
 
 ;=====================================Безопасность
@@ -607,8 +639,8 @@ IniRead, ScHachCh, data\tofuConfig.ini, Settings, ScHachCh
 
 Hotkey, IfWinActive, ahk_group gameexe1337
 ;====================Зарегать клавиши
-if (Checkbox1SuperDodge == 1)
-Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 		;Dodge Spam
+; if (Checkbox1SuperDodge == 1)
+; Hotkey, *~%key_SuperDodge%, Metkakey_SuperDodge, on 		;Dodge Spam
 if (Checkbox1skipNPS == 1)
 Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
 if (Checkbox1fastlyt == 1)
@@ -639,11 +671,15 @@ IniRead, key_LabelNumpad7, data\tofuConfig.ini, Settings, key_LabelNumpad7
 Hotkey, *~$%key_LabelNumpad7%, LabelNumpad7, on
 IniRead, key_LabelNumpad8, data\tofuConfig.ini, Settings, key_LabelNumpad8
 Hotkey, *~$%key_LabelNumpad8%, LabelNumpad8, on
-IniRead, key_LabelNumpad9, data\tofuConfig.ini, Settings, key_LabelNumpad9 	;Nemesis Air hold
+IniRead, key_LabelNumpad9, data\tofuConfig.ini, Settings, key_LabelNumpad9 	; Nemesis Air hold
 Hotkey, *~$%key_LabelNumpad9%, LabelNumpad9, on
 IniRead, key_LabelNumpadAdd, data\tofuConfig.ini, Settings, key_LabelNumpadAdd
 Hotkey, *~$%key_LabelNumpadAdd%, LabelNumpadAdd, on
+IniRead, key_LabelNumpadSub, data\tofuConfig.ini, Settings, key_LabelNumpadSub 	; LButton Hold
+Hotkey, *~$%key_LabelNumpadSub%, LabelNumpadSub, on
 
+IniRead, key_LabelANumpad0, data\tofuConfig.ini, Settings, key_LabelANumpad0
+Hotkey, *~$%key_LabelANumpad0%, LabelANumpad0, on
 IniRead, key_LabelANumpad1, data\tofuConfig.ini, Settings, key_LabelANumpad1
 Hotkey, *~$%key_LabelANumpad1%, LabelANumpad1, on
 IniRead, key_LabelANumpad2, data\tofuConfig.ini, Settings, key_LabelANumpad2
@@ -703,6 +739,10 @@ Loop 26
 	IndexVarL := A_Index - 1
 	jopa%IndexVarL% := false
 }
+
+;=====================дефолтный макрос
+IniRead, SelectDefaultMacro, data\tofuConfig.ini, Settings, SelectDefaultMacro
+jopa%SelectDefaultMacro%:=true
 
 ;======================Переключение стрелками, кол-во макросов
 MacroBackAmount = 12
@@ -845,7 +885,7 @@ return
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
-#Include *i %A_ScriptDir%\data\Lib\LibNumpadMucroLabel.ahk 		;Метка основные макросы на персонажей Label_Goto_ тд
+
 #Include *i %A_ScriptDir%\data\Lib\LibNumpadSlot.ahk 		;Метка выбор макрос слота Numpad
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
@@ -1664,7 +1704,7 @@ IfNotExist, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
 	Return
 }
 OnMessage(0x44, "OnMsgBox")
-MsgBox 0x3, , Change file attributes to read-only?`nGameUserSettings.ini`nInput.ini
+MsgBox 0x3, , Change file attributes to read-only?`n`nGameUserSettings.ini`nInput.ini
 OnMessage(0x44, "")
 IfMsgBox Yes, {
 	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\GameUserSettings.ini
