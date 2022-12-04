@@ -32,7 +32,8 @@ __🚀Функционал:🚀__
   + TSUBASA R5 Top DPS
   + Vertical Flight: Diluc, Qiqi
   + Long jump: Claudia, Alyss
-  + Lin hold (Test)
+  + Lin hold
+  + Bow Spam
 - AFK фермерство
   + AFK фермерство. Фарм монет дружбы (Не актуален, фронтир лучше)
   + AFK фермерство. Ферма опыта, материалов и монет дружбы в Frontier
@@ -113,6 +114,7 @@ Alt + Numpad 6 - Claudia long jump
 Alt + Numpad 7 - Qiqi Vertical Flight
 Alt + Numpad 8 - SHIRO Chakram Classic
 Alt + Numpad 9 - Alyss long jump
+Alt + NumpadSub - Bow Spam
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -142,8 +144,11 @@ __🍏AFK фермерство:🍎__
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 30.11.2022
+Изменения: 04.12.2022
 
+ - Alt + NumpadSub - Bow Spam
+
+Изменения: 30.11.2022
  - Alt + Numpad 0 - Lin hold (Test)
  - "SelectDefaultMacro=1" выбрать макрос по умолчанию в "tofuConfig.ini"
 
