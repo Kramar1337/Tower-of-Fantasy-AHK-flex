@@ -89,24 +89,6 @@ jopa9:=true
 	sleep 500
 	ToolTip
 Return
-LabelNumpadAdd: 	;=============================================================Diluc Vertical Flight
-IfWinNotActive, ahk_group gameexe1337
-Return
-FuncMacroRestore()
-jopa20:=true
-	ToolTip, Diluc Vertical Flight, 0, 0
-	sleep 500
-	ToolTip
-Return
-LabelNumpadSub: 	;=============================================================LButton Hold
-IfWinNotActive, ahk_group gameexe1337
-Return
-FuncMacroRestore()
-jopa22:=true
-	ToolTip, LButton Hold, 0, 0
-	sleep 500
-	ToolTip
-Return
 LabelANumpad0: 	;=============================================================Lin hold
 IfWinNotActive, ahk_group gameexe1337
 Return
@@ -197,6 +179,34 @@ jopa19:=true
 	sleep 500
 	ToolTip
 Return
+LabelNumpadAdd: 	;=============================================================Diluc Vertical Flight
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa20:=true
+	ToolTip, Diluc Vertical Flight, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelANumpadAdd: 	;=============================================================Bow Spam
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa21:=true
+	ToolTip, Bow Spam, 0, 0
+	sleep 500
+	ToolTip
+Return
+LabelNumpadSub: 	;=============================================================LButton Hold
+IfWinNotActive, ahk_group gameexe1337
+Return
+FuncMacroRestore()
+jopa22:=true
+	ToolTip, LButton Hold, 0, 0
+	sleep 500
+	ToolTip
+Return
+
 ;========================================================Макросы
 Metkakey_animcancel:
 Sleep 1
@@ -243,8 +253,31 @@ if jopa19
 Goto Label_Goto_Alyss
 if jopa20
 Goto Label_Goto_DilucVerticalFlight
+if jopa21
+Goto Label_Bow_Spam
 if jopa22
 Goto Label_Goto_LButtonHold
+return
+
+;============================================Bow Spam
+Label_Bow_Spam:
+if FIXchat 	;Если "FIXchat" то чекать курсор
+{
+	if FuncCursorVisible() 	;Если есть курсор то возврат
+		Return
+}
+Loop
+{
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+	SendInput {vk1 down}
+	Sleep 360
+	SendInput {vk1 up}
+}
+GetKeyState, SpaceStateAA, vk1
+If SpaceStateAA = D
+	SendInput {vk1 up}
 return
 
 ;============================================Lin hold

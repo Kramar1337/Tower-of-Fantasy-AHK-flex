@@ -27,7 +27,7 @@ Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold
 NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить джетпак)
 NumpadSub - Click Hold (Если "UseControlSendVar=1" прострел окна через 500 мс)
-Alt + Numpad 0 - Lin hold (Test)
+Alt + Numpad 0 - Lin hold
 Alt + Numpad 1 - Samir
 Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забиндить джетпак)
 Alt + Numpad 3 - Nemesis 2NH
@@ -37,6 +37,7 @@ Alt + Numpad 6 - Claudia long jump (повторение)
 Alt + Numpad 7 - Qiqi Vertical Flight (Экипировать и забиндить джетпак)
 Alt + Numpad 8 - SHIRO Chakram Classic (Settings => Basic => Hit Frame - OFF)
 Alt + Numpad 9 - Alyss long jump 
+Alt + NumpadSub - Bow Spam
 
 Esc - Остановить потоки
 End - Завершить работу AHK
@@ -86,7 +87,7 @@ https://www.youtube.com/watch?v=2OOE5uCVwsA
 
 https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3TDdA/edit#gid=0
 
-471 на клаве и фуве (где лега(3шт) вне гаранта?) на 463 выпала цубаса вне гаранта на 36/80
+510 на клаве и фуве (где лега(3шт) вне гаранта?) на 463 выпала цубаса вне гаранта на 36/80
 133 по теории
 
 
@@ -96,6 +97,9 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 80lvl (4 рейд) - 20 фиол 20 голд
 
 
+
+Изменения: 04.12.2022
+ - Alt + NumpadSub - Bow Spam
 
 Изменения: 30.11.2022
  - Alt + Numpad 0 - Lin hold (Test)
@@ -698,6 +702,8 @@ IniRead, key_LabelANumpad8, data\tofuConfig.ini, Settings, key_LabelANumpad8
 Hotkey, *~$%key_LabelANumpad8%, LabelANumpad8, on
 IniRead, key_LabelANumpad9, data\tofuConfig.ini, Settings, key_LabelANumpad9
 Hotkey, *~$%key_LabelANumpad9%, LabelANumpad9, on
+IniRead, key_LabelANumpadAdd, data\tofuConfig.ini, Settings, key_LabelANumpadAdd
+Hotkey, *~$%key_LabelANumpadAdd%, LabelANumpadAdd, on
 }
 if (Checkbox1AseptarKey == 1)
 Hotkey, *~%key_AseptarKey%, Metkakey_AseptarKey, on 		;Асептр
