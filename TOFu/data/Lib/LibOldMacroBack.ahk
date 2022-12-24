@@ -3,6 +3,7 @@ Metkakey_AllOldMacroBack:
 if (OldMacroBackVar == 1) 	;AFK фермерство ControlSend, спам "F" каждые 5 сек
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
 SetTimer, LabelAFKgranateFarm, off
@@ -14,6 +15,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKloot, % ((TogglerTimer1 := !TogglerTimer1) ? "0" : "Off")
 	if !TogglerTimer1
 		Tooltip,,0,0,3
@@ -21,6 +23,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 2) 	;AFK ачивка сёрфера, залипание кнопки "W" и "A"
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKclick, off
 SetTimer, LabelAFKgranateFarm, off
@@ -32,6 +35,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKsurf, % ((TogglerTimer3 := !TogglerTimer3) ? "0" : "Off")
 	if !TogglerTimer3
 		Tooltip,,0,0,3
@@ -39,6 +43,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 3) 	;AFK фермерство Controlclick, спам "Rbutton" каждые 5 сек
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKgranateFarm, off
@@ -50,6 +55,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKclick, % ((TogglerTimer2 := !TogglerTimer2) ? "0" : "Off")
 	if !TogglerTimer2
 		Tooltip,,0,0,3
@@ -57,6 +63,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 4) 	;AFK фермерство Controlclick, спам "F" залипание кнопки "W" и "A"
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -68,6 +75,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKgranateFarm, % ((TogglerTimer4 := !TogglerTimer4) ? "0" : "Off")
 	if !TogglerTimer4
 		Tooltip,,0,0,3
@@ -75,6 +83,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 5) 	;AFK фермерство Controlclick, спам "F" и ходьба кругами туда сюда
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -86,6 +95,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	ToggleRcircles = 0
 	SetTimer, LabelAFKloopFarmF, % ((TogglerTimer5 := !TogglerTimer5) ? "0" : "Off")
 	if !TogglerTimer5
@@ -94,6 +104,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 6) 	;AFK фермерство SendInput, Фарм монет дружбы
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -105,6 +116,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
 	if !TogglerTimer6
 		Tooltip,,0,0,3
@@ -112,6 +124,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 7) 	;AFK фермерство SendInput, Фарм фронтира
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -123,6 +136,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKFrontier, % ((TogglerTimer7 := !TogglerTimer7) ? "0" : "Off")
 	if !TogglerTimer7
 		Tooltip,,0,0,3
@@ -130,6 +144,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 8) 	;AFK фермерство SendInput, Фарм парка
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -141,6 +156,7 @@ SetTimer, LabelInterPvp, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKPony, % ((TogglerTimer8 := !TogglerTimer8) ? "0" : "Off")
 	if !TogglerTimer8
 		Tooltip,,0,0,3
@@ -148,6 +164,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 9) 	;AFK фермерство SendInput, Фарм парка
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -159,6 +176,7 @@ SetTimer, LabelAFKPony, off
 SetTimer, LabelEneHold, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelInterPvp, % ((TogglerTimer9 := !TogglerTimer9) ? "0" : "Off")
 	if !TogglerTimer9
 		Tooltip,,0,0,3
@@ -166,6 +184,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 10) 	;AFK фермерство Controlclick, Ene Hold
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -177,6 +196,7 @@ SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelEneHold, % ((TogglerTimer10 := !TogglerTimer10) ? "0" : "Off")
 	if !TogglerTimer10
 		Tooltip,,0,0,3
@@ -184,6 +204,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 11) 	;Отдаление камеры
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -195,6 +216,7 @@ SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelCumeraS, off
 SetTimer, LabelAFKclimber, off
+Pereklu4atelFis = 0
 	SetTimer, LabelCumeraS, % ((TogglerTimer11 := !TogglerTimer11) ? "0" : "Off")
 	if !TogglerTimer11
 		Tooltip,,0,0,3
@@ -205,6 +227,7 @@ SetTimer, LabelAFKclimber, off
 if (OldMacroBackVar == 12) 	;TOF AFK climber achievement
 {
 	Sleep 1
+SetTimer, LabelAFKfishing, off
 SetTimer, LabelAFKloot, off
 SetTimer, LabelAFKsurf, off
 SetTimer, LabelAFKclick, off
@@ -215,8 +238,27 @@ SetTimer, LabelAFKFrontier, off
 SetTimer, LabelAFKPony, off
 SetTimer, LabelInterPvp, off
 SetTimer, LabelCumeraS, off
+Pereklu4atelFis = 0
 	SetTimer, LabelAFKclimber, % ((TogglerTimer12 := !TogglerTimer12) ? "0" : "Off")
 	if !TogglerTimer12
+		Tooltip,,0,0,3
+}
+if (OldMacroBackVar == 13) 	;TOF AFK fishing
+{
+	Sleep 1
+SetTimer, LabelAFKloot, off
+SetTimer, LabelAFKsurf, off
+SetTimer, LabelAFKclick, off
+SetTimer, LabelAFKgranateFarm, off
+SetTimer, LabelAFKloopFarmF, off
+SetTimer, LabelAFKfriendCoin, off
+SetTimer, LabelAFKFrontier, off
+SetTimer, LabelAFKPony, off
+SetTimer, LabelInterPvp, off
+SetTimer, LabelCumeraS, off
+Pereklu4atelFis = 0
+	SetTimer, LabelAFKfishing, % ((TogglerTimer13 := !TogglerTimer13) ? "0" : "Off")
+	if !TogglerTimer13
 		Tooltip,,0,0,3
 }
 return
@@ -232,6 +274,85 @@ return
 ; SetTimer, LabelEneHold, off
 ; SetTimer, LabelCumeraS, off
 ; SetTimer, LabelAFKclimber, off
+; SetTimer, LabelAFKfishing, off
+
+
+;===============================================================================================
+;======================OldMacroBackVar = 13===========TOF fishing
+;===============================================================================================
+LabelAFKfishing:
+Sleep 50
+Tooltip Auto fishing: ON,round(A_ScreenWidth * .5 - 50),0,3
+NoSearchVar = 0
+NoSearchVar2 = 1
+Pereklu4atelFis = 1
+while Pereklu4atelFis
+{
+	Sleep %OptimizationFis%
+	ImageSearch, FoundXFis, FoundYFis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find.png
+	if ErrorLevel = 1
+	{
+	NoSearchVar = 0
+	}
+	if ErrorLevel = 0
+	{
+	NoSearchVar = 1
+	if GetKeyState("vk41")
+		SendInput {vk41 Up} 	;A
+	if GetKeyState("vk44")
+		SendInput {vk44 Up} 	;D
+	ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find2.png
+	if ErrorLevel = 0
+		{
+			if (FoundX2Fis > FoundXFis) 	;Если П2 > П1
+			SendInput {vk41 Down} 	;A
+			if (FoundX2Fis < FoundXFis) 	;Если П2 < П1
+			SendInput {vk44 Down} 	;D
+			Sleep 1
+		}
+	}
+	if NoSearchVar 	;Если мы на рыбалке
+	{
+		if NoSearchVar2
+		{
+			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, 0x8CFFFF, 1, Fast RGB
+			if ErrorLevel = 0 	;Если найден голубой
+			{
+			NoSearchVar2 = 0
+			}
+		}
+		Else
+		{
+			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, 0x8CFFFF, 1, Fast RGB
+			if ErrorLevel = 1 	;Если не найден голубой
+			{
+			NoSearchVar2 = 1
+			Sleep 500
+			ZXTTClickVarXl:=round(A_ScreenWidth * (2268 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			Sleep 3000
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (720 / 1440)) 	;Асистер
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			Sleep 3000
+			ZXTTClickVarXl:=round(A_ScreenWidth * (2268 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			}
+		}
+	}
+	
+	IfWinNotActive, ahk_group gameexe1337
+	{
+	Pereklu4atelFis = 0
+	SetTimer, LabelAFKfishing, % ((TogglerTimer13 := !TogglerTimer13) ? "0" : "Off")
+	if !TogglerTimer13
+		Tooltip,,0,0,3
+	}
+}
+	if GetKeyState("vk41")
+		SendInput {vk41 Up} 	;A
+	if GetKeyState("vk44")
+		SendInput {vk44 Up} 	;D
+return
 
 ;===============================================================================================
 ;======================OldMacroBackVar = 12===========TOF AFK climber achievement
@@ -285,7 +406,7 @@ IfWinActive, ahk_group gameexe1337
 	if !FuncCursorVisible()
 	{
 		SendInput {WheelDown}
-		Sleep 70
+		Sleep 80
 		ScRandomizatorFunc()
 	}
 }
@@ -923,7 +1044,7 @@ ScRandomizatorFunc()
 		Return
 	}
 
-Loop 45
+Loop 55
 {
 
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
@@ -939,8 +1060,8 @@ Loop 45
 	if !ErrorLevel
 	{
 		;=============================Нашло игру принять? да, асепт
-		ZXTTClickVarXl:=round(A_ScreenWidth * (1148 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440)) 	;Асистер
-		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+ZXTTClickVarXl:=round(A_ScreenWidth * (1080 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1143 / 1440)) 	;Асистер
+		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;асистент
 		Sleep 500
 		ScRandomizatorFunc()
 		ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
@@ -976,12 +1097,12 @@ Loop 45
 
 
 
-Loop 60
+Loop 50
 {
 	Sleep 1000
 	ScRandomizatorFunc()
 	
-	ToolTip, Пропал курсор значит мы в данже - Нажать автобой через - %A_Index% \ 60 сек,round(A_ScreenWidth * .5),0,5
+	ToolTip, Пропал курсор значит мы в данже. Ждем: %A_Index% \ 50 сек,round(A_ScreenWidth * .5),0,5
 	
 	If !TogglerTimer7
 	{
@@ -1001,6 +1122,27 @@ Loop 60
 
 
 
+
+
+
+	ToolTip, Рубильник,round(A_ScreenWidth * .5),0,5
+;=============================Активировать рубильник
+Sleep 500
+SendInput {vk57 Down}
+Sleep 2200
+SendInput {vk57 up}
+Sleep 500
+SendInput {vk41 Down}
+Sleep 2300
+SendInput {vk41 up}
+Sleep 500
+SendInput {vk57 Down}
+Sleep 2300
+SendInput {vk57 up}
+Sleep 500
+SendInput {vk57 up}
+
+Sleep 1000
 
 ;=============================Пошел данж, нажать автобой
 SendInput {Alt Down}
@@ -1030,29 +1172,9 @@ ScRandomizatorFunc()
 
 
 
-	ToolTip, Рубильник,round(A_ScreenWidth * .5),0,5
-;=============================Активировать рубильник
-Sleep 500
-SendInput {vk57 Down}
-Sleep 2300
-SendInput {vk57 up}
-Sleep 500
-SendInput {vk41 Down}
-Sleep 2300
-SendInput {vk41 up}
-Sleep 500
-SendInput {vk57 Down}
-Sleep 2300
-SendInput {vk57 up}
-Sleep 500
-SendInput {vk57 up}
-
-
-
-
-Loop 480
+Loop %FrontierHoldT%
 {
-	ToolTip, Прошло секунд - %A_Index% \ 480,round(A_ScreenWidth * .5),0,5
+	ToolTip, Прошло секунд - %A_Index% \ %FrontierHoldT%,round(A_ScreenWidth * .5),0,5
 	sleep 1000
 	ScRandomizatorFunc()
 
@@ -1069,6 +1191,31 @@ Loop 480
 		ToolTip,,0,0,5
 		Return
 	}
+	
+	if A_Index > 200
+	{
+		if FrontierTextSearch
+		{
+
+			;===============найти текст
+			ZXTTClickVarXl337:=abs(round(A_ScreenWidth * (1000 / 2560))), ZXTTClickVarYl337:=abs(round(A_ScreenHeight * (1200 / 1440)))
+			ZXTTClickVarX228:=abs(round(ZXTTClickVarXl337 - A_ScreenWidth * (1500 / 2560))), ZXTTClickVarY228:=abs(round(ZXTTClickVarYl337 - A_ScreenHeight * (1400 / 1440)))
+			hBitmap := HBitmapFromScreen(ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228)
+			pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
+			DllCall("DeleteObject", "Ptr", hBitmap)
+			text := ocr(pIRandomAccessStream, FrontierTextOcr)
+			; Tooltip Поиск текста: %text%,round(A_ScreenWidth * .2),0,5
+			if RegExMatch(text, FrontierTextSelect2)
+			{
+				Tooltip % text,round(A_ScreenWidth * .2),0,5
+				Sleep 1000
+				; ZXTTClickVarXl:=round(A_ScreenWidth * (1285 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1288 / 1440))
+				; Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+				Break
+			}
+		}
+	}
+	
 }
 
 ToolTip, Данж закончился ждем выход,round(A_ScreenWidth * .5),0,5
@@ -1091,7 +1238,7 @@ Loop 15
 	}
 }
 
-Loop 80 	;Если нет курсора мы прогрузились
+Loop 110 	;Если нет курсора мы прогрузились
 {
 	ToolTip, Loop-%A_Index% Чуи мы дома?,round(A_ScreenWidth * .5),0,5
 	if !FuncCursorVisible()

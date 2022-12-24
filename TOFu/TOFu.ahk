@@ -87,8 +87,12 @@ https://www.youtube.com/watch?v=2OOE5uCVwsA
 
 https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3TDdA/edit#gid=0
 
-510 на клаве и фуве (где лега(3шт) вне гаранта?) на 463 выпала цубаса вне гаранта на 36/80
+554 на клаве и фуве и лин (где лега(3шт) вне гаранта?) 
+на 463 выпала цубаса вне гаранта на 36/80
+на 534 выпала широ вне гаранта на 34/80
+на ~?? выпал тян лан вне гаранта на ~10/80
 133 по теории
+
 
 
 Рейд:
@@ -96,7 +100,17 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 77lvl (3 рейд) - 12 фиол 10 голд
 80lvl (4 рейд) - 20 фиол 20 голд
 
+Запланировано:
+Руби
+Пресеты матриц
 
+
+Изменения: 23.12.2022
+ - Рыбалочка 
+ - Фронтир мисует
+ - Авто Время фронтира
+ - Время фронтира в "tofuConfig.ini", параметр "FrontierHoldT=480"
+ - Тайминги рубильника
 
 Изменения: 04.12.2022
  - Alt + NumpadSub - Bow Spam
@@ -489,8 +503,6 @@ simply.cards (Казахстан)
 
 
 WinName:= "TOF AHK Flex v4 by Kramar1337"
-CoordMode, Mouse, Screen
-CoordMode, ToolTip, Screen
 #NoEnv
 SendMode Input
 SetWorkingDir %A_ScriptDir%
@@ -499,6 +511,24 @@ Process, Priority,, High
 #SingleInstance force
 DetectHiddenWindows, On
 DetectHiddenText, On
+
+;========================конфиг под авторыбалку
+CoordMode Mouse, Screen 	;двигать мышку от окна
+CoordMode Pixel, Screen 	;искать пиксели от окна
+CoordMode, ToolTip, Screen
+Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
+OttenokFis = 11 				;диапазон(0-256), 11 норм находит.
+
+X1Fis := round(A_ScreenWidth * (880 / 2560))
+Y1Fis := round(A_ScreenHeight * (70 / 1440))
+X2Fis := round(A_ScreenWidth * (1690 / 2560))
+Y2Fis := round(A_ScreenHeight * (140 / 1440))
+
+Xf1 := round(A_ScreenWidth * (785 / 2560))
+Yf1 := round(A_ScreenHeight * (45 / 1440))
+Xf2 := round(A_ScreenWidth * (888 / 2560))
+Yf2 := round(A_ScreenHeight * (170 / 1440))
+
 Menu,Tray, Icon, data\genicon.ico, ,1
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 if IsAdmin
@@ -580,11 +610,11 @@ IniRead, AlyssJumpVar, data\tofuConfig.ini, Settings, AlyssJumpVar
 IniRead, FrontierTextSearch, data\tofuConfig.ini, Settings, FrontierTextSearch
 IniRead, FrontierTextOcr, data\tofuConfig.ini, Settings, FrontierTextOcr
 IniRead, FrontierTextSelect, data\tofuConfig.ini, Settings, FrontierTextSelect
+IniRead, FrontierTextSelect2, data\tofuConfig.ini, Settings, FrontierTextSelect2
+IniRead, FrontierHoldT, data\tofuConfig.ini, Settings, FrontierHoldT
 IniRead, GameDirFirewall, data\tofuConfig.ini, Settings, GameDirFirewall
 
-IniRead, IntersTextSelectA1, data\tofuConfig.ini, Settings, IntersTextSelectA1
-IniRead, IntersTextSelectA2, data\tofuConfig.ini, Settings, IntersTextSelectA2
-IniRead, IntersStarSelect, data\tofuConfig.ini, Settings, IntersStarSelect
+IniRead, OptimizationFis, data\tofuConfig.ini, Settings, OptimizationFis
 
 
 if (ClaudiaJumpVar == 0) or (AlyssJumpVar == 0)
@@ -751,7 +781,7 @@ IniRead, SelectDefaultMacro, data\tofuConfig.ini, Settings, SelectDefaultMacro
 jopa%SelectDefaultMacro%:=true
 
 ;======================Переключение стрелками, кол-во макросов
-MacroBackAmount = 12
+MacroBackAmount = 13
 
 ;======================Таймеры
 TogglerTimer1 = 0
@@ -766,6 +796,7 @@ TogglerTimer9 = 0
 TogglerTimer10 = 0
 TogglerTimer11 = 0
 TogglerTimer12 = 0
+TogglerTimer13 = 0
 
 ;=====================================================имя окна карты на разных языках
 ;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
@@ -1225,6 +1256,7 @@ return
 sleep 50
 svffPereklu4atelFisting228:=0 	;Остановить скип диалогов
 LoopOffVar1:=0 	;Остановить полет
+Pereklu4atelFis = 0
 if (overlay1toggle)
 {
 	Gui, 99: Cancel
@@ -1247,7 +1279,7 @@ Return
 OldMacroBackVar += 1
 if (OldMacroBackVar > MacroBackAmount)
 	OldMacroBackVar := MacroBackAmount
-	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
+	ToolTip, Select - %OldMacroBackVar%, 0, 0
 	sleep 300
 	ToolTip
 Return
@@ -1258,7 +1290,7 @@ Return
 OldMacroBackVar -= 1
 if OldMacroBackVar < 1
 OldMacroBackVar = 1
-	ToolTip, Select - %OldMacroBackVar%%MacroBackVarToolTip%, 0, 0
+	ToolTip, Select - %OldMacroBackVar%, 0, 0
 	sleep 300
 	ToolTip
 Return
@@ -1761,6 +1793,7 @@ ClaudiaJumpVar-=1
 AlyssJumpVar-=1
 Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
+
 
 
 
