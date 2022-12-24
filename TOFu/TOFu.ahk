@@ -31,7 +31,7 @@ NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить 
 NumpadSub - Click Hold (Если "UseControlSendVar=1" прострел окна через 500 мс)
 Alt + Numpad 0 - Lin hold
 Alt + Numpad 1 - Samir
-Alt + Numpad 2 - Karasuma & FRIGG drill (Экипировать и забиндить джетпак)
+Alt + Numpad 2 - Lyra God Mod
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS *328.49%
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
@@ -106,7 +106,10 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 Руби
 
 
+
 Изменения: 24.12.2022
+ - Карася бур удален
+ - Alt + Numpad 2 - Лира God Mod + автозаварка? 
  - Пресеты матриц
  - Заморозка настроек для стим версии в трей меню
 

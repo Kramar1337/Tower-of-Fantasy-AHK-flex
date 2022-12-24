@@ -107,12 +107,12 @@ jopa11:=true
 	sleep 500
 	ToolTip
 Return
-LabelANumpad2: 	;=============================================================Karasuma drill
+LabelANumpad2: 	;=============================================================Lyra God Mod
 IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa12:=true
-	ToolTip, Karasuma drill, 0, 0
+	ToolTip, Lyra God Mod, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -236,7 +236,7 @@ Goto Label_Goto_LinHold
 if jopa11
 Goto Label_Goto_SamirCombo
 if jopa12
-Goto Label_Goto_Karasuma1
+Goto Label_Goto_LyraGM
 if jopa13
 Goto Label_Goto_Nemesis2NH
 if jopa14
@@ -560,8 +560,8 @@ sleep 700
 }
 Return
 
-;============================================Karasuma drill
-Label_Goto_Karasuma1:
+;============================================Lyra God Mod
+Label_Goto_LyraGM:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
 	if FuncCursorVisible() 	;Если есть курсор то возврат
@@ -569,34 +569,22 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 }
 Loop
 {
-		GetKeyState, SpaceStateAA, %key_animcancel%, P
-		If SpaceStateAA = U
-			break
-	SendInput, {vk20} 	;Space
-	Sleep 170
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-		GetKeyState, SpaceStateAA, %key_animcancel%, P
-		If SpaceStateAA = U
-			break
-	SendInput, {%key_flyhackGajetKey%} 	;R
-	Sleep 20
-	SendInput, {vk1 Down} 	;LButton
-	Sleep 350
-		GetKeyState, SpaceStateAA, %key_animcancel%, P
-		If SpaceStateAA = U
-			break
-	Sleep 300
-			if ScRandomTime 	;Рандомизатор
-				ScRandomizatorFunc()
-		GetKeyState, SpaceStateAA, %key_animcancel%, P
-		If SpaceStateAA = U
-			break
-	
-	SendInput, {vk1 Up} 	;LButton
-	Sleep 20
-			if ScRandomTime 	;Рандомизатор
-				ScRandomizatorFunc()
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1 down}
+	if ScRandomTime 	;Рандомизатор
+		ScRandomizatorFunc()
+Sleep 400
+SendInput {vk1 up}
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 80
+SendInput {vk20}
+Sleep 50
+	if ScRandomTime 	;Рандомизатор
+		ScRandomizatorFunc()
 }
 Return
 
