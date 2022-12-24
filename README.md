@@ -30,12 +30,12 @@ __🚀Функционал:🚀__
   + Nemesis 2NH
   + SHIRO Classic
   + SHIRO Annihilation
-  + Karasuma drill
   + TSUBASA R5 Top DPS
   + Vertical Flight: Diluc, Qiqi
   + Long jump: Claudia, Alyss
   + Lin hold
   + Bow Spam
+  + Lyra God Mod
 - AFK фермерство
   + Ферма опыта, материалов и монет дружбы в Frontier
   + Фарм билетов в парке аттракционов
@@ -102,7 +102,7 @@ Numpad 2 - InventoryClicker(15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
 Numpad 4 - Huma combo t1
 Numpad 5 - Huma combo t2
-Numpad 6 - FRIGG Shift+LButton (Test)
+Numpad 6 - FRIGG Shift+LButton
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash
 Numpad 9 - Nemesis Air hold (Находясь в воздухе удерживать "Macro Key")
@@ -110,7 +110,7 @@ NumpadAdd - Diluc Vertical Flight (Экипировать и забиндить 
 NumpadSub - Click Hold (Если "UseControlSendVar=1" прострел окна через 500 мс)
 Alt + Numpad 0 - Lin hold (Test)
 Alt + Numpad 1 - Samir
-Alt + Numpad 2 - Karasuma drill (Экипировать и забиндить джетпак)
+Alt + Numpad 2 - Lyra God Mod
 Alt + Numpad 3 - Nemesis 2NH
 Alt + Numpad 4 - TSUBASA R5 Top DPS
 Alt + Numpad 5 - SHIRO Annihilation (Settings => Basic => Hit Frame - OFF)
@@ -150,7 +150,9 @@ __🍏AFK фермерство:🍎__
 <summary>==Список изменений==</summary>
 
 Изменения: 24.12.2022
-  
+
+ - Alt + Numpad 2 - Лира God Mod + автозаварка? 
+ - Карася бур удален
  - Пресеты матриц
  - Заморозка настроек для стим версии в трей меню
   
