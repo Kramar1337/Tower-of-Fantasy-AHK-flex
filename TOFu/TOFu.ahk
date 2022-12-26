@@ -7,8 +7,9 @@ F1 - *Карта
 F2 - *Оверлей
 F3 - *Автоходьба
 F4 - *Слот под спец макросы (Настраивать отдельно в "tofuConfig.ini")
-F7 - Переключить пресет матриц "tofuConfig.ini"
-F8 - Переключить пресет матриц "tofuConfig.ini"
+F6 - Переключить пресет матриц1 "tofuConfig.ini"
+F7 - Переключить пресет матриц2 "tofuConfig.ini"
+F8 - Переключить пресет матриц3 "tofuConfig.ini"
 F9 - Автоприниматель лобби
 Z - Скип диалогов
 F - Фаст лут
@@ -103,9 +104,13 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 80lvl (4 рейд) - 20 фиол 20 голд
 
 Запланировано:
-Руби
+ - Руби АА
+ - Тян лан
 
 
+Изменения: 26.12.2022
+ - Фикс пресетов матриц
+ - Подкрутка рыбалки
 
 Изменения: 24.12.2022
  - Карася бур удален
@@ -524,18 +529,23 @@ DetectHiddenText, On
 CoordMode Mouse, Screen 	;двигать мышку от окна
 CoordMode Pixel, Screen 	;искать пиксели от окна
 CoordMode, ToolTip, Screen
-Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
-OttenokFis = 11 				;диапазон(0-256), 11 норм находит.
 
-X1Fis := round(A_ScreenWidth * (880 / 2560))
+IniRead, Prozra4nostiFis2, data\tofuConfig.ini, Settings, Prozra4nostiFis2
+IniRead, OttenokFis2, data\tofuConfig.ini, Settings, OttenokFis2
+
+IniRead, PixelFisPix, data\tofuConfig.ini, Settings, PixelFisPix
+IniRead, PixelFisRange, data\tofuConfig.ini, Settings, PixelFisRange
+
+
+X1Fis := round(A_ScreenWidth * (875 / 2560))
 Y1Fis := round(A_ScreenHeight * (70 / 1440))
-X2Fis := round(A_ScreenWidth * (1690 / 2560))
-Y2Fis := round(A_ScreenHeight * (140 / 1440))
+X2Fis := round(A_ScreenWidth * (1695 / 2560))
+Y2Fis := round(A_ScreenHeight * (145 / 1440))
 
-Xf1 := round(A_ScreenWidth * (785 / 2560))
-Yf1 := round(A_ScreenHeight * (45 / 1440))
-Xf2 := round(A_ScreenWidth * (888 / 2560))
-Yf2 := round(A_ScreenHeight * (170 / 1440))
+Xf1 := round(A_ScreenWidth * (780 / 2560))
+Yf1 := round(A_ScreenHeight * (40 / 1440))
+Xf2 := round(A_ScreenWidth * (890 / 2560))
+Yf2 := round(A_ScreenHeight * (175 / 1440))
 
 Menu,Tray, Icon, data\genicon.ico, ,1
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
@@ -624,9 +634,11 @@ IniRead, GameDirFirewall, data\tofuConfig.ini, Settings, GameDirFirewall
 
 IniRead, OptimizationFis, data\tofuConfig.ini, Settings, OptimizationFis
 
+IniRead, SetSleepMtx, data\tofuConfig.ini, Settings, SetSleepMtx
+
 IniRead, Set1Name, data\tofuConfig.ini, Settings, Set1Name
 IniRead, Set2Name, data\tofuConfig.ini, Settings, Set2Name
-IniRead, SetSleepMtx, data\tofuConfig.ini, Settings, SetSleepMtx
+IniRead, Set3Name, data\tofuConfig.ini, Settings, Set3Name
 
 IniRead, Set1ArraySlot1, data\tofuConfig.ini, Settings, Set1ArraySlot1
 IniRead, Set1ArraySlot2, data\tofuConfig.ini, Settings, Set1ArraySlot2
@@ -636,6 +648,10 @@ IniRead, Set2ArraySlot1, data\tofuConfig.ini, Settings, Set2ArraySlot1
 IniRead, Set2ArraySlot2, data\tofuConfig.ini, Settings, Set2ArraySlot2
 IniRead, Set2ArraySlot3, data\tofuConfig.ini, Settings, Set2ArraySlot3
 
+IniRead, Set3ArraySlot1, data\tofuConfig.ini, Settings, Set3ArraySlot1
+IniRead, Set3ArraySlot2, data\tofuConfig.ini, Settings, Set3ArraySlot2
+IniRead, Set3ArraySlot3, data\tofuConfig.ini, Settings, Set3ArraySlot3
+
 Set1ArraySlot1 := StrSplit(Set1ArraySlot1, "-")
 Set1ArraySlot2 := StrSplit(Set1ArraySlot2, "-")
 Set1ArraySlot3 := StrSplit(Set1ArraySlot3, "-")
@@ -643,6 +659,10 @@ Set1ArraySlot3 := StrSplit(Set1ArraySlot3, "-")
 Set2ArraySlot1 := StrSplit(Set2ArraySlot1, "-")
 Set2ArraySlot2 := StrSplit(Set2ArraySlot2, "-")
 Set2ArraySlot3 := StrSplit(Set2ArraySlot3, "-")
+
+Set3ArraySlot1 := StrSplit(Set3ArraySlot1, "-")
+Set3ArraySlot2 := StrSplit(Set3ArraySlot2, "-")
+Set3ArraySlot3 := StrSplit(Set3ArraySlot3, "-")
 
 if (ClaudiaJumpVar == 0) or (AlyssJumpVar == 0)
 {
@@ -675,6 +695,7 @@ IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspe
 IniRead, key_ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, key_ClaudiaLongJumpOth
 IniRead, key_Set1matx, data\tofuConfig.ini, Settings, key_Set1matx
 IniRead, key_Set2matx, data\tofuConfig.ini, Settings, key_Set2matx
+IniRead, key_Set3matx, data\tofuConfig.ini, Settings, key_Set3matx
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
@@ -689,7 +710,7 @@ IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
 IniRead, Checkbox1ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, Checkbox1ClaudiaLongJumpOth
 IniRead, Checkbox1Set1matx, data\tofuConfig.ini, Settings, Checkbox1Set1matx
 IniRead, Checkbox1Set2matx, data\tofuConfig.ini, Settings, Checkbox1Set2matx
-
+IniRead, Checkbox1Set3matx, data\tofuConfig.ini, Settings, Checkbox1Set3matx
 
 ;=====================================Безопасность
 IniRead, ScWinrenamer, data\tofuConfig.ini, Settings, ScWinrenamer
@@ -706,6 +727,8 @@ if (Checkbox1Set1matx == 1)
 Hotkey, *~%key_Set1matx%, Metkakey_Set1matx, on 		;Переключить набор матриц 1
 if (Checkbox1Set2matx == 1)
 Hotkey, *~%key_Set2matx%, Metkakey_Set2matx, on 		;Переключить набор матриц 2
+if (Checkbox1Set3matx == 1)
+Hotkey, *~%key_Set3matx%, Metkakey_Set3matx, on 		;Переключить набор матриц 3
 if (Checkbox1skipNPS == 1)
 Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
 if (Checkbox1fastlyt == 1)
@@ -1835,854 +1858,8 @@ AlyssJumpVar-=1
 Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
 
-FuncMtxVar()
-{
-	Global
-	if MtxVarToggle = 0
-		Exit
-	IfWinNotActive, ahk_group gameexe1337
-		Exit
-	if (A_PriorKey != key_Set1matx) and (A_PriorKey != key_Set2matx)
-		Exit
-}
 
-Metkakey_Set1matx: 	;==================================Билд 1
-Sleep 1
-IfWinNotActive, ahk_group gameexe1337
-Return
-MtxVarToggle = 1
-Tooltip %Set1Name%,round(A_ScreenWidth * .5),0,2
-Sleep 700
-Tooltip,,0,0,2
-;==============================================================================
-;==========================================Пушка 1
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (554 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1041 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;оружие 1 слот
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-		Sleep 1500
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 1
-Gosub LabelPickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 2
-Gosub LabelPickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 3
-Gosub LabelPickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 4
-Gosub LabelPickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-;==============================================================================
-;==========================================Пушка 2
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1072 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1033 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1072, 1033 оружие 2 слот
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-		Sleep 1500
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 1
-Gosub LabelPickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 2
-Gosub LabelPickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 3
-Gosub LabelPickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 4
-Gosub LabelPickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-;==============================================================================
-;==========================================Пушка 3
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1578 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1031 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1578, 1031 оружие 3 слот
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-		Sleep 1500
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 1
-Gosub LabelPickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 2
-Gosub LabelPickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 3
-Gosub LabelPickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 4
-Gosub LabelPickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-return
-
-
-
-
-
-
-Metkakey_Set2matx:
-Sleep 1
-IfWinNotActive, ahk_group gameexe1337
-Return
-MtxVarToggle = 1
-Tooltip %Set2Name%,round(A_ScreenWidth * .5),0,2
-Sleep 700
-Tooltip,,0,0,2
-;==============================================================================
-;==========================================Пушка 1
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (554 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1041 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;оружие 1 слот
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-		Sleep 1500
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 1
-Gosub Label2PickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 2
-Gosub Label2PickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 3
-Gosub Label2PickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 4
-Gosub Label2PickSet1 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-;==============================================================================
-;==========================================Пушка 2
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1072 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1033 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1072, 1033 оружие 2 слот
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-SelectArraySet1 = 1
-Gosub Label2PickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 2
-Gosub Label2PickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 3
-Gosub Label2PickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 4
-Gosub Label2PickSet2 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-;==============================================================================
-;==========================================Пушка 3
-;==============================================================================
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1578 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1031 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1578, 1031 оружие 3 слот
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
-		Sleep 1500
-FuncMtxVar()
-;==================Начало слота 1
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-		Sleep 1500
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 1
-Gosub Label2PickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 2
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-FuncMtxVar()
-Gosub LabelCheckSet1 	;Снять матрицу
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1504 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (340 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1504, 340 2 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 2
-Gosub Label2PickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 3
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (542 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1117 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 542, 1117 3 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 3
-Gosub Label2PickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-;==================Начало слота 4
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-Gosub LabelCheckSet1 	;Снять матрицу
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1482 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1147 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1482, 1147 4 слот матрицы в пухе
-	Sleep %SetSleepMtx%
-SelectArraySet1 = 4
-Gosub Label2PickSet3 	;пикнуть слот в соответствии с ини: Выбрать слот от 1-9
-FuncMtxVar()
-	ZXTTClickVarXl:=round(A_ScreenWidth * (73 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (97 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 73, 97 выход
-	Sleep %SetSleepMtx%
-return
-
-
-
-
-LabelCheckSet1: 	;============================Снять матрицу
-	Prozra4nostiFis = TransBlack 	;прозрачность если PNG (TransWhite, TransBlack, TransFFFFAA хромокей)
-	OttenokFis = 11 				;диапазон(0-256), 11 норм находит.
-	ZXTTClickVarXl337:=round(A_ScreenWidth * (1770 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (1120 / 1440))
-	ZXTTClickVarX228:=round(A_ScreenWidth * (2540 / 2560)), ZXTTClickVarY228:=round(A_ScreenHeight * (1280 / 1440))
-	ImageSearch,,, ZXTTClickVarXl337, ZXTTClickVarYl337, ZXTTClickVarX228, ZXTTClickVarY228, *%OttenokFis%, *%Prozra4nostiFis% data\pix\matx.png
-	if !ErrorLevel
-	{
-		ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1956, 1305 снять матрицу
-		Sleep %SetSleepMtx%
-		FuncMtxVar()
-		ZXTTClickVarXl:=round(A_ScreenWidth * (966 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (808 / 1440))
-		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;1956, 1305 отмена
-		Sleep %SetSleepMtx%
-	}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	FuncMtxVar()
-return
-
-LabelPickSet1: 	;=================================1==============Выбрать слот от 1-9 в 1 пушке
-if Set1ArraySlot1[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 3
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot1[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-LabelPickSet2: 	;=================================2==============Выбрать слот от 1-9 в 2й пушке
-if Set1ArraySlot2[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 3
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot2[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-LabelPickSet3: 	;==================================3=============Выбрать слот от 1-9 в 3й пушке
-if Set1ArraySlot3[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 3
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set1ArraySlot3[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-
-
-Label2PickSet1: 	;=================================1==============Выбрать слот от 1-9 в 1 пушке
-if Set2ArraySlot1[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 3
-{
-
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot1[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-Label2PickSet2: 	;=================================2==============Выбрать слот от 1-9 в 2й пушке
-if Set2ArraySlot2[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 3
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot2[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-Label2PickSet3: 	;==================================3=============Выбрать слот от 1-9 в 3й пушке
-if Set2ArraySlot3[SelectArraySet1] = 1
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (405 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 405 1 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 2
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (444 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (407 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 444, 407 2 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 3
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (717 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (411 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 717, 411 3 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 4
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (159 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (662 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 159, 662 4 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 5
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (439 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (661 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 439, 661 5 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 6
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (713 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (664 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 713, 664 6 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 7
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (157 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (920 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 157, 920 7 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 8
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (446 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (925 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 446, 925 8 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-if Set2ArraySlot3[SelectArraySet1] = 9
-{
-	ZXTTClickVarXl:=round(A_ScreenWidth * (715 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (922 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 715, 922 9 слот матрицы в инвентаре
-	Sleep %SetSleepMtx%
-}
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1956 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1305 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1956, 1305 Аффикс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс
-	Sleep %SetSleepMtx%
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
-	Sleep %SetSleepMtx%
-return
-
-
-
+#Include *i %A_ScriptDir%\data\Lib\LibMtxSet.ahk 		;Прочие сомнительные макросы, фермерство и тд
 
 
 

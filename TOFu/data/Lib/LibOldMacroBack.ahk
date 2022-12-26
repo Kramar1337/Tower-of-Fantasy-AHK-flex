@@ -315,7 +315,7 @@ while Pereklu4atelFis
 	{
 		if NoSearchVar2
 		{
-			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, 0x8CFFFF, 1, Fast RGB
+			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, %PixelFisPix%, %PixelFisRange%, Fast RGB
 			if ErrorLevel = 0 	;Если найден голубой
 			{
 			NoSearchVar2 = 0
@@ -323,11 +323,11 @@ while Pereklu4atelFis
 		}
 		Else
 		{
-			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, 0x8CFFFF, 1, Fast RGB
+			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, %PixelFisPix%, %PixelFisRange%, Fast RGB
 			if ErrorLevel = 1 	;Если не найден голубой
 			{
 			NoSearchVar2 = 1
-			Sleep 500
+			Sleep 1000
 			ZXTTClickVarXl:=round(A_ScreenWidth * (2268 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
 			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 			Sleep 3000
@@ -339,7 +339,6 @@ while Pereklu4atelFis
 			}
 		}
 	}
-	
 	IfWinNotActive, ahk_group gameexe1337
 	{
 	Pereklu4atelFis = 0
