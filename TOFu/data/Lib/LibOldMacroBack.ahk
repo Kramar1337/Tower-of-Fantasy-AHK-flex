@@ -328,13 +328,13 @@ while Pereklu4atelFis
 			{
 			NoSearchVar2 = 1
 			Sleep 1000
-			ZXTTClickVarXl:=round(A_ScreenWidth * (2268 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+			ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
 			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 			Sleep 3000
 			ZXTTClickVarXl:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (720 / 1440)) 	;Асистер
 			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 			Sleep 3000
-			ZXTTClickVarXl:=round(A_ScreenWidth * (2268 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+			ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
 			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 			}
 		}

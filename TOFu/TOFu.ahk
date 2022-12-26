@@ -536,16 +536,25 @@ IniRead, OttenokFis2, data\tofuConfig.ini, Settings, OttenokFis2
 IniRead, PixelFisPix, data\tofuConfig.ini, Settings, PixelFisPix
 IniRead, PixelFisRange, data\tofuConfig.ini, Settings, PixelFisRange
 
+; 1440 = 2560 * 9 / 16
+; 1440 = 3440 * 9 / 21
+; ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)) 		;3077,1875
+; ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;1238
 
-X1Fis := round(A_ScreenWidth * (875 / 2560))
+X1Fis := round(A_ScreenWidth * (875 / 2560)) 	;1175,78125
 Y1Fis := round(A_ScreenHeight * (70 / 1440))
-X2Fis := round(A_ScreenWidth * (1695 / 2560))
+X2Fis := round(A_ScreenWidth * (1695 / 2560)) 	;2277,65625
 Y2Fis := round(A_ScreenHeight * (145 / 1440))
 
-Xf1 := round(A_ScreenWidth * (780 / 2560))
+Xf1 := round(A_ScreenWidth * (730 / 2560)) 	;980,9375
 Yf1 := round(A_ScreenHeight * (40 / 1440))
-Xf2 := round(A_ScreenWidth * (890 / 2560))
-Yf2 := round(A_ScreenHeight * (175 / 1440))
+Xf2 := round(A_ScreenWidth * (960 / 2560)) 	;1290
+Yf2 := round(A_ScreenHeight * (190 / 1440))
+
+; Xf1 := round(A_ScreenWidth * (780 / 2560))
+; Yf1 := round(A_ScreenHeight * (40 / 1440))
+; Xf2 := round(A_ScreenWidth * (890 / 2560))
+; Yf2 := round(A_ScreenHeight * (175 / 1440))
 
 Menu,Tray, Icon, data\genicon.ico, ,1
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
