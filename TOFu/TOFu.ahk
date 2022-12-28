@@ -108,6 +108,15 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
  - Тян лан
 
 
+Изменения: 28.12.2022
+ - Оптимизация рыбалки:
+ - Антишейк "FisAntishake=10"
+ - Быстрый режим "FisModeClick=1"
+ - Калибровка расстояния "FisCalibration=50"
+ - Продолжить ловлю если рыба сорвалась
+ - Новый таймер на тиках
+ - Еще чтото
+
 Изменения: 26.12.2022
  - Фикс пресетов матриц
  - Подкрутка рыбалки
@@ -535,6 +544,10 @@ IniRead, OttenokFis2, data\tofuConfig.ini, Settings, OttenokFis2
 
 IniRead, PixelFisPix, data\tofuConfig.ini, Settings, PixelFisPix
 IniRead, PixelFisRange, data\tofuConfig.ini, Settings, PixelFisRange
+
+IniRead, FisCalibration, data\tofuConfig.ini, Settings, FisCalibration
+IniRead, FisModeClick, data\tofuConfig.ini, Settings, FisModeClick
+IniRead, FisAntishake, data\tofuConfig.ini, Settings, FisAntishake
 
 ; 1440 = 2560 * 9 / 16
 ; 1440 = 3440 * 9 / 21

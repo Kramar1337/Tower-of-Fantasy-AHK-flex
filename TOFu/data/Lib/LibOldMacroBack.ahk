@@ -286,6 +286,10 @@ Tooltip Auto fishing: ON,round(A_ScreenWidth * .5 - 50),0,3
 NoSearchVar = 0
 NoSearchVar2 = 1
 Pereklu4atelFis = 1
+TickCountTimer = 0
+IndexTickCountVarEnd = 0
+TickCountTimer1 = 0
+IndexTickCountVarEnd1 = 0
 while Pereklu4atelFis
 {
 	Sleep %OptimizationFis%
@@ -293,21 +297,75 @@ while Pereklu4atelFis
 	if ErrorLevel = 1
 	{
 	NoSearchVar = 0
+	
+		;========================Подсчет
+		TickCountTimerStart := (A_TickCount - TickCountTimer) * IndexTickCountVarEnd
+		if TickCountTimerStart > 25000
+		{
+			IndexTickCountVarEnd = 1
+			Tooltip % "Fishing AntiAFK " round(TickCountTimerStart / 1000) " sec",round(A_ScreenWidth * .5 - 50),0,3
+			Sleep 500
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (720 / 1440)) 	;Асистер
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			Sleep 3000
+			if !Pereklu4atelFis
+				Break
+			ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			Tooltip Auto fishing: ON,round(A_ScreenWidth * .5 - 50),0,3
+		}
+		Else
+		{
+			IndexTickCountVarEnd+=1
+		}
+		TickCountTimer := A_TickCount 	;Зарегать время
+	
 	}
 	if ErrorLevel = 0
 	{
-	NoSearchVar = 1
-	if GetKeyState("vk41")
-		SendInput {vk41 Up} 	;A
-	if GetKeyState("vk44")
-		SendInput {vk44 Up} 	;D
-	ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find2.png
-	if ErrorLevel = 0
+		TickCountTimer = 0
+		IndexTickCountVarEnd = 0
+		NoSearchVar = 1
+		if GetKeyState("vk41")
+			SendInput {vk41 Up} 	;A
+		if GetKeyState("vk44")
+			SendInput {vk44 Up} 	;D
+		ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find2.png
+		if ErrorLevel = 0
 		{
-			if (FoundX2Fis > FoundXFis) 	;Если П2 > П1
-			SendInput {vk41 Down} 	;A
-			if (FoundX2Fis < FoundXFis) 	;Если П2 < П1
-			SendInput {vk44 Down} 	;D
+			FoundXFis+=%FisCalibration%
+			FFis1 := FoundX2Fis - FoundXFis
+			if (FoundX2Fis > FoundXFis) and (FFis1 > FisAntishake) 	;Если П2 > П1
+			{
+			; Tooltip %FoundX2Fis% > %FoundXFis%,round(A_ScreenWidth * .5 - 50),0,3
+				if FisModeClick
+				{
+					ZXTTClickVarXl:=round(A_ScreenWidth * (350 / 2560))
+					ZXTTClickVarYl:=round(A_ScreenHeight * (828 / 1440))
+					Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+					SendInput {vk41 Down} 	;A
+				}
+				if !FisModeClick
+				{
+					SendInput {vk41 Down} 	;A
+				}
+			}
+			FFis1 := FoundXFis - FoundX2Fis
+			if (FoundXFis > FoundX2Fis) and (FFis1 > FisAntishake) 	;Если П2 < П1
+			{
+			; Tooltip %FoundX2Fis% < %FoundXFis%,round(A_ScreenWidth * .5 - 50),0,3
+				if FisModeClick
+				{
+					ZXTTClickVarXl:=round(A_ScreenWidth * (2174 / 2560))
+					ZXTTClickVarYl:=round(A_ScreenHeight * (829 / 1440))
+					Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+					SendInput {vk44 Down} 	;D
+				}
+				if !FisModeClick
+				{
+					SendInput {vk44 Down} 	;D
+				}
+			}
 			Sleep 1
 		}
 	}
@@ -319,6 +377,8 @@ while Pereklu4atelFis
 			if ErrorLevel = 0 	;Если найден голубой
 			{
 			NoSearchVar2 = 0
+			TickCountTimer1 = 0
+			IndexTickCountVarEnd1 = 0
 			}
 		}
 		Else
@@ -326,16 +386,35 @@ while Pereklu4atelFis
 			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, %PixelFisPix%, %PixelFisRange%, Fast RGB
 			if ErrorLevel = 1 	;Если не найден голубой
 			{
-			NoSearchVar2 = 1
-			Sleep 1000
-			ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
-			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-			Sleep 3000
-			ZXTTClickVarXl:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (720 / 1440)) 	;Асистер
-			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-			Sleep 3000
-			ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
-			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			; Tooltip % round(TickCountTimerStart1 / 10) " ms",round(A_ScreenWidth * .5 - 50),0,3
+			;========================Подсчет
+			TickCountTimerStart1 := (A_TickCount - TickCountTimer1) * IndexTickCountVarEnd1
+			if TickCountTimerStart1 > 1500
+			{
+				; Tooltip Auto fishing: ON,round(A_ScreenWidth * .5 - 50),0,3
+				IndexTickCountVarEnd1 = 1
+				Sleep 50
+				NoSearchVar2 = 1
+				if !Pereklu4atelFis
+					Break
+				ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+				Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+				Sleep 3000
+				if !Pereklu4atelFis
+					Break
+				ZXTTClickVarXl:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (720 / 1440)) 	;Асистер
+				Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+				Sleep 3000
+				if !Pereklu4atelFis
+					Break
+				ZXTTClickVarXl:=round(A_ScreenWidth * (2290 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1238 / 1440)) 	;Асистер
+				Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			}
+			Else
+			{
+				IndexTickCountVarEnd1+=1
+			}
+			TickCountTimer1 := A_TickCount 	;Зарегать время
 			}
 		}
 	}
