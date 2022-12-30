@@ -1142,18 +1142,10 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1080 / 2560)), ZXTTClickVarYl:=round(A_Sc
 		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;асистент
 		Sleep 500
 		ScRandomizatorFunc()
-		ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
+ZXTTClickVarXl:=round(A_ScreenWidth * (1500 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1020 / 1440))
 		Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 		
 	}
-
-	;=============================Нашло игру принять? да, асепт
-	; ZXTTClickVarXl:=round(A_ScreenWidth * (1149 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1170 / 1440)) 	;Асистер
-	; Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-	; Sleep 1000
-	; ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440)) 		;Принять
-	; Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-
 
 	if !FuncCursorVisible() 	;выйти как пропадет курсор
 		Break
@@ -1522,7 +1514,7 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 Loop 30
 {
 	;=============================Нашло игру принять? да, асепт
-	ZXTTClickVarXl:=round(A_ScreenWidth * (1383 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (967 / 1440))
+ZXTTClickVarXl:=round(A_ScreenWidth * (1500 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1020 / 1440))
 	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
 	Sleep 3000

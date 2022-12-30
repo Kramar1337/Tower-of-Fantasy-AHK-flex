@@ -106,6 +106,8 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 Запланировано:
  - Руби АА
  - Тян лан
+ - Gui с dx12 и пресетами
+
 
 
 Изменения: 28.12.2022
@@ -948,6 +950,9 @@ passwordVar777 := gen_password(rand1488)
 PleasantNotify("", "" , 700, 350, "vc hc", "1")
 return
 ;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
+
+
+
 
 ; TickCountTimer := A_TickCount
 ; Sleep, 1000
