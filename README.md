@@ -6,7 +6,7 @@ AHK скрипт для Tower of Fantasy
 
 [__✨Boosty✨__](https://boosty.to/kramar1337)
 [__✨Qiwi✨__](https://qiwi.com/n/KRAMBIBA1337)
-[__✨SteamTrade✨__](https://steamcommunity.com/tradeoffer/new/?partner=176456946&token=QbYR9jmE)
+[__✨Steam✨__](https://steamcommunity.com/tradeoffer/new/?partner=176456946&token=QbYR9jmE)
 
 [Подробное описание](https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/wiki) (Заполнено на 99%)
 
