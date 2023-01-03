@@ -90,6 +90,9 @@ https://www.youtube.com/watch?v=2OOE5uCVwsA
 
 https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3TDdA/edit#gid=0
 
+Конфиги по оптимизации
+https://www.reddit.com/r/TowerofFantasy/comments/zyu127/fixing_stutter_dlss_memory_leak_and_enabling_dx12/
+
 554 на клаве и фуве и лин (где лега(3шт) вне гаранта?) 
 на 463 выпала цубаса вне гаранта на 36/80
 на 534 выпала широ вне гаранта на 34/80
@@ -106,9 +109,13 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 Запланировано:
  - Руби АА
  - Тян лан
- - Gui с dx12 и пресетами
 
 
+
+Изменения: 03.01.2023
+ - Подкрутка фронтира и рыбалки
+ - Gui с dx12 dx11 в трей меню
+ - Удален переключатель версии клиента
 
 Изменения: 28.12.2022
  - Оптимизация рыбалки:
@@ -598,24 +605,24 @@ Menu,Tray, Icon, Reload, shell32.dll, 239, 16
 Menu,Tray, add, Pause-Play, Metkashortcut4
 Menu,Tray, Icon, Pause-Play, imageres.dll, 233, 16
 Menu,Tray, Default, Reload
-Menu,Tray, add
+; Menu,Tray, add
 ; Menu,Tray, add, Instal ReShade, Metkashortcut2
 ; Menu,Tray, Icon, Instal ReShade, imageres.dll, 67, 16
 ; Menu,Tray, add, Uninstal ReShade, Metkashortcut3
 ; Menu,Tray, Icon, Uninstal ReShade, imageres.dll, 66, 16
 ; Menu,Tray, add
-Menu,Tray, add, Global client, Metkashortcut7
-Menu,Tray, Icon, Global client, imageres.dll, 230, 16
-Menu,Tray, add, China client, Metkashortcut8
-Menu,Tray, Icon, China client, imageres.dll, 230, 16
+; Menu,Tray, add, Global client, Metkashortcut7
+; Menu,Tray, Icon, Global client, imageres.dll, 230, 16
+; Menu,Tray, add, China client, Metkashortcut8
+; Menu,Tray, Icon, China client, imageres.dll, 230, 16
 Menu,Tray, add
 Menu,Tray, add, Force Update, Metkashortcut6UpdateButton
 Menu,Tray, Icon, Force Update, shell32.dll, 136, 16
 Menu,Tray, add
 Menu,Tray, add, Reconnect client, Metkashortcut9
 Menu,Tray, Icon, Reconnect client, imageres.dll, 171, 16
-Menu,Tray, add, Freeze game settings, Metkashortcut10
-Menu,Tray, Icon, Freeze game settings, imageres.dll, 225, 16
+Menu,Tray, add, Game settings, Metkashortcut10
+Menu,Tray, Icon, Game settings, imageres.dll, 110, 16
 Menu,Tray, add
 Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
 Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
@@ -630,14 +637,14 @@ IniRead, FIXchat, data\tofuConfig.ini, Settings, FIXchat
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 IniRead, GameExeNew, data\tofuConfig.ini, Settings, GameExeNew
 GroupAdd, gameexe1337, %GameExeNew%
-if (GameExeNew == "ahk_exe QRSL.exe")
-{
-	Menu,Tray, Icon, Global client, imageres.dll, 233, 16
-}
-if (GameExeNew == "ahk_exe WmgpMobileGame.exe")
-{
-	Menu,Tray, Icon, China client, imageres.dll, 233, 16
-}
+; if (GameExeNew == "ahk_exe QRSL.exe")
+; {
+	; Menu,Tray, Icon, Global client, imageres.dll, 233, 16
+; }
+; if (GameExeNew == "ahk_exe WmgpMobileGame.exe")
+; {
+	; Menu,Tray, Icon, China client, imageres.dll, 233, 16
+; }
 IniRead, Map2toggle, data\tofuConfig.ini, Settings, Map2toggle
 IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - дефолт браузер, 1 - указать свой браузер
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
@@ -948,8 +955,132 @@ Gui, 99: Cancel
 Random, rand1488, 33, 35
 passwordVar777 := gen_password(rand1488)	
 PleasantNotify("", "" , 700, 350, "vc hc", "1")
+
+Gui, 10:  Add, GroupBox, x8 y0 w406 h63, Path to game folder
+Gui, 10:  Add, Edit, x16 y24 w307 h21 vGameDirFirewall +ReadOnly, %GameDirFirewall%
+Gui, 10:  Add, Button, gLabelEditB1 x352 y24 w55 h23, Edit
+Gui, 10:  Add, GroupBox, x8 y64 w406 h80, Graphics settings
+Gui, 10:  Add, Button, gLabelDX12 x16 y80 w80 h23, DX12
+Gui, 10:  Add, Button, gLabelDXRestore x104 y80 w80 h23, DX11
+Gui, 10:  Add, Button, gLabelPickregedit x16 y112 w80 h23, Regedit
+Gui, 10:  Add, Button, gLabelUnFreezSett x328 y112 w80 h23, UnFreez
+Gui, 10:  Add, Button, gLabelFreezSett x328 y80 w80 h23, Freez
+Gui, 10:  Add, Button, gLabelExplore x240 y80 w80 h23, Explore
+Gui, 10:  Show, Hide w422 h151, %passwordVar777%
+
 return
-;===========================================================КОНЕЦ МЕЙН ПОТОКА ПОТОКА, ДАЛЕЕ МЕТКИ
+;===========================================================КОНЕЦ МЕЙН ПОТОКА, ДАЛЕЕ МЕТКИ
+
+
+
+
+LabelExplore: 	;=============================Открыть папку с настройками
+AppDataTruA := StrReplace(A_AppData, "\Roaming", "")
+Run %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor
+Return
+
+LabelPickregedit: 	;=============================Открыть реестр в определенном месте
+Run, cmd /k @echo Off & reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit /v LastKey /t REG_SZ /d "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options" /f & start "title" /b regedit.exe & exit
+Return
+
+LabelDX12: 	;=====================================Переключить игру в Dx12
+Gui, 10: Submit, NoHide
+IfNotExist, %GameDirFirewall%
+{
+	Msgbox Не найден файл`n%GameDirFirewall%
+	Return
+}
+SplitPath, GameDirFirewall,x2name,x2dir
+; Копировать файл
+FileCopy, %x2dir%\%x2name%, %x2dir%\_QRSL.exe, 1
+; Записать в реест
+RegDelete, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\QRSL.exe
+RegWrite, REG_SZ, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\QRSL.exe, Debugger, %x2dir%\_QRSL.exe updater -dx12"
+; "
+SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+; MsgBox,,, DX12, 1
+Return
+LabelDXRestore: 	;=====================================Переключить игру в Dx11
+Gui, 10: Submit, NoHide
+RegDelete, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\QRSL.exe
+IfNotExist, %GameDirFirewall%
+{
+	Msgbox Не найден файл`n%GameDirFirewall%
+	Return
+}
+SplitPath, GameDirFirewall,x2name,x2dir
+; Удалить файл
+FileDelete, %x2dir%\_QRSL.exe
+; Очистить реестр
+RegDelete, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\QRSL.exe
+SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+; MsgBox,,, DX11, 1
+Return
+
+
+; GuiControl,10:, VarRegeditExport1, %RegeditExport1%
+; Gui, 10: Submit, NoHide
+; FileDelete, data\reg\%VarRegeditExport1%.reg
+
+
+
+
+LabelEditB1: 	;=====================================Указать путь к exe файлу игры
+FileSelectFile, GameExeFileVarImport, 3, ::{20d04fe0-3aea-1069-a2d8-08002b30309d},Tower Of Fantasy\Hotta\Binaries\Win64\QRSL.exe,Exe file (QRSL.exe)
+if !ErrorLevel
+{
+	SplitPath, GameExeFileVarImport,x2name
+	if (x2name = "QRSL.exe")
+	{
+		Gui, 10: Submit, NoHide
+		GuiControl,10:, GameDirFirewall, %GameExeFileVarImport%
+		IniWrite, %GameExeFileVarImport%, data\tofuConfig.ini, Settings, GameDirFirewall
+		SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+	}
+	else
+	{
+		Msgbox Не найден "QRSL.exe"
+	}
+}
+return
+
+LabelFreezSett: 	;=====================================Заморозить настройки
+AppDataTruA := StrReplace(A_AppData, "\Roaming", "")
+IfNotExist, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+{
+	IfNotExist, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\Input.ini
+	{
+		MsgBox,,, File not found:`n%AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini, 3
+		Return
+	}
+}
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+	
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, +R, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\Input.ini
+SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+; MsgBox,,, FreezSett, 1
+return
+LabelUnFreezSett: 	;=====================================Разморозить настройки
+AppDataTruA := StrReplace(A_AppData, "\Roaming", "")
+IfNotExist, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+{
+	IfNotExist, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\Input.ini
+	{
+		MsgBox,,, File not found:`n%AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini, 3
+		Return
+	}
+}
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
+	
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\GameUserSettings.ini
+	FileSetAttrib, -R, %AppDataTruA%\Local\Hotta\Saved_Steam\Config\WindowsNoEditor\Input.ini
+SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+; MsgBox,,, UnFreezSett, 1
+return
+
 
 
 
@@ -1748,29 +1879,29 @@ Reload
 Return
 
 ;=====================Меню, смена фокуса окна Reload глобал
-Metkashortcut7:
-IniWrite, ahk_exe QRSL.exe, data\tofuConfig.ini, Settings, GameExeNew
-Sleep 1
-	If ScRenamer
-	{
-		run %savereloadvar%
-		exitapp
-		return
-	}
-Reload
-Return
+; Metkashortcut7:
+; IniWrite, ahk_exe QRSL.exe, data\tofuConfig.ini, Settings, GameExeNew
+; Sleep 1
+	; If ScRenamer
+	; {
+		; run %savereloadvar%
+		; exitapp
+		; return
+	; }
+; Reload
+; Return
 ;=====================Меню, смена фокуса окна Reload китай
-Metkashortcut8:
-IniWrite, ahk_exe WmgpMobileGame.exe, data\tofuConfig.ini, Settings, GameExeNew
-Sleep 1
-	If ScRenamer
-	{
-		run %savereloadvar%
-		exitapp
-		return
-	}
-Reload
-Return
+; Metkashortcut8:
+; IniWrite, ahk_exe WmgpMobileGame.exe, data\tofuConfig.ini, Settings, GameExeNew
+; Sleep 1
+	; If ScRenamer
+	; {
+		; run %savereloadvar%
+		; exitapp
+		; return
+	; }
+; Reload
+; Return
 ;=====================Меню, отключить интернет на 2 секунды
 Metkashortcut9:
 ; Run firewall.cpl
@@ -1817,6 +1948,8 @@ Return
 
 ;=====================Меню, заморозить настройки игры
 Metkashortcut10:
+Gui, 10: Show
+/*
 AppDataTruA := StrReplace(A_AppData, "\Roaming", "")
 IfNotExist, %AppDataTruA%\Local\Hotta\Saved\Config\WindowsNoEditor\Input.ini
 {
@@ -1846,6 +1979,7 @@ IfMsgBox Yes, {
 } Else IfMsgBox Cancel, {
 	Return
 }
+*/
 Return
 
 OnMsgBox() {
