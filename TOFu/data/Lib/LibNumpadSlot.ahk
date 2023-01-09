@@ -740,7 +740,7 @@ Sleep 1
 SendInput {vk1 down}
 Sleep 1
 SendInput {vk1 up}
-Sleep 390
+Sleep 400
 SendInput {%key_flyhackGajetKey% down} ;глайдер 
 Sleep 1
 SendInput {%key_flyhackGajetKey% up}
