@@ -22,8 +22,8 @@ Numpad 0 - Off
 Numpad 1 - AutoAttack (70ms)
 Numpad 2 - InventoryClicker (15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл(Macro Key))
-Numpad 4 - Huma combo t1
-Numpad 5 - Huma combo t2
+Numpad 4 - TianDash
+Numpad 5 - RubyAA
 Numpad 6 - FRIGG Shift+Click
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash
@@ -93,6 +93,10 @@ https://docs.google.com/spreadsheets/d/1XaZrkdbm6u5Gg1OhainUlQwHyL-UTC9nGMq2qZ3T
 Конфиги по оптимизации
 https://www.reddit.com/r/TowerofFantasy/comments/zyu127/fixing_stutter_dlss_memory_leak_and_enabling_dx12/
 
+https://www.reddit.com/r/TowerofFantasy/comments/wpaozv/ue4_engine_tweaks_guide_to_improving_graphics_and/
+
+https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_and_raytracing/
+
 554 на клаве и фуве и лин (где лега(3шт) вне гаранта?) 
 на 463 выпала цубаса вне гаранта на 36/80
 на 534 выпала широ вне гаранта на 34/80
@@ -107,10 +111,13 @@ https://www.reddit.com/r/TowerofFantasy/comments/zyu127/fixing_stutter_dlss_memo
 80lvl (4 рейд) - 20 фиол 20 голд
 
 Запланировано:
- - Руби АА
- - Тян лан
 
 
+
+Изменения: 09.01.2023
+ - Тайминги лин холд
+ - Numpad 4 -  TianDash (Huma combo t1 улетел в помойку)
+ - Numpad 5 -  RubyAA (Huma combo t2 улетел в помойку)
 
 Изменения: 03.01.2023
  - Подкрутка фронтира и рыбалки
@@ -1946,7 +1953,7 @@ RunWait, cmd /C
 ),, Hide
 Return
 
-;=====================Меню, заморозить настройки игры
+;=====================Меню
 Metkashortcut10:
 Gui, 10: Show
 /*

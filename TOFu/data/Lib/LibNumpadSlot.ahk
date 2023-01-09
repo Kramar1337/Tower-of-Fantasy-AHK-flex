@@ -35,21 +35,21 @@ jopa3:=true
 	sleep 500
 	ToolTip
 Return
-LabelNumpad4: 	;================================================================Huma 1
+LabelNumpad4: 	;================================================================Huma 1 удален, терь Tian lang dash
 IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa4:=true
-	ToolTip, Huma Combo 1, 0, 0
+	ToolTip, Tian lang dash, 0, 0
 	sleep 500
 	ToolTip
 Return
-LabelNumpad5: 	;================================================================Huma 2
+LabelNumpad5: 	;================================================================Huma 2 удален, терь RubyAA
 IfWinNotActive, ahk_group gameexe1337
 Return
 FuncMacroRestore()
 jopa5:=true
-	ToolTip, Huma Combo 2, 0, 0
+	ToolTip, RubyAA, 0, 0
 	sleep 500
 	ToolTip
 Return
@@ -220,9 +220,9 @@ Goto Label_Goto_InventoryClicker
 if jopa3
 Goto Label_Goto_Fly_Auto
 if jopa4
-Goto Label_Goto_HumaV1
+Goto Label_Goto_TianDash
 if jopa5
-Goto Label_Goto_HumaV2
+Goto Label_Goto_Ruby1
 if jopa6
 Goto Label_Goto_FriggShift
 if jopa7
@@ -294,8 +294,11 @@ Loop
         break
 	SendInput {vk1 down}
 	Sleep 400
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
 	SendInput {vk1 up}
-	Sleep 150
+	Sleep 105
 	; TickCountTimer := A_TickCount
 	; SoundBeep
 	; TickCountTimerEnd := A_TickCount - TickCountTimer
@@ -686,8 +689,8 @@ Sleep 550
 		SendInput, {vk1 Up}
 return
 
-;============================================Хума комбо 1
-Label_Goto_HumaV1:
+;============================================Хума комбо 1 удален, терь tian lang dash
+Label_Goto_TianDash:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
 	if FuncCursorVisible() 	;Если есть курсор то возврат
@@ -696,60 +699,30 @@ if FIXchat 	;Если "FIXchat" то чекать курсор
 Sleep 1
 Loop
 {
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
         break
-SendInput, {vk1}
-Sleep 600
+SendInput {vkA0}
+Sleep 200
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+SendInput {vk1}
+Sleep 300
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
         break
-SendInput, {vk1}
-Sleep 700
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 Down}
-Sleep 1200
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 up}
-
-Sleep 1
-SendInput, {vkA0}
-Sleep 140
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 400
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk20}
-Sleep 100
+SendInput {vk20}
+Sleep 150
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
 }
-	GetKeyState, SpaceStateAAA, vk1
-	If SpaceStateAAA = D
-		SendInput, {vk1 Down}
 return
 
-;============================================Хума комбо 2
-Label_Goto_HumaV2:
+;============================================Хума комбо 2 удален, терь тут Руби
+Label_Goto_Ruby1:
 if FIXchat 	;Если "FIXchat" то чекать курсор
 {
 	if FuncCursorVisible() 	;Если есть курсор то возврат
@@ -761,41 +734,17 @@ Loop
     GetKeyState, SpaceStateAA1, %key_animcancel%, P
     If SpaceStateAA1 = U
         break
-SendInput, {vk1}
-Sleep 600
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
 
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
-Sleep 700
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 Down}
-Sleep 1200
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1 up}
-
+SendInput {vk1 up}
 Sleep 1
-SendInput, {vkA0}
-Sleep 140
-		if ScRandomTime 	;Рандомизатор
-			ScRandomizatorFunc()
-    GetKeyState, SpaceStateAA1, %key_animcancel%, P
-    If SpaceStateAA1 = U
-        break
-SendInput, {vk1}
+SendInput {vk1 down}
+Sleep 1
+SendInput {vk1 up}
+Sleep 390
+SendInput {%key_flyhackGajetKey% down} ;глайдер 
+Sleep 1
+SendInput {%key_flyhackGajetKey% up}
 
-Sleep 900
 		if ScRandomTime 	;Рандомизатор
 			ScRandomizatorFunc()
 }
