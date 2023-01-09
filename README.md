@@ -28,7 +28,8 @@ __🚀Функционал:🚀__
   + AutoAttack (70ms)
   + InventoryClicker (15ms)
   + AutoFly (FlyHack)
-  + Huma combo
+  + RubyAA
+  + TianDash
   + Frigg ShiftClick
   + Nemesis Air AA
   + Nemesis 2NH
@@ -111,8 +112,8 @@ Numpad 0 - Off
 Numpad 1 - AutoAttack(70ms)
 Numpad 2 - InventoryClicker(15ms)
 Numpad 3 - AutoFlyHack (первый клик - вкл, повторный клик - выкл)
-Numpad 4 - Huma combo t1
-Numpad 5 - Huma combo t2
+Numpad 4 - TianDash
+Numpad 5 - RubyAA
 Numpad 6 - FRIGG Shift+LButton
 Numpad 7 - Bhop 50ms (Jetboard Jumping) (Кататься на доске для серфа по земле)
 Numpad 8 - Samir Dash
@@ -160,8 +161,13 @@ __🍏AFK фермерство:🍎__
 <details>
 <summary>==Список изменений==</summary>
   
+Изменения: 09.01.2023
+  
+ - Тайминги лин холд
+ - Numpad 4 -  TianDash (Huma combo t1 улетел в помойку)
+ - Numpad 5 -  RubyAA (Huma combo t2 улетел в помойку)
+  
 Изменения: 03.01.2023
-
  - Подкрутка фронтира и рыбалки
  - Gui с dx12 dx11 в трей меню
  - Удален переключатель версии клиента
