@@ -578,17 +578,24 @@ Loop
 SendInput {vk1 down}
 	if ScRandomTime 	;Рандомизатор
 		ScRandomizatorFunc()
-Sleep 400
+Sleep 200
+    GetKeyState, SpaceStateAA, %key_animcancel%, P
+    If SpaceStateAA = U
+        break
+Sleep 150
 SendInput {vk1 up}
     GetKeyState, SpaceStateAA, %key_animcancel%, P
     If SpaceStateAA = U
         break
-Sleep 80
+Sleep 100
 SendInput {vk20}
-Sleep 50
+Sleep 100
 	if ScRandomTime 	;Рандомизатор
 		ScRandomizatorFunc()
 }
+    GetKeyState, SpaceStateAA, vk1
+    If SpaceStateAA = D
+		SendInput, {vk1 Up}
 Return
 
 ;============================================Широ Chakram (Settings => Basic => Hit Frame - OFF)

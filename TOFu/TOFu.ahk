@@ -114,6 +114,10 @@ https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_a
 
 
 
+Изменения: 11.01.2023
+ - Убрал dx12 dx11
+ - Калибровка лиры
+
 Изменения: 09.01.2023
  - Тайминги лин холд
  - Numpad 4 -  TianDash (Huma combo t1 улетел в помойку)
@@ -967,9 +971,9 @@ Gui, 10:  Add, GroupBox, x8 y0 w406 h63, Path to game folder
 Gui, 10:  Add, Edit, x16 y24 w307 h21 vGameDirFirewall +ReadOnly, %GameDirFirewall%
 Gui, 10:  Add, Button, gLabelEditB1 x352 y24 w55 h23, Edit
 Gui, 10:  Add, GroupBox, x8 y64 w406 h80, Graphics settings
-Gui, 10:  Add, Button, gLabelDX12 x16 y80 w80 h23, DX12
-Gui, 10:  Add, Button, gLabelDXRestore x104 y80 w80 h23, DX11
-Gui, 10:  Add, Button, gLabelPickregedit x16 y112 w80 h23, Regedit
+; Gui, 10:  Add, Button, gLabelDX12 x16 y80 w80 h23, DX12
+; Gui, 10:  Add, Button, gLabelDXRestore x104 y80 w80 h23, DX11
+; Gui, 10:  Add, Button, gLabelPickregedit x16 y112 w80 h23, Regedit
 Gui, 10:  Add, Button, gLabelUnFreezSett x328 y112 w80 h23, UnFreez
 Gui, 10:  Add, Button, gLabelFreezSett x328 y80 w80 h23, Freez
 Gui, 10:  Add, Button, gLabelExplore x240 y80 w80 h23, Explore
@@ -1619,11 +1623,11 @@ PleasantNotify(title, message, pnW=700, pnH=300, position="b r", time=10) {
 	PN_hwnd := WinExist()
 	WinSet, ExStyle, +0x20
 	WinSet, Transparent, 0
-	Gui, Notify: Color, 0xF2F2F0
-	Gui, Notify: Font, c0x07D82F s18 wBold, Segoe UI
-	Gui, Notify: Add, Text, % " x" 20 " y" 12 " w" pnW-20 " vpn_title", % title
-	Gui, Notify: Font, cBlack s15 wRegular
-	Gui, Notify: Add, Text, % " x" 20 " y" 56 " w" pnW-20 " h" pnH-56 " vpn_msg", % message
+	; Gui, Notify: Color, 0xF2F2F0
+	; Gui, Notify: Font, c0x07D82F s18 wBold, Segoe UI
+	; Gui, Notify: Add, Text, % " x" 20 " y" 12 " w" pnW-20 " vpn_title", % title
+	; Gui, Notify: Font, cBlack s15 wRegular
+	; Gui, Notify: Add, Text, % " x" 20 " y" 56 " w" pnW-20 " h" pnH-56 " vpn_msg", % message
 	Gui, Notify: Add, Picture, w700 h350 x0 y0 +BackgroundTrans, data\intro.png
 	RealW := pnW + 50
 	RealH := pnH + 20
