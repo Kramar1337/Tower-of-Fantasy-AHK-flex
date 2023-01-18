@@ -1366,31 +1366,24 @@ ToolTip,,round(A_ScreenWidth * .5),0,5
 return
 
 ;===============================================================================================
-;======================OldMacroBackVar = 6===========AFK фермерство SendInput, Фарм монет дружбы
+;==========OldMacroBackVar = 6===========AFK фермерство SendInput, Фарм ивента (последнего на момент обновления скрипта)
 ;===============================================================================================
 LabelAFKfriendCoin:
 IfWinNotActive, ahk_group gameexe1337
 Tooltip,,0,0,3
 IfWinActive, ahk_group gameexe1337
-Tooltip TOF AFK Friend Coin farm.`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
+Tooltip TOF AFK Event farm 18.01.2023`nPress "%key_OtherMacros%" to deactivate,round(A_ScreenWidth * .5 - 200),0,3
 
-ToolTip, Задержка срабатывания для виртуалки 3 сек,round(A_ScreenWidth * .5),0,5
+ToolTip, Задержка виртуалки 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 ScRandomizatorFunc()
-
-;=============================Открыть книгу
-SendInput {vkA4 Down}
-Sleep 150
+SendInput {vkA4 down} 	;alt
+Sleep 500
+SendInput {vk31} 	;1
+Sleep 100
 ScRandomizatorFunc()
-SendInput {vk33}
-Sleep 150
+SendInput {vkA4 up} 	;alt
 ScRandomizatorFunc()
-SendInput {vkA4 up}
-ToolTip, Открыл книгу - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
-ScRandomizatorFunc()
-
-
 If !TogglerTimer6
 {
 	Tooltip,,0,0,3
@@ -1404,290 +1397,149 @@ IfWinNotActive, %gameexe1337% 	;Если окно игры не активно �
 	ToolTip,,0,0,5
 	Return
 }
-
-;=============================Выбрать данжи
-ZXTTClickVarXl:=round(A_ScreenWidth * (349 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (658 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, Выбрал данж - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
+ToolTip, Выбор вкладки,round(A_ScreenWidth * .5),0,5
+; ==============================нажать на нужный ивент
+Sleep 2500
+ZXTTClickVarXl337:=round(A_ScreenWidth * (1329 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (1380 / 1440))
+Click %ZXTTClickVarXl337% %ZXTTClickVarYl337%
+ToolTip, Подать поиск,round(A_ScreenWidth * .5),0,5
 ScRandomizatorFunc()
+; ==============================подать поиск
+Sleep 2500
+ZXTTClickVarXl337:=round(A_ScreenWidth * (1766 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (1225 / 1440))
+Click %ZXTTClickVarXl337% %ZXTTClickVarYl337%
 
-If !TogglerTimer6
+Loop 160 	;Если нет курсора скип
 {
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-;=============================Выбрать данж абуза дружбы
-ZXTTClickVarXl:=round(A_ScreenWidth * (1018 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1116 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, Выбрал данж абуза дружбы - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-;=============================Выбрать Go
-ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1073 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, Жму Go - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-;=============================У вас нет смолы продолжить? Да
-ZXTTClickVarXl:=round(A_ScreenWidth * (730 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (808 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, У вас нет смолы продолжить? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-;=============================Начать подбор игроков? Да
-ZXTTClickVarXl:=round(A_ScreenWidth * (1704 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (807 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-ToolTip, Начать подбор игроков? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
-Sleep 3000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-
-Loop 30
-{
-	;=============================Нашло игру принять? да, асепт
-ZXTTClickVarXl:=round(A_ScreenWidth * (1500 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1020 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
-	Sleep 3000
-	ScRandomizatorFunc()
-
-	if !FuncCursorVisible() 	;выйти как пропадет курсор
+	ToolTip, Loop-%A_Index% Мы в ивенте?,round(A_ScreenWidth * .5),0,5
+	if !FuncCursorVisible()
 		Break
-
-	;=============================Нет смолы подтвердить? Да
-	ZXTTClickVarXl:=round(A_ScreenWidth * (730 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (808 / 1440))
-	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-	ToolTip, Loop-%A_Index% Нет смолы подтвердить? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
-	Sleep 3000
-	ScRandomizatorFunc()
-
-	if !FuncCursorVisible() 	;выйти как пропадет курсор
+	sleep 1000
+If !TogglerTimer6
+{
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+{
+	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+}
+ScRandomizatorFunc()
+Sleep 5000
+SendInput {vk57 down} 	;w
+Loop 40 	;Если нет курсора скип
+{
+	ToolTip, Loop-%A_Index% Ивент закончился?,round(A_ScreenWidth * .5),0,5
+	if FuncCursorVisible()
 		Break
+	sleep 1000
+If !TogglerTimer6
+{
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+{
+	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+}
+SendInput {vk57 up}
+Click
+If !TogglerTimer6
+{
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+{
+	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+Sleep 5000
 
+ScRandomizatorFunc()
+SendInput {vkA4 down} 	;alt
+Sleep 500
+ZXTTClickVarXl337:=round(A_ScreenWidth * (359 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (110 / 1440))
+Click %ZXTTClickVarXl337% %ZXTTClickVarYl337%
+Sleep 100
+SendInput {vkA4 up} 	;alt
+If !TogglerTimer6
+{
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+{
+	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+Sleep 2000
+ScRandomizatorFunc()
+ZXTTClickVarXl337:=round(A_ScreenWidth * (1690 / 2560)), ZXTTClickVarYl337:=round(A_ScreenHeight * (807 / 1440))
+Click %ZXTTClickVarXl337% %ZXTTClickVarYl337%
+
+
+Loop 50 	;Если нет курсора скип
+{
+	ToolTip, Loop-%A_Index% 50 сек,round(A_ScreenWidth * .5),0,5
+	sleep 1000
+If !TogglerTimer6
+{
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
+{
+	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
+	Tooltip,,0,0,3
+	ToolTip,,0,0,5
+	Return
+}
+}
+ToolTip, Конец потока,round(A_ScreenWidth * .5),0,5
+ScRandomizatorFunc()
+
+if FuncCursorVisible()
+{
+	ZXTTClickVarXl:=round(A_ScreenWidth * (1687 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (770 / 1440))
+	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+	Loop 15
+	{
+		Sleep 1000
+		ScRandomizatorFunc()
+		If !TogglerTimer6
+		{
+			Tooltip,,0,0,3
+			ToolTip,,0,0,5
+			Return
+		}
 		IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
 		{
 			SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
 			Tooltip,,0,0,3
 			ToolTip,,0,0,5
-			Break
+			Return
 		}
-		If !TogglerTimer6
-		{
-			Tooltip,,0,0,3
-			ToolTip,,0,0,5
-			Break
-		}
-}
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-ToolTip, Пропал курсор значит мы в данже - Нажать автобой,round(A_ScreenWidth * .5),0,5
-;=============================Пошел данж, нажать автобой
-SendInput {vkA4 Down}
-Sleep 150
-ScRandomizatorFunc()
-ZXTTClickVarXl:=round(A_ScreenWidth * (1555 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1263 / 1440))
-Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
-Sleep 150
-ScRandomizatorFunc()
-SendInput {vkA4 up}
-Sleep 3000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-Loop 60
-{
-	ToolTip, Loop-%A_Index% Курсор появился?,round(A_ScreenWidth * .5),0,5
-	if FuncCursorVisible() 	;выйти как пропадет курсор
-		Break
-	sleep 1000
-	ScRandomizatorFunc()
-	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-	{
-		SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-		Tooltip,,0,0,3
-		ToolTip,,0,0,5
-		Break
-		Return
 	}
-		If !TogglerTimer6
-		{
-			Tooltip,,0,0,3
-			ToolTip,,0,0,5
-			Break
-		}
-}
-ToolTip, Данж закончился ждем выход,round(A_ScreenWidth * .5),0,5
-Sleep 10000
-ScRandomizatorFunc()
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
 }
 
-Loop 60 	;Если нет курсора мы прогрузились
-{
-	ToolTip, Loop-%A_Index% Мы прогрузились на Астору?,round(A_ScreenWidth * .5),0,5
-	if !FuncCursorVisible()
-		Break
-	sleep 1000
-	ScRandomizatorFunc()
-	IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-	{
-		SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-		Tooltip,,0,0,3
-		ToolTip,,0,0,5
-		Break
-		Return
-	}
-		If !TogglerTimer6
-		{
-			Tooltip,,0,0,3
-			ToolTip,,0,0,5
-			Break
-		}
-}
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-
-Sleep 3000
-ScRandomizatorFunc()
-ToolTip, Конец цикла,round(A_ScreenWidth * .5),0,5
-Sleep 1000
-ScRandomizatorFunc()
-ToolTip,,round(A_ScreenWidth * .5),0,5
-
-If !TogglerTimer6
-{
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-IfWinNotActive, %gameexe1337% 	;Если окно игры не активно то завершить поток
-{
-	SetTimer, LabelAFKfriendCoin, % ((TogglerTimer6 := !TogglerTimer6) ? "0" : "Off")
-	Tooltip,,0,0,3
-	ToolTip,,0,0,5
-	Return
-}
-Sleep 4000
-ScRandomizatorFunc()
 Return
 
 
