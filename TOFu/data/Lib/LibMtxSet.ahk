@@ -1,16 +1,14 @@
-﻿
-FuncMtxVar()
+﻿FuncMtxVar()
 {
 	Global
 	if MtxVarToggle = 0
 		Exit
 	IfWinNotActive, ahk_group gameexe1337
 		Exit
+	; MsgBox,,, 1 %A_PriorKey%, 1
 	if (A_PriorKey != key_Set1matx) and (A_PriorKey != key_Set2matx) and (A_PriorKey != key_Set3matx)
 		Exit
 }
-
-
 Metkakey_Set1matx: 	;==================================Билд 1
 Sleep 1
 IfWinNotActive, ahk_group gameexe1337
@@ -733,6 +731,7 @@ if Set1ArraySlot1[SelectArraySet] = 12
 	ZXTTClickVarXl:=round(A_ScreenWidth * (1694 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (806 / 1440))
 	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	; 1694, 806 Аффикс ОК? и сброс x2
 	Sleep %SetSleepMtx%
+; MsgBox,,, 1 %A_PriorKey%, 3
 return
 
 LabelPickSet2: 	;=================================2==============Выбрать слот от 1-9 в 2й пушке
