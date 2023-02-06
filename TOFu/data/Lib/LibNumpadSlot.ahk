@@ -338,9 +338,9 @@ SendInput {vk1}
 Sleep 250
 SendInput {vk1}
 Sleep % AlyssJumpVar
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 Sleep 1
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 Return
 
 ;============================================Samir
