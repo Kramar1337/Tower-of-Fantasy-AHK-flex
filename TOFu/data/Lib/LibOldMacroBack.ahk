@@ -340,7 +340,7 @@ while Pereklu4atelFis
 			; Tooltip %FoundX2Fis% > %FoundXFis%,round(A_ScreenWidth * .5 - 50),0,3
 				if FisModeClick
 				{
-					ZXTTClickVarXl:=round(A_ScreenWidth * (350 / 2560))
+					ZXTTClickVarXl:=round(A_ScreenWidth * (360 / 2560))
 					ZXTTClickVarYl:=round(A_ScreenHeight * (828 / 1440))
 					Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 					SendInput {vk41 Down} 	;A
@@ -389,7 +389,7 @@ while Pereklu4atelFis
 			; Tooltip % round(TickCountTimerStart1 / 10) " ms",round(A_ScreenWidth * .5 - 50),0,3
 			;========================Подсчет
 			TickCountTimerStart1 := (A_TickCount - TickCountTimer1) * IndexTickCountVarEnd1
-			if TickCountTimerStart1 > 1500
+			if TickCountTimerStart1 > 2200
 			{
 				; Tooltip Auto fishing: ON,round(A_ScreenWidth * .5 - 50),0,3
 				IndexTickCountVarEnd1 = 1
