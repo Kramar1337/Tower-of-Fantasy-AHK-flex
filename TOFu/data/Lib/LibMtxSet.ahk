@@ -301,6 +301,7 @@ FuncMtxVar()
 FuncMtxVar()
 	ZXTTClickVarXl:=round(A_ScreenWidth * (2443 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (401 / 1440))
 	Click, %ZXTTClickVarXl%, %ZXTTClickVarYl% 	;матрицы микрокнопка
+		Sleep 1500
 FuncMtxVar()
 ;==================Начало слота 1
 	ZXTTClickVarXl:=round(A_ScreenWidth * (559 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (351 / 1440))
