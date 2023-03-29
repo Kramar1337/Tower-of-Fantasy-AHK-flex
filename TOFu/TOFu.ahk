@@ -7,9 +7,6 @@ F1 - *Карта
 F2 - *Оверлей
 F3 - *Автоходьба
 F4 - *Слот под спец макросы (Настраивать отдельно в "tofuConfig.ini")
-F6 - Переключить пресет матриц1 "tofuConfig.ini"
-F7 - Переключить пресет матриц2 "tofuConfig.ini"
-F8 - Переключить пресет матриц3 "tofuConfig.ini"
 F9 - Автоприниматель лобби
 Z - Скип диалогов
 F - Фаст лут
@@ -56,13 +53,15 @@ F4 - *Слот под специфические макросы
 3 - AFK фермерство на Хильде, спам "Click" каждые 5 сек
 4 - AFK фермерство, спам "F" залипание кнопки "W" и "A". Гранатная ферма(-75, -845)
 5 - AFK фермерство, спам "F" ходьба кругами "W" и "S", 5 секунд вперед, 5 секунд назад
-6 - AFK фермерство SendInput, Фарм ивента (последнего на момент обновления скрипта)
-7 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт, ресурсы)
+6 - AFK фермерство, Achievement Climber
+7 - Отдаление камеры
 8 - AFK фермерство SendInput, Фарм билетов в парке аттракционов
-9 - AFK фермерство SendInput, PVP
-10 - AFK фермерство, AFK Ene Hold
-11 - Отдаление камеры
-12 - AFK фермерство, Achievement Climber
+9 - AFK фермерство, AFK Ene Hold
+10 - AFK фермерство SendInput, Фарм Frontier (Дружба, опыт, ресурсы)
+11 - Рыбалка
+12 - AFK фермерство SendInput, Фарм ивента (последнего на момент обновления скрипта)
+
+
 
 Карты: 1 - 2 - 3 - 4
 Еу карта с гугл авторизацией
@@ -81,7 +80,6 @@ https://toweroffantasy.interactivemap.app/?map=1
 
 https://www.worldanvil.com/w/vera-planet-michuzak/map/f93b8f11-49d7-4201-aea2-9c7809d2c5c9
 
-В трей меню установка - удаление решейда
 
 ; ===============================================================
 ; ===============================================================
@@ -104,30 +102,7 @@ https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_a
 133 по теории
 
 
-Прокачка недельной полоски:
-30 вход в игру 1
-10 покупка в магазе 1
-20 убить 100 мобов
-20 ворлд босс
-30 джоинт
-30 фронтир
-30 войд рифт
-60 бездна
-30 ворлд боссы 3шт
-20 сундуки 5 шт
-70 ежедневки 4шт
 
-
-
-
-
-
-
-
-Рейд:
-73lvl (2 рейд) - 8 фиол 6 голд
-77lvl (3 рейд) - 12 фиол 10 голд
-80lvl (4 рейд) - 20 фиол 20 голд
 
 Залил 6300 вера монет
 Робопсы Желтые монеты (100 старых монет веры):
@@ -228,28 +203,30 @@ https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_a
 	4 фиол игрушки
 	8 синих расходника для новой брони (экспа)
 {
-Квадракоптеры Синие монеты (100 миры):
-{
-	2 фиолетовых бустрер модуля 2лвл
-	
-	10 синих запчастей на маунта
-	2 мозайки на омни пушку
-	200 миры
-	8 зеленых игрушек
-	200 миры
-	2 синих расходника для матриц
-	2 фиолетовые игрушки
-	2 мозайки на куб
-	2 карточки смены внешности (стать НПС)
-	2 фиолетовые игрушки
-	2 синих расходника для матриц
-	8 зеленых игрушек
-	1 лег мозайка руки
-}
 
 
 Запланировано:
 
+
+
+
+
+Изменения: 27.03.2023
+ - Микроисправления
+ - Удалены пресеты матриц на F6 F7 F8
+ - Пустой оверлей
+ - Подкрутка настрек смены карты в конфиге
+ - F4 - *Слот под специфические макросы
+ - 6 - Achievement Climber
+ - 7 - Отдаление камеры
+ - 8 - Фарм билетов в парке аттракционов
+ - 9 - AFK Ene Hold
+ - 10 - Фарм Frontier
+ - 11 - Рыбалка
+ - 12 - Фарм ивента (последнего на момент обновления скрипта)
+
+Изменения: 11.03.2023
+ - Исправление в отладке
 
 Изменения: 09.02.2023
  - Рыбалка: 2.3 сек на ожидание, смещение мыши
@@ -455,23 +432,6 @@ https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_a
 
 
 
-
-
-
-Лег - 2400 экспы - 240 камней (1200 экспы)
-Фиол - 800 экспы - 80 камней (400 экспы)
-Синька - 200 экспы - 20 камней (100 экспы)
-Зеленка - 5 камней
-
-1 lvl камень - 5 экспы
-2 lvl камень - 20 экспы
-3 lvl камень - 100 экспы
-
-
-  3200  4000  4800  5600  6400
-0* => 1* => 2* => 3* => 4* => 5*
-
-
 https://www.reddit.com/r/TowerofFantasy/comments/y9dpte/to_windows_users_who_updated_tof_to_201_and_have/
 
 
@@ -482,86 +442,6 @@ C:\Users\Nagibskiy\AppData\Local\Hotta\Saved\Config\WindowsNoEditor
 	;============================Лонгджамп
 	SendInput, {vk20} 	;Space
 	SendInput, {vkA0}
-
-
-Астора
-Естрела
-
-Пересчет всех круток в игре ToF:
-==Одноразовые:==
-Achievements (3,625) https://toweroffantasy.info/guides/referential/dark-crystal-sources
-World Exploration (13,050)
-Wanderer Notes & Leveling (4,310)
-111 голдовые в мире
-44 голдовые в сундуке
-559 фиол в мире
-239 фиол в сундуке
-10 голдовые предрегистрация
-10 фиол предрегистрация
-500 камней предрегистрация
-Квестики, бездна, прочее, джин(29лвл-6шт)
---Итог:
-143 ивент крутки (21 485 камней)
-165 голдовых круток
-808 фиол круток
-
-
-==Многоразовые:== (По месяцам)
-CN				4 ивент банер с чипами(чайник, домоводство)
-12 стандарт крутки с чипами(3 в неделю. Воид рифт)
-
-30 голд круток ежедневочки
-90 фиол круток ежедневочки
-
-20 фиол круток (фри Батлпас)
-
-10 голд круток (2 недели откат) (Пункт меню с ивентами => Clotho)
-по очереди?
-10 стандарт c чипами (2 недели откат) (Пункт меню с ивентами => Clotho)
-
-CN 				4 голд крутки(1 в неделю, в магазе)
-CN				4 стандарт крутки с чипами(1 в неделю, в магазе)
-40 фиол круток(10 в неделю, в магазе)
-
-100-800 PVP арена в месяц
-150 F2P Батлпас(200 но длится 41 день)
-CN				260-500 в месяц королевская битва(подсчеты через 3 месяца)
-600 (150-200 с клановодства в неделю)
-1400 (350 камней истока с еженеделечек)
-
-15 круток в месяц (2250 в месяц с еженеделечек и клановодства и тд)
-
-22 ивент крутки (3000+300 камней луна, Цена - 300р)
-8,8 ивент круткок (1330(8,8 круток) Батлпас, Цена - 600р длится 42 день)
-10 ивент круткок (P2W ++Батлпас, 1200р)
---==Итог F2P:==--
-150 фиол круток (Ежедневки-90, Батлпас-20, Магазин-40)
-22 стандарт c чипами (ВоидРифт-12, Clotho-10)
-40 голд круток (Ежедневки-30, Clotho-10)
-15 ивент круток (2250 железа)
---==Итог P2W:==--
-22 ивент крутки (Цена: луна - 300р, 350р через биржу, 450р через посредников)
-8,8 ивент круткок (Батлпас - 600р, 700р биржа, 900р посредники)
-10 ивент круткок (Батлпас++ - 1200р, 1400 биржа, ...)
-
-
-
-
-
-==Многоразовые:== (По патчам: стримы, ивенты, тех работы)
-200 камней (Стрим разрабов перед патчем)
-300 камней (тех работы)
-1000 камней + 10 ивент круток (большой патч + новый перс)
-5 ивент круток (ивент)
-
-
-==Многоразовые-Одноразовые:== (Прочие)
-
-Мини игры от рандомных активностей 1-2? в день (4)
-Гачапон терминалы в Зеркальном городе
-2400 вера монет в месяц (20х4=80 монет ежедневочки веры)
-х50 - 1 рол
-
 
 
 
@@ -635,59 +515,6 @@ https://gfto.ru/index/online_neon_logo_maker_glow_effect_png/0-92
 
 
 
-
-Пополнение Oldubil через биржу Huobi
-https://vk.com/@storeps5-popolnenie-oldubil-cherez-birzhu-huobi
-https://www.huobi.com/ru-ru/fiat-crypto/trade/sell-usdt/
-Биржи:
--Бинанс
--Huobi
--OKX
-
-Виртуальные карты:
--Oldubil (нет 3ds, прочекал)
--MoneyPay 
--Ozan (загран, фото, мазок с попы, подпись)
--Iyzico
--Pyypl
--BitFree (скам, 30 бачей)
-
-blackcatcard
-simply.cards (Казахстан)
-
-
-
-
-
-Пересчет круток:
-
-18.08 
-10 ивент круток
-
-23.08 в 06:00 – 30.08 в 06:00 (МСК)
-2 ивент круток и реликт «Руки колосса»
-
-23.08 в 06:00 – 30.08 в 06:00 (МСК)
-400 камней и 10 круток
-
-01.09 – 15.09
-6 ивент круток
-
-15.09 – 29.09 Фаза II
-3 ивент круток
-
-15.09 – 27.09 кафе
-5 ивент круток
-
-27.09 – 12.10
-6 ивент круток
-
-11.08 - 12.10
-~44 ивент крутки
-
-
-
-
 22 ивент крутки в месяц
 
 */
@@ -704,6 +531,23 @@ DetectHiddenWindows, On
 DetectHiddenText, On
 
 #Hotstring NoMouse
+
+Menu,Tray, Icon, data\genicon.ico, ,1
+IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
+if IsAdmin
+{
+	CommandLine := DllCall("GetCommandLine", "Str")
+	If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
+		Try {
+			If (A_IsCompiled) {
+				Run *RunAs "%A_ScriptFullPath%" /restart
+			} Else {
+				Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+			}
+		}
+		ExitApp
+	}
+}
 
 ;========================конфиг под авторыбалку
 CoordMode Mouse, Screen 	;двигать мышку от окна
@@ -740,22 +584,7 @@ Yf2 := round(A_ScreenHeight * (190 / 1440))
 ; Xf2 := round(A_ScreenWidth * (890 / 2560))
 ; Yf2 := round(A_ScreenHeight * (175 / 1440))
 
-Menu,Tray, Icon, data\genicon.ico, ,1
-IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
-if IsAdmin
-{
-	CommandLine := DllCall("GetCommandLine", "Str")
-	If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
-		Try {
-			If (A_IsCompiled) {
-				Run *RunAs "%A_ScriptFullPath%" /restart
-			} Else {
-				Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
-			}
-		}
-		ExitApp
-	}
-}
+
 
 AntiVACHashChanger:="fghfh3534gjdgdfgfj6867jhmbdsq4123asddfgdfgaszxxcasdf423dfght7657ghnbnghrtwer32esdfgr65475dgdgdf6867ghjkhji7456wsdfsf34sdfsdf324sdfgdfg453453453456345gdgdgdfsf"
 
@@ -799,15 +628,13 @@ IniRead, FIXchat, data\tofuConfig.ini, Settings, FIXchat
 IniRead, IsAdmin, data\tofuConfig.ini, Settings, IsAdmin
 IniRead, GameExeNew, data\tofuConfig.ini, Settings, GameExeNew
 GroupAdd, gameexe1337, %GameExeNew%
-; if (GameExeNew == "ahk_exe QRSL.exe")
-; {
-	; Menu,Tray, Icon, Global client, imageres.dll, 233, 16
-; }
-; if (GameExeNew == "ahk_exe WmgpMobileGame.exe")
-; {
-	; Menu,Tray, Icon, China client, imageres.dll, 233, 16
-; }
+
 IniRead, Map2toggle, data\tofuConfig.ini, Settings, Map2toggle
+IniRead, Map2Set1, data\tofuConfig.ini, Settings, Map2Set1
+IniRead, Map2Set2, data\tofuConfig.ini, Settings, Map2Set2
+IniRead, Map2Set3, data\tofuConfig.ini, Settings, Map2Set3
+IniRead, Map2Set4, data\tofuConfig.ini, Settings, Map2Set4
+
 IniRead, BrauzerCheck, data\tofuConfig.ini, Settings, BrauzerCheck 	; 0 - дефолт браузер, 1 - указать свой браузер
 IniRead, BrauzerPick, data\tofuConfig.ini, Settings, BrauzerPick 	; exe файл браузера
 IniRead, ModeSkipNPS, data\tofuConfig.ini, Settings, ModeSkipNPS
@@ -818,44 +645,11 @@ IniRead, UseControlSendVar, data\tofuConfig.ini, Settings, UseControlSendVar
 IniRead, ClaudiaJumpVar, data\tofuConfig.ini, Settings, ClaudiaJumpVar
 IniRead, AlyssJumpVar, data\tofuConfig.ini, Settings, AlyssJumpVar
 
-IniRead, FrontierTextSearch, data\tofuConfig.ini, Settings, FrontierTextSearch
-IniRead, FrontierTextOcr, data\tofuConfig.ini, Settings, FrontierTextOcr
-IniRead, FrontierTextSelect, data\tofuConfig.ini, Settings, FrontierTextSelect
-IniRead, FrontierTextSelect2, data\tofuConfig.ini, Settings, FrontierTextSelect2
 IniRead, FrontierHoldT, data\tofuConfig.ini, Settings, FrontierHoldT
 IniRead, GameDirFirewall, data\tofuConfig.ini, Settings, GameDirFirewall
 
 IniRead, OptimizationFis, data\tofuConfig.ini, Settings, OptimizationFis
 
-IniRead, SetSleepMtx, data\tofuConfig.ini, Settings, SetSleepMtx
-
-IniRead, Set1Name, data\tofuConfig.ini, Settings, Set1Name
-IniRead, Set2Name, data\tofuConfig.ini, Settings, Set2Name
-IniRead, Set3Name, data\tofuConfig.ini, Settings, Set3Name
-
-IniRead, Set1ArraySlot1, data\tofuConfig.ini, Settings, Set1ArraySlot1
-IniRead, Set1ArraySlot2, data\tofuConfig.ini, Settings, Set1ArraySlot2
-IniRead, Set1ArraySlot3, data\tofuConfig.ini, Settings, Set1ArraySlot3
-
-IniRead, Set2ArraySlot1, data\tofuConfig.ini, Settings, Set2ArraySlot1
-IniRead, Set2ArraySlot2, data\tofuConfig.ini, Settings, Set2ArraySlot2
-IniRead, Set2ArraySlot3, data\tofuConfig.ini, Settings, Set2ArraySlot3
-
-IniRead, Set3ArraySlot1, data\tofuConfig.ini, Settings, Set3ArraySlot1
-IniRead, Set3ArraySlot2, data\tofuConfig.ini, Settings, Set3ArraySlot2
-IniRead, Set3ArraySlot3, data\tofuConfig.ini, Settings, Set3ArraySlot3
-
-Set1ArraySlot1 := StrSplit(Set1ArraySlot1, "-")
-Set1ArraySlot2 := StrSplit(Set1ArraySlot2, "-")
-Set1ArraySlot3 := StrSplit(Set1ArraySlot3, "-")
-
-Set2ArraySlot1 := StrSplit(Set2ArraySlot1, "-")
-Set2ArraySlot2 := StrSplit(Set2ArraySlot2, "-")
-Set2ArraySlot3 := StrSplit(Set2ArraySlot3, "-")
-
-Set3ArraySlot1 := StrSplit(Set3ArraySlot1, "-")
-Set3ArraySlot2 := StrSplit(Set3ArraySlot2, "-")
-Set3ArraySlot3 := StrSplit(Set3ArraySlot3, "-")
 
 if (ClaudiaJumpVar == 0) or (AlyssJumpVar == 0)
 {
@@ -886,9 +680,7 @@ IniRead, key_OtherMacros, data\tofuConfig.ini, Settings, key_OtherMacros
 IniRead, key_EndExitapp, data\tofuConfig.ini, Settings, key_EndExitapp
 IniRead, key_PgUpPauseSuspend, data\tofuConfig.ini, Settings, key_PgUpPauseSuspend
 IniRead, key_ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, key_ClaudiaLongJumpOth
-IniRead, key_Set1matx, data\tofuConfig.ini, Settings, key_Set1matx
-IniRead, key_Set2matx, data\tofuConfig.ini, Settings, key_Set2matx
-IniRead, key_Set3matx, data\tofuConfig.ini, Settings, key_Set3matx
+
 
 ;=====================================Вкл-выкл кнопок
 IniRead, Checkbox1skipNPS, data\tofuConfig.ini, Settings, Checkbox1skipNPS
@@ -901,9 +693,7 @@ IniRead, Checkbox1overlay, data\tofuConfig.ini, Settings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\tofuConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1AseptarKey, data\tofuConfig.ini, Settings, Checkbox1AseptarKey
 IniRead, Checkbox1ClaudiaLongJumpOth, data\tofuConfig.ini, Settings, Checkbox1ClaudiaLongJumpOth
-IniRead, Checkbox1Set1matx, data\tofuConfig.ini, Settings, Checkbox1Set1matx
-IniRead, Checkbox1Set2matx, data\tofuConfig.ini, Settings, Checkbox1Set2matx
-IniRead, Checkbox1Set3matx, data\tofuConfig.ini, Settings, Checkbox1Set3matx
+
 
 ;=====================================Безопасность
 IniRead, ScWinrenamer, data\tofuConfig.ini, Settings, ScWinrenamer
@@ -916,12 +706,7 @@ IniRead, ScHachCh, data\tofuConfig.ini, Settings, ScHachCh
 
 Hotkey, IfWinActive, ahk_group gameexe1337
 ;====================Зарегать клавиши
-if (Checkbox1Set1matx == 1)
-Hotkey, *~%key_Set1matx%, Metkakey_Set1matx, on 		;Переключить набор матриц 1
-if (Checkbox1Set2matx == 1)
-Hotkey, *~%key_Set2matx%, Metkakey_Set2matx, on 		;Переключить набор матриц 2
-if (Checkbox1Set3matx == 1)
-Hotkey, *~%key_Set3matx%, Metkakey_Set3matx, on 		;Переключить набор матриц 3
+
 if (Checkbox1skipNPS == 1)
 Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on 				;Пропуск диалогов
 if (Checkbox1fastlyt == 1)
@@ -1056,13 +841,13 @@ Loop, parse, GroupNameMap1337Var, `n, `r
 	GroupAdd, GroupNameMap1337, %VarLoopFieldEdit1%
 }
 if (Map2toggle == 1)
-run_param:="https://tower-of-fantasy-map.appsample.com/"
+run_param := Map2Set1
 if (Map2toggle == 2)
-run_param:="https://www.ghzs666.com/tower-of-fantasy-map#/"
+run_param := Map2Set2
 if (Map2toggle == 3)
-run_param:="https://h5.gaonengshike.com/plusmaps/hotta?markable=1"
+run_param := Map2Set3
 if (Map2toggle == 4)
-run_param:="https://toweroffantasy.online/map/"
+run_param := Map2Set4
 
 if (ScWinrenamer = 1)
 {
@@ -1100,7 +885,7 @@ If (ScHachCh = 1)
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 2 	;кол-во страниц
+GenOverlayList := 1 	;кол-во страниц
 HpBarW:=A_ScreenWidth
 HpBarH:=A_ScreenHeight
 Gui, 99: +AlwaysOnTop +ToolWindow -Caption +LastFound -DPIScale

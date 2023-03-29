@@ -7,11 +7,19 @@ SetBatchLines, -1
 SetControlDelay, -1
 SendMode Input
 DetectHiddenWindows, On
+CoordMode Mouse, Screen 	;двигать мышку от окна
+CoordMode Pixel, Screen 	;искать пиксели от окна
 
-If !(A_IsAdmin)
-{
-	Run *RunAs "%A_ScriptFullPath%" /restart
-	ExitApp
+CommandLine := DllCall("GetCommandLine", "Str")
+If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
+    Try {
+        If (A_IsCompiled) {
+            Run *RunAs "%A_ScriptFullPath%" /restart
+        } Else {
+            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+        }
+    }
+    ExitApp
 }
 Menu, Tray, Icon, imageres.dll, 230
 Menu, Tray, NoStandard
@@ -50,7 +58,7 @@ Guncelle:
         if (taskbarbot == 1) {
             CoordMode, Mouse, Screen
             MouseGetPos, screenx, screeny
-            CoordMode, Mouse, Window
+            ; CoordMode, Mouse, Window
             if (screeny > screenycheck) {
                 CoordMode, ToolTip, Screen
                 ToolTip, ahk_exe %p%`n%x% %y%`n%rgbcolor%`nF6 to copy, screenx+16, screenycheck+16
