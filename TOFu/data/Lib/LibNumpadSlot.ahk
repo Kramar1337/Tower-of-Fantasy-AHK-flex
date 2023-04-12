@@ -447,9 +447,9 @@ SendInput {vk1}
 Sleep 270
 SendInput {vk1}
 Sleep % ClaudiaJumpVar
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 Sleep 1
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 return
 
 ;============================================SHIRO Annihilation
