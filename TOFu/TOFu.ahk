@@ -1356,9 +1356,9 @@ SendInput {vk1}
 Sleep 270
 SendInput {vk1}
 Sleep % ClaudiaJumpVar
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 Sleep 1
-SendInput {vk52}
+SendInput {%key_flyhackGajetKey%}
 return
 
 ;========================================================Dodge Spam
@@ -1969,7 +1969,7 @@ Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
 
 
-#Include *i %A_ScriptDir%\data\Lib\LibMtxSet.ahk
+; #Include *i %A_ScriptDir%\data\Lib\LibMtxSet.ahk
 
 #Include *i %A_ScriptDir%\data\lexicon.ahk
 
