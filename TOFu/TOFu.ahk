@@ -206,8 +206,8 @@ https://www.reddit.com/r/TowerofFantasy/comments/z6h5vp/guide_to_enabling_dx12_a
 
 
 Запланировано:
-
-
+12 - Спам лкм сквозь окно, автобой
+13 - Фарм ивента
 
 
 
@@ -1967,6 +1967,9 @@ ClaudiaJumpVar-=1
 AlyssJumpVar-=1
 Tooltip % "Delay - " ClaudiaJumpVar,round(A_ScreenWidth * .5),0
 Return
+
+
+
 
 
 ; #Include *i %A_ScriptDir%\data\Lib\LibMtxSet.ahk

@@ -263,10 +263,11 @@ while Pereklu4atelFis
 {
 	Sleep %OptimizationFis%
 	ImageSearch, FoundXFis, FoundYFis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find.png
+	; Tooltip, data\pix\find.png %ErrorLevel%,,0,6
 	if ErrorLevel = 1
 	{
+
 	NoSearchVar = 0
-	
 		;========================Подсчет
 		TickCountTimerStart := (A_TickCount - TickCountTimer) * IndexTickCountVarEnd
 		if TickCountTimerStart > 26000
@@ -292,6 +293,7 @@ while Pereklu4atelFis
 	}
 	if ErrorLevel = 0
 	{
+		; Tooltip, Желтая полоска найдена,,0,6
 		TickCountTimer = 0
 		IndexTickCountVarEnd = 0
 		NoSearchVar = 1
@@ -299,9 +301,14 @@ while Pereklu4atelFis
 			SendInput {vk41 Up} 	;A
 		if GetKeyState("vk44")
 			SendInput {vk44 Up} 	;D
+		if (A_ScreenWidth > 1920)
 		ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find2.png
+		if (A_ScreenWidth < 1920) or (A_ScreenWidth = 1920)
+		ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find1080.png
+		; Tooltip, data\pix\find2.png %ErrorLevel%,,0,6
 		if ErrorLevel = 0
 		{
+			; Tooltip, Скип,,0,6
 			FoundXFis+=%FisCalibration%
 			FFis1 := FoundX2Fis - FoundXFis
 			if (FoundX2Fis > FoundXFis) and (FFis1 > FisAntishake) 	;Если П2 > П1
@@ -345,6 +352,7 @@ while Pereklu4atelFis
 			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, %PixelFisPix%, %PixelFisRange%, Fast RGB
 			if ErrorLevel = 0 	;Если найден голубой
 			{
+			; Tooltip, Пиксель найден,,0,6
 			NoSearchVar2 = 0
 			TickCountTimer1 = 0
 			IndexTickCountVarEnd1 = 0
@@ -355,6 +363,7 @@ while Pereklu4atelFis
 			PixelSearch, OutputVarX1, OutputVarY1, Xf1, Yf1, Xf2, Yf2, %PixelFisPix%, %PixelFisRange%, Fast RGB
 			if ErrorLevel = 1 	;Если не найден голубой
 			{
+			; Tooltip, Пиксель не найден,,0,6
 			; Tooltip % round(TickCountTimerStart1 / 10) " ms",round(A_ScreenWidth * .5 - 50),0,3
 			;========================Подсчет
 			TickCountTimerStart1 := (A_TickCount - TickCountTimer1) * IndexTickCountVarEnd1
