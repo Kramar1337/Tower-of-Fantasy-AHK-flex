@@ -301,11 +301,9 @@ while Pereklu4atelFis
 			SendInput {vk41 Up} 	;A
 		if GetKeyState("vk44")
 			SendInput {vk44 Up} 	;D
-		if (A_ScreenWidth > 1920)
 		ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find2.png
-		if (A_ScreenWidth < 1920) or (A_ScreenWidth = 1920)
+		if ErrorLevel = 1
 		ImageSearch, FoundX2Fis, FoundY2Fis, X1Fis, Y1Fis, X2Fis, Y2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\pix\find1080.png
-		; Tooltip, data\pix\find2.png %ErrorLevel%,,0,6
 		if ErrorLevel = 0
 		{
 			; Tooltip, Скип,,0,6
