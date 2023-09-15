@@ -597,6 +597,8 @@ ZXTTClickVarXl:=round(A_ScreenWidth * (1982 / 2560)), ZXTTClickVarYl:=round(A_Sc
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Жму Go - жду 3 сек,round(A_ScreenWidth * .5),0,5
 Sleep 3000
+
+
 ScRandomizatorFunc()
 
 	If !TogglerTimer10
@@ -617,6 +619,12 @@ ScRandomizatorFunc()
 ZXTTClickVarXl:=round(A_ScreenWidth * (1704 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (807 / 1440))
 Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
 ToolTip, Начать подбор игроков? Да - жду 3 сек,round(A_ScreenWidth * .5),0,5
+Sleep 3000
+
+;=============================Выбрать роль? не
+ZXTTClickVarXl:=round(A_ScreenWidth * (1242 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1079 / 1440))
+Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+ToolTip, Роль скип,round(A_ScreenWidth * .5),0,5
 Sleep 3000
 ScRandomizatorFunc()
 
