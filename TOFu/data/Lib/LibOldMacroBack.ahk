@@ -642,7 +642,8 @@ ScRandomizatorFunc()
 		Return
 	}
 
-Loop 55
+; Было 55 (3 мин), стало 390 (20 мин)
+Loop 390
 {
 
 	ToolTip, Loop-%A_Index% Нашло игру принять? да асепт - жду 3 сек,round(A_ScreenWidth * .5),0,5
