@@ -4,11 +4,12 @@ AHK скрипт для Tower of Fantasy
 
 ![](https://media.giphy.com/media/rKz7Pl9uPlQlccybjA/giphy.gif)
 
+В игру наигрался, обновлений не будет, только редкие микро исправления.
+
 🙏 Использование скриптов может привести к блокировке учетной записи, использовать на свой страх и риск.
 
 [__✨Boosty✨__](https://boosty.to/kramar1337)
 [__✨Qiwi✨__](https://qiwi.com/n/KRAMBIBA1337)
-[__✨SteamTrade✨__](https://steamcommunity.com/tradeoffer/new/?partner=176456946&token=QbYR9jmE)
 
 [Подробное описание](https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/wiki)
 
