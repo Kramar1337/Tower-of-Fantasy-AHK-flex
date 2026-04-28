@@ -9,7 +9,6 @@ AHK скрипт для Tower of Fantasy
 🙏 Использование скриптов может привести к блокировке учетной записи, использовать на свой страх и риск.
 
 [__✨Boosty✨__](https://boosty.to/kramar1337)
-[__✨Qiwi✨__](https://qiwi.com/n/KRAMBIBA1337)
 
 [Подробное описание](https://github.com/Kramar1337/Tower-of-Fantasy-AHK-flex/wiki)
 
